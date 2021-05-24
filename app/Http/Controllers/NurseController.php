@@ -63,22 +63,23 @@ class NurseController extends Controller
 		    ],
             'birthday' => ['required'],
             'gender' => ['required'],
-            'role' => ['required', 'string'],
 
     	]);
 
     	$user = User::find($request->user_id);
 		$user->email = $request->email;
 		$user->name = $request->name;
-		$user->role = $request->role;
+		$user->role = 'nurse';
 		$user->update();
 
 
 		$nurse = Nurse::where('user_id', $request->user_id)
 		         			->update(['birthday' => $request->birthday,
 										'phone' => $request->phone,
+										'name' => $request->name,
+										'email' => $request->email,
 										'gender' => $request->gender,
-										'adress' => $request->adress,]);
+										'address' => $request->address,]);
 
 		
 		

@@ -74,7 +74,7 @@
                     <div class="form-group row">
                       <label for="inputPassword3" class="col-sm-3 col-form-label"><?php echo e(__('sentence.Address')); ?></label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputPassword3" name="address" value="<?php echo e($nurse->Nurse->adress); ?>">
+                        <input type="text" class="form-control" id="inputPassword3" name="address" value="<?php echo e($nurse->Nurse->address); ?>">
                       </div>
                     </div>
                     <div class="form-group row">

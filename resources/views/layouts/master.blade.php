@@ -57,6 +57,26 @@
                <hr class="sidebar-divider">
                <!-- Heading -->
                <div class="sidebar-heading">
+                  {{ __('sentence.Doctor') }}
+               </div>
+               <!-- Nav Item - Pages Collapse Menu -->
+               <li class="nav-item">
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDoctor" aria-expanded="true" aria-controls="collapseTwo">
+                  <i class="fas fa-fw fa-users"></i>
+                  <span>{{ __('sentence.Doctor') }}</span>
+                  </a>
+                  <div id="collapseDoctor" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                     <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('doctor.create') }}">{{ __('sentence.New Doctor') }}</a>
+                        <a class="collapse-item" href="{{ route('doctor.all') }}">{{ __('sentence.All Doctors') }}</a>
+                     </div>
+                  </div>
+               </li>
+               <!-- Divider -->
+               <!-- Divider -->
+               <hr class="sidebar-divider">
+               <!-- Heading -->
+               <div class="sidebar-heading">
                   {{ __('sentence.Nurse') }}
                </div>
                <!-- Nav Item - Pages Collapse Menu -->

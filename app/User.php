@@ -48,6 +48,10 @@ class User extends Authenticatable
         return $this->hasOne('App\Nurse');
     }
 
+    public function Doctor(){
+        return $this->hasOne('App\Doctor');
+    }
+
 
     public function getNameAttribute($value)
     {

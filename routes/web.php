@@ -43,9 +43,13 @@ Route::get('/nurse/view/{id}', 'NurseController@view')->where('id', '[0-9]+')->n
 Route::get('/nurse/edit/{id}', 'NurseController@edit')->where('id', '[0-9]+')->name('nurse.edit');
 Route::post('/nurse/edit', 'NurseController@store_edit')->name('nurse.store_edit');
 
-//Doctor
-Route::get('/doctor/edit/{id}', 'DoctorController@create')->where('id', '[0-9]+')->name('doctor.create');
+//Doctors
+Route::get('/doctor/create', 'DoctorController@create')->name('doctor.create');
 Route::post('/doctor/create', 'DoctorController@store')->name('doctor.store');
+Route::get('/doctor/all', 'DoctorController@all')->name('doctor.all');
+Route::get('/doctor/view/{id}', 'DoctorController@view')->where('id', '[0-9]+')->name('doctor.view');
+Route::get('/doctor/edit/{id}', 'DoctorController@edit')->where('id', '[0-9]+')->name('doctor.edit');
+Route::post('/doctor/edit', 'DoctorController@store_edit')->name('doctor.store_edit');
 
 //Appointments
 Route::get('/appointment/create', 'AppointmentController@create')->name('appointment.create');
