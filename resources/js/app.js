@@ -204,7 +204,7 @@ var baseURL = 'http://localhost/doctor1/public';
     }
   });
 
-  $('#birthday').datepicker({
+  $('.birthday').datepicker({
     uiLibrary: 'bootstrap4'
   });
 

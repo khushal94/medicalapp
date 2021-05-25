@@ -13,25 +13,25 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 col-sm-6">
-                            <center><img src="{{ asset('img/patient-icon.png') }}"
-                                    class="img-profile rounded-circle img-fluid"></center>
+                            <center><img src="{{ empty($doctor->Doctor->image) ? asset('img/patient-icon.png') : url('imgs/doctors/'.now()->monthName.'/'.$doctor->Doctor->image) }}"
+                                    class="img-profile rounded-circle img-fluid" style="width: 400px; height:400px"></center>
                             <h4 class="text-center"><b>{{ $doctor->name }}</b></h4>
                             <hr>
-                            @isset($patient->Nurse->birthday)
-                                <p><b>{{ __('sentence.Age') }} :</b> {{ $doctor->Nurse->birthday }}
-                                    ({{ \Carbon\Carbon::parse($patient->Nurse->birthday)->age }} Years)</p>
+                            @isset($doctor->Doctor->birthday)
+                                <p><b>{{ __('sentence.Age') }} :</b> {{ $doctor->Doctor->birthday }}
+                                    ({{ \Carbon\Carbon::parse($doctor->Doctor->birthday)->age }} Years)</p>
                             @endisset
 
-                            @isset($patient->Nurse->gender)
-                                <p><b>{{ __('sentence.Gender') }} :</b> {{ __('sentence.' . $patient->Nurse->gender) }}</p>
+                            @isset($doctor->Doctor->gender)
+                                <p><b>{{ __('sentence.Gender') }} :</b> {{ __('sentence.' . $doctor->Doctor->gender) }}</p>
                             @endisset
 
-                            @isset($patient->Nurse->phone)
-                                <p><b>{{ __('sentence.Phone') }} :</b> {{ $doctor->Nurse->phone }}</p>
+                            @isset($doctor->Doctor->phone)
+                                <p><b>{{ __('sentence.Phone') }} :</b> {{ $doctor->Doctor->phone }}</p>
                             @endisset
 
-                            @isset($patient->Nurse->address)
-                                <p><b>{{ __('sentence.Address') }} :</b> {{ $doctor->Nurse->address }}</p>
+                            @isset($doctor->Doctor->address)
+                                <p><b>{{ __('sentence.Address') }} :</b> {{ $doctor->Doctor->address }}</p>
                             @endisset
                         </div>
                     </div>

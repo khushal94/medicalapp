@@ -33,7 +33,9 @@
                     <h6 class="m-0 font-weight-bold text-primary"><?php echo e(__('sentence.Edit Doctor')); ?></h6>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="<?php echo e(route('doctor.store_edit')); ?>">
+                    <form method="post" action="<?php echo e(route('doctor.store_edit')); ?>" enctype="multipart/form-data">
+                        <?php echo e(csrf_field()); ?>
+
                         <div class="form-group row">
                             <div class="row">
                                 <div class="col-md-6">
@@ -47,8 +49,6 @@
                                                 value="<?php echo e($doctor->name); ?>">
                                             <input type="hidden" class="form-control" id="inputEmail3" name="user_id"
                                                 value="<?php echo e($doctor->id); ?>">
-                                            <?php echo e(csrf_field()); ?>
-
                                         </div>
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
                                                 color="red">*
                                             </font></label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="birthday" name="birthday"
+                                            <input type="text" class="form-control birthday" id="birthday" readonly name="birthday"
                                                 autocomplete="off" value="<?php echo e($doctor->Doctor->birthday); ?>">
                                         </div>
                                     </div>
@@ -208,12 +208,14 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group row">
-                                        <label for="image"
-                                            class="col-sm-3 col-form-label"><?php echo e(__('sentence.Image')); ?></label>
-                                        <div class="col-sm-9">
-                                            <input type="file" class="form-control" id="image" name="image">
-                                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="upload_image">
+                                            <img src="<?php echo e(empty($doctor->Doctor->image) ? url('imgs/no-image.png') : url('imgs/doctors/'.now()->monthName.'/'.$doctor->Doctor->image)); ?>" alt="Upload Image" title="Upload Image">
+                                            <input type="file" name="image" accept="image/*" id="image" style="display: none"> 
+                                        </label>
+                                        <label for="image" class="btn btn-primary btn-block">Choose File</label>
                                     </div>
                                 </div>
                             </div>

@@ -11,6 +11,8 @@ return [
   'All Doctors' => 'All Doctors',
   'New Nurse' => 'New Nurse',
   'All Nurses' => 'All Nurses',
+  'New Coupon' => 'New Coupon',
+  'All Coupons' => 'All Coupons',
   'Prescriptions' => 'Prescriptions',
   'Prescription' => 'Prescription',
   'New Prescription' => 'New Prescription',
@@ -182,10 +184,13 @@ return [
 
     // Nurse
     'Edit Nurse' => 'Edit Nurse',
+    'Nurse Name' => 'Nurse Name',
     'Nurse Updated Successfully' => 'Nurse Updated Successfully!',
     'Nurse Created Successfully' => 'Nurse Created Successfully!',
-    // Nurse
+
+    // Doctor
     'Doctor' => 'Doctor',
+    'Doctor Name' => 'Doctor Name',
     'Edit Doctor' => 'Edit Doctor',
     'Doctor Updated Successfully' => 'Doctor Updated Successfully!',
     'Doctor Created Successfully' => 'Doctor Created Successfully!',
@@ -193,7 +198,7 @@ return [
     'State' => 'State',
     'Country' => 'Country',
     'Speciality' => 'Speciality',
-    'Experience' => 'Experience',
+    'Experience In Years' => 'Experience In Years',
     'Cardiology' => 'Cardiology',
     'Diagnostic imaging' => 'Diagnostic imaging',
     'Ear nose and throat (ENT)' => 'Ear nose and throat (ENT)',
@@ -214,6 +219,21 @@ return [
     'Rheumatology' => 'Rheumatology',
     'Sexual health (genitourinary medicine)' => 'Sexual health (genitourinary medicine)',
     'Urology' => 'Urology',
-    'Image' => 'Image'
+    'Image' => 'Image',
+
+    // Coupon
+    'Coupon' => 'Coupon', 
+    'Edit Coupon' => 'Edit Coupon',
+    'New Coupons' => 'New Coupons',
+    'Coupon Name' => 'Coupon Name',
+    'Coupon Code' => 'Coupon Code',
+    'Discount Amount' => 'Discount Amount',
+    'Discount Type' => 'Discount Type',
+    'Minimum Amount' => 'Minimum Amount',
+    'Starting Date' => 'Starting Date',
+    'Ending Date' => 'Ending Date',
+    'Percentage' => 'Percentage',
+    'Coupon Updated Successfully' => 'Coupon Updated Successfully!',
+    'Coupon Created Successfully' => 'Coupon Created Successfully!',
 
 ];

@@ -17,20 +17,20 @@
                                     class="img-profile rounded-circle img-fluid"></center>
                             <h4 class="text-center"><b>{{ $nurse->name }}</b></h4>
                             <hr>
-                            @isset($patient->Nurse->birthday)
+                            @isset($nurse->Nurse->birthday)
                                 <p><b>{{ __('sentence.Age') }} :</b> {{ $nurse->Nurse->birthday }}
-                                    ({{ \Carbon\Carbon::parse($patient->Nurse->birthday)->age }} Years)</p>
+                                    ({{ \Carbon\Carbon::parse($nurse->Nurse->birthday)->age }} Years)</p>
                             @endisset
 
-                            @isset($patient->Nurse->gender)
-                                <p><b>{{ __('sentence.Gender') }} :</b> {{ __('sentence.' . $patient->Nurse->gender) }}</p>
+                            @isset($nurse->Nurse->gender)
+                                <p><b>{{ __('sentence.Gender') }} :</b> {{ __('sentence.' . $nurse->Nurse->gender) }}</p>
                             @endisset
 
-                            @isset($patient->Nurse->phone)
+                            @isset($nurse->Nurse->phone)
                                 <p><b>{{ __('sentence.Phone') }} :</b> {{ $nurse->Nurse->phone }}</p>
                             @endisset
 
-                            @isset($patient->Nurse->address)
+                            @isset($nurse->Nurse->address)
                                 <p><b>{{ __('sentence.Address') }} :</b> {{ $nurse->Nurse->address }}</p>
                             @endisset
                         </div>

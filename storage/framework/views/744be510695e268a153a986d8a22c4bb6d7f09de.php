@@ -63,7 +63,7 @@
                                         class="col-sm-3 col-form-label"><?php echo e(__('sentence.Birthday')); ?><font color="red">*
                                         </font></label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="birthday" name="birthday"
+                                        <input type="text" class="form-control birthday" id="birthday" readonly name="birthday"
                                             autocomplete="off">
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                     <label for="inputPassword3"
                                         class="col-sm-3 col-form-label"><?php echo e(__('sentence.Phone')); ?></label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="inputPassword3" name="phone">
+                                        <input type="number" class="form-control" id="inputPassword3" name="phone">
                                     </div>
                                 </div>
                             </div>
@@ -174,21 +174,24 @@
                             <div class="col-md-6">
                                 <div class="form-group row">
                                     <label for="experience"
-                                        class="col-sm-3 col-form-label"><?php echo e(__('sentence.Experience')); ?><font color="red">
+                                        class="col-sm-3 col-form-label"><?php echo e(__('sentence.Experience In Years')); ?><font color="red">
                                             *
                                         </font></label>
                                     </label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="experience" name="experience">
+                                        <input type="number" class="form-control" id="experience" name="experience">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group row">
-                                    <label for="image" class="col-sm-3 col-form-label"><?php echo e(__('sentence.Image')); ?></label>
-                                    <div class="col-sm-9">
-                                        <input type="file" class="form-control" id="image" name="image">
-                                    </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="upload_image" style="display: block">
+                                        
+                                        <input type="file" name="image" accept="image/*" id="image" style="display: none">
+                                    </label>
+                                    <label for="image" class="btn btn-primary btn-block">Choose File</label>
                                 </div>
                             </div>
                         </div>

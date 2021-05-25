@@ -51,7 +51,7 @@
                     <div class="form-group row">
                       <label for="inputPassword3" class="col-sm-3 col-form-label">Birthday<font color="red">*</font></label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="birthday" name="birthday">
+                        <input type="text" class="form-control birthday" id="birthday" readonly name="birthday">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -126,7 +126,7 @@
 
        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
         <script>
-        $('#birthday').datepicker({
+        $('.birthday').datepicker({
             uiLibrary: 'bootstrap4'
         });
     </script>

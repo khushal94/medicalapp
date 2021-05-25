@@ -41,6 +41,7 @@
               <th>ID</th>
               <th><?php echo e(__('sentence.Doctor Name')); ?></th>
               <th class="text-center"><?php echo e(__('sentence.Email')); ?></th>
+              <th class="text-center"><?php echo e(__('sentence.Image')); ?></th>
               <th class="text-center"><?php echo e(__('sentence.Date')); ?></th>
               <th class="text-center"><?php echo e(__('sentence.Actions')); ?></th>
             </tr>
@@ -52,10 +53,11 @@
               <td><?php echo e($doctor->id); ?></td>
               <td><a href="<?php echo e(url('doctor/view/'.$doctor->id)); ?>"> <?php echo e($doctor->name); ?> </a></td>
               <td class="text-center"> <?php echo e($doctor->email); ?> </td>
+              <td class="text-center"><img src="<?php echo e(url('imgs/doctors/'.now()->monthName.'/'.$doctor->image)); ?>" style="width: 200px;height:200px;object-fit:cover"></td>
               <td class="text-center"><?php echo e($doctor->created_at->format('d M Y H:i')); ?></td>
               <td class="text-center">
-                <a href="<?php echo e(url('doctor/view/'.$doctor->id)); ?>" class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>
-                <a href="<?php echo e(url('doctor/edit/'.$doctor->id)); ?>" class="btn btn-warning btn-circle btn-sm"><i class="fa fa-pen"></i></a>
+                <a href="<?php echo e(url('doctor/view/'.$doctor->user_id)); ?>" class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>
+                <a href="<?php echo e(url('doctor/edit/'.$doctor->user_id)); ?>" class="btn btn-warning btn-circle btn-sm"><i class="fa fa-pen"></i></a>
                 <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
               </td>
             </tr>

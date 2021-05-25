@@ -52,7 +52,7 @@
                     <div class="form-group row">
                       <label for="inputPassword3" class="col-sm-3 col-form-label"><?php echo e(__('sentence.Birthday')); ?><font color="red">*</font></label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control" id="birthday" name="birthday" autocomplete="off">
+                        <input type="text" class="form-control birthday" id="birthday" readonly name="birthday" autocomplete="off">
                       </div>
                     </div>
                     <div class="form-group row">

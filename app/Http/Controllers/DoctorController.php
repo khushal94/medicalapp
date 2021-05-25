@@ -19,7 +19,9 @@ class DoctorController extends Controller
 
     public function all(){
 
-    	$doctors = User::where('role', 'doctor')->get();
+    	$doctors = Doctor::get();
+		// $doctors = User::where('role', 'doctor')->get();
+
 
     	return view('doctor.all', ['doctors' => $doctors]);
 
@@ -35,47 +37,53 @@ class DoctorController extends Controller
 	
 	public function store_edit(Request $request){
 
-    	$validatedData = $request->validate([
-        	'name' => ['required', 'string', 'max:255'],
-            'email' => [
-		        'required', 'email', 'max:255',
-		        Rule::unique('users')->ignore($request->user_id),
-		    ],
-            'birthday' => ['required'],
-            'gender' => ['required'],
+		$validatedData = $request->validate([
+			'name' => ['required', 'string', 'max:255'],
+			'email' => [
+				'required', 'email', 'max:255',
+				Rule::unique('users')->ignore($request->user_id),
+			],
+			'birthday' => ['required'],
+			'gender' => ['required'],
 			'phone' => ['required'],
 			'address' => ['required'],
 			'city' => ['required'],
 			'state' => ['required'],
 			'speciality' => ['required'],
 			'experience' => ['required'],
-			'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
-    	]);
-
-    	$user = User::find($request->user_id);
-		$user->email = $request->email;
-		$user->name = $request->name;
-		$user->role = 'doctor';
-		$user->update();
-
-
+		]);
+		// $user = User::find($request->user_id);
+		// $user->email = $request->email;
+		// $user->name = $request->name;
+		// $user->role = 'doctor';
+		// $user->update();
+		if ($request->hasFile('image')) {
+			$validatedData = $request->validate([
+				'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+			]);
+			if(!empty($request->image) && file_exists(public_path().'/imgs/doctors/'.\Carbon\Carbon::now()->monthName.'/'.$request->image)) {
+				unlink(public_path().'/imgs/doctors/'.\Carbon\Carbon::now()->monthName.'/'.$request->image);
+			}
+			$image           = $request->file('image');
+			$name            = 'IMG'.$request->user_id.'.'.$image->getClientOriginalExtension();
+			$destinationPath = '/imgs/doctors/'.\Carbon\Carbon::now()->monthName;			
+			// var_dump($name);
+			$image->move(public_path($destinationPath), $name);
+			$doctor = Doctor::where('user_id', $request->user_id)->update(['image' => $name,]);			
+		} 		
 		$doctor = Doctor::where('user_id', $request->user_id)
-		         			->update(['birthday' => $request->birthday,
-										'phone' => $request->phone,
-										'name' => $request->name,
-										'email' => $request->email,
-										'gender' => $request->gender,
-										'address' => $request->address,
-										'city' => $request->city,
-										'state' => $request->state,
-										'country' => 'India',
-										'speciality' => $request->speciality,
-										'experience' => $request->experience,]);
-
-		
-		
-
+			->update(['birthday' => $request->birthday,
+				'phone' => $request->phone,
+				'name' => $request->name,
+				'email' => $request->email,
+				'gender' => $request->gender,
+				'address' => $request->address,
+				'city' => $request->city,
+				'state' => $request->state,
+				'country' => 'India',
+				'speciality' => $request->speciality,
+				'experience' => $request->experience,
+				]);
 		return Redirect::back()->with('success', __('sentence.Doctor Updated Successfully'));
 
     }
@@ -119,8 +127,12 @@ class DoctorController extends Controller
 			$doctor->country = 'India';
 			$doctor->speciality = $request->speciality;
 			$doctor->experience = $request->experience;
-			$imageName = time().'.'.$request->image->extension();       
-			$doctor->image = $request->image->move(public_path('image'), $imageName);
+			$image           = $request->file('image');
+			$name            = 'IMG'.$user->id.'.'.$image->getClientOriginalExtension();
+			$destinationPath = '/imgs/doctors/'.\Carbon\Carbon::now()->monthName;
+			$image->move(public_path($destinationPath), $name);
+			$doctor->image = $name;
+			// var_dump($doctor, $image);
 			$doctor->save();
 
 		}

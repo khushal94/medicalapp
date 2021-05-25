@@ -20,6 +20,8 @@ Route::get('/', function () {
 Route::get('/patients', 'ApiController@Get_Patients')->name('patient.all');
 
 Route::get('/nurses', 'ApiController@Get_Nurses')->name('nurse.all');
+Route::get('/doctors', 'ApiController@Get_Doctors')->name('doctor.all');
+Route::get('/coupons', 'ApiController@Get_Coupons')->name('coupon.all');
 
 Auth::routes(['register' => false]);
 
@@ -50,6 +52,14 @@ Route::get('/doctor/all', 'DoctorController@all')->name('doctor.all');
 Route::get('/doctor/view/{id}', 'DoctorController@view')->where('id', '[0-9]+')->name('doctor.view');
 Route::get('/doctor/edit/{id}', 'DoctorController@edit')->where('id', '[0-9]+')->name('doctor.edit');
 Route::post('/doctor/edit', 'DoctorController@store_edit')->name('doctor.store_edit');
+
+//Coupons
+Route::get('/coupon/create', 'CouponController@create')->name('coupon.create');
+Route::post('/coupon/create', 'CouponController@store')->name('coupon.store');
+Route::get('/coupon/all', 'CouponController@all')->name('coupon.all');
+Route::get('/coupon/view/{id}', 'CouponController@view')->where('id', '[0-9]+')->name('coupon.view');
+Route::get('/coupon/edit/{id}', 'CouponController@edit')->where('id', '[0-9]+')->name('coupon.edit');
+Route::post('/coupon/edit', 'CouponController@store_edit')->name('coupon.store_edit');
 
 //Appointments
 Route::get('/appointment/create', 'AppointmentController@create')->name('appointment.create');

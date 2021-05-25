@@ -63,7 +63,7 @@
                </div>
                <!-- Nav Item - Pages Collapse Menu -->
                <li class="nav-item">
-                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDoctor" aria-expanded="true" aria-controls="collapseTwo">
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDoctor" aria-expanded="true" aria-controls="collapseDoctor">
                   <i class="fas fa-fw fa-users"></i>
                   <span><?php echo e(__('sentence.Doctor')); ?></span>
                   </a>
@@ -84,7 +84,7 @@
                </div>
                <!-- Nav Item - Pages Collapse Menu -->
                <li class="nav-item">
-                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNurse" aria-expanded="true" aria-controls="collapseTwo">
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNurse" aria-expanded="true" aria-controls="collapseNurse">
                   <i class="fas fa-fw fa-users"></i>
                   <span><?php echo e(__('sentence.Nurse')); ?></span>
                   </a>
@@ -112,6 +112,27 @@
                      <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?php echo e(route('appointment.create')); ?>"><?php echo e(__('sentence.New Appointment')); ?></a>
                         <a class="collapse-item" href="<?php echo e(route('appointment.all')); ?>"><?php echo e(__('sentence.All Appointments')); ?></a>
+                     </div>
+                  </div>
+               </li>
+               <!-- Divider -->
+               <!-- Divider -->
+               <hr class="sidebar-divider">
+               <!-- Heading -->
+               <div class="sidebar-heading">
+                  <?php echo e(__('sentence.Coupon')); ?>
+
+               </div>
+               <!-- Nav Item - Pages Collapse Menu -->
+               <li class="nav-item">
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCoupon" aria-expanded="true" aria-controls="collapseCoupon">
+                  <i class="fas fa-fw fa-calendar-plus"></i>
+                  <span><?php echo e(__('sentence.Coupon')); ?></span>
+                  </a>
+                  <div id="collapseCoupon" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                     <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="<?php echo e(route('coupon.create')); ?>"><?php echo e(__('sentence.New Coupon')); ?></a>
+                        <a class="collapse-item" href="<?php echo e(route('coupon.all')); ?>"><?php echo e(__('sentence.All Coupons')); ?></a>
                      </div>
                   </div>
                </li>
@@ -257,7 +278,7 @@
                <footer class="sticky-footer bg-white">
                   <div class="container my-auto">
                      <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Created by <a href="https://getdoctorino.papasimo.com/"> Digit93Team</a> 2020 in Algeria <i class="fa fa-heart" style="color: red;"></i></span>
+                        <span>Copyright &copy; Created by <a> I-Node</a> Team 2021 <i class="fa fa-heart" style="color: red;"></i></span>
                      </div>
                   </div>
                </footer>

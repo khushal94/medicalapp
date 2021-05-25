@@ -65712,7 +65712,25 @@ var baseURL = 'http://localhost/pms/public';
       return new Date(date.getFullYear(), date.getMonth(), date.getDate());
     }
   });
-  $('#birthday').datepicker({
+  $('#startingdate').datepicker({
+    uiLibrary: 'bootstrap4',
+    format: 'dd/mm/yyyy',
+    minDate: function minDate() {
+      var date = new Date();
+      date.setDate(date.getDate());
+      return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    }
+  });
+  $('#endingdate').datepicker({
+    uiLibrary: 'bootstrap4',
+    format: 'dd/mm/yyyy',
+    minDate: function minDate() {
+      var date = new Date();
+      date.setDate(date.getDate() + 1);
+      return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    }
+  });
+  $('.birthday').datepicker({
     uiLibrary: 'bootstrap4'
   });
 })(jQuery); // End of use strict
