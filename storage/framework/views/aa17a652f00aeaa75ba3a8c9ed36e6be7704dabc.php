@@ -267,9 +267,11 @@
                   </nav>
                   <!-- End of Topbar -->
                   <!-- Begin Page Content -->
-                  <div class="container-fluid">
-                     <?php echo $__env->yieldContent('content'); ?>
-                     <!-- Page Heading -->
+                  <div class="main-body">
+                     <div class="container-fluid">
+                        <?php echo $__env->yieldContent('content'); ?>
+                        <!-- Page Heading -->
+                     </div>
                   </div>
                   <!-- /.container-fluid -->
                </div>
@@ -319,4 +321,5 @@
       <script src="<?php echo e(asset('js/app.js')); ?>"></script>
       <?php echo $__env->yieldContent('footer'); ?>
    </body>
-</html><?php /**PATH E:\xampp\htdocs\doctor1\resources\views/layouts/master.blade.php ENDPATH**/ ?>
+</html>
+<?php /**PATH E:\xampp\htdocs\doctor1\resources\views/layouts/master.blade.php ENDPATH**/ ?>
