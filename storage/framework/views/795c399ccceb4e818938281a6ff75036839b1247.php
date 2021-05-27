@@ -39,14 +39,14 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <div class="form-group">
+                                    <div class="uploadbox">
                                         <label class="upload_image">
                                             <img src="<?php echo e(empty($doctor->Doctor->image) ? url('imgs/no-image.png') : url('imgs/doctors/' . now()->monthName . '/' . $doctor->Doctor->image)); ?>"
                                                 alt="Upload Image" title="Upload Image">
                                             <input type="file" name="image" accept="image/*" id="image"
                                                 style="display: none">
                                         </label>
-                                        <label for="image" class="btn btn-primary btn-block">Choose File</label>
+                                        <label for="image" class="btn btn-primary btn-block btn-upload">Upload</label>
                                     </div>
                                     
 

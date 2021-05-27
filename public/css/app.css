@@ -9947,6 +9947,7 @@ button.bg-dark:hover {
 }
 .upload_image img {
 	width: 100%;
+	object-fit: contain;
 }
 a.text-primary:focus,
 a.text-primary:hover {
@@ -11246,8 +11247,8 @@ a:focus {
 	padding: 3rem;
 }
 .bg-login-image img {
-	object-fit: cover;
-	width: 400px;
+	object-fit: contain;
+	width: 100%;
 	height: 400px;
 }
 @media (max-width: 1200px) {
@@ -11255,7 +11256,7 @@ a:focus {
 		padding: 2rem;
 	}
 	.bg-login-image img {
-		width: 300px;
+		width: 100%;
 		height: 300px;
 	}
 }
@@ -18657,7 +18658,8 @@ footer {
 }
 .upload_image{
 	width: 100%;
-	height: 305px;
+	height: 300px;
+	margin-bottom: 0;
 }
 .upload_image img{
 	height: 100%;
@@ -18672,7 +18674,16 @@ footer {
 	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 	overflow: hidden;
 }
-
+.uploadbox{
+	display: block;
+	width: 100%;
+	height: 350px;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+	overflow: hidden;
+}
 .upload-options {
 	position: relative;
 	height: 50px;
@@ -18681,6 +18692,18 @@ footer {
 	overflow: hidden;
 	text-align: center;
 	transition: background-color ease-in-out 150ms;
+}
+.btn-upload{
+	background-color: cadetblue;
+	height: 50px;
+	display: grid;
+	align-items: center;
+	margin-bottom: 0;
+	text-align: center;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	font-size: 1.5rem;
+	border:none
 }
 .upload-options:hover {
 	background-color: #7fb1b3;

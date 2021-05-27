@@ -19,7 +19,7 @@
                   <div class="card-body p-0">
                      <!-- Nested Row within Card Body -->
                            <div class="d-md-block d-none  bg-login-image text-center">
-                              <img src="https://i.pinimg.com/736x/2a/d9/36/2ad9365c45aed10d134f78a867707cb1.jpg" alt="">
+                              <img src="{{ asset('img/login_background.jpg') }}" alt="">
                            </div>
                            <div class="login-form">
                               <div class="text-center">
