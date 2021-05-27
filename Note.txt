@@ -1,1 +1,2 @@
 1. ok, play store app store ke images laga ke ek section banana hai wo note kar lena baad me kar lenge.
+2. speciality list /add edit delete

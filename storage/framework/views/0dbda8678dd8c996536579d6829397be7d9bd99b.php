@@ -30,8 +30,8 @@
                                 <p><b><?php echo e(__('sentence.Phone')); ?> :</b> <?php echo e($nurse->Nurse->phone); ?></p>
                             <?php endif; ?>
 
-                            <?php if(isset($patient->Nurse->adress)): ?>
-                                <p><b><?php echo e(__('sentence.Address')); ?> :</b> <?php echo e($nurse->Nurse->adress); ?></p>
+                            <?php if(isset($patient->Nurse->address)): ?>
+                                <p><b><?php echo e(__('sentence.Address')); ?> :</b> <?php echo e($nurse->Nurse->address); ?></p>
                             <?php endif; ?>
                         </div>
                     </div>

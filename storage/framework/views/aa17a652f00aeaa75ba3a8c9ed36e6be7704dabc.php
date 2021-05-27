@@ -20,14 +20,14 @@
             <!-- Sidebar -->
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
                <!-- Sidebar - Brand -->
-               <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo e(route('home')); ?>">
-                  <div class="sidebar-brand-icon rotate-n-15">
-                     <i class="fas fa-user-md"></i>
+               <a class="sidebar-brand d-flex align-items-center justify-content-start" href="<?php echo e(route('home')); ?>">
+                  <div class="sidebar-brand-icon ">
+                     <img class="img-profile" src="<?php echo e(asset('img/favicon.png')); ?>">
                   </div>
-                  <div class="sidebar-brand-text mx-3">Doctorino <sup>1.0</sup></div>
+                  <div class="sidebar-brand-text mx-3">I-Node</div>
                </a>
+               
                <!-- Divider -->
-               <hr class="sidebar-divider my-0">
                <!-- Nav Item - Dashboard -->
                <li class="nav-item active">
                   <a class="nav-link" href="<?php echo e(route('home')); ?>">
@@ -246,7 +246,7 @@
                         <li class="nav-item dropdown no-arrow">
                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo e(Auth::user()->name); ?></span>
-                           <img class="img-profile rounded-circle" src="<?php echo e(asset('img/favicon.png')); ?>">
+                           <img class="img-profile" src="<?php echo e(asset('img/favicon.png')); ?>">
                            </a>
                            <!-- Dropdown - User Information -->
                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -277,7 +277,7 @@
                </div>
                <!-- End of Main Content -->
                <!-- Footer -->
-               <footer class="sticky-footer bg-white">
+               <footer class="sticky-footer bg-white shadow">
                   <div class="container my-auto">
                      <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Created by <a> I-Node</a> Team 2021 <i class="fa fa-heart" style="color: red;"></i></span>

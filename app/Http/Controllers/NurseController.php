@@ -42,7 +42,7 @@ class NurseController extends Controller
     // 	]);
 
     // 	$nurse = Nurse::updateOrCreate(
-	// 	    ['name' => $request->name, 'email' => $request->email,'birthday' => $request->birthday,'phone' => $request->phone, 'gender' => $request->gender,'address' => $request->adress]
+	// 	    ['name' => $request->name, 'email' => $request->email,'birthday' => $request->birthday,'phone' => $request->phone, 'gender' => $request->gender,'address' => $request->address]
 	// 	);
 
     // 	return Redirect::back()->with('success', __('sentence.Nurse added Successfully'));
@@ -63,6 +63,8 @@ class NurseController extends Controller
 		    ],
             'birthday' => ['required'],
             'gender' => ['required'],
+            'city' => ['required'],
+            'state' => ['required'],
 
     	]);
 
@@ -79,6 +81,11 @@ class NurseController extends Controller
 										'name' => $request->name,
 										'email' => $request->email,
 										'gender' => $request->gender,
+										'city' => $request->city,
+										'state' => $request->state,
+										'description' => $request->description,
+										'lat' => $request->lat,
+										'long' => $request->long,
 										'address' => $request->address,]);
 
 		
@@ -95,6 +102,8 @@ class NurseController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'birthday' => ['required'],
             'gender' => ['required'],
+			'city' => ['required'],
+            'state' => ['required'],
 
     	]);
 
@@ -114,6 +123,13 @@ class NurseController extends Controller
 		$nurse->phone = $request->phone;
 		$nurse->gender = $request->gender;
 		$nurse->address = $request->address;
+		$nurse->city = $request->city;
+		$nurse->state = $request->state;
+		$nurse->country = 'India';
+		$nurse->description = $request->description;
+		$nurse->lat = $request->lat;
+		$nurse->long = $request->long;
+		// echo $nurse;
 		$nurse->save();
 
 		return Redirect::route('nurse.all')->with('success', __('sentence.Nurse Created Successfully'));
@@ -128,9 +144,9 @@ class NurseController extends Controller
 
     }
 
-	public function destroy($id){
+	public function destroy($id, $status){
 
-        Nurse::destroy($id);
+        $nurse = Nurse::where('user_id', $id)->update(['is_deleted' => $status]);
         return Redirect::route('nurse.all')->with('success', 'Nurse Deleted Successfully!');
 
     }

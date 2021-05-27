@@ -13,7 +13,7 @@ return [
     */
 
     'accepted'        => 'Dieses Feld muss akzeptiert werden.',
-    'active_url'      => 'Das ist keine gültige Internet-Adresse.',
+    'active_url'      => 'Das ist keine gültige Internet-Addresse.',
     'after'           => 'Das muss ein Datum nach dem :date sein.',
     'after_or_equal'  => 'Das muss ein Datum nach dem :date oder gleich dem :date sein.',
     'alpha'           => 'Der Inhalt darf nur aus Buchstaben bestehen.',
@@ -38,7 +38,7 @@ return [
     'digits_between' => 'Das muss zwischen :min und :max Stellen haben.',
     'dimensions'     => 'Das Bild hat ungültige Abmessungen.',
     'distinct'       => 'Dieser Wert ist bereits vorhanden.',
-    'email'          => 'Das muss eine gültige E-Mail-Adresse sein.',
+    'email'          => 'Das muss eine gültige E-Mail-Addresse sein.',
     'ends_with'      => 'Der Inhalt muss eine der folgenden Endungen aufweisen: :values',
     'exists'         => 'Der gewählte Wert ist ungültig.',
     'file'           => 'Der Inhalt muss eine Datei sein.',
@@ -59,9 +59,9 @@ return [
     'in'       => 'Der gewählte Wert ist ungültig.',
     'in_array' => 'Der gewählte Wert kommt nicht in :other vor.',
     'integer'  => 'Das muss eine ganze Zahl sein.',
-    'ip'       => 'Das muss eine gültige IP-Adresse sein.',
-    'ipv4'     => 'Das muss eine gültige IPv4-Adresse sein.',
-    'ipv6'     => 'Das muss eine gültige IPv6-Adresse sein.',
+    'ip'       => 'Das muss eine gültige IP-Addresse sein.',
+    'ipv4'     => 'Das muss eine gültige IPv4-Addresse sein.',
+    'ipv6'     => 'Das muss eine gültige IPv6-Addresse sein.',
     'json'     => 'Das muss ein gültiger JSON-String sein.',
     'lt'       => [
         'numeric' => 'Der Wert muss kleiner als :value sein.',

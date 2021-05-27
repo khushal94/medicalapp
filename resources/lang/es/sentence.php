@@ -149,7 +149,7 @@ return [
     'VAT' => 'IVA',
     // Patient
     'Full Name' => 'nombre completo',
-    'Email Adress' => 'Dirección de correo electrónico',
+    'Email Address' => 'Dirección de correo electrónico',
     'Birthday' => 'Fecha de nacimiento',
     'Blood Group' => 'Grupo sanguíneo',
     'Unknown' => 'Desconocido',

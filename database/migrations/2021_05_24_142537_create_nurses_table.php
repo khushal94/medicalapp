@@ -23,7 +23,16 @@ class CreateNursesTable extends Migration
             $table->string('birthday');
             $table->string('phone')->nullable();
             $table->string('gender');
+            $table->string('city');
+            $table->string('state');
+            $table->string('country');
+            $table->string('lat')->nullable();
+            $table->string('long')->nullable();
+            $table->text('description')->nullable();
+            $table->json('patient')->nullable();
+            $table->string('rating')->nullable();
             $table->mediumText('address')->nullable();
+            $table->boolean('is_deleted')->default(1);
             $table->timestamps();
         });
     }

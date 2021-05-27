@@ -61,12 +61,12 @@ class DoctorController extends Controller
 			$validatedData = $request->validate([
 				'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 			]);
-			if(!empty($request->image) && file_exists(public_path().'/imgs/doctors/'.\Carbon\Carbon::now()->monthName.'/'.$request->image)) {
-				unlink(public_path().'/imgs/doctors/'.\Carbon\Carbon::now()->monthName.'/'.$request->image);
+			if(!empty($request->image) && file_exists(public_path().'/imgs/doctors/'.strtolower(now()->monthName).'/'.$request->image)) {
+				unlink(public_path().'/imgs/doctors/'.strtolower(now()->monthName).'/'.$request->image);
 			}
 			$image           = $request->file('image');
 			$name            = 'IMG'.$request->user_id.'.'.$image->getClientOriginalExtension();
-			$destinationPath = '/imgs/doctors/'.\Carbon\Carbon::now()->monthName;			
+			$destinationPath = '/imgs/doctors/'.strtolower(now()->monthName);			
 			// var_dump($name);
 			$image->move(public_path($destinationPath), $name);
 			$doctor = Doctor::where('user_id', $request->user_id)->update(['image' => $name,]);			
@@ -80,7 +80,9 @@ class DoctorController extends Controller
 				'address' => $request->address,
 				'city' => $request->city,
 				'state' => $request->state,
-				'country' => 'India',
+				'description' => $request->description,
+				'lat' => $request->lat,
+				'long' => $request->long,
 				'speciality' => $request->speciality,
 				'experience' => $request->experience,
 				]);
@@ -127,12 +129,14 @@ class DoctorController extends Controller
 			$doctor->country = 'India';
 			$doctor->speciality = $request->speciality;
 			$doctor->experience = $request->experience;
+			$doctor->description = $request->description;
+			$doctor->lat = $request->lat;
+			$doctor->long = $request->long;
 			$image           = $request->file('image');
-			$name            = 'IMG'.$user->id.'.'.$image->getClientOriginalExtension();
-			$destinationPath = '/imgs/doctors/'.\Carbon\Carbon::now()->monthName;
+			$name            = 'IMG'.'.'.$image->getClientOriginalExtension();
+			$destinationPath = '/imgs/doctors/'.strtolower(now()->monthName);
 			$image->move(public_path($destinationPath), $name);
-			$doctor->image = $name;
-			// var_dump($doctor, $image);
+			$doctor->image = strtolower(now()->monthName).'/'.$name;
 			$doctor->save();
 
 		}

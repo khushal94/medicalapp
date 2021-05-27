@@ -20,16 +20,22 @@ class CreateDoctorsTable extends Migration
                   ->onDelete('cascade');
             $table->string('name');
             $table->string('email');
+            $table->string('phone')->nullable();
             $table->string('birthday');
+            $table->string('gender');
             $table->string('city');
             $table->string('state');
             $table->string('country');
+            $table->string('lat')->nullable();
+            $table->string('long')->nullable();
+            $table->text('description')->nullable();
+            $table->json('patient')->nullable();
+            $table->string('rating')->nullable();
             $table->string('speciality');
             $table->string('experience');
             $table->string('image');
-            $table->string('phone')->nullable();
-            $table->string('gender');
             $table->mediumText('address')->nullable();
+            $table->boolean('is_deleted')->default(1);
             $table->timestamps();
         });
     }

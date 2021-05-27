@@ -52,7 +52,7 @@
                             <div class="col-md-6">
                                 <div class="form-group row">
                                     <label for="inputPassword3"
-                                        class="col-sm-3 col-form-label"><?php echo e(__('sentence.Email Adress')); ?><font
+                                        class="col-sm-3 col-form-label"><?php echo e(__('sentence.Email Address')); ?><font
                                             color="red">*</font></label>
                                     <div class="col-sm-9">
                                         <input type="email" class="form-control" id="inputPassword3" name="email">

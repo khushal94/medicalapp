@@ -10160,6 +10160,7 @@ a:focus {
 #wrapper #content-wrapper {
 	background-color: #f8f9fc;
 	width: calc(100% - 6.5rem);
+	margin-left: 6.5rem;
 	
 	/* overflow-x: hidden; */
 }
@@ -10695,9 +10696,10 @@ a:focus {
 .sidebar {
 	width: 6.5rem;
 	height: 100vh;
-	/* position: fixed; */
-	/* left: 0; */
-	/* top: 0; */
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
 	overflow-y: scroll;
 }
 .sidebar::-webkit-scrollbar-track {
@@ -10828,10 +10830,7 @@ a:focus {
 	outline: 0;
 }
 
-.sidebar.toggled {
-	width: 0 !important;
-	overflow: hidden;
-}
+
 
 .sidebar.toggled #sidebarToggle::after {
 	content: "\F105";
@@ -10840,11 +10839,11 @@ a:focus {
 }
 
 .sidebar .sidebar-brand {
-	height: 100%;
+	height: 4.375rem;
 	text-decoration: none;
 	font-size: 1rem;
 	font-weight: 800;
-	padding: .7rem 1rem;
+	padding: .9rem 1rem;
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 0.05rem;
@@ -10852,6 +10851,12 @@ a:focus {
 	position: sticky;
 	top: 0;
 	background-color: #00c6ae;
+	align-items: center;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+.sidebar .sidebar-brand img{
+	width: 40px;
+	height: 40px;
 }
 
 .sidebar .sidebar-brand .sidebar-brand-icon i {
@@ -10872,10 +10877,23 @@ a:focus {
 	font-weight: 800;
 	font-size: 0.65rem;
 }
-
+.sidebar .nav-item .nav-link[data-toggle="collapse"]::after {
+	width: 1rem;
+	text-align: center;
+	float: right;
+	vertical-align: 0;
+	border: 0;
+	font-weight: 900;
+	content: "\F107";
+	font-family: "Font Awesome 5 Free";
+}
 @media (min-width: 768px) {
 	.sidebar {
 		width: 14rem !important;
+	}
+	#wrapper #content-wrapper{
+		width: calc(100% - 14rem);
+		margin-left: 14rem;
 	}
 	.sidebar .nav-item .collapse {
 		position: relative;
@@ -10912,16 +10930,7 @@ a:focus {
 		font-size: 0.85rem;
 		display: inline;
 	}
-	.sidebar .nav-item .nav-link[data-toggle="collapse"]::after {
-		width: 1rem;
-		text-align: center;
-		float: right;
-		vertical-align: 0;
-		border: 0;
-		font-weight: 900;
-		content: "\F107";
-		font-family: "Font Awesome 5 Free";
-	}
+	
 	.sidebar .nav-item .nav-link[data-toggle="collapse"].collapsed::after {
 		content: "\F105";
 	}
@@ -10934,10 +10943,18 @@ a:focus {
 	.sidebar .sidebar-heading {
 		text-align: left;
 	}
-	.sidebar.toggled {
-		overflow: visible;
+	.sidebar-toggled .sidebar {
+		/* overflow: visible; */
 		width: 6.5rem !important;
 	}
+	.sidebar-toggled #wrapper #content-wrapper{
+		width: calc(100% - 6.5rem);
+		margin-left: 6.5rem;
+	}
+	.sidebar-toggled .sidebar-brand{
+		display: block!important;
+	}
+	.sidebar-toggled
 	.sidebar.toggled .nav-item .collapse {
 		position: absolute;
 		left: calc(6.5rem + 1.5rem / 2);
@@ -16483,6 +16500,33 @@ div.dataTables_scrollFoot > .dataTables_scrollFootInner > table {
 	div.dataTables_wrapper div.dataTables_paginate ul.pagination {
 		justify-content: center !important;
 	}
+	.sidebar {
+		/* overflow: visible; */
+		width: 14rem;
+		left: -14rem;
+	}
+	.sidebar-toggled .sidebar {
+		/* overflow: visible; */
+		left: 0rem;
+		z-index: 99;
+	}
+	.sidebar .nav-item .nav-link span{
+		display: inline;
+	}
+	.sidebar .nav-item .nav-link{
+		width: 100%;
+		text-align: left;
+	}
+	.sidebar .nav-item .collapse {
+		position: absolute;
+		right: 10px;
+		left: 10px;
+		top: 100%;
+	}
+	#wrapper #content-wrapper{
+		width: 100%;
+		margin-left: 0;
+	}
 }
 table.dataTable.table-sm > thead > tr > th :not(.sorting_disabled) {
 	padding-right: 20px;
@@ -18268,7 +18312,8 @@ ul.gj-list-md li.disabled > [data-role="wrapper"] > [data-role="expander"] {
 	left: 7px;
 }
 .gj-datepicker-bootstrap [role="right-icon"] button {
-	width: 70px;
+	width: 40px;
+	text-align: center;
 	position: relative;
 	border: 1px solid #ced4da;
 }

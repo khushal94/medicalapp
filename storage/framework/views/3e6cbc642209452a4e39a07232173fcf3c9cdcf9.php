@@ -27,8 +27,8 @@
                             <p><b><?php echo e(__('sentence.Phone')); ?> :</b> <?php echo e($patient->Patient->phone); ?></p>
                             <?php endif; ?>
 
-                            <?php if(isset($patient->Patient->adress)): ?>
-                            <p><b><?php echo e(__('sentence.Address')); ?> :</b> <?php echo e($patient->Patient->adress); ?></p>
+                            <?php if(isset($patient->Patient->address)): ?>
+                            <p><b><?php echo e(__('sentence.Address')); ?> :</b> <?php echo e($patient->Patient->address); ?></p>
                             <?php endif; ?>
                     </div>
                     <div class="col-md-8 col-sm-6">

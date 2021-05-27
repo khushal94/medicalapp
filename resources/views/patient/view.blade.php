@@ -28,8 +28,8 @@
                             <p><b>{{ __('sentence.Phone') }} :</b> {{ $patient->Patient->phone }}</p>
                             @endisset
 
-                            @isset($patient->Patient->adress)
-                            <p><b>{{ __('sentence.Address') }} :</b> {{ $patient->Patient->adress }}</p>
+                            @isset($patient->Patient->address)
+                            <p><b>{{ __('sentence.Address') }} :</b> {{ $patient->Patient->address }}</p>
                             @endisset
                     </div>
                     <div class="col-md-8 col-sm-6">

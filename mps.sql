@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2021 at 06:28 AM
+-- Generation Time: May 27, 2021 at 05:21 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.3.28
 
@@ -72,6 +72,26 @@ CREATE TABLE `billing_items` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `coupons`
+--
+
+CREATE TABLE `coupons` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `discount_amount` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `discount_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `minimum_amount` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `startingdate` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `endingdate` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_deleted` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `doctors`
 --
 
@@ -80,26 +100,25 @@ CREATE TABLE `doctors` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `birthday` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `gender` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `city` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `state` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `country` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lat` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `long` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `patient` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`patient`)),
+  `rating` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `speciality` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `experience` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `gender` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `address` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `is_deleted` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `doctors`
---
-
-INSERT INTO `doctors` (`id`, `user_id`, `name`, `email`, `birthday`, `city`, `state`, `country`, `speciality`, `experience`, `image`, `phone`, `gender`, `address`, `created_at`, `updated_at`) VALUES
-(1, 5, 'Jasvender Singh', 'Jasven@gmail.com', '02/01/1998', 'Udaipur', 'Rajasthan', 'India', 'Ear nose and throat (ENT)', '3', 'E:\\xampp\\htdocs\\doctor1\\public\\image\\1621874387.jpeg', '7568013301', 'Male', 'dfdfd', '2021-05-24 11:09:47', '2021-05-24 11:09:47');
 
 -- --------------------------------------------------------
 
@@ -134,6 +153,20 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `labbooking`
+--
+
+CREATE TABLE `labbooking` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `patient_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -150,20 +183,38 @@ CREATE TABLE `migrations` (
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2020_09_10_000506_create_drugs_table', 1),
-(5, '2020_09_10_103451_create_prescriptions_table', 1),
-(6, '2020_09_10_154523_create_prescription_drugs_table', 1),
-(7, '2020_09_14_174033_create_patients_table', 1),
-(8, '2020_09_16_095938_create_settings_table', 1),
-(9, '2020_09_16_230135_create_tests_table', 1),
-(10, '2020_09_16_230830_create_prescription_tests_table', 1),
-(11, '2020_09_18_010549_create_appointments_table', 1),
 (12, '2020_09_18_180127_create_doctors_table', 1),
-(13, '2020_09_19_164615_create_billings_table', 1),
-(14, '2020_09_19_180540_create_billing_items_table', 1),
-(16, '2021_05_24_142537_create_nurses_table', 2),
-(21, '2021_05_24_143111_create_doctors_table', 3);
+(166, '2019_08_19_000000_create_failed_jobs_table', 2),
+(167, '2020_09_10_000506_create_drugs_table', 2),
+(168, '2020_09_10_103451_create_prescriptions_table', 2),
+(169, '2020_09_10_154523_create_prescription_drugs_table', 2),
+(170, '2020_09_14_174033_create_patients_table', 2),
+(171, '2020_09_16_095938_create_settings_table', 2),
+(172, '2020_09_16_230135_create_tests_table', 2),
+(173, '2020_09_16_230830_create_prescription_tests_table', 2),
+(174, '2020_09_18_010549_create_appointments_table', 2),
+(175, '2020_09_19_164615_create_billings_table', 2),
+(176, '2020_09_19_180540_create_billing_items_table', 2),
+(177, '2021_05_24_142537_create_nurses_table', 2),
+(178, '2021_05_24_143111_create_doctors_table', 2),
+(179, '2021_05_25_115628_create_coupon_table', 2),
+(180, '2021_05_27_131552_create_ratings_table', 2),
+(181, '2021_05_27_132225_create_labbooking_table', 2),
+(182, '2021_05_27_132231_create_nursebooking_table', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nursebooking`
+--
+
+CREATE TABLE `nursebooking` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `patient_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -179,17 +230,19 @@ CREATE TABLE `nurses` (
   `birthday` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `gender` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `state` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `country` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lat` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `long` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `patient` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`patient`)),
+  `rating` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `is_deleted` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `nurses`
---
-
-INSERT INTO `nurses` (`id`, `user_id`, `name`, `email`, `birthday`, `phone`, `gender`, `address`, `created_at`, `updated_at`) VALUES
-(1, 2, 'JASVENDER', 'Jas@gmail.com', '02/01/1998', '7568013301', 'Male', 'ABCD', '2021-05-24 08:56:58', '2021-05-24 10:32:22');
 
 -- --------------------------------------------------------
 
@@ -216,19 +269,13 @@ CREATE TABLE `patients` (
   `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `gender` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `blood` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `adress` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `weight` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `height` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `is_deleted` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `patients`
---
-
-INSERT INTO `patients` (`id`, `user_id`, `birthday`, `phone`, `gender`, `blood`, `adress`, `weight`, `height`, `created_at`, `updated_at`) VALUES
-(1, 3, '02/01/1998', '7568013301', 'Male', 'A+', 'abcd', '65', '176', '2021-05-24 08:59:38', '2021-05-24 08:59:38');
 
 -- --------------------------------------------------------
 
@@ -282,6 +329,21 @@ CREATE TABLE `prescription_tests` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ratings`
+--
+
+CREATE TABLE `ratings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `count` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `feedback` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `settings`
 --
 
@@ -292,35 +354,6 @@ CREATE TABLE `settings` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `settings`
---
-
-INSERT INTO `settings` (`id`, `option_name`, `option_value`, `created_at`, `updated_at`) VALUES
-(1, 'system_name', 'Doctorino Doctor Chamber', NULL, NULL),
-(2, 'address', '150 Logts : Bloc 16 N° 02 OUED TARFA - Draria', NULL, NULL),
-(3, 'phone', '+213 657 04 19 93', NULL, NULL),
-(4, 'hospital_email', 'hospital.email@gmail.com', NULL, NULL),
-(5, 'currency', '₹', NULL, NULL),
-(6, 'vat', '19', NULL, NULL),
-(7, 'language', 'en', NULL, NULL),
-(8, 'appointment_interval', '30', NULL, NULL),
-(9, 'saturday_from', NULL, NULL, NULL),
-(10, 'saturday_to', NULL, NULL, NULL),
-(11, 'sunday_from', NULL, NULL, NULL),
-(12, 'sunday_to', NULL, NULL, NULL),
-(13, 'monday_from', '08:00', NULL, NULL),
-(14, 'monday_to', '17:00', NULL, NULL),
-(15, 'tuesday_from', '08:00', NULL, NULL),
-(16, 'tuesday_to', '17:00', NULL, NULL),
-(17, 'wednesday_from', '08:00', NULL, NULL),
-(18, 'wednesday_to', '17:00', NULL, NULL),
-(19, 'thursday_from', '08:00', NULL, NULL),
-(20, 'thursday_to', '17:00', NULL, NULL),
-(21, 'friday_from', '08:00', NULL, NULL),
-(22, 'friday_to', '17:00', NULL, NULL),
-(23, 'title', 'Doctor', '2021-05-24 10:21:49', '2021-05-24 10:21:50');
 
 -- --------------------------------------------------------
 
@@ -359,11 +392,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'doctorino', 'doctor@gmail.com', NULL, '$2y$10$wAhPhOWOWNhNDCd4CbEVfe1LyFqgp9KGdefDJp65tV8HyhXbpfjwC', 'admin', NULL, NULL, NULL),
-(2, 'JASVENDER', 'Jas@gmail.com', NULL, '$2y$10$9anwWhNPv/OzjI67NCtuw.XnPFxJG8cQUlg4yg5nJzOhnyPrZc8B6', 'nurse', NULL, '2021-05-24 08:56:58', '2021-05-24 10:30:47'),
-(3, 'Jasvender Singh', 'Jasvender@gmail.com', NULL, '$2y$10$BzV0oWnELnlapb5vKUPxc.MXd7mqW88WlAcUxkrRXWZPRmuxEQl6.', 'patient', NULL, '2021-05-24 08:59:38', '2021-05-24 08:59:38'),
-(4, 'Jasvender Singh', 'Jasp@gmail.com', NULL, '$2y$10$If.US3ORQxLCDx4anagOiOx/0cgRPwN4fy6gkgi3jXLibfHDKI0Be', 'doctor', NULL, '2021-05-24 11:06:35', '2021-05-24 11:06:35'),
-(5, 'Jasvender Singh', 'Jasven@gmail.com', NULL, '$2y$10$u0S.3BmnlMIP0yuMVuWtGeaeHkodFkZl68K17Dq.g5tDmoSHHf0j6', 'doctor', NULL, '2021-05-24 11:09:47', '2021-05-24 11:09:47');
+(1, 'Kushal', 'doctor@gmail.com', NULL, '$2y$10$wAhPhOWOWNhNDCd4CbEVfe1LyFqgp9KGdefDJp65tV8HyhXbpfjwC', 'admin', 'ltt5gFDGPmMAGVOdsKrYgmRyeaJTAejvQ6Kzqjrs1Vmc0bLtiIsDL1KJ6rNT', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -391,6 +420,12 @@ ALTER TABLE `billing_items`
   ADD KEY `billing_items_billing_id_foreign` (`billing_id`);
 
 --
+-- Indexes for table `coupons`
+--
+ALTER TABLE `coupons`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `doctors`
 --
 ALTER TABLE `doctors`
@@ -410,9 +445,21 @@ ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `labbooking`
+--
+ALTER TABLE `labbooking`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `nursebooking`
+--
+ALTER TABLE `nursebooking`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -459,6 +506,12 @@ ALTER TABLE `prescription_tests`
   ADD KEY `prescription_tests_test_id_foreign` (`test_id`);
 
 --
+-- Indexes for table `ratings`
+--
+ALTER TABLE `ratings`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `settings`
 --
 ALTER TABLE `settings`
@@ -500,10 +553,16 @@ ALTER TABLE `billing_items`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `coupons`
+--
+ALTER TABLE `coupons`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `drugs`
@@ -518,22 +577,34 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `labbooking`
+--
+ALTER TABLE `labbooking`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
+
+--
+-- AUTO_INCREMENT for table `nursebooking`
+--
+ALTER TABLE `nursebooking`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `nurses`
 --
 ALTER TABLE `nurses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `prescriptions`
@@ -554,10 +625,16 @@ ALTER TABLE `prescription_tests`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `ratings`
+--
+ALTER TABLE `ratings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tests`
@@ -569,7 +646,7 @@ ALTER TABLE `tests`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables

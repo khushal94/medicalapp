@@ -163,7 +163,7 @@ return [
 
     // Patient
     'Full Name' => 'Full Name',
-    'Email Adress' => 'Email Adress',
+    'Email Address' => 'Email Address',
     'Birthday' => 'Birthday',
     'Blood Group' => 'Blood Group',
     'Unknown' => 'Unknown',
@@ -187,6 +187,8 @@ return [
     'Nurse Name' => 'Nurse Name',
     'Nurse Updated Successfully' => 'Nurse Updated Successfully!',
     'Nurse Created Successfully' => 'Nurse Created Successfully!',
+    'Lattitude' => 'Lattitude',
+    'Longitude' => 'Longitude',
 
     // Doctor
     'Doctor' => 'Doctor',

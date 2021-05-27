@@ -53,7 +53,7 @@
               <td>{{ $doctor->id }}</td>
               <td><a href="{{ url('doctor/view/'.$doctor->id) }}"> {{ $doctor->name }} </a></td>
               <td class="text-center"> {{ $doctor->email }} </td>
-              <td class="text-center"><img src="{{url('imgs/doctors/'.now()->monthName.'/'.$doctor->image)}}" style="width: 200px;height:200px;object-fit:cover"></td>
+              <td class="text-center"><img src="{{url('imgs/doctors/'.$doctor->image)}}" style="width: 200px;height:200px;object-fit:cover"></td>
               <td class="text-center">{{ $doctor->created_at->format('d M Y H:i') }}</td>
               <td class="text-center">
                 <a href="{{ url('doctor/view/'.$doctor->user_id) }}" class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>

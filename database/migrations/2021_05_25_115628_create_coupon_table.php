@@ -22,6 +22,7 @@ class CreateCouponTable extends Migration
             $table->string('minimum_amount');
             $table->string('startingdate');
             $table->string('endingdate');
+            $table->boolean('is_deleted')->default(1);
             $table->timestamps();
         });
     }

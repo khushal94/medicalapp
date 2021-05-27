@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 col-sm-6">
-                            <center><img src="<?php echo e(empty($doctor->Doctor->image) ? asset('img/patient-icon.png') : url('imgs/doctors/'.now()->monthName.'/'.$doctor->Doctor->image)); ?>"
+                            <center><img src="<?php echo e(empty($doctor->Doctor->image) ? asset('img/patient-icon.png') : url('imgs/doctors/'.$doctor->Doctor->image)); ?>"
                                     class="img-profile rounded-circle img-fluid" style="width: 400px; height:400px"></center>
                             <h4 class="text-center"><b><?php echo e($doctor->name); ?></b></h4>
                             <hr>

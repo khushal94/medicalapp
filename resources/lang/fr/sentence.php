@@ -86,7 +86,7 @@ return [
   'Payments this month' => 'Paiements du mois',
   'Payments this year' => 'Paiements de l\'année',
    'Login' => 'Se Connecter',
-   'Email' => 'Adresse e-mail',
+   'Email' => 'Addresse e-mail',
    'Password' => 'Mot de passe',
    'Create Account' => 'Créer un compte !',
    'Forgot Your Password' => 'Mot de passe oublié ?',
@@ -112,7 +112,7 @@ return [
    //Settings
    'System Name' => 'Nom du système',
    'Title' => 'Titre',
-   'Address' => 'Adresse',
+   'Address' => 'Addresse',
    'Phone' => 'Téléphone',
    'Hospital Email' => 'Email du Cabinet',
    'Currency' => 'Devise',
@@ -149,7 +149,7 @@ return [
     'VAT' => 'TVA',
     // Patient
     'Full Name' => 'Nom complet',
-    'Email Adress' => 'Adresse e-mail',
+    'Email Address' => 'Addresse e-mail',
     'Birthday' => 'Date de naissance',
     'Blood Group' => 'Groupe Sanguin',
     'Unknown' => 'Inconnu',

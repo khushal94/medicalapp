@@ -1,90 +1,163 @@
 @extends('layouts.master')
 
 @section('title')
-{{ __('sentence.Edit Nurse') }}
+    {{ __('sentence.Edit Nurse') }}
 @endsection
 
 @section('content')
     <div class="row">
-      <div class="col">
-        @if ($errors->any())
-          <div class="alert alert-danger">
-              <ul>
-                  @foreach ($errors->all() as $error)
-                      <li>{{ $error }}</li>
-                  @endforeach
-              </ul>
-          </div>
-        @endif
-        @if (session('success'))
-          <div class="alert alert-success">
-              {{ session('success') }}
-          </div>
-        @endif
-      </div>
-      
+        <div class="col">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+        </div>
+
     </div>
     <div class="row justify-content-center">
-                  
+
 
         <div class="col-md-8">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">{{ __('sentence.Edit Nurse') }}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">{{ __('sentence.Edit Nurse') }}</h6>
                 </div>
                 <div class="card-body">
-                 <form method="post" action="{{ route('nurse.store_edit') }}">
-                    <div class="form-group row">
-                      <label for="inputEmail3" class="col-sm-3 col-form-label">{{ __('sentence.Full Name') }}<font color="red">*</font></label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputEmail3" name="name" value="{{ $nurse->name }}">
-                        <input type="hidden" class="form-control" id="inputEmail3" name="user_id" value="{{ $nurse->id }}">
+                    <form method="post" action="{{ route('nurse.store_edit') }}">
                         {{ csrf_field() }}
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputPassword3" class="col-sm-3 col-form-label">{{ __('sentence.Email Adress') }}<font color="red">*</font></label>
-                      <div class="col-sm-9">
-                        <input type="email" class="form-control" id="inputPassword3" name="email" value="{{ $nurse->email }}">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputPassword3" class="col-sm-3 col-form-label">{{ __('sentence.Birthday') }}<font color="red">*</font></label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control birthday" id="birthday" readonly name="birthday"  value="{{ $nurse->Nurse->birthday }}">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputPassword3" class="col-sm-3 col-form-label">{{ __('sentence.Phone') }}</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputPassword3" name="phone" value="{{ $nurse->Nurse->phone }}">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputPassword3" class="col-sm-3 col-form-label">{{ __('sentence.Gender') }}<font color="red">*</font></label>
-                      <div class="col-sm-9">
-                        <select class="form-control" name="gender">
-                          <option value="{{ $nurse->Nurse->gender }}" selected="selected">{{ $nurse->Nurse->gender }}</option>
-                          <option value="Male">{{ __('sentence.Male') }}</option>
-                          <option value="Female">{{ __('sentence.Female') }}</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="inputPassword3" class="col-sm-3 col-form-label">{{ __('sentence.Address') }}</label>
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="inputPassword3" name="address" value="{{ $nurse->Nurse->address }}">
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <div class="col-sm-9">
-                        <button type="submit" class="btn btn-primary">{{ __('sentence.Save') }}</button>
-                      </div>
-                    </div>
-                  </form>
+                        <input type="hidden" class="form-control" id="inputEmail3" name="user_id"
+                            value="{{ $nurse->id }}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="inputEmail3" class="col-form-label">{{ __('sentence.Full Name') }}<font
+                                            color="red">*
+                                        </font></label>
+                                    <input type="text" class="form-control" id="inputEmail3" name="name"
+                                        value="{{ $nurse->name }}" placeholder="{{ __('sentence.Full Name') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-form-label">{{ __('sentence.Email Address') }}
+                                        <font color="red">*</font>
+                                    </label>
+                                    <input type="email" class="form-control" id="inputPassword3" name="email"
+                                        value="{{ $nurse->email }}" placeholder="{{ __('sentence.Email Address') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-form-label">{{ __('sentence.Birthday') }}<font
+                                            color="red">*</font></label>
+                                    <input type="text" class="form-control birthday" id="birthday" readonly name="birthday"
+                                        autocomplete="off" value="{{ $nurse->Nurse->birthday }}"
+                                        placeholder="{{ __('sentence.Birthday') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-form-label">{{ __('sentence.Phone') }}</label>
+                                    <input type="number" class="form-control" id="inputPassword3" name="phone"
+                                        value="{{ $nurse->Nurse->phone }}" placeholder="{{ __('sentence.Phone') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="inputPassword3" class="col-form-label">{{ __('sentence.Gender') }}<font
+                                            color="red">*</font></label>
+                                    <select class="form-control" name="gender">
+                                        <option value="{{ $nurse->Nurse->gender }}" selected="selected">
+                                            {{ $nurse->Nurse->gender }}</option>
+                                        <option value="Male">{{ __('sentence.Male') }}</option>
+                                        <option value="Female">{{ __('sentence.Female') }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="inputPassword3"
+                                        class="col-form-label">{{ __('sentence.Address') }}</label>
+                                    <input type="text" class="form-control" id="inputPassword3" name="address"
+                                        value="{{ $nurse->Nurse->address }}"
+                                        placeholder="{{ __('sentence.Address') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lat" class="col-form-label">{{ __('sentence.Lattitude') }}</label>
+                                    <input type="text" class="form-control" id="lat" name="lat"
+                                        value="{{ $nurse->Nurse->lat }}" placeholder="{{ __('sentence.Lattitude') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="long" class="col-form-label">{{ __('sentence.Longitude') }}</label>
+                                    <input type="text" class="form-control" id="long" name="long"
+                                        value="{{ $nurse->Nurse->long }}"
+                                        placeholder="{{ __('sentence.Longitude') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="city" class="col-form-label">{{ __('sentence.City') }}
+                                        <font color="red">*
+                                        </font>
+                                    </label>
+                                    <input type="text" class="form-control" id="city" name="city"
+                                        value="{{ $nurse->Nurse->city }}" placeholder="{{ __('sentence.City') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="state" class="col-form-label">{{ __('sentence.State') }}
+                                        <font color="red">*</font>
+                                    </label>
+                                    <input type="text" class="form-control" id="state" name="state"
+                                        value="{{ $nurse->Nurse->state }}" placeholder="{{ __('sentence.State') }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="country" class="col-form-label">{{ __('sentence.Country') }}
+                                        <font color="red">*
+                                        </font>
+                                    </label>
+                                    <input type="text" class="form-control" id="country" name="country" autocomplete="off"
+                                        value="India" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="description"
+                                        class="col-form-label">{{ __('sentence.Description') }}</label>
+                                    <textarea rows="3" class="form-control" id="description" name="description"
+                                        placeholder="{{ __('sentence.Description') }}">{{ $nurse->Nurse->description }}
+                                          </textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="text-right">
+                                        <button type="submit" class="btn btn-primary">{{ __('sentence.Save') }}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-              </div>
-            
+            </div>
+
         </div>
 
     </div>

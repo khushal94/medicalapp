@@ -61,7 +61,7 @@ class PatientController extends Controller
 										'phone' => $request->phone,
 										'gender' => $request->gender,
 										'blood' => $request->blood,
-										'adress' => $request->adress,
+										'address' => $request->address,
 										'weight' => $request->weight,
 										'height' => $request->height]);
 
@@ -95,7 +95,7 @@ class PatientController extends Controller
 		$patient->phone = $request->phone;
 		$patient->gender = $request->gender;
 		$patient->blood = $request->blood;
-		$patient->adress = $request->adress;
+		$patient->address = $request->address;
 		$patient->weight = $request->weight;
 		$patient->height = $request->height;
 		$patient->save();
