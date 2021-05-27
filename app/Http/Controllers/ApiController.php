@@ -6,21 +6,61 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use DateTime;
 use App\User;
-use App\Nurse;
-use App\Doctor;
-use App\Coupon;
 use App\Appointment;
 use App\Setting;
 use Response;
 use Redirect;
+use Hash;
 class ApiController extends Controller
 {
 
-    public function Get_Patients(){ 
+    public function User_Login(Request $request){ 
+
+
+        $this->validate($request, ['email'=>'required|email', 'password' => 'required']);
+
+        $user_email = $request->input('email');
+        $user_password = $request->input('password');
+
+        $patient = User::where(['role'=>'patient', 'email'=>$user_email])->first();
+
+        if(!$patient){
+            return Response::json(
+                array(
+                    'status' => false,
+                    'msg' => 'No user found using this email address'
+                ),201
+            );
+        }
+
+        if (Hash::check($user_password, $patient->password)) {
+            return Response::json(
+                array(
+                    'status' => true,
+                    'data' => $patient
+                ),200
+            );
+        }else{
+            return Response::json(
+                array(
+                    'status' => false,
+                    'msg' => 'Password does not match, please try again with correct password'
+                ),201
+            );
+        }
+
+
+        
+
+
+    }
+
+    public function Get_Patients(){
 
         $patients = User::where('role','patient')->get();
-
         if($patients){
+
+
 
             return Response::json(
                 array(
@@ -28,7 +68,6 @@ class ApiController extends Controller
                     'data' => $patients
                 ),200
             );
-
         }else{
             return Response::json(
                 array(
@@ -36,73 +75,6 @@ class ApiController extends Controller
                 ),404
             );
         }
-
-    }
-    public function Get_Nurses(){ 
-
-        $nurses = Nurse::get();
-
-        if($nurses){
-
-            return Response::json(
-                array(
-                    'status' => true,
-                    'data' => $nurses
-                ),200
-            );
-
-        }else{
-            return Response::json(
-                array(
-                    'error' => ['msg' => 'Nurse data not found'],
-                ),404
-            );
-        }
-
-    }
-    public function Get_Doctors(){ 
-
-        $doctors = Doctor::get();
-
-        if($doctors){
-
-            return Response::json(
-                array(
-                    'status' => true,
-                    'data' => $doctors
-                ),200
-            );
-
-        }else{
-            return Response::json(
-                array(
-                    'error' => ['msg' => 'Doctor data not found'],
-                ),404
-            );
-        }
-
-    }
-    public function Get_Coupons(){ 
-
-        $coupons = Coupon::get();
-
-        if($coupons){
-
-            return Response::json(
-                array(
-                    'status' => true,
-                    'data' => $coupons
-                ),200
-            );
-
-        }else{
-            return Response::json(
-                array(
-                    'error' => ['msg' => 'Coupon data not found'],
-                ),404
-            );
-        }
-
     }
 
 

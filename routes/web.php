@@ -17,11 +17,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/patients', 'ApiController@Get_Patients')->name('patient.all');
 
-Route::get('/nurses', 'ApiController@Get_Nurses')->name('nurse.all');
-Route::get('/doctors', 'ApiController@Get_Doctors')->name('doctor.all');
-Route::get('/coupons', 'ApiController@Get_Coupons')->name('coupon.all');
 
 Auth::routes(['register' => false]);
 
