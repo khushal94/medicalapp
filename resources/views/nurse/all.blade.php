@@ -56,7 +56,7 @@
               <td class="text-center">
                 <a href="{{ url('nurse/view/'.$nurse->id) }}" class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>
                 <a href="{{ url('nurse/edit/'.$nurse->id) }}" class="btn btn-warning btn-circle btn-sm"><i class="fa fa-pen"></i></a>
-                <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
+                <a href="{{ url('nurse/destroy/'.$nurse->id) }}" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
               </td>
             </tr>
             @endforeach

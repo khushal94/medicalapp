@@ -10840,15 +10840,18 @@ a:focus {
 }
 
 .sidebar .sidebar-brand {
-	height: 4.375rem;
+	height: 100%;
 	text-decoration: none;
 	font-size: 1rem;
 	font-weight: 800;
-	padding: 1.5rem 1rem;
+	padding: .7rem 1rem;
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 0.05rem;
 	z-index: 1;
+	position: sticky;
+	top: 0;
+	background-color: #00c6ae;
 }
 
 .sidebar .sidebar-brand .sidebar-brand-icon i {

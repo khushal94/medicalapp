@@ -128,5 +128,13 @@ class NurseController extends Controller
 
     }
 
+	public function destroy($id){
+
+        Nurse::destroy($id);
+        return Redirect::route('nurse.all')->with('success', 'Nurse Deleted Successfully!');
+
+    }
+
+
 
 }
