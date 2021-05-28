@@ -96,6 +96,47 @@
                   </div>
                </li>
                <!-- Divider -->
+               <!-- Divider -->
+               <hr class="sidebar-divider">
+               <!-- Heading -->
+               <div class="sidebar-heading">
+                  <?php echo e(__('sentence.Speciality')); ?>
+
+               </div>
+               <!-- Nav Item - Pages Collapse Menu -->
+               <li class="nav-item">
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSpeciality" aria-expanded="true" aria-controls="collapseSpeciality">
+                  <i class="fas fa-fw fa-users"></i>
+                  <span><?php echo e(__('sentence.Speciality')); ?></span>
+                  </a>
+                  <div id="collapseSpeciality" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                     <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="<?php echo e(route('speciality.create')); ?>"><?php echo e(__('sentence.New Speciality')); ?></a>
+                        <a class="collapse-item" href="<?php echo e(route('speciality.all')); ?>"><?php echo e(__('sentence.All Speciality')); ?></a>
+                     </div>
+                  </div>
+               </li>
+               <!-- Divider -->
+               <!-- Divider -->
+               <hr class="sidebar-divider">
+               <!-- Heading -->
+               <div class="sidebar-heading">
+                  <?php echo e(__('sentence.Rating')); ?>
+
+               </div>
+               <!-- Nav Item - Pages Collapse Menu -->
+               <li class="nav-item">
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRating" aria-expanded="true" aria-controls="collapseRating">
+                  <i class="fas fa-fw fa-users"></i>
+                  <span><?php echo e(__('sentence.Rating')); ?></span>
+                  </a>
+                  <div id="collapseRating" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                     <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="<?php echo e(route('rating.all')); ?>"><?php echo e(__('sentence.All Ratings')); ?></a>
+                     </div>
+                  </div>
+               </li>
+               <!-- Divider -->
                <hr class="sidebar-divider">
                <!-- Heading -->
                <div class="sidebar-heading">

@@ -40,6 +40,7 @@ Route::get('/nurse/all', 'NurseController@all')->name('nurse.all');
 Route::get('/nurse/view/{id}', 'NurseController@view')->where('id', '[0-9]+')->name('nurse.view');
 Route::get('/nurse/edit/{id}', 'NurseController@edit')->where('id', '[0-9]+')->name('nurse.edit');
 Route::post('/nurse/edit', 'NurseController@store_edit')->name('nurse.store_edit');
+Route::get('/nurse/update/{id}/{status}', 'NurseController@update')->name('nurse.update');
 
 //Doctors
 Route::get('/doctor/create', 'DoctorController@create')->name('doctor.create');
@@ -48,6 +49,8 @@ Route::get('/doctor/all', 'DoctorController@all')->name('doctor.all');
 Route::get('/doctor/view/{id}', 'DoctorController@view')->where('id', '[0-9]+')->name('doctor.view');
 Route::get('/doctor/edit/{id}', 'DoctorController@edit')->where('id', '[0-9]+')->name('doctor.edit');
 Route::post('/doctor/edit', 'DoctorController@store_edit')->name('doctor.store_edit');
+Route::get('/doctor/update/{id}/{status}', 'DoctorController@update')->name('doctor.update');
+
 
 //Coupons
 Route::get('/coupon/create', 'CouponController@create')->name('coupon.create');
@@ -56,6 +59,18 @@ Route::get('/coupon/all', 'CouponController@all')->name('coupon.all');
 Route::get('/coupon/view/{id}', 'CouponController@view')->where('id', '[0-9]+')->name('coupon.view');
 Route::get('/coupon/edit/{id}', 'CouponController@edit')->where('id', '[0-9]+')->name('coupon.edit');
 Route::post('/coupon/edit', 'CouponController@store_edit')->name('coupon.store_edit');
+Route::get('/coupon/update/{id}/{status}', 'CouponController@update')->name('nurse.update');
+
+
+//Speciality
+Route::get('/speciality/create', 'SpecialityController@create')->name('speciality.create');
+Route::post('/speciality/create', 'SpecialityController@store')->name('speciality.store');
+Route::get('/speciality/all', 'SpecialityController@all')->name('speciality.all');
+Route::get('/speciality/view/{id}', 'SpecialityController@view')->where('id', '[0-9]+')->name('speciality.view');
+Route::get('/speciality/edit/{id}', 'SpecialityController@edit')->where('id', '[0-9]+')->name('speciality.edit');
+Route::post('/speciality/edit', 'SpecialityController@store_edit')->name('speciality.store_edit');
+Route::get('/speciality/update/{id}/{status}', 'SpecialityController@update')->name('speciality.update');
+
 
 //Appointments
 Route::get('/appointment/create', 'AppointmentController@create')->name('appointment.create');
@@ -97,6 +112,10 @@ Route::get('/billing/all', 'BillingController@all')->name('billing.all');
 Route::get('/billing/view/{id}', 'BillingController@view')->where('id', '[0-9]+')->name('billing.view');
 Route::get('/billing/pdf/{id}','BillingController@pdf')->where('id', '[0-9]+');
 Route::get('/billing/delete/{id}','BillingController@destroy');
+
+// Rating
+Route::get('/rating/all', 'ReviewRatingController@all')->name('rating.all');
+Route::get('/rating/update/{id}/{status}', 'ReviewRatingController@update')->name('rating.update');
 
 //Settings
 /* Doctorino Settings */

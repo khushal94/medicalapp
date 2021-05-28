@@ -40,7 +40,7 @@
                                 <div class="col-xl-4">
                                     <div class="uploadbox">
                                         <label class="upload_image">
-                                            <img src="{{ empty($doctor->Doctor->image) ? url('imgs/no-image.png') : url('imgs/doctors/' . $doctor->Doctor->image) }}"
+                                            <img src="{{ empty($doctor->Doctor->image) ? url('imgs/no-image.png') : url('imgs/' . $doctor->Doctor->image) }}"
                                                 alt="Upload Image" title="Upload Image">
                                             <input type="file" name="image" accept="image/*" id="image"
                                                 style="display: none">

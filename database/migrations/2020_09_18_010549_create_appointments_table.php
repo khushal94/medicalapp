@@ -18,10 +18,14 @@ class CreateAppointmentsTable extends Migration
             $table->foreignId('user_id')
                   ->constrained()
                   ->onDelete('cascade');   
+            $table->string('doctor_id');
+            $table->boolean('first_time')->default(0);
+            $table->boolean('covid_symptoms')->default(0);
             $table->date('date');
             $table->string('time_start');
             $table->string('time_end');
             $table->string('visited');
+            $table->string('description');
             $table->timestamps();
         });
     }

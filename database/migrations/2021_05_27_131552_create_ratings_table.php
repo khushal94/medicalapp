@@ -18,6 +18,7 @@ class CreateRatingsTable extends Migration
             $table->string('user_id');
             $table->string('count');
             $table->text('feedback');
+            $table->boolean('is_deleted')->default(0);
             $table->timestamps();
         });
     }

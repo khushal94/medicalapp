@@ -1,2 +1,8 @@
 1. ok, play store app store ke images laga ke ek section banana hai wo note kar lena baad me kar lenge.
-2. speciality list /add edit delete
+2. speciality list /add edit delete. - (id, name, icon)
+3. description, patient, rating in Doctor
+4. Rating - count, feedback
+5. Mobile App user listing add/edit/remove ()
+6. Lab Test - 50% 
+7. Medicine Request Listing Add/edit 50%
+8. 

@@ -144,10 +144,15 @@ class NurseController extends Controller
 
     }
 
-	public function destroy($id, $status){
-
-        $nurse = Nurse::where('user_id', $id)->update(['is_deleted' => $status]);
-        return Redirect::route('nurse.all')->with('success', 'Nurse Deleted Successfully!');
+	public function update($id, $status){
+		if($status == 0){
+			$nurse = Nurse::where('user_id', $id)->update(['is_deleted' => 1]);
+			$activeStatus = 'Nurse Deleted Successfully!';
+		} else{
+			$nurse = Nurse::where('user_id', $id)->update(['is_deleted' => 0]);
+			$activeStatus = 'Nurse Added Successfully';
+		}
+        return Redirect::route('nurse.all')->with('success', $activeStatus);
 
     }
 

@@ -25,7 +25,7 @@ class CreatePatientsTable extends Migration
             $table->mediumText('address')->nullable();
             $table->string('weight')->nullable();
             $table->string('height')->nullable();
-            $table->boolean('is_deleted')->default(1);
+            $table->boolean('is_deleted')->default(0);
             $table->timestamps();
         });
     }

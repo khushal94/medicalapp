@@ -32,7 +32,7 @@ class CreateNursesTable extends Migration
             $table->json('patient')->nullable();
             $table->string('rating')->nullable();
             $table->mediumText('address')->nullable();
-            $table->boolean('is_deleted')->default(1);
+            $table->boolean('is_deleted')->default(0);
             $table->timestamps();
         });
     }

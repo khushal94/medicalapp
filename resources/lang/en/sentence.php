@@ -13,6 +13,9 @@ return [
   'All Nurses' => 'All Nurses',
   'New Coupon' => 'New Coupon',
   'All Coupons' => 'All Coupons',
+  'New Speciality' => 'New Speciality',
+  'All Speciality' => 'All Speciality',
+  'All Specialities' => 'All Specialities',
   'Prescriptions' => 'Prescriptions',
   'Prescription' => 'Prescription',
   'New Prescription' => 'New Prescription',
@@ -237,5 +240,24 @@ return [
     'Percentage' => 'Percentage',
     'Coupon Updated Successfully' => 'Coupon Updated Successfully!',
     'Coupon Created Successfully' => 'Coupon Created Successfully!',
+
+    // Speciality
+    'Specialities' => 'Specialities', 
+    'Edit Speciality' => 'Edit Speciality',
+    'New Speciality' => 'New Speciality',
+    'New Specialities' => 'New Specialities',
+    'Speciality Name' => 'Speciality Name',
+    'Speciality Icon' => 'Speciality Icon',
+    'Speciality Updated Successfully' => 'Speciality Updated Successfully!',
+    'Speciality Created Successfully' => 'Speciality Created Successfully!',
+
+    // Rating
+    'Rating' => 'Rating',
+    'All Ratings' => 'All Ratings',
+    'Rating Name' => 'Rating Name',
+    'Feedback' => 'Feedback',
+    'All Ratings And Reviews' => 'All Ratings And Reviews',
+    'User Name' => 'User Name',
+    'Count' => 'Count',
 
 ];

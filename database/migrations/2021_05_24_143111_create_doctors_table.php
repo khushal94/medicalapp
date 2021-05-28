@@ -35,7 +35,7 @@ class CreateDoctorsTable extends Migration
             $table->string('experience');
             $table->string('image');
             $table->mediumText('address')->nullable();
-            $table->boolean('is_deleted')->default(1);
+            $table->boolean('is_deleted')->default(0);
             $table->timestamps();
         });
     }

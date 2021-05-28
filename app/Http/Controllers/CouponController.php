@@ -91,6 +91,18 @@ class CouponController extends Controller
     	return view('coupon.view', ['coupon' => $coupon]);
 
     }
+	public function update($id, $status){
+
+		if($status == 0){
+			$coupon = Coupon::where('id', $id)->update(['is_deleted' => 1]);
+			$activeStatus = 'Coupon Deleted Successfully!';
+		} else{
+			$coupon = Coupon::where('id', $id)->update(['is_deleted' => 0]);
+			$activeStatus = 'Coupon Added Successfully';
+		}
+        return Redirect::route('coupon.all')->with('success', $activeStatus);
+
+    }
 
 
 }

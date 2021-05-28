@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 27, 2021 at 05:21 PM
+-- Generation Time: May 27, 2021 at 06:06 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.3.28
 
@@ -119,6 +119,13 @@ CREATE TABLE `doctors` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `doctors`
+--
+
+INSERT INTO `doctors` (`id`, `user_id`, `name`, `email`, `phone`, `birthday`, `gender`, `city`, `state`, `country`, `lat`, `long`, `description`, `patient`, `rating`, `speciality`, `experience`, `image`, `address`, `is_deleted`, `created_at`, `updated_at`) VALUES
+(1, 21, 'fdsfsd', 'dfsfd@gmail.com', '545435', '05/03/2021', 'Male', 'dsf', 'fdsfds', 'India', NULL, NULL, NULL, NULL, NULL, 'Cardiology', '4', 'may/IMG.jpg', 'fdgfdg', 1, '2021-05-27 10:13:24', '2021-05-27 10:13:24');
 
 -- --------------------------------------------------------
 
@@ -243,6 +250,13 @@ CREATE TABLE `nurses` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `nurses`
+--
+
+INSERT INTO `nurses` (`id`, `user_id`, `name`, `email`, `birthday`, `phone`, `gender`, `city`, `state`, `country`, `lat`, `long`, `description`, `patient`, `rating`, `address`, `is_deleted`, `created_at`, `updated_at`) VALUES
+(3, 25, 'Jasvender', 'Jas@gmail.com', '05/02/2021', '45435345', 'Male', 'Udaipur', 'Rajasthan', 'India', '321321', '32321', 'dsad', NULL, NULL, 'vgfv', 1, '2021-05-27 10:26:30', '2021-05-27 10:26:30');
 
 -- --------------------------------------------------------
 
@@ -392,7 +406,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Kushal', 'doctor@gmail.com', NULL, '$2y$10$wAhPhOWOWNhNDCd4CbEVfe1LyFqgp9KGdefDJp65tV8HyhXbpfjwC', 'admin', 'ltt5gFDGPmMAGVOdsKrYgmRyeaJTAejvQ6Kzqjrs1Vmc0bLtiIsDL1KJ6rNT', NULL, NULL);
+(1, 'Kushal', 'doctor@gmail.com', NULL, '$2y$10$wAhPhOWOWNhNDCd4CbEVfe1LyFqgp9KGdefDJp65tV8HyhXbpfjwC', 'admin', 'ltt5gFDGPmMAGVOdsKrYgmRyeaJTAejvQ6Kzqjrs1Vmc0bLtiIsDL1KJ6rNT', NULL, NULL),
+(21, 'fdsfsd', 'dfsfd@gmail.com', NULL, '$2y$10$GeO5Yow.fXJSlYZ.hQxSCuYLJ70wd2kf/oGtWkX.efvnK1a6MVf6q', 'doctor', NULL, '2021-05-27 10:13:24', '2021-05-27 10:13:24'),
+(25, 'Jasvender', 'Jas@gmail.com', NULL, '$2y$10$O3l0R2hb/ZXTMtLNzvPF1OXI9Hcx/VwMfI.AZ8L71vdNk7IWqls0K', 'nurse', NULL, '2021-05-27 10:26:30', '2021-05-27 10:26:30');
 
 --
 -- Indexes for dumped tables
@@ -562,7 +578,7 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `drugs`
@@ -598,7 +614,7 @@ ALTER TABLE `nursebooking`
 -- AUTO_INCREMENT for table `nurses`
 --
 ALTER TABLE `nurses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `patients`
@@ -646,7 +662,7 @@ ALTER TABLE `tests`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Constraints for dumped tables

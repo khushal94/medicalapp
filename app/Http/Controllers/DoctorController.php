@@ -69,7 +69,7 @@ class DoctorController extends Controller
 			$destinationPath = '/imgs/doctors/'.strtolower(now()->monthName);			
 			// var_dump($name);
 			$image->move(public_path($destinationPath), $name);
-			$doctor = Doctor::where('user_id', $request->user_id)->update(['image' => $name,]);			
+			$doctor = Doctor::where('user_id', $request->user_id)->update(['image' => 'doctors/'.strtolower(now()->monthName).'/'.$name]);			
 		} 		
 		$doctor = Doctor::where('user_id', $request->user_id)
 			->update(['birthday' => $request->birthday,
@@ -136,7 +136,7 @@ class DoctorController extends Controller
 			$name            = 'IMG'.'.'.$image->getClientOriginalExtension();
 			$destinationPath = '/imgs/doctors/'.strtolower(now()->monthName);
 			$image->move(public_path($destinationPath), $name);
-			$doctor->image = strtolower(now()->monthName).'/'.$name;
+			$doctor->image = 'doctors/'.strtolower(now()->monthName).'/'.$name;
 			$doctor->save();
 
 		}
@@ -150,6 +150,18 @@ class DoctorController extends Controller
 
     	$doctor = User::findOrfail($id);
     	return view('doctor.view', ['doctor' => $doctor]);
+
+    }
+	public function update($id, $status){
+
+		if($status == 0){
+			$doctor = Doctor::where('id', $id)->update(['is_deleted' => 1]);
+			$activeStatus = 'Doctor Deleted Successfully!';
+		} else{
+			$doctor = Doctor::where('id', $id)->update(['is_deleted' => 0]);
+			$activeStatus = 'Doctor Added Successfully';
+		}
+        return Redirect::route('doctor.all')->with('success', $activeStatus);
 
     }
 
