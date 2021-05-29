@@ -1,26 +1,26 @@
-@extends('layouts.master')
+<?php $__env->startSection('title'); ?>
+    <?php echo e(__('sentence.New Patient')); ?>
 
-@section('title')
-    {{ __('sentence.New Patient') }}
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="row">
         <div class="col">
-            @if ($errors->any())
+            <?php if($errors->any()): ?>
                 <div class="alert alert-danger">
                     <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
+                        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <li><?php echo e($error); ?></li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ul>
                 </div>
-            @endif
-            @if (session('success'))
+            <?php endif; ?>
+            <?php if(session('success')): ?>
                 <div class="alert alert-success">
-                    {{ session('success') }}
+                    <?php echo e(session('success')); ?>
+
                 </div>
-            @endif
+            <?php endif; ?>
         </div>
 
     </div>
@@ -30,11 +30,12 @@
         <div class="col-xl-8 col-lg-6">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">{{ __('sentence.New Patient') }}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary"><?php echo e(__('sentence.New Patient')); ?></h6>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{ route('patient.create') }}" enctype="multipart/form-data">
-                        {{ csrf_field() }}
+                    <form method="post" action="<?php echo e(route('patient.create')); ?>" enctype="multipart/form-data">
+                        <?php echo e(csrf_field()); ?>
+
                         <div class="row">
                             <div class="col-xl-4">
                                 <div class="box">
@@ -51,64 +52,67 @@
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
-                                            <label for="inputEmail3" class="col-form-label">{{ __('sentence.Full Name') }}
+                                            <label for="inputEmail3" class="col-form-label"><?php echo e(__('sentence.Full Name')); ?>
+
                                                 <font color="red">*
                                                 </font>
                                             </label>
                                             <input type="text" class="form-control" id="inputEmail3" name="name"
-                                                placeholder="{{ __('sentence.Full Name') }}">
+                                                placeholder="<?php echo e(__('sentence.Full Name')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label">{{ __('sentence.Email Address') }}<font
+                                                class="col-form-label"><?php echo e(__('sentence.Email Address')); ?><font
                                                     color="red">*
                                                 </font></label>
                                             <input type="email" class="form-control" id="inputPassword3" name="email"
-                                                placeholder="{{ __('sentence.Email Address') }}">
+                                                placeholder="<?php echo e(__('sentence.Email Address')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label">{{ __('sentence.Birthday') }}
+                                                class="col-form-label"><?php echo e(__('sentence.Birthday')); ?>
+
                                                 <font color="red">*
                                                 </font>
                                             </label>
                                             <input type="text" class="form-control birthday" id="birthday" readonly
                                                 name="birthday" autocomplete="off"
-                                                placeholder="{{ __('sentence.Birthday') }}">
+                                                placeholder="<?php echo e(__('sentence.Birthday')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label">{{ __('sentence.Phone') }}</label>
+                                                class="col-form-label"><?php echo e(__('sentence.Phone')); ?></label>
                                             <input type="text" class="form-control" id="inputPassword3" name="phone"
-                                                placeholder="{{ __('sentence.Phone') }}">
+                                                placeholder="<?php echo e(__('sentence.Phone')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label">{{ __('sentence.Gender') }}
+                                                class="col-form-label"><?php echo e(__('sentence.Gender')); ?>
+
                                                 <font color="red">
                                                     *
                                                 </font>
                                             </label>
                                             <select class="form-control" name="gender">
-                                                <option value="Male">{{ __('sentence.Male') }}</option>
-                                                <option value="Female">{{ __('sentence.Female') }}</option>
+                                                <option value="Male"><?php echo e(__('sentence.Male')); ?></option>
+                                                <option value="Female"><?php echo e(__('sentence.Female')); ?></option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label">{{ __('sentence.Blood Group') }}</label>
+                                                class="col-form-label"><?php echo e(__('sentence.Blood Group')); ?></label>
                                             <select class="form-control" name="blood">
-                                                <option value="Unknown">{{ __('sentence.Unknown') }}</option>
+                                                <option value="Unknown"><?php echo e(__('sentence.Unknown')); ?></option>
                                                 <option value="A+">A+</option>
                                                 <option value="A-">A-</option>
                                                 <option value="B+">B+</option>
@@ -123,32 +127,32 @@
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label">{{ __('sentence.Address') }}</label>
+                                                class="col-form-label"><?php echo e(__('sentence.Address')); ?></label>
                                             <input type="text" class="form-control" id="inputPassword3" name="address"
-                                                placeholder="{{ __('sentence.Address') }}">
+                                                placeholder="<?php echo e(__('sentence.Address')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label">{{ __('sentence.Patient Weight') }}</label>
+                                                class="col-form-label"><?php echo e(__('sentence.Patient Weight')); ?></label>
                                             <input type="text" class="form-control" id="inputPassword3" name="weight"
-                                                placeholder="{{ __('sentence.Patient Weight') }}">
+                                                placeholder="<?php echo e(__('sentence.Patient Weight')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label">{{ __('sentence.Patient Height') }}</label>
+                                                class="col-form-label"><?php echo e(__('sentence.Patient Height')); ?></label>
                                             <input type="text" class="form-control" id="inputPassword3" name="height"
-                                                placeholder="{{ __('sentence.Patient Height') }}">
+                                                placeholder="<?php echo e(__('sentence.Patient Height')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
                                             <div class="text-right">
                                                 <button type="submit"
-                                                    class="btn btn-primary">{{ __('sentence.Save') }}</button>
+                                                    class="btn btn-primary"><?php echo e(__('sentence.Save')); ?></button>
                                             </div>
                                         </div>
                                     </div>
@@ -163,12 +167,14 @@
 
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('header')
+<?php $__env->startSection('header'); ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('footer')
+<?php $__env->startSection('footer'); ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\xampp\htdocs\doctor1\resources\views/patient/create.blade.php ENDPATH**/ ?>

@@ -67,6 +67,19 @@ class NurseController extends Controller
             'state' => ['required'],
 
     	]);
+		if ($request->hasFile('image')) {
+			$validatedData = $request->validate([
+				'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+			]);
+			if(!empty($request->image) && file_exists(public_path().'/imgs/nurses/'.strtolower(now()->monthName).'/'.$request->image)) {
+				unlink(public_path().'/imgs/nurses/'.strtolower(now()->monthName).'/'.$request->image);
+			}
+			$image           = $request->file('image');
+			$name            = 'IMG'.$request->user_id.'.'.$image->getClientOriginalExtension();
+			$destinationPath = '/imgs/nurses/'.strtolower(now()->monthName);	
+			$image->move(public_path($destinationPath), $name);
+			$nurse = Nurse::where('user_id', $request->user_id)->update(['image' => 'nurses/'.strtolower(now()->monthName).'/'.$name]);			
+		} 
 
     	$user = User::find($request->user_id);
 		$user->email = $request->email;
@@ -104,7 +117,7 @@ class NurseController extends Controller
             'gender' => ['required'],
 			'city' => ['required'],
             'state' => ['required'],
-
+			'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     	]);
 
     	$user = new User();
@@ -129,7 +142,11 @@ class NurseController extends Controller
 		$nurse->description = $request->description;
 		$nurse->lat = $request->lat;
 		$nurse->long = $request->long;
-		// echo $nurse;
+		$image           = $request->file('image');
+		$name            = 'IMG'.'.'.$image->getClientOriginalExtension();
+		$destinationPath = '/imgs/nurses/'.strtolower(now()->monthName);
+		$image->move(public_path($destinationPath), $name);
+		$nurse->image = 'nurses/'.strtolower(now()->monthName).'/'.$name;
 		$nurse->save();
 
 		return Redirect::route('nurse.all')->with('success', __('sentence.Nurse Created Successfully'));

@@ -9947,7 +9947,7 @@ button.bg-dark:hover {
 }
 .upload_image img {
 	width: 100%;
-	object-fit: contain;
+	object-fit: cover;
 }
 a.text-primary:focus,
 a.text-primary:hover {

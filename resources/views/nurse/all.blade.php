@@ -42,6 +42,7 @@
                             <th>ID</th>
                             <th>{{ __('sentence.Nurse Name') }}</th>
                             <th class="text-center">{{ __('sentence.Email') }}</th>
+                            <th class="text-center">{{ __('sentence.Image') }}</th>
                             <th class="text-center">{{ __('sentence.Date') }}</th>
                             <th class="text-center">{{ __('sentence.Actions') }}</th>
                         </tr>
@@ -53,6 +54,9 @@
                                 <td>{{ $nurse->id }}</td>
                                 <td><a href="{{ url('nurse/view/' . $nurse->id) }}"> {{ $nurse->name }} </a></td>
                                 <td class="text-center"> {{ $nurse->email }} </td>
+                                <td class="text-center"><img
+                                        src="{{ empty($nurse->Nurse->image) ? url('imgs/no-image.png') : url('imgs/' . $nurse->Nurse->image) }}"
+                                        style="width: 200px;height:200px;object-fit:cover"></td>
                                 <td class="text-center">{{ $nurse->created_at->format('d M Y H:i') }}</td>
                                 <td class="text-center">
                                     <a href="{{ url('nurse/view/' . $nurse->id) }}"

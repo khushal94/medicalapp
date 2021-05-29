@@ -49,6 +49,19 @@ class PatientController extends Controller
             'gender' => ['required'],
 
     	]);
+		if ($request->hasFile('image')) {
+			$validatedData = $request->validate([
+				'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+			]);
+			if(!empty($request->image) && file_exists(public_path().'/imgs/patients/'.strtolower(now()->monthName).'/'.$request->image)) {
+				unlink(public_path().'/imgs/patients/'.strtolower(now()->monthName).'/'.$request->image);
+			}
+			$image           = $request->file('image');
+			$name            = 'IMG'.$request->user_id.'.'.$image->getClientOriginalExtension();
+			$destinationPath = '/imgs/patients/'.strtolower(now()->monthName);	
+			$image->move(public_path($destinationPath), $name);
+			$patient = Patient::where('user_id', $request->user_id)->update(['image' => 'patients/'.strtolower(now()->monthName).'/'.$name]);			
+		}
 
     	$user = User::find($request->user_id);
 		$user->email = $request->email;
@@ -79,7 +92,7 @@ class PatientController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'birthday' => ['required'],
             'gender' => ['required'],
-
+			'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     	]);
 
     	$user = new User();
@@ -98,6 +111,11 @@ class PatientController extends Controller
 		$patient->address = $request->address;
 		$patient->weight = $request->weight;
 		$patient->height = $request->height;
+		$image           = $request->file('image');
+		$name            = 'IMG'.'.'.$image->getClientOriginalExtension();
+		$destinationPath = '/imgs/patients/'.strtolower(now()->monthName);
+		$image->move(public_path($destinationPath), $name);
+		$patient->image = 'patients/'.strtolower(now()->monthName).'/'.$name;
 		$patient->save();
 
 		return Redirect::route('patient.all')->with('success', __('sentence.Patient Created Successfully'));

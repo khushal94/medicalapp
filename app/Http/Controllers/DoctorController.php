@@ -52,11 +52,7 @@ class DoctorController extends Controller
 			'speciality' => ['required'],
 			'experience' => ['required'],
 		]);
-		// $user = User::find($request->user_id);
-		// $user->email = $request->email;
-		// $user->name = $request->name;
-		// $user->role = 'doctor';
-		// $user->update();
+		
 		if ($request->hasFile('image')) {
 			$validatedData = $request->validate([
 				'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -70,7 +66,12 @@ class DoctorController extends Controller
 			// var_dump($name);
 			$image->move(public_path($destinationPath), $name);
 			$doctor = Doctor::where('user_id', $request->user_id)->update(['image' => 'doctors/'.strtolower(now()->monthName).'/'.$name]);			
-		} 		
+		} 
+		$user = User::find($request->user_id);
+		$user->email = $request->email;
+		$user->name = $request->name;
+		$user->role = 'doctor';
+		$user->update();		
 		$doctor = Doctor::where('user_id', $request->user_id)
 			->update(['birthday' => $request->birthday,
 				'phone' => $request->phone,

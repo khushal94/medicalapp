@@ -1,26 +1,26 @@
-@extends('layouts.master')
+<?php $__env->startSection('title'); ?>
+    <?php echo e(__('sentence.New Nurse')); ?>
 
-@section('title')
-    {{ __('sentence.New Nurse') }}
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="row">
         <div class="col">
-            @if ($errors->any())
+            <?php if($errors->any()): ?>
                 <div class="alert alert-danger">
                     <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
+                        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <li><?php echo e($error); ?></li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ul>
                 </div>
-            @endif
-            @if (session('success'))
+            <?php endif; ?>
+            <?php if(session('success')): ?>
                 <div class="alert alert-success">
-                    {{ session('success') }}
+                    <?php echo e(session('success')); ?>
+
                 </div>
-            @endif
+            <?php endif; ?>
         </div>
 
     </div>
@@ -30,11 +30,12 @@
         <div class="col-xl-8 col-lg-6">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">{{ __('sentence.New Nurse') }}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary"><?php echo e(__('sentence.New Nurse')); ?></h6>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{ route('nurse.store') }}" enctype="multipart/form-data">
-                        {{ csrf_field() }}
+                    <form method="post" action="<?php echo e(route('nurse.store')); ?>">
+                        <?php echo e(csrf_field()); ?>
+
                         <input type="hidden" class="form-control" id="inputPassword3" name="role" value="nurse">
                         <div class="row">
                             <div class="col-xl-4">
@@ -52,75 +53,77 @@
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
-                                            <label for="inputEmail3" class="col-form-label">{{ __('sentence.Full Name') }}
+                                            <label for="inputEmail3" class="col-form-label"><?php echo e(__('sentence.Full Name')); ?>
+
                                                 <font color="red">*
                                                 </font>
                                             </label>
                                             <input type="text" class="form-control" id="inputEmail3" name="name"
-                                                placeholder="{{ __('sentence.Full Name') }}">
+                                                placeholder="<?php echo e(__('sentence.Full Name')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label">{{ __('sentence.Email Address') }}
+                                                class="col-form-label"><?php echo e(__('sentence.Email Address')); ?>
+
                                                 <font color="red">*</font>
                                             </label>
                                             <input type="email" class="form-control" id="inputPassword3" name="email"
-                                                placeholder="{{ __('sentence.Email Address') }}">
+                                                placeholder="<?php echo e(__('sentence.Email Address')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label">{{ __('sentence.Birthday') }}<font color="red">*
+                                                class="col-form-label"><?php echo e(__('sentence.Birthday')); ?><font color="red">*
                                                 </font></label>
                                             <input type="text" class="form-control birthday" id="birthday" readonly
                                                 name="birthday" autocomplete="off"
-                                                placeholder="{{ __('sentence.Birthday') }}">
+                                                placeholder="<?php echo e(__('sentence.Birthday')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label">{{ __('sentence.Phone') }}</label>
+                                                class="col-form-label"><?php echo e(__('sentence.Phone')); ?></label>
                                             <input type="number" class="form-control" id="inputPassword3" name="phone"
-                                                placeholder="{{ __('sentence.Phone') }}">
+                                                placeholder="<?php echo e(__('sentence.Phone')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label">{{ __('sentence.Gender') }}<font color="red">*
+                                                class="col-form-label"><?php echo e(__('sentence.Gender')); ?><font color="red">*
                                                 </font></label>
                                             <select class="form-control" name="gender">
-                                                <option value="Male">{{ __('sentence.Male') }}</option>
-                                                <option value="Female">{{ __('sentence.Female') }}</option>
+                                                <option value="Male"><?php echo e(__('sentence.Male')); ?></option>
+                                                <option value="Female"><?php echo e(__('sentence.Female')); ?></option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label">{{ __('sentence.Address') }}</label>
+                                                class="col-form-label"><?php echo e(__('sentence.Address')); ?></label>
                                             <input type="text" class="form-control" id="inputPassword3" name="address"
-                                                placeholder="{{ __('sentence.Address') }}">
+                                                placeholder="<?php echo e(__('sentence.Address')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="lat"
-                                                class="col-form-label">{{ __('sentence.Lattitude') }}</label>
+                                                class="col-form-label"><?php echo e(__('sentence.Lattitude')); ?></label>
                                             <input type="text" class="form-control" id="lat" name="lat"
-                                                placeholder="{{ __('sentence.Lattitude') }}">
+                                                placeholder="<?php echo e(__('sentence.Lattitude')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="long"
-                                                class="col-form-label">{{ __('sentence.Longitude') }}</label>
+                                                class="col-form-label"><?php echo e(__('sentence.Longitude')); ?></label>
                                             <input type="text" class="form-control" id="long" name="long"
-                                                placeholder="{{ __('sentence.Longitude') }}">
+                                                placeholder="<?php echo e(__('sentence.Longitude')); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -129,26 +132,29 @@
                         <div class="row">
                             <div class="col-xl-4 col-lg-12 col-md-6">
                                 <div class="form-group">
-                                    <label for="city" class="col-form-label">{{ __('sentence.City') }}
+                                    <label for="city" class="col-form-label"><?php echo e(__('sentence.City')); ?>
+
                                         <font color="red">*
                                         </font>
                                     </label>
                                     <input type="text" class="form-control" id="city" name="city"
-                                        placeholder="{{ __('sentence.City') }}">
+                                        placeholder="<?php echo e(__('sentence.City')); ?>">
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-12 col-md-6">
                                 <div class="form-group">
-                                    <label for="state" class="col-form-label">{{ __('sentence.State') }}
+                                    <label for="state" class="col-form-label"><?php echo e(__('sentence.State')); ?>
+
                                         <font color="red">*</font>
                                     </label>
                                     <input type="text" class="form-control" id="state" name="state"
-                                        placeholder="{{ __('sentence.State') }}">
+                                        placeholder="<?php echo e(__('sentence.State')); ?>">
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-12 col-md-6">
                                 <div class="form-group">
-                                    <label for="country" class="col-form-label">{{ __('sentence.Country') }}
+                                    <label for="country" class="col-form-label"><?php echo e(__('sentence.Country')); ?>
+
                                         <font color="red">*
                                         </font>
                                     </label>
@@ -159,16 +165,16 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="description"
-                                        class="col-form-label">{{ __('sentence.Description') }}</label>
+                                        class="col-form-label"><?php echo e(__('sentence.Description')); ?></label>
                                     <textarea rows="3" class="form-control" id="description" name="description"
-                                        placeholder="{{ __('sentence.Description') }}"></textarea>
+                                        placeholder="<?php echo e(__('sentence.Description')); ?>"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <div class="text-right">
                                         <button type="submit"
-                                            class="btn btn-primary">{{ __('sentence.Save') }}</button>
+                                            class="btn btn-primary"><?php echo e(__('sentence.Save')); ?></button>
                                     </div>
                                 </div>
                             </div>
@@ -181,12 +187,14 @@
 
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('header')
+<?php $__env->startSection('header'); ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('footer')
+<?php $__env->startSection('footer'); ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\xampp\htdocs\doctor1\resources\views/nurse/create.blade.php ENDPATH**/ ?>

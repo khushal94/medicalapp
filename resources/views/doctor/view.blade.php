@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="col-md-4 col-sm-6">
                             <center><img src="{{ empty($doctor->Doctor->image) ? asset('img/patient-icon.png') : url('imgs/'.$doctor->Doctor->image) }}"
-                                    class="img-profile rounded-circle img-fluid" style="width: 400px; height:400px"></center>
+                                    class="img-profile img-fluid" style="width: 400px; height:400px"></center>
                             <h4 class="text-center"><b>{{ $doctor->name }}</b></h4>
                             <hr>
                             @isset($doctor->Doctor->birthday)
