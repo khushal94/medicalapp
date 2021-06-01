@@ -11,7 +11,9 @@ use App\Patient;
 use App\Doctor;
 use App\Nurse;
 use App\Appointment;
+use App\Drug;
 use App\Setting;
+use App\Order;
 use Response;
 use Redirect;
 use Hash;
@@ -224,7 +226,6 @@ class ApiController extends Controller
 
     public function Get_Nurses(Request $request)
     {
-
         $Nurses = Nurse::get();
         if ($Nurses) {
             return Response::json(
@@ -355,17 +356,142 @@ class ApiController extends Controller
         }
     }
 
-    public function Upload_Prescription(Request $request){
-     
-            
+    public function Upload_Prescription(Request $request)
+    {
         $image = $request->base64_image;  // your base64 encoded
         $image = str_replace('data:image/png;base64,', '', $image);
         $image = str_replace(' ', '+', $image);
         $imageName =   'test.png';
     
         Storage::disk('local')->put($imageName, base64_decode($image));
-         
     }
 
+    public function Search_Drugs(Request $request)
+    {
+        $medicine_name = $request->medicine_name;
+        $drugs = Drug::where('generic_name', 'like', "%{$medicine_name}%")->get();
 
+        if ($drugs) {
+            return Response::json(
+                array(
+                'status' => true,
+                'data' => $drugs
+            ),
+                200
+            );
+        } else {
+            return Response::json(
+                array(
+                'status' => false,
+                'msg' => 'Medicine not found'
+            ),
+                201
+            );
+        }
+    }
+
+    public function Create_Order(Request $request)
+    {
+        $order = new Order();
+
+        $order->user_id = $request->user_id;
+        $order->medicines = $request->medicines;
+        $order->save();
+
+        if ($order) {
+            return Response::json(
+                array(
+                    'status' => true,
+                    'data' => $order,
+                    'msg' => 'Order Created Successfully, Please Wait..'
+                ),
+                200
+            );
+        } else {
+            return Response::json(
+                array(
+                    'status' => false,
+                    'msg' => 'Error occured while saving your order, please try again..'
+                ),
+                201
+            );
+        }
+    }
+
+    public function Get_Orders(Request $request)
+    {
+        $order = Order::first();
+        $order->medicines = json_decode($order->medicines);
+
+
+        if ($order) {
+            return Response::json(
+                array(
+                    'status' => true,
+                    'data' => $order,
+                    'msg' => 'Order Created Successfully, Please Wait..'
+                ),
+                200
+            );
+        }
+    }
+
+    public function Get_UserData(Request $request)
+    {
+        $id = $request->user_id;
+        $patient = Patient::where('user_id', $id)->first();
+        $user = User::where('id', $id)->first();
+
+        $patient->name = $user->name;
+        $patient->email = $user->email;
+        if ($patient) {
+            return Response::json(
+                array(
+                    'status' => true,
+                    'data' => $patient,
+                    'msg' => 'User Fetched'
+                ),
+                200
+            );
+        } else {
+            return Response::json(
+                array(
+                    'status' => false,
+                    'msg' => 'Error occured while fetching user data, please try again..'
+                ),
+                201
+            );
+        }
+    }
+
+    public function Update_User(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'birthday' => ['required'],
+            'gender' => ['required'],
+
+        ]);
+
+        $user = User::find($request->user_id);
+        $user->name = $request->name;
+        $user->update();
+
+        $patient = Patient::where('user_id', $request->user_id)
+                    ->update(['birthday' => $request->birthday,
+                    'gender' => $request->gender,
+                    'blood' => $request->blood,
+                    'address' => $request->address,
+                    'weight' => $request->weight,
+                    'height' => $request->height]);
+
+        return Response::json(
+            array(
+                'status' => true,
+                'data' => $patient,
+                'msg' => 'User Fetched'
+            ),
+            200
+        );
+    }
 }
