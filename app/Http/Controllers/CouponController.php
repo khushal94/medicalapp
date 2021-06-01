@@ -46,6 +46,19 @@ class CouponController extends Controller
             'endingdate' => ['required'],
 
     	]);
+		if ($request->hasFile('image')) {
+			$validatedData = $request->validate([
+				'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+			]);
+			if(!empty($request->image) && file_exists(public_path().'/imgs/coupons/'.strtolower(now()->monthName).'/'.$request->image)) {
+				unlink(public_path().'/imgs/coupons/'.strtolower(now()->monthName).'/'.$request->image);
+			}
+			$image           = $request->file('image');
+			$name            = 'IMG'.time().'.'.$image->getClientOriginalExtension();
+			$destinationPath = '/imgs/coupons/'.strtolower(now()->monthName);	
+			$image->move(public_path($destinationPath), $name);
+			$coupon = Coupon::where('id', $request->id)->update(['image' => 'coupons/'.strtolower(now()->monthName).'/'.$name]);			
+		}
 
 		$coupon = Coupon::where('id', $request->id)->update(['name' => $request->name,
 								'code' => $request->code,
@@ -68,7 +81,8 @@ class CouponController extends Controller
             'discount_type' => ['required'],
             'minimum_amount' => ['required', 'max:7'],
             'startingdate' => ['required'],
-            'endingdate' => ['required']
+            'endingdate' => ['required'],
+			'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     	]);
 		$coupon = new Coupon();
 		$coupon->name = $request->name;
@@ -78,6 +92,11 @@ class CouponController extends Controller
 		$coupon->minimum_amount = $request->minimum_amount;
 		$coupon->startingdate = $request->startingdate;
 		$coupon->endingdate = $request->endingdate;
+		$image           = $request->file('image');
+		$name            = 'IMG'.time().'.'.$image->getClientOriginalExtension();
+		$destinationPath = '/imgs/coupons/'.strtolower(now()->monthName);
+		$image->move(public_path($destinationPath), $name);
+		$coupon->image = 'coupons/'.strtolower(now()->monthName).'/'.$name;
 		$coupon->save();
 
 		return Redirect::route('coupon.all')->with('success', __('sentence.Coupon Created Successfully'));

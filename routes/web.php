@@ -59,7 +59,16 @@ Route::get('/coupon/all', 'CouponController@all')->name('coupon.all');
 Route::get('/coupon/view/{id}', 'CouponController@view')->where('id', '[0-9]+')->name('coupon.view');
 Route::get('/coupon/edit/{id}', 'CouponController@edit')->where('id', '[0-9]+')->name('coupon.edit');
 Route::post('/coupon/edit', 'CouponController@store_edit')->name('coupon.store_edit');
-Route::get('/coupon/update/{id}/{status}', 'CouponController@update')->name('nurse.update');
+Route::get('/coupon/update/{id}/{status}', 'CouponController@update')->name('coupon.update');
+
+//Orders
+Route::get('/order/create', 'OrderController@create')->name('order.create');
+Route::post('/order/create', 'OrderController@store')->name('order.store');
+Route::get('/order/all', 'OrderController@all')->name('order.all');
+Route::get('/order/view/{id}', 'OrderController@view')->where('id', '[0-9]+')->name('order.view');
+Route::get('/order/edit/{id}', 'OrderController@edit')->where('id', '[0-9]+')->name('order.edit');
+Route::post('/order/edit', 'OrderController@store_edit')->name('order.store_edit');
+Route::get('/order/update/{id}/{status}', 'OrderController@update')->name('order.update');
 
 
 //Speciality

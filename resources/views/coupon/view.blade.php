@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 col-sm-6">
-                            <center><img src="{{ asset('img/patient-icon.png') }}"
+                            <center><img src="{{ empty($coupon->image) ? asset('img/patient-icon.png') : url('imgs/' . $coupon->image) }}"
                                     class="img-profile rounded-circle img-fluid"></center>
                             <h4 class="text-center"><b>{{ $coupon->name }}</b></h4>
                             <hr>

@@ -41,6 +41,7 @@
                         <tr>
                             <th>ID</th>
                             <th>{{ __('sentence.Coupon Name') }}</th>
+                            <th class="text-center">{{ __('sentence.Image') }}</th>
                             <th class="text-center">{{ __('sentence.Coupon Code') }}</th>
                             <th class="text-center">{{ __('sentence.Discount Type') }}</th>
                             <th class="text-center">{{ __('sentence.Discount Amount') }}</th>
@@ -55,6 +56,9 @@
                             <tr>
                                 <td>{{ $coupon->id }}</td>
                                 <td><a href="{{ url('coupon/view/' . $coupon->id) }}"> {{ $coupon->name }} </a></td>
+                                <td class="text-center"><img
+                                    src="{{ empty($coupon->image) ? url('imgs/no-image.png') : url('imgs/' . $coupon->image) }}"
+                                    style="width: 200px;height:200px;object-fit:cover"></td>
                                 <td class="text-center"> {{ $coupon->code }} </td>
                                 <td class="text-center"> 
                                   @if($coupon->discount_type == 'A')

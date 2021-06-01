@@ -134,7 +134,7 @@ class DoctorController extends Controller
 			$doctor->lat = $request->lat;
 			$doctor->long = $request->long;
 			$image           = $request->file('image');
-			$name            = 'IMG'.'.'.$image->getClientOriginalExtension();
+			$name            = 'IMG'.time().'.'.$image->getClientOriginalExtension();
 			$destinationPath = '/imgs/doctors/'.strtolower(now()->monthName);
 			$image->move(public_path($destinationPath), $name);
 			$doctor->image = 'doctors/'.strtolower(now()->monthName).'/'.$name;

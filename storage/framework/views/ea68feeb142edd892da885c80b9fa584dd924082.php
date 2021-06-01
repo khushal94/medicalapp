@@ -1,26 +1,26 @@
-@extends('layouts.master')
+<?php $__env->startSection('title'); ?>
+    <?php echo e(__('sentence.New Coupon')); ?>
 
-@section('title')
-    {{ __('sentence.New Coupon') }}
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="row">
         <div class="col">
-            @if ($errors->any())
+            <?php if($errors->any()): ?>
                 <div class="alert alert-danger">
                     <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
+                        <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <li><?php echo e($error); ?></li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ul>
                 </div>
-            @endif
-            @if (session('success'))
+            <?php endif; ?>
+            <?php if(session('success')): ?>
                 <div class="alert alert-success">
-                    {{ session('success') }}
+                    <?php echo e(session('success')); ?>
+
                 </div>
-            @endif
+            <?php endif; ?>
         </div>
 
     </div>
@@ -30,11 +30,12 @@
         <div class="col-md-8">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">{{ __('sentence.New Coupon') }}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary"><?php echo e(__('sentence.New Coupon')); ?></h6>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="{{ route('coupon.store') }}" enctype="multipart/form-data">
-                        {{ csrf_field() }}
+                    <form method="post" action="<?php echo e(route('coupon.store')); ?>" enctype="multipart/form-data">
+                        <?php echo e(csrf_field()); ?>
+
                         <div class="row">
                             <div class="col-xl-4">
                                 <div class="box">
@@ -51,69 +52,74 @@
                                 <div class="row">
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
-                                            <label for="name" class="col-form-label">{{ __('sentence.Coupon Name') }}
+                                            <label for="name" class="col-form-label"><?php echo e(__('sentence.Coupon Name')); ?>
+
                                                 <font color="red">*</font>
                                             </label>
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="{{ __('sentence.Coupon Name') }}">
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="<?php echo e(__('sentence.Coupon Name')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
-                                            <label for="code" class="col-form-label">{{ __('sentence.Coupon Code') }}
+                                            <label for="code" class="col-form-label"><?php echo e(__('sentence.Coupon Code')); ?>
+
                                                 <font color="red">*</font>
                                             </label>
-                                            <input type="text" class="form-control" id="code" name="code" placeholder="{{ __('sentence.Coupon Code') }}">
+                                            <input type="text" class="form-control" id="code" name="code" placeholder="<?php echo e(__('sentence.Coupon Code')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="discount_amount"
-                                                class="col-form-label">{{ __('sentence.Discount Amount') }}<font
+                                                class="col-form-label"><?php echo e(__('sentence.Discount Amount')); ?><font
                                                     color="red">*
                                                 </font></label>
                                             <input type="number" class="form-control" id="discount_amount"
-                                                name="discount_amount" autocomplete="off" placeholder="{{ __('sentence.Discount Amount') }}">
+                                                name="discount_amount" autocomplete="off" placeholder="<?php echo e(__('sentence.Discount Amount')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="discount_type"
-                                                class="col-form-label">{{ __('sentence.Discount Type') }}
+                                                class="col-form-label"><?php echo e(__('sentence.Discount Type')); ?>
+
                                                 <font color="red">*</font>
                                             </label>
                                             <select class="form-control" name="discount_type">
-                                                <option value="A">{{ __('sentence.Amount') }}</option>
-                                                <option value="P">{{ __('sentence.Percentage') }}</option>
+                                                <option value="A"><?php echo e(__('sentence.Amount')); ?></option>
+                                                <option value="P"><?php echo e(__('sentence.Percentage')); ?></option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="minimum_amount"
-                                                class="col-form-label">{{ __('sentence.Minimum Amount') }}</label>
+                                                class="col-form-label"><?php echo e(__('sentence.Minimum Amount')); ?></label>
                                             <input type="text" class="form-control" id="minimum_amount"
-                                                name="minimum_amount" placeholder="{{ __('sentence.Minimum Amount') }}">
+                                                name="minimum_amount" placeholder="<?php echo e(__('sentence.Minimum Amount')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="startingdate"
-                                                class="col-form-label">{{ __('sentence.Starting Date') }}
+                                                class="col-form-label"><?php echo e(__('sentence.Starting Date')); ?>
+
                                                 <font color="red">*
                                                 </font>
                                             </label>
                                             <input type="text" class="form-control" id="startingdate" name="startingdate"
-                                                autocomplete="off" readonly placeholder="{{ __('sentence.Starting Date') }}">
+                                                autocomplete="off" readonly placeholder="<?php echo e(__('sentence.Starting Date')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
-                                            <label for="rdvdate" class="col-form-label">{{ __('sentence.Ending Date') }}
+                                            <label for="rdvdate" class="col-form-label"><?php echo e(__('sentence.Ending Date')); ?>
+
                                                 <font color="red">*
                                                 </font>
                                             </label>
                                             <input type="text" class="form-control" id="endingdate" name="endingdate"
-                                                autocomplete="off" readonly placeholder="{{ __('sentence.Ending Date') }}">
+                                                autocomplete="off" readonly placeholder="<?php echo e(__('sentence.Ending Date')); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -121,7 +127,7 @@
                             <div class="col-12">
                                 <div class="text-right">
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">{{ __('sentence.Save') }}</button>
+                                        <button type="submit" class="btn btn-primary"><?php echo e(__('sentence.Save')); ?></button>
                                     </div>
                                 </div>
                             </div>
@@ -134,12 +140,14 @@
 
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('header')
+<?php $__env->startSection('header'); ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('footer')
+<?php $__env->startSection('footer'); ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\xampp\htdocs\doctor1\resources\views/coupon/create.blade.php ENDPATH**/ ?>

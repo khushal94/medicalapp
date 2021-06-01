@@ -13,6 +13,8 @@ return [
   'All Nurses' => 'All Nurses',
   'New Coupon' => 'New Coupon',
   'All Coupons' => 'All Coupons',
+  'New Order' => 'New Order',
+  'All Orders' => 'All Orders',
   'New Speciality' => 'New Speciality',
   'All Speciality' => 'All Speciality',
   'All Specialities' => 'All Specialities',
@@ -259,5 +261,16 @@ return [
     'All Ratings And Reviews' => 'All Ratings And Reviews',
     'User Name' => 'User Name',
     'Count' => 'Count',
+
+    // Orders
+    'Order' => 'Order', 
+    'Edit Order' => 'Edit Order',
+    'New Orders' => 'New Orders',
+    'Order Name' => 'Order Name',
+    'Order Email' => 'Order Email',
+    'Order Contact' => 'Order Contact',
+    'Order Phone' => 'Order Phone',
+    'Order Updated Successfully' => 'Order Updated Successfully!',
+    'Order Created Successfully' => 'Order Created Successfully!',
 
 ];

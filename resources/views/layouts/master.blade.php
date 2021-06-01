@@ -135,6 +135,26 @@
                <hr class="sidebar-divider">
                <!-- Heading -->
                <div class="sidebar-heading">
+                  {{ __('sentence.Order') }}
+               </div>
+               <!-- Nav Item - Pages Collapse Menu -->
+               <li class="nav-item">
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrder" aria-expanded="true" aria-controls="collapseOrder">
+                  <i class="fas fa-fw fa-users"></i>
+                  <span>{{ __('sentence.Order') }}</span>
+                  </a>
+                  <div id="collapseOrder" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                     <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('order.create') }}">{{ __('sentence.New Order') }}</a>
+                        <a class="collapse-item" href="{{ route('order.all') }}">{{ __('sentence.All Orders') }}</a>
+                     </div>
+                  </div>
+               </li>
+               <!-- Divider -->
+               <!-- Divider -->
+               <hr class="sidebar-divider">
+               <!-- Heading -->
+               <div class="sidebar-heading">
                   {{ __('sentence.Appointment') }}
                </div>
                <!-- Nav Item - Pages Collapse Menu -->

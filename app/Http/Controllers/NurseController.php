@@ -143,7 +143,7 @@ class NurseController extends Controller
 		$nurse->lat = $request->lat;
 		$nurse->long = $request->long;
 		$image           = $request->file('image');
-		$name            = 'IMG'.'.'.$image->getClientOriginalExtension();
+		$name            = 'IMG'.time().'.'.$image->getClientOriginalExtension();
 		$destinationPath = '/imgs/nurses/'.strtolower(now()->monthName);
 		$image->move(public_path($destinationPath), $name);
 		$nurse->image = 'nurses/'.strtolower(now()->monthName).'/'.$name;

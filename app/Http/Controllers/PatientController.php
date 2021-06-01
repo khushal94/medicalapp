@@ -112,7 +112,7 @@ class PatientController extends Controller
 		$patient->weight = $request->weight;
 		$patient->height = $request->height;
 		$image           = $request->file('image');
-		$name            = 'IMG'.'.'.$image->getClientOriginalExtension();
+		$name            = 'IMG'.time().'.'.$image->getClientOriginalExtension();
 		$destinationPath = '/imgs/patients/'.strtolower(now()->monthName);
 		$image->move(public_path($destinationPath), $name);
 		$patient->image = 'patients/'.strtolower(now()->monthName).'/'.$name;

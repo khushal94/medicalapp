@@ -33,7 +33,7 @@
                     <h6 class="m-0 font-weight-bold text-primary"><?php echo e(__('sentence.New Nurse')); ?></h6>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="<?php echo e(route('nurse.store')); ?>">
+                    <form method="post" action="<?php echo e(route('nurse.store')); ?>" enctype="multipart/form-data">
                         <?php echo e(csrf_field()); ?>
 
                         <input type="hidden" class="form-control" id="inputPassword3" name="role" value="nurse">
