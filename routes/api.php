@@ -30,7 +30,11 @@ Route::post('/doctorby-speciality', 'ApiController@Doctors_By_Speciality')->name
 Route::post('/get-nurses', 'ApiController@Get_Nurses')->name('list-nurses');
 Route::post('/upload-prescription', 'ApiController@Upload_Prescription')->name('upload-prescription');
 
-
+Route::post('/search-drug', 'ApiController@Search_Drugs')->name('search-drug-byname');
+Route::post('/create-order', 'ApiController@Create_Order')->name('create-manual-order');
+Route::post('/get-orders', 'ApiController@Get_Orders')->name('get-orders');
+Route::post('/get-userdata', 'ApiController@Get_UserData')->name('get-userdata');
+Route::post('/update-user', 'ApiController@Update_User')->name('update-user-data');
 
 //Get_Specialities
 
