@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 col-sm-6">
-                            <center><img src="<?php echo e(empty($coupon->image) ? asset('img/patient-icon.png') : url('imgs/' . $coupon->image)); ?>"
+                            <center><img src="<?php echo e(empty($coupon->image) ? asset('public/img/patient-icon.png') : url('public/imgs/' . $coupon->image)); ?>"
                                     class="img-profile rounded-circle img-fluid"></center>
                             <h4 class="text-center"><b><?php echo e($coupon->name); ?></b></h4>
                             <hr>

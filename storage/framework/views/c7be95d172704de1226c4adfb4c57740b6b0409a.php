@@ -1,5 +1,5 @@
 <?php $__env->startSection('title'); ?>
-    <?php echo e(__('sentence.Edit Nurse')); ?>
+    <?php echo e(__('sentence.Edit Patient')); ?>
 
 <?php $__env->stopSection(); ?>
 
@@ -27,22 +27,22 @@
     <div class="row justify-content-center">
 
 
-        <div class="col-md-8">
+        <div class="col-xl-8 col-lg-6">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary"><?php echo e(__('sentence.Edit Nurse')); ?></h6>
+                    <h6 class="m-0 font-weight-bold text-primary"><?php echo e(__('sentence.Edit Patient')); ?></h6>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="<?php echo e(route('nurse.store_edit')); ?>" enctype="multipart/form-data">
+                    <form method="post" action="<?php echo e(route('patient.store_edit')); ?>" enctype="multipart/form-data">
                         <?php echo e(csrf_field()); ?>
 
                         <input type="hidden" class="form-control" id="inputEmail3" name="user_id"
-                            value="<?php echo e($nurse->id); ?>">
+                            value="<?php echo e($patient->id); ?>">
                         <div class="row">
                             <div class="col-xl-4">
                                 <div class="uploadbox">
                                     <label class="upload_image">
-                                        <img src="<?php echo e(empty($nurse->Nurse->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $nurse->Nurse->image)); ?>"
+                                        <img src="<?php echo e(empty($patient->Patient->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $patient->Patient->image)); ?>"
                                             alt="Upload Image" title="Upload Image">
                                         <input type="file" name="image" accept="image/*" id="image" style="display: none">
                                     </label>
@@ -59,29 +59,31 @@
                                                 </font>
                                             </label>
                                             <input type="text" class="form-control" id="inputEmail3" name="name"
-                                                value="<?php echo e($nurse->name); ?>"
+                                                value="<?php echo e($patient->name); ?>"
                                                 placeholder="<?php echo e(__('sentence.Full Name')); ?>">
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-12 col-md-6">
-                                        <div class="form-group">
-                                            <label for="inputPassword3"
-                                                class="col-form-label"><?php echo e(__('sentence.Email Address')); ?>
 
-                                                <font color="red">*</font>
-                                            </label>
-                                            <input type="email" class="form-control" id="inputPassword3" name="email"
-                                                value="<?php echo e($nurse->email); ?>"
-                                                placeholder="<?php echo e(__('sentence.Email Address')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label"><?php echo e(__('sentence.Birthday')); ?><font color="red">*
+                                                class="col-form-label"><?php echo e(__('sentence.Email Address')); ?><font
+                                                    color="red">*
                                                 </font></label>
+                                            <input type="email" class="form-control" id="inputPassword3" name="email"
+                                                value="<?php echo e($patient->email); ?>" <?php echo e(__('sentence.Email Address')); ?>>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-12 col-md-6">
+                                        <div class="form-group">
+                                            <label for="inputPassword3"
+                                                class="col-form-label"><?php echo e(__('sentence.Birthday')); ?>
+
+                                                <font color="red">*
+                                                </font>
+                                            </label>
                                             <input type="text" class="form-control birthday" id="birthday" readonly
-                                                name="birthday" autocomplete="off" value="<?php echo e($nurse->Nurse->birthday); ?>"
+                                                name="birthday" value="<?php echo e($patient->Patient->birthday); ?>"
                                                 placeholder="<?php echo e(__('sentence.Birthday')); ?>">
                                         </div>
                                     </div>
@@ -89,19 +91,22 @@
                                         <div class="form-group">
                                             <label for="inputPassword3"
                                                 class="col-form-label"><?php echo e(__('sentence.Phone')); ?></label>
-                                            <input type="number" class="form-control" id="inputPassword3" name="phone"
-                                                value="<?php echo e($nurse->Nurse->phone); ?>"
+                                            <input type="text" class="form-control" id="inputPassword3" name="phone"
+                                                value="<?php echo e($patient->Patient->phone); ?>"
                                                 placeholder="<?php echo e(__('sentence.Phone')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label"><?php echo e(__('sentence.Gender')); ?><font color="red">*
-                                                </font></label>
+                                                class="col-form-label"><?php echo e(__('sentence.Gender')); ?>
+
+                                                <font color="red">*
+                                                </font>
+                                            </label>
                                             <select class="form-control" name="gender">
-                                                <option value="<?php echo e($nurse->Nurse->gender); ?>" selected="selected">
-                                                    <?php echo e($nurse->Nurse->gender); ?></option>
+                                                <option value="<?php echo e($patient->Patient->gender); ?>" selected="selected">
+                                                    <?php echo e($patient->Patient->gender); ?></option>
                                                 <option value="Male"><?php echo e(__('sentence.Male')); ?></option>
                                                 <option value="Female"><?php echo e(__('sentence.Female')); ?></option>
                                             </select>
@@ -110,80 +115,56 @@
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
+                                                class="col-form-label"><?php echo e(__('sentence.Blood Group')); ?></label>
+                                            <select class="form-control" name="blood">
+                                                <option value="<?php echo e($patient->Patient->blood); ?>" selected="selected">
+                                                    <?php echo e($patient->Patient->blood); ?></option>
+                                                <option value="Unknown"><?php echo e(__('sentence.Unknown')); ?></option>
+                                                <option value="A+">A+</option>
+                                                <option value="A-">A-</option>
+                                                <option value="B+">B+</option>
+                                                <option value="B-">B-</option>
+                                                <option value="O+">O+</option>
+                                                <option value="O-">O-</option>
+                                                <option value="AB+">AB+</option>
+                                                <option value="AB-">AB-</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-12 col-md-6">
+                                        <div class="form-group">
+                                            <label for="inputPassword3"
                                                 class="col-form-label"><?php echo e(__('sentence.Address')); ?></label>
                                             <input type="text" class="form-control" id="inputPassword3" name="address"
-                                                value="<?php echo e($nurse->Nurse->address); ?>"
+                                                value="<?php echo e($patient->Patient->address); ?>"
                                                 placeholder="<?php echo e(__('sentence.Address')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
-                                            <label for="lat"
-                                                class="col-form-label"><?php echo e(__('sentence.Lattitude')); ?></label>
-                                            <input type="text" class="form-control" id="lat" name="lat"
-                                                value="<?php echo e($nurse->Nurse->lat); ?>"
-                                                placeholder="<?php echo e(__('sentence.Lattitude')); ?>">
+                                            <label for="inputPassword3"
+                                                class="col-form-label"><?php echo e(__('sentence.Patient Weight')); ?></label>
+                                            <input type="text" class="form-control" id="inputPassword3" name="weight"
+                                                value="<?php echo e($patient->Patient->weight); ?>"
+                                                placeholder="<?php echo e(__('sentence.Patient Weight')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
-                                            <label for="long"
-                                                class="col-form-label"><?php echo e(__('sentence.Longitude')); ?></label>
-                                            <input type="text" class="form-control" id="long" name="long"
-                                                value="<?php echo e($nurse->Nurse->long); ?>"
-                                                placeholder="<?php echo e(__('sentence.Longitude')); ?>">
+                                            <label for="inputPassword3"
+                                                class="col-form-label"><?php echo e(__('sentence.Patient Height')); ?></label>
+                                            <input type="text" class="form-control" id="inputPassword3" name="height"
+                                                value="<?php echo e($patient->Patient->height); ?>"
+                                                placeholder="<?php echo e(__('sentence.Patient Height')); ?>">
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-12 col-md-6">
-                                <div class="form-group">
-                                    <label for="city" class="col-form-label"><?php echo e(__('sentence.City')); ?>
-
-                                        <font color="red">*
-                                        </font>
-                                    </label>
-                                    <input type="text" class="form-control" id="city" name="city"
-                                        value="<?php echo e($nurse->Nurse->city); ?>" placeholder="<?php echo e(__('sentence.City')); ?>">
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-12 col-md-6">
-                                <div class="form-group">
-                                    <label for="state" class="col-form-label"><?php echo e(__('sentence.State')); ?>
-
-                                        <font color="red">*</font>
-                                    </label>
-                                    <input type="text" class="form-control" id="state" name="state"
-                                        value="<?php echo e($nurse->Nurse->state); ?>" placeholder="<?php echo e(__('sentence.State')); ?>">
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-12 col-md-6">
-                                <div class="form-group">
-                                    <label for="country" class="col-form-label"><?php echo e(__('sentence.Country')); ?>
-
-                                        <font color="red">*
-                                        </font>
-                                    </label>
-                                    <input type="text" class="form-control" id="country" name="country" autocomplete="off"
-                                        value="India" disabled>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="description"
-                                        class="col-form-label"><?php echo e(__('sentence.Description')); ?></label>
-                                    <textarea rows="3" class="form-control" id="description" name="description"
-                                        placeholder="<?php echo e(__('sentence.Description')); ?>"><?php echo e($nurse->Nurse->description); ?>
-
-                                          </textarea>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <div class="text-right">
-                                        <button type="submit" class="btn btn-primary"><?php echo e(__('sentence.Save')); ?></button>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <div class="text-right">
+                                                <button type="submit"
+                                                    class="btn btn-primary"><?php echo e(__('sentence.Save')); ?></button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -206,4 +187,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\xampp\htdocs\doctor1\resources\views/nurse/edit.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH E:\xampp\htdocs\doctor1\resources\views/patient/edit.blade.php ENDPATH**/ ?>

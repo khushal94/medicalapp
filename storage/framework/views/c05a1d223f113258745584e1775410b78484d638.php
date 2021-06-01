@@ -40,7 +40,7 @@
                             <div class="col-xl-4">
                                 <div class="uploadbox">
                                     <label class="upload_image">
-                                        <img src="<?php echo e(empty($coupon->image) ? url('imgs/no-image.png') : url('imgs/' . $coupon->image)); ?>"
+                                        <img src="<?php echo e(empty($coupon->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $coupon->image)); ?>"
                                             alt="Upload Image" title="Upload Image">
                                         <input type="file" name="image" accept="image/*" id="image" style="display: none">
                                     </label>

@@ -55,7 +55,7 @@
                                 <td><a href="{{ url('nurse/view/' . $nurse->id) }}"> {{ $nurse->name }} </a></td>
                                 <td class="text-center"> {{ $nurse->email }} </td>
                                 <td class="text-center"><img
-                                        src="{{ empty($nurse->Nurse->image) ? url('imgs/no-image.png') : url('imgs/' . $nurse->Nurse->image) }}"
+                                        src="{{ empty($nurse->Nurse->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $nurse->Nurse->image) }}"
                                         style="width: 200px;height:200px;object-fit:cover"></td>
                                 <td class="text-center">{{ $nurse->created_at->format('d M Y H:i') }}</td>
                                 <td class="text-center">

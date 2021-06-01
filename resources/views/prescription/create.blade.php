@@ -40,7 +40,7 @@
                   {{ csrf_field() }}
                </div>
                <div class="form-group text-center">
-                  <img src="{{ asset('img/patient-icon.png') }}" class="img-profile rounded-circle img-fluid">
+                  <img src="{{ asset('public/img/patient-icon.png') }}" class="img-profile rounded-circle img-fluid">
                </div>
                <div class="form-group">
                   <input type="submit" value="{{ __('sentence.Create Prescription') }}" class="btn btn-warning" align="center">

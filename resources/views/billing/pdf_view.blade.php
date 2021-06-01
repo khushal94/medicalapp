@@ -7,7 +7,7 @@
       <title>Doctorino - {{ __('sentence.View Invoice') }} 
       </title>
       <!-- Custom styles for this template-->
-      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+      <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
    </head>
    <body id="page-top">
       <div id="app">

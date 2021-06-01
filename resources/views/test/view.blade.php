@@ -11,7 +11,7 @@
          <div class="card-body">
             <div class="row">
                <div class="col-4">
-                  <img src="{{ asset('img/patient-icon.png') }}" class="img-profile rounded-circle img-fluid">
+                  <img src="{{ asset('public/img/patient-icon.png') }}" class="img-profile rounded-circle img-fluid">
                </div>
                <div class="col-8">
                   <h4><b>{{ $patient->name }}</b></h4>

@@ -56,7 +56,7 @@
                                 <td><?php echo e($doctor->id); ?></td>
                                 <td><a href="<?php echo e(url('doctor/view/' . $doctor->id)); ?>"> <?php echo e($doctor->name); ?> </a></td>
                                 <td class="text-center"> <?php echo e($doctor->email); ?> </td>
-                                <td class="text-center"><img src="<?php echo e(url('imgs/' . $doctor->image)); ?>"
+                                <td class="text-center"><img src="<?php echo e(url('public/imgs/' . $doctor->image)); ?>"
                                         style="width: 200px;height:200px;object-fit:cover"></td>
                                 <td class="text-center"><?php echo e($doctor->created_at->format('d M Y H:i')); ?></td>
                                 <td class="text-center">

@@ -8,7 +8,7 @@
       <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
       <title>Doctorino - Login</title>
       <!-- Custom styles for this template-->
-      <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
+      <link href="<?php echo e(asset('public/css/app.css')); ?>" rel="stylesheet">
    </head>
    <body class="bg-gradient-primary">
       <div class="container">
@@ -19,7 +19,7 @@
                   <div class="card-body p-0">
                      <!-- Nested Row within Card Body -->
                            <div class="d-md-block d-none  bg-login-image text-center">
-                              <img src="<?php echo e(asset('img/login_background.jpg')); ?>" alt="">
+                              <img src="<?php echo e(asset('public/img/login_background.jpg')); ?>" alt="">
                            </div>
                            <div class="login-form">
                               <div class="text-center">
@@ -93,6 +93,6 @@ unset($__errorArgs, $__bag); ?>
             </div>
          </div>
       </div>
-      <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
+      <script src="<?php echo e(asset('public/js/app.js')); ?>" defer></script>
    </body>
 </html><?php /**PATH E:\xampp\htdocs\doctor1\resources\views\auth\login.blade.php ENDPATH**/ ?>

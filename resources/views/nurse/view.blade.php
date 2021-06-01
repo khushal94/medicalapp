@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="col-md-4 col-sm-6">
                             <center><img
-                                    src="{{ empty($nurse->Nurse->image) ? asset('img/patient-icon.png') : url('imgs/' . $nurse->Nurse->image) }}"
+                                    src="{{ empty($nurse->Nurse->image) ? asset('public/img/patient-icon.png') : url('public/imgs/' . $nurse->Nurse->image) }}"
                                     class="img-profile img-fluid"></center>
                             <h4 class="text-center"><b>{{ $nurse->name }}</b></h4>
                             <hr>

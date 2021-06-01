@@ -39,7 +39,7 @@
                             <div class="col-xl-4">
                                 {{-- <div class="form-group">
                                     <label class="upload_image" style="display: block">
-                                        <img src="{{ url('imgs/no-image.png') }}" alt="Upload Image" title="Upload Image"
+                                        <img src="{{ url('public/imgs/no-image.png') }}" alt="Upload Image" title="Upload Image"
                                             style="width: 100%">
                                         <input type="file" name="image" accept="image/*" id="image" style="display: none">
                                     </label>

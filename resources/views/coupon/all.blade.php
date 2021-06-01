@@ -57,7 +57,7 @@
                                 <td>{{ $coupon->id }}</td>
                                 <td><a href="{{ url('coupon/view/' . $coupon->id) }}"> {{ $coupon->name }} </a></td>
                                 <td class="text-center"><img
-                                    src="{{ empty($coupon->image) ? url('imgs/no-image.png') : url('imgs/' . $coupon->image) }}"
+                                    src="{{ empty($coupon->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $coupon->image) }}"
                                     style="width: 200px;height:200px;object-fit:cover"></td>
                                 <td class="text-center"> {{ $coupon->code }} </td>
                                 <td class="text-center"> 

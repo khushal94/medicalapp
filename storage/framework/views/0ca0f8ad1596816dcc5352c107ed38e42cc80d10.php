@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 col-sm-6">
-                            <center><img src="<?php echo e(asset('img/patient-icon.png')); ?>"
+                            <center><img src="<?php echo e(asset('public/img/patient-icon.png')); ?>"
                                     class="img-profile rounded-circle img-fluid"></center>
                             <h4 class="text-center"><b><?php echo e($speciality->name); ?></b></h4>
                             <hr>

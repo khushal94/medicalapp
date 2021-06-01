@@ -8,7 +8,7 @@
       <meta name="csrf-token" content="{{ csrf_token() }}">
       <title>Doctorino - Login</title>
       <!-- Custom styles for this template-->
-      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+      <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
    </head>
    <body class="bg-gradient-primary">
       <div class="container">
@@ -19,7 +19,7 @@
                   <div class="card-body p-0">
                      <!-- Nested Row within Card Body -->
                            <div class="d-md-block d-none  bg-login-image text-center">
-                              <img src="{{ asset('img/login_background.jpg') }}" alt="">
+                              <img src="{{ asset('public/img/login_background.jpg') }}" alt="">
                            </div>
                            <div class="login-form">
                               <div class="text-center">
@@ -65,6 +65,6 @@
             </div>
          </div>
       </div>
-      <script src="{{ asset('js/app.js') }}" defer></script>
+      <script src="{{ asset('public/js/app.js') }}" defer></script>
    </body>
 </html>

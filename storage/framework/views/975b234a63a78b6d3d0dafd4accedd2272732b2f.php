@@ -57,7 +57,7 @@
                                 <td><?php echo e($coupon->id); ?></td>
                                 <td><a href="<?php echo e(url('coupon/view/' . $coupon->id)); ?>"> <?php echo e($coupon->name); ?> </a></td>
                                 <td class="text-center"><img
-                                    src="<?php echo e(empty($coupon->image) ? url('imgs/no-image.png') : url('imgs/' . $coupon->image)); ?>"
+                                    src="<?php echo e(empty($coupon->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $coupon->image)); ?>"
                                     style="width: 200px;height:200px;object-fit:cover"></td>
                                 <td class="text-center"> <?php echo e($coupon->code); ?> </td>
                                 <td class="text-center"> 

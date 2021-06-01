@@ -55,7 +55,7 @@
                                 <td><a href="<?php echo e(url('nurse/view/' . $nurse->id)); ?>"> <?php echo e($nurse->name); ?> </a></td>
                                 <td class="text-center"> <?php echo e($nurse->email); ?> </td>
                                 <td class="text-center"><img
-                                        src="<?php echo e(empty($nurse->Nurse->image) ? url('imgs/no-image.png') : url('imgs/' . $nurse->Nurse->image)); ?>"
+                                        src="<?php echo e(empty($nurse->Nurse->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $nurse->Nurse->image)); ?>"
                                         style="width: 200px;height:200px;object-fit:cover"></td>
                                 <td class="text-center"><?php echo e($nurse->created_at->format('d M Y H:i')); ?></td>
                                 <td class="text-center">

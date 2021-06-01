@@ -7,10 +7,10 @@
       <meta name="author" content="Digit93Team">
       <!-- CSRF Token -->
       <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-      <link rel="icon" type="image/png" href="<?php echo e(asset('img/favicon.png')); ?>">
+      <link rel="icon" type="image/png" href="<?php echo e(asset('public/img/favicon.png')); ?>">
       <title>Doctorino - <?php echo $__env->yieldContent('title'); ?> </title>
       <!-- Custom styles for this template-->
-      <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
+      <link href="<?php echo e(asset('public/css/app.css')); ?>" rel="stylesheet">
       <?php echo $__env->yieldContent('header'); ?>
    </head>
    <body id="page-top">
@@ -22,7 +22,7 @@
                <!-- Sidebar - Brand -->
                <a class="sidebar-brand d-flex align-items-center justify-content-start" href="<?php echo e(route('home')); ?>">
                   <div class="sidebar-brand-icon ">
-                     <img class="img-profile" src="<?php echo e(asset('img/favicon.png')); ?>">
+                     <img class="img-profile" src="<?php echo e(asset('public/img/favicon.png')); ?>">
                   </div>
                   <div class="sidebar-brand-text mx-3">I-Node</div>
                </a>
@@ -287,7 +287,7 @@
                         <li class="nav-item dropdown no-arrow">
                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                            <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo e(Auth::user()->name); ?></span>
-                           <img class="img-profile" src="<?php echo e(asset('img/favicon.png')); ?>">
+                           <img class="img-profile" src="<?php echo e(asset('public/img/favicon.png')); ?>">
                            </a>
                            <!-- Dropdown - User Information -->
                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -359,7 +359,7 @@
          </div>
       </div>
       <!-- Bootstrap core JavaScript-->
-      <script src="<?php echo e(asset('js/app.js')); ?>"></script>
+      <script src="<?php echo e(asset('public/js/app.js')); ?>"></script>
       <?php echo $__env->yieldContent('footer'); ?>
    </body>
 </html>

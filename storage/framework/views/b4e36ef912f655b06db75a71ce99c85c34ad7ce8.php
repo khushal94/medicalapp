@@ -55,7 +55,7 @@
                                 <td><a href="<?php echo e(url('patient/view/' . $patient->id)); ?>"> <?php echo e($patient->name); ?> </a></td>
                                 <td class="text-center"> <?php echo e($patient->Patient->phone); ?> </td>
                                 <td class="text-center"><img
-                                        src="<?php echo e(empty($patient->Patient->image) ? url('imgs/no-image.png') : url('imgs/' . $patient->Patient->image)); ?>"
+                                        src="<?php echo e(empty($patient->Patient->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $patient->Patient->image)); ?>"
                                         style="width: 200px;height:200px;object-fit:cover"></td>
                                 <td class="text-center"> <?php echo e($patient->Patient->blood); ?> </td>
                                 <td class="text-center"><?php echo e($patient->created_at->format('d M Y H:i')); ?></td>

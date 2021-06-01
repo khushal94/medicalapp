@@ -11,7 +11,7 @@
       <title>Doctorino - <?php echo e(__('sentence.View Prescription')); ?> 
       </title>
       <!-- Custom styles for this template-->
-      <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
+      <link href="<?php echo e(asset('public/css/app.css')); ?>" rel="stylesheet">
 
    </head>
    <body id="page-top">
