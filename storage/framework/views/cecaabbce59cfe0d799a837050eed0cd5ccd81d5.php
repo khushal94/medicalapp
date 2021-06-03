@@ -37,26 +37,42 @@
                         <?php echo e(csrf_field()); ?>
 
                         <div class="form-group row">
-                            <label for="name" class="col-sm-3 col-form-label"><?php echo e(__('sentence.Order Name')); ?><font
+                            <label for="name" class="col-sm-3 col-form-label"><?php echo e(__('sentence.Order User')); ?><font
                                     color="red">*</font></label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="name" name="name">
+                                <select class="form-control" id="user_id" name="name">
+                                    <option value="" selected disabled>Select User</option>
+                                    <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($user->id); ?>"><?php echo e($user->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="email" class="col-sm-3 col-form-label"><?php echo e(__('sentence.Order Email')); ?><font
-                                    color="red">*</font></label>
+                            <label for="medicines" class="col-sm-3 col-form-label"><?php echo e(__('sentence.Order Medicines')); ?>
+
+                                <font color="red">*</font>
+                            </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="email" name="email">
+                                <select class="form-control" id="medicines" name="medicines">
+                                    <option value="" selected disabled>Select Medicine</option>
+                                    <?php $__currentLoopData = $drugs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $drug): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($drug); ?>"><?php echo e($drug->trade_name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="phone"
-                                class="col-sm-3 col-form-label"><?php echo e(__('sentence.Order Contact')); ?><font color="red">*
+                            <label for="type" class="col-sm-3 col-form-label"><?php echo e(__('sentence.Order Type')); ?><font
+                                    color="red">*
                                 </font></label>
                             <div class="col-sm-9">
-                                <input type="number" class="form-control" id="phone" name="phone"
-                                    autocomplete="off">
+                                <select class="form-control" id="type" name="type">
+                                    <option value="" selected disabled>Select Type</option>
+                                    <option value="tablet">Tablet </option>
+                                    <option value="syrup capsule">Syrup Capsule</option>
+                                    <option value="other">other</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">

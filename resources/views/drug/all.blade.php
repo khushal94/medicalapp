@@ -39,6 +39,8 @@
                   <th>ID</th>
                   <th>{{ __('sentence.Trade Name') }}</th>
                   <th>{{ __('sentence.Generic Name') }}</th>
+                  <th>{{ __('sentence.Note') }}</th>
+                  <th>{{ __('sentence.Rate') }}</th>
                   <th class="text-center">{{ __('sentence.Actions') }}</th>
                </tr>
             </thead>
@@ -48,6 +50,8 @@
                   <td>{{ $drug->id }}</td>
                   <td>{{ $drug->trade_name }}</td>
                   <td>{{ $drug->generic_name }}</td>
+                  <td>{{ $drug->note }}</td>
+                  <td>{{ $drug->rate }}</td>
                   <td class="text-center">
                      <a href="{{ url('drug/edit/'.$drug->id) }}" class="btn btn-warning btn-circle btn-sm"><i class="fa fa-pen"></i></a>
                      <a href="{{ url('drug/delete/'.$drug->id) }}" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>

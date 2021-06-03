@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Order;
+use App\Drug;
 use Hash;
 use Redirect;
 use Illuminate\Validation\Rule;
@@ -18,15 +19,19 @@ class OrderController extends Controller
 
 
     public function all(){
-
-    	$orders = Order::get();
-
+		$orders = Order::get();
+		// $order_id = $order->user_id;
+		// echo $this->belongsTo(User::class);
+		// $orders = Order::leftJoin('users', 'order.user_id', '=', 'users.id')->where( 'order.user_id',$user_id)->get();
+		// echo $order;
     	return view('order.all', ['orders' => $orders]);
-
+		
     }
-
+	
     public function create(){
-		return view('order.create');
+		$users = User::get();
+		$drugs = Drug::get();
+		return view('order.create', ['users' => $users, 'drugs' => $drugs]);
     }
 	
     public function edit($id){
@@ -37,15 +42,14 @@ class OrderController extends Controller
 	public function store_edit(Request $request){
 
     	$validatedData = $request->validate([
-        	'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'max: 255'],
-            'phone' => ['required', 'max:15'],
+        	'user_id' => ['required'],
+            'medicines' => ['required'],
+            'type' => ['required'],
 
     	]);
 
-		$order = Order::where('id', $request->id)->update(['name' => $request->name,
-								'email' => $request->email,
-								'phone' => $request->phone,]);
+		$order = Order::where('id', $request->id)->update(['medicines' => $request->medicines,
+								'type' => $request->type,]);
 
 		return Redirect::back()->with('success', __('sentence.Order Updated Successfully'));
 
@@ -54,14 +58,16 @@ class OrderController extends Controller
     public function store(Request $request){
 
     	$validatedData = $request->validate([
-        	'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'max: 255'],
-            'phone' => ['required', 'max:15'],
+        	'user_id' => ['required'],
+            'medicines' => ['required'],
+            'type' => ['required'],
     	]);
 		$order = new Order();
-		$order->name = $request->name;
-		$order->email = $request->email;
-		$order->phone = $request->phone;
+		$order->user_id = $request->user_id;
+		$order->medicines = $request->medicines;
+		// $order->payment_id = $request->payment_id;
+		$order->type = $request->type;
+		$order->status = 'pending';
 		$order->save();
 
 		return Redirect::route('order.all')->with('success', __('sentence.Order Created Successfully'));

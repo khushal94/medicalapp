@@ -36,26 +36,41 @@
                     <form method="post" action="{{ route('order.store') }}">
                         {{ csrf_field() }}
                         <div class="form-group row">
-                            <label for="name" class="col-sm-3 col-form-label">{{ __('sentence.Order Name') }}<font
+                            <label for="name" class="col-sm-3 col-form-label">{{ __('sentence.Order User') }}<font
                                     color="red">*</font></label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="name" name="name">
+                                <select class="form-control" id="user_id" name="name">
+                                    <option value="" selected disabled>Select User</option>
+                                    @foreach ($users as $user)
+                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="email" class="col-sm-3 col-form-label">{{ __('sentence.Order Email') }}<font
-                                    color="red">*</font></label>
+                            <label for="medicines" class="col-sm-3 col-form-label">{{ __('sentence.Order Medicines') }}
+                                <font color="red">*</font>
+                            </label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="email" name="email">
+                                <select class="form-control" id="medicines" name="medicines">
+                                    <option value="" selected disabled>Select Medicine</option>
+                                    @foreach ($drugs as $drug)
+                                        <option value="{{ $drug }}">{{ $drug->trade_name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="phone"
-                                class="col-sm-3 col-form-label">{{ __('sentence.Order Contact') }}<font color="red">*
+                            <label for="type" class="col-sm-3 col-form-label">{{ __('sentence.Order Type') }}<font
+                                    color="red">*
                                 </font></label>
                             <div class="col-sm-9">
-                                <input type="number" class="form-control" id="phone" name="phone"
-                                    autocomplete="off">
+                                <select class="form-control" id="type" name="type">
+                                    <option value="" selected disabled>Select Type</option>
+                                    <option value="tablet">Tablet </option>
+                                    <option value="syrup capsule">Syrup Capsule</option>
+                                    <option value="other">other</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">

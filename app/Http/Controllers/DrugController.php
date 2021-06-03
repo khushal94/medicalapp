@@ -24,11 +24,12 @@ class DrugController extends Controller{
     	$validatedData = $request->validate([
         	'trade_name' => 'required',
         	'generic_name' => 'required',
+        	'note' => 'required',
+        	'rate' => 'required',
     	]);
 
     	$drug = Drug::updateOrCreate(
-		    ['trade_name' => $request->trade_name, 'generic_name' => $request->generic_name],
-		    ['note' => $request->note]
+		    ['trade_name' => $request->trade_name, 'generic_name' => $request->generic_name, 'note' => $request->note, 'rate' => $request->rate]
 		);
 
     	return Redirect::back()->with('success', __('sentence.Drug added Successfully'));
@@ -51,12 +52,16 @@ class DrugController extends Controller{
         $validatedData = $request->validate([
             'trade_name' => 'required',
             'generic_name' => 'required',
+            'note' => 'required',
+            'rate' => 'required',
         ]);
         
         $drug = Drug::find($request->drug_id);
 
         $drug->trade_name = $request->trade_name;
         $drug->generic_name = $request->generic_name;
+        $drug->note = $request->note;
+        $drug->rate = $request->rate;
 
         $drug->save();
 

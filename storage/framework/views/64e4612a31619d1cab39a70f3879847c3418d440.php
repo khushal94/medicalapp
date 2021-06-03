@@ -40,7 +40,11 @@
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1">Note</label>
-                  <input type="text" class="form-control" name="note" id="Note">
+                  <input type="text" class="form-control" name="note" id="Note" value="<?php echo e($drug->note); ?>">
+               </div>
+               <div class="form-group">
+                  <label for="Rate">Rate</label>
+                  <input type="number" class="form-control" name="rate" id="Rate" value="<?php echo e($drug->rate); ?>">
                </div>
                <button type="submit" class="btn btn-primary"><?php echo e(__('sentence.Save')); ?></button>
             </form>
