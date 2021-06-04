@@ -12,8 +12,12 @@ use App\Doctor;
 use App\Nurse;
 use App\Appointment;
 use App\Drug;
+use App\Prescription;
 use App\Setting;
 use App\Order;
+use App\Coupon;
+use App\Test;
+use App\Package;
 use Response;
 use Redirect;
 use Hash;
@@ -358,12 +362,51 @@ class ApiController extends Controller
 
     public function Upload_Prescription(Request $request)
     {
-        $image = $request->base64_image;  // your base64 encoded
+        $image = $request->base64_image;
         $image = str_replace('data:image/png;base64,', '', $image);
         $image = str_replace(' ', '+', $image);
-        $imageName =   'test.png';
+        $rand_no = rand(1000,100000);
+        $imageName =   $request->user_id.'_'.$rand_no.'pres.png';
     
-        Storage::disk('local')->put($imageName, base64_decode($image));
+        Storage::disk('prescription')->put($imageName, base64_decode($image));
+        $imagepath = 'prescription/'.$imageName;
+        //save prescription data----------------------------------------------------
+        $prescription = new Prescription();
+        $prescription->user_id = $request->user_id;
+        $prescription->advices = $request->advices;
+        $prescription->image = $imagepath;
+        $prescription->save();
+
+        if ($prescription) {
+            return Response::json(
+                array(
+                'status' => true,
+                'data' => $prescription
+            ), 200 );
+        } else {
+            return Response::json(
+                array(
+                'status' => false,
+                'msg' => 'Prescription not saved, please try again..'
+            ), 201 );
+        }
+
+    }
+
+    public function Get_Recent_Prescriptions(Request $request)
+    {
+        $user_id = $request->user_id;
+        $pres = Prescription::where('prescriptions.user_id', $user_id)->get();;
+        if ($pres) {
+            return Response::json(
+                array(
+                    'status' => true,
+                    'data' => $pres,
+                    'msg' => 'Prescriptions Fetched Successfully, Please Wait..'
+                ),
+                200
+            );
+        }
     }
 
     public function Search_Drugs(Request $request)
@@ -420,8 +463,12 @@ class ApiController extends Controller
 
     public function Get_Orders(Request $request)
     {
-        $order = Order::first();
-        $order->medicines = json_decode($order->medicines);
+        $order = Order::where('user_id', $request->user_id)->get();
+       
+
+        foreach($order as $key=>$value) {
+            $order[$key]->medicines = json_decode($value->medicines);
+        }
 
 
         if ($order) {
@@ -429,9 +476,18 @@ class ApiController extends Controller
                 array(
                     'status' => true,
                     'data' => $order,
-                    'msg' => 'Order Created Successfully, Please Wait..'
+                    'msg' => 'Order fetched Successfully'
                 ),
                 200
+            );
+        }else{
+            return Response::json(
+                array(
+                    'status' => true,
+                    'data' => $order,
+                    'msg' => 'Order not found'
+                ),
+                201
             );
         }
     }
@@ -463,6 +519,78 @@ class ApiController extends Controller
             );
         }
     }
+
+    public function Get_App_Coupons(Request $request)
+    {
+        $coupons = Coupon::get();
+        if ($coupons) {
+            return Response::json(
+                array(
+                    'status' => true,
+                    'data' => $coupons,
+                    'msg' => 'coupons Fetched'
+                ),
+                200
+            );
+        } else {
+            return Response::json(
+                array(
+                    'status' => false,
+                    'msg' => 'Error occured while fetching coupons data, please try again..'
+                ),
+                201
+            );
+        }
+    }
+
+    public function Get_Lab_Test(Request $request)
+    {
+        $test = Test::get();
+        if ($test) {
+            return Response::json(
+                array(
+                    'status' => true,
+                    'data' => $test,
+                    'msg' => 'test Fetched'
+                ),
+                200
+            );
+        } else {
+            return Response::json(
+                array(
+                    'status' => false,
+                    'msg' => 'Error occured while fetching test data, please try again..'
+                ),
+                201
+            );
+        }
+    }
+
+    public function Get_Packages(Request $request)
+    {
+        $Package = Package::get();
+        if ($Package) {
+            return Response::json(
+                array(
+                    'status' => true,
+                    'data' => $Package,
+                    'msg' => 'Package Fetched'
+                ),
+                200
+            );
+        } else {
+            return Response::json(
+                array(
+                    'status' => false,
+                    'msg' => 'Error occured while fetching Package data, please try again..'
+                ),
+                201
+            );
+        }
+    }
+
+
+    
 
     public function Update_User(Request $request)
     {

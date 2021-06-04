@@ -48,6 +48,13 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'prescription' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/imgs/prescription',
+            'url' => env('APP_URL').'/public',
+            'visibility' => 'public',
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
