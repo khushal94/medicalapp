@@ -30,6 +30,8 @@ Route::get('/get-app-coupons', 'ApiController@Get_App_Coupons')->name('get-coupo
 Route::get('/get-lab-tests', 'ApiController@Get_Lab_Test')->name('get-tests');
 
 Route::get('/get-packages', 'ApiController@Get_Packages')->name('get-packages');
+Route::post('/create-labbooking', 'ApiController@Create_LabBooking')->name('create-lab-booking');
+
 
 //Get_Specialities
 

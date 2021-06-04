@@ -18,6 +18,7 @@ use App\Order;
 use App\Coupon;
 use App\Test;
 use App\Package;
+use App\LabBooking;
 use Response;
 use Redirect;
 use Hash;
@@ -565,6 +566,36 @@ class ApiController extends Controller
             );
         }
     }
+
+    public function Create_LabBooking(Request $request)
+    {
+        $LabBooking = new LabBooking();
+
+        $LabBooking->user_id = $request->user_id;
+        $LabBooking->medicines = $request->medicines;
+        $LabBooking->save();
+
+        if ($LabBooking) {
+            return Response::json(
+                array(
+                    'status' => true,
+                    'data' => $LabBooking,
+                    'msg' => 'Lab Booking Created Successfully,'
+                ),
+                200
+            );
+        } else {
+            return Response::json(
+                array(
+                    'status' => false,
+                    'msg' => 'Error occured while saving your LabBooking, please try again..'
+                ),
+                201
+            );
+        }
+    }
+
+    
 
     public function Get_Packages(Request $request)
     {
