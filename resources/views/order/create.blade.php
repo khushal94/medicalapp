@@ -48,19 +48,6 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="medicines" class="col-sm-3 col-form-label">{{ __('sentence.Order Medicines') }}
-                                <font color="red">*</font>
-                            </label>
-                            <div class="col-sm-9">
-                                <select class="form-control" id="medicines" name="medicines">
-                                    <option value="" selected disabled>Select Medicine</option>
-                                    @foreach ($drugs as $drug)
-                                        <option value="{{ $drug }}">{{ $drug->trade_name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label for="type" class="col-sm-3 col-form-label">{{ __('sentence.Order Type') }}<font
                                     color="red">*
                                 </font></label>
@@ -73,6 +60,44 @@
                                 </select>
                             </div>
                         </div>
+                        <hr>
+                        <div class="d-flex justify-content-between align-center" id="buildyourform">
+                            <h6>Medicines</h6>
+                            <input type="button" value="Add Medicine" class="btn btn-success" id="addMedicine">
+                        </div>
+                        <div class="row" id="firstmedicine">
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="medicines" class="col-form-label">{{ __('sentence.Order Medicines') }}
+                                        <font color="red">*</font>
+                                    </label>
+                                    <select class="form-control" id="medicines" name="medicines[]">
+                                        <option value="" selected disabled>Select Medicine</option>
+                                        @foreach ($drugs as $drug)
+                                            <option value="{{ $drug->trade_name }}">{{ $drug->trade_name }}</option>
+                                            <input type="hidden" value="{{ $drug->rate }}" id="selectedprice">
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="qty" class="col-form-label">{{ __('sentence.Medicines Qty') }}
+                                        <font color="red">*</font>
+                                    </label>
+                                    <input type="number" name="qty[]" id="qty" value="1" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group">
+                                    <label for="price" class="col-form-label">{{ __('sentence.Rate') }}
+                                        <font color="red">*</font>
+                                    </label>
+                                    <input type="number" name="price[]" id="price" value="0" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
                         <div class="form-group row">
                             <div class="col-sm-9">
                                 <button type="submit" class="btn btn-primary">{{ __('sentence.Save') }}</button>

@@ -132,6 +132,26 @@
                   </div>
                </li>
                <!-- Divider -->
+               <!-- Divider -->
+               <hr class="sidebar-divider">
+               <!-- Heading -->
+               <div class="sidebar-heading">
+                  {{ __('sentence.Package') }}
+               </div>
+               <!-- Nav Item - Pages Collapse Menu -->
+               <li class="nav-item">
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePackage" aria-expanded="true" aria-controls="collapsePackage">
+                  <i class="fas fa-fw fa-users"></i>
+                  <span>{{ __('sentence.Package') }}</span>
+                  </a>
+                  <div id="collapsePackage" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                     <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('package.create') }}">{{ __('sentence.New Package') }}</a>
+                        <a class="collapse-item" href="{{ route('package.all') }}">{{ __('sentence.All Packages') }}</a>
+                     </div>
+                  </div>
+               </li>
+               <!-- Divider -->
                <hr class="sidebar-divider">
                <!-- Heading -->
                <div class="sidebar-heading">

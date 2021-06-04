@@ -273,9 +273,21 @@ return [
     'Order Contact' => 'Order Contact',
     'Order User' => 'Order User',
     'Order Medicines' => 'Order Medicines',
+    "Medicines Qty" => "Medicines Qty",
     'Order Type' => 'Order Type',
     'Order Phone' => 'Order Phone',
     'Order Updated Successfully' => 'Order Updated Successfully!',
     'Order Created Successfully' => 'Order Created Successfully!',
+
+    // Orders
+    'Package' => 'Package', 
+    'Edit Package' => 'Edit Package',
+    'New Package' => 'New Package',
+    'Package Name' => 'Package Name',
+    'Package Rate' => 'Package Rate',
+    'Lab Name' => 'Lab Name',
+    'Test' => 'Test',
+    'Package Updated Successfully' => 'Package Updated Successfully!',
+    'Package Created Successfully' => 'Package Created Successfully!',
 
 ];

@@ -137,6 +137,27 @@
                   </div>
                </li>
                <!-- Divider -->
+               <!-- Divider -->
+               <hr class="sidebar-divider">
+               <!-- Heading -->
+               <div class="sidebar-heading">
+                  <?php echo e(__('sentence.Package')); ?>
+
+               </div>
+               <!-- Nav Item - Pages Collapse Menu -->
+               <li class="nav-item">
+                  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePackage" aria-expanded="true" aria-controls="collapsePackage">
+                  <i class="fas fa-fw fa-users"></i>
+                  <span><?php echo e(__('sentence.Package')); ?></span>
+                  </a>
+                  <div id="collapsePackage" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                     <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="<?php echo e(route('package.create')); ?>"><?php echo e(__('sentence.New Package')); ?></a>
+                        <a class="collapse-item" href="<?php echo e(route('package.all')); ?>"><?php echo e(__('sentence.All Packages')); ?></a>
+                     </div>
+                  </div>
+               </li>
+               <!-- Divider -->
                <hr class="sidebar-divider">
                <!-- Heading -->
                <div class="sidebar-heading">

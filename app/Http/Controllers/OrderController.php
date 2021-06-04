@@ -19,11 +19,11 @@ class OrderController extends Controller
 
 
     public function all(){
-		$orders = Order::get();
+		// $orders = Order::get();
 		// $order_id = $order->user_id;
 		// echo $this->belongsTo(User::class);
-		// $orders = Order::leftJoin('users', 'order.user_id', '=', 'users.id')->where( 'order.user_id',$user_id)->get();
-		// echo $order;
+		$orders = Order::join('users', 'orders.user_id', '=', 'users.id')->get(['orders.*', 'users.name', 'users.email']);
+		// echo $orders;
     	return view('order.all', ['orders' => $orders]);
 		
     }

@@ -42,7 +42,7 @@
                             <th>ID</th>
                             <th><?php echo e(__('sentence.Order Name')); ?></th>
                             <th class="text-center"><?php echo e(__('sentence.Order Email')); ?></th>
-                            <th class="text-center"><?php echo e(__('sentence.Order Phone')); ?></th>
+                            
                             <th class="text-center"><?php echo e(__('sentence.Date')); ?></th>
                             <th class="text-center"><?php echo e(__('sentence.Actions')); ?></th>
                         </tr>
@@ -54,8 +54,8 @@
                                 <td><?php echo e($order->id); ?></td>
                                 <td><a href="<?php echo e(url('order/view/' . $order->id)); ?>"> <?php echo e($order->name); ?> </a></td>
                                 <td class="text-center"> <?php echo e($order->email); ?> </td>
-                                <td class="text-center"> <?php echo e($order->phone); ?> </td>
-                                <td class="text-center"><?php echo e($order->createdAt); ?></td>
+                                
+                                <td class="text-center"><?php echo e($order->created_at); ?></td>
                                 <td class="text-center">
                                     <a href="<?php echo e(url('order/view/' . $order->id)); ?>"
                                         class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>

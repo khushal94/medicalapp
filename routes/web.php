@@ -70,6 +70,14 @@ Route::get('/order/edit/{id}', 'OrderController@edit')->where('id', '[0-9]+')->n
 Route::post('/order/edit', 'OrderController@store_edit')->name('order.store_edit');
 Route::get('/order/update/{id}/{status}', 'OrderController@update')->name('order.update');
 
+//Patients
+Route::get('/package/create', 'PackageController@create')->name('package.create');
+Route::post('/package/create', 'PackageController@store')->name('package.store');
+Route::get('/package/all', 'PackageController@all')->name('package.all');
+Route::get('/package/view/{id}', 'PackageController@view')->where('id', '[0-9]+')->name('package.view');
+Route::get('/package/edit/{id}', 'PackageController@edit')->where('id', '[0-9]+')->name('package.edit');
+Route::post('/package/edit', 'PackageController@store_edit')->name('package.store_edit');
+Route::get('/package/update/{id}/{status}', 'PackageController@update')->name('order.update');
 
 //Speciality
 Route::get('/speciality/create', 'SpecialityController@create')->name('speciality.create');
