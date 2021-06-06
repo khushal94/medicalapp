@@ -31,8 +31,8 @@ class NurseBookingController extends Controller
             ]);
                 // 'visit_date' => 'required',
             $timestamp = (strtotime($request->visit_time));
-            $date = date('Y.j.n', $timestamp);
-            $time = date('H:i:s a', $timestamp);
+            $date = date('d-m-Y', $timestamp);
+            $time = date('h:m:s a', $timestamp);
     	$nursebooking = new NurseBooking;
 
         $nursebooking->nurse_id = $request->nurse_id;
@@ -40,10 +40,9 @@ class NurseBookingController extends Controller
         $nursebooking->visit_date = $date;
         $nursebooking->visit_time = $time;
             
-        echo $nursebooking;
-        // $nursebooking->save();
+        $nursebooking->save();
 
-        // return Redirect::route('nursebooking.all')->with('success', __('sentence.Nurse Booking Created Successfully'));
+        return Redirect::route('nursebooking.all')->with('success', __('sentence.Nurse Booking Created Successfully'));
 
     }
 
