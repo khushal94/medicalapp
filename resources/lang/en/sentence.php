@@ -279,13 +279,31 @@ return [
     'Order Updated Successfully' => 'Order Updated Successfully!',
     'Order Created Successfully' => 'Order Created Successfully!',
 
-    // Orders
+    // Package
     'Package' => 'Package', 
     'Edit Package' => 'Edit Package',
     'New Package' => 'New Package',
+    'All Packages' => 'All Packages',
+    'New Packages' => 'New Packages',
     'Package Name' => 'Package Name',
     'Package Rate' => 'Package Rate',
     'Lab Name' => 'Lab Name',
+    'Labs Name' => 'Labs Name',
+    'Test' => 'Test',
+    'Package Updated Successfully' => 'Package Updated Successfully!',
+    'Package Created Successfully' => 'Package Created Successfully!',
+    
+    // Nurse Booking
+    'Nurse Booking' => 'Nurse Booking', 
+    'Edit Package' => 'Edit Package',
+    'Visiting Date' => 'Visiting Date',
+    'Visiting Time' => 'Visiting Time',
+    'New Nurse Booking' => 'New Nurse Booking',
+    'All Nurse Bookings' => 'All Nurse Bookings',
+    'Package Name' => 'Package Name',
+    'Package Rate' => 'Package Rate',
+    'Lab Name' => 'Lab Name',
+    'Labs Name' => 'Labs Name',
     'Test' => 'Test',
     'Package Updated Successfully' => 'Package Updated Successfully!',
     'Package Created Successfully' => 'Package Created Successfully!',

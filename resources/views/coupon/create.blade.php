@@ -41,7 +41,7 @@
                                     <div class="js--image-preview"></div>
                                     <div class="upload-options">
                                         <label>
-                                            <input type="file" class="image-upload" accept="image/*" name="image" />
+                                            <input type="file" class="image-upload" accept="image/png, image/svg, image/jpeg" name="image" />
                                         </label>
                                     </div>
                                 </div>

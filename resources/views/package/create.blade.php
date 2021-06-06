@@ -41,7 +41,7 @@
                                     <div class="js--image-preview"></div>
                                     <div class="upload-options">
                                         <label>
-                                            <input type="file" class="image-upload" accept="image/*" name="image" />
+                                            <input type="file" class="image-upload" accept="image/png, image/svg, image/jpeg" name="image" />
                                         </label>
                                     </div>
                                 </div>
@@ -94,7 +94,7 @@
                                         <div class="form-group">
                                             <label for="description"
                                                 class="col-form-label">{{ __('sentence.Description') }}</label>
-                                            <textarea rows="3" class="form-control" id="description" name="description" placeholder="{{ __('sentence.Description') }}"></textarea>
+                                            <textarea rows="4" class="form-control" id="description" name="description" placeholder="{{ __('sentence.Description') }}"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -124,3 +124,4 @@
 @section('footer')
 
 @endsection
+{{-- name, description, lab_name, lab_test_ids, image, rate, is_active --}}

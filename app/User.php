@@ -52,10 +52,6 @@ class User extends Authenticatable
         return $this->hasOne('App\Doctor');
     }
 
-    // public function Order(){
-    //     return $this->hasOne('App\Order');
-    // }
-
 
     public function getNameAttribute($value)
     {

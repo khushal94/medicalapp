@@ -77,7 +77,16 @@ Route::get('/package/all', 'PackageController@all')->name('package.all');
 Route::get('/package/view/{id}', 'PackageController@view')->where('id', '[0-9]+')->name('package.view');
 Route::get('/package/edit/{id}', 'PackageController@edit')->where('id', '[0-9]+')->name('package.edit');
 Route::post('/package/edit', 'PackageController@store_edit')->name('package.store_edit');
-Route::get('/package/update/{id}/{status}', 'PackageController@update')->name('order.update');
+Route::get('/package/update/{id}/{status}', 'PackageController@update')->name('package.update');
+
+//Patients
+Route::get('/nursebooking/create', 'NurseBookingController@create')->name('nursebooking.create');
+Route::post('/nursebooking/create', 'NurseBookingController@store')->name('nursebooking.store');
+Route::get('/nursebooking/all', 'NurseBookingController@all')->name('nursebooking.all');
+Route::get('/nursebooking/view/{id}', 'NurseBookingController@view')->where('id', '[0-9]+')->name('nursebooking.view');
+Route::get('/nursebooking/edit/{id}', 'NurseBookingController@edit')->where('id', '[0-9]+')->name('nursebooking.edit');
+Route::post('/nursebooking/edit', 'NurseBookingController@store_edit')->name('nursebooking.store_edit');
+Route::get('/nursebooking/update/{id}/{status}', 'NurseBookingController@update')->name('nursebooking.update');
 
 //Speciality
 Route::get('/speciality/create', 'SpecialityController@create')->name('speciality.create');

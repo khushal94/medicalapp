@@ -43,7 +43,7 @@
                             <th>{{ __('sentence.Package Name') }}</th>
                             <th class="text-center">{{ __('sentence.Image') }}</th>
                             <th class="text-center">{{ __('sentence.Labs Name') }}</th>
-                            {{-- <th class="text-center">{{ __('sentence.Test Name') }}</th> --}}
+                            <th class="text-center">{{ __('sentence.Test Name') }}</th>
                             <th class="text-center">{{ __('sentence.Rate') }}</th>
                             <th class="text-center">{{ __('sentence.Description') }}</th>
                             <th class="text-center">{{ __('sentence.Actions') }}</th>
@@ -58,9 +58,10 @@
                                 <td class="text-center"><img
                                     src="{{ empty($package->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $package->image) }}"
                                     style="width: 200px;height:200px;object-fit:cover"></td>
-                                {{-- <td class="text-center"> {{ $package->lab_name }} </td> --}}
+                                <td class="text-center"> {{ $package->lab_name }} </td>
+                                <td class="text-center"> {{ $package->test_name }} </td>
                                 <td class="text-center"> {{ $package->rate }} </td>
-                                <td class="text-center">{{ $package->description }}</td>
+                                <td class="text-center">{{ \Illuminate\Support\Str::limit($package->description, 80, '...') }}</td>
                                 <td class="text-center">
                                     <a href="{{ url('package/view/' . $package->id) }}"
                                         class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>

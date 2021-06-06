@@ -44,7 +44,7 @@
                                     <label class="upload_image">
                                         <img src="<?php echo e(empty($patient->Patient->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $patient->Patient->image)); ?>"
                                             alt="Upload Image" title="Upload Image">
-                                        <input type="file" name="image" accept="image/*" id="image" style="display: none">
+                                        <input type="file" name="image" accept="image/png, image/svg, image/jpeg" id="image" style="display: none">
                                     </label>
                                     <label for="image" class="btn btn-primary btn-block btn-upload">Upload</label>
                                 </div>

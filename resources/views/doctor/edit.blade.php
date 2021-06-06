@@ -41,7 +41,7 @@
                                     <label class="upload_image">
                                         <img src="{{ empty($doctor->Doctor->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $doctor->Doctor->image) }}"
                                             alt="Upload Image" title="Upload Image">
-                                        <input type="file" name="image" accept="image/*" id="image" style="display: none">
+                                        <input type="file" name="image" accept="image/png, image/svg, image/jpeg" id="image" style="display: none">
                                     </label>
                                     <label for="image" class="btn btn-primary btn-block btn-upload">Upload</label>
                                 </div>

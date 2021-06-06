@@ -22,7 +22,7 @@ class PatientController extends Controller
 
     public function all(){
 
-    	$patients = User::where('role', 'patient')->get();
+    	$patients = Patient::join('users', 'patients.user_id', '=', 'users.id')->get(['patients.*', 'users.name', 'users.email']);
 
     	return view('patient.all', ['patients' => $patients]);
 

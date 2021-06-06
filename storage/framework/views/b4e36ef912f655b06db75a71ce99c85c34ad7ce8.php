@@ -52,17 +52,19 @@
                         <?php $__currentLoopData = $patients; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $patient): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
                                 <td><?php echo e($patient->id); ?></td>
-                                <td><a href="<?php echo e(url('patient/view/' . $patient->id)); ?>"> <?php echo e($patient->name); ?> </a></td>
-                                <td class="text-center"> <?php echo e($patient->Patient->phone); ?> </td>
-                                <td class="text-center"><img
-                                        src="<?php echo e(empty($patient->Patient->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $patient->Patient->image)); ?>"
-                                        style="width: 200px;height:200px;object-fit:cover"></td>
-                                <td class="text-center"> <?php echo e($patient->Patient->blood); ?> </td>
+                                <td><a href="<?php echo e(url('patient/view/' . $patient->id)); ?>"> <?php echo e($patient->name); ?> </a>
+                                </td>
+                                <td class="text-center"> <?php echo e($patient->phone); ?> </td>
+                                <td class="text-center">
+                                    <img src="<?php echo e(empty($patient->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $patient->image)); ?>"
+                                        style="width: 200px;height:200px;object-fit:cover">
+                                </td>
+                                <td class="text-center"> <?php echo e($patient->blood); ?> </td>
                                 <td class="text-center"><?php echo e($patient->created_at->format('d M Y H:i')); ?></td>
                                 <td class="text-center">
-                                    <a href="<?php echo e(url('patient/view/' . $patient->id)); ?>"
+                                    <a href="<?php echo e(url('patient/view/' . $patient->user_id)); ?>"
                                         class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>
-                                    <a href="<?php echo e(url('patient/edit/' . $patient->id)); ?>"
+                                    <a href="<?php echo e(url('patient/edit/' . $patient->user_id)); ?>"
                                         class="btn btn-warning btn-circle btn-sm"><i class="fa fa-pen"></i></a>
                                     <a href="#" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
                                 </td>

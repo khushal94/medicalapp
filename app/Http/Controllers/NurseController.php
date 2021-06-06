@@ -65,12 +65,10 @@ class NurseController extends Controller
             'gender' => ['required'],
             'city' => ['required'],
             'state' => ['required'],
+			'image' => ['required','max:2048'],3
 
     	]);
 		if ($request->hasFile('image')) {
-			$validatedData = $request->validate([
-				'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-			]);
 			if(!empty($request->image) && file_exists(public_path().'/imgs/nurses/'.strtolower(now()->monthName).'/'.$request->image)) {
 				unlink(public_path().'/imgs/nurses/'.strtolower(now()->monthName).'/'.$request->image);
 			}
@@ -113,11 +111,12 @@ class NurseController extends Controller
     	$validatedData = $request->validate([
         	'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+			'phone' => ['max:16'],
             'birthday' => ['required'],
             'gender' => ['required'],
 			'city' => ['required'],
             'state' => ['required'],
-			'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+			'image' => ['required','max:2048'],
     	]);
 
     	$user = new User();

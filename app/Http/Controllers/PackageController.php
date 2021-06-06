@@ -20,7 +20,8 @@ class PackageController extends Controller
 
     public function all(){
 
-    	$packages = Package::get();
+    	// $packages = Package::get();
+		$packages = Package::join('tests', 'package.lab_test_ids', '=', 'tests.id')->get(['package.*', 'tests.test_name']);
 
     	return view('package.all', ['packages' => $packages]);
 
@@ -33,6 +34,8 @@ class PackageController extends Controller
 	
     public function edit($id){
 		$tests = Test::all();
+		// $package = Package::join('tests', 'package.lab_test_ids', '=', 'tests.id')->where("package.id", $id)->get(['package.*', 'tests.test_name']);
+		// echo $package;
 		$package = Package::find($id);
     	return view('package.edit',['package' => $package, 'tests' => $tests]);
     }
@@ -44,6 +47,7 @@ class PackageController extends Controller
             'description' => ['required', 'string'],
             'lab_name' => ['required', 'string'],
             'rate' => ['required', 'max:7'],
+            'lab_test_ids' => ['required'],
 
     	]);
 		if ($request->hasFile('image')) {
@@ -63,7 +67,7 @@ class PackageController extends Controller
 		$package = Package::where('id', $request->id)->update(['name' => $request->name,
 								'description' => $request->description,
 								'lab_name' => $request->lab_name,
-								'discount_type' => $request->discount_type,
+								'lab_test_ids' => $request->lab_test_ids,
 								'rate' => $request->rate,]);
 
 		return Redirect::back()->with('success', __('sentence.Package Updated Successfully'));
@@ -77,6 +81,7 @@ class PackageController extends Controller
             'description' => ['required', 'string'],
             'lab_name' => ['required', 'string'],
             'rate' => ['required', 'max:7'],
+            'lab_test_ids' => ['required'],
 			'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     	]);
 		$package = new Package();
@@ -84,6 +89,7 @@ class PackageController extends Controller
 		$package->description = $request->description;
 		$package->lab_name = $request->lab_name;
 		$package->rate = $request->rate;
+		$package->lab_test_ids = $request->lab_test_ids;
 		$image           = $request->file('image');
 		$name            = 'IMG'.time().'.'.$image->getClientOriginalExtension();
 		$destinationPath = '/imgs/package/';

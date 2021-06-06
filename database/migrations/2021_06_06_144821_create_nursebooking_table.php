@@ -15,8 +15,10 @@ class CreateNursebookingTable extends Migration
     {
         Schema::create('nursebooking', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->string('nurse_id');
             $table->string('patient_id');
+            $table->date('visit_date');
+            $table->time('visit_time');
             $table->timestamps();
         });
     }
