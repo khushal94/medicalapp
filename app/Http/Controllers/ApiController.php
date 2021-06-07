@@ -19,6 +19,7 @@ use App\Coupon;
 use App\Test;
 use App\Package;
 use App\LabBooking;
+use App\NurseBooking;
 use Response;
 use Redirect;
 use Hash;
@@ -191,12 +192,12 @@ class ApiController extends Controller
         $doctors = Doctor::get();
         $specialities = new stdClass();
         $doctors_featured = Doctor::get();
-
+        $coupons_offers = Coupon::where('is_deleted', 0)->get();
         $ResData = new \stdClass();
         $ResData -> top_doctors = $doctors;
         $ResData -> doctors_featured = $doctors;
         $ResData -> specialities = $specialities;
-
+        $ResData -> coupons = $coupons_offers;
         return Response::json(
             array(
                     'status' => true,
@@ -366,7 +367,7 @@ class ApiController extends Controller
         $image = $request->base64_image;
         $image = str_replace('data:image/png;base64,', '', $image);
         $image = str_replace(' ', '+', $image);
-        $rand_no = rand(1000,100000);
+        $rand_no = rand(1000, 100000);
         $imageName =   $request->user_id.'_'.$rand_no.'pres.png';
     
         Storage::disk('prescription')->put($imageName, base64_decode($image));
@@ -383,21 +384,25 @@ class ApiController extends Controller
                 array(
                 'status' => true,
                 'data' => $prescription
-            ), 200 );
+            ),
+                200
+            );
         } else {
             return Response::json(
                 array(
                 'status' => false,
                 'msg' => 'Prescription not saved, please try again..'
-            ), 201 );
+            ),
+                201
+            );
         }
-
     }
 
     public function Get_Recent_Prescriptions(Request $request)
     {
         $user_id = $request->user_id;
-        $pres = Prescription::where('prescriptions.user_id', $user_id)->get();;
+        $pres = Prescription::where('prescriptions.user_id', $user_id)->get();
+        ;
         if ($pres) {
             return Response::json(
                 array(
@@ -467,7 +472,7 @@ class ApiController extends Controller
         $order = Order::where('user_id', $request->user_id)->get();
        
 
-        foreach($order as $key=>$value) {
+        foreach ($order as $key=>$value) {
             $order[$key]->medicines = json_decode($value->medicines);
         }
 
@@ -481,7 +486,7 @@ class ApiController extends Controller
                 ),
                 200
             );
-        }else{
+        } else {
             return Response::json(
                 array(
                     'status' => true,
@@ -567,12 +572,87 @@ class ApiController extends Controller
         }
     }
 
+
+    public function Create_NurseBooking(Request $request)
+    {
+        $Nursebooking = new NurseBooking();
+  
+        $Nursebooking->patient_id = $request->user_id;
+        $Nursebooking->nurse_id = $request->nurse_id;
+        $Nursebooking->visit_date = $request->date;
+        $Nursebooking->visit_time = $request->time;
+        
+
+        $Nursebooking->save();
+
+        if ($Nursebooking) {
+            return Response::json(
+                array(
+                    'status' => true,
+                    'data' => $Nursebooking,
+                    'msg' => 'Nurse visit booking Created Successfully,'
+                ),
+                200
+            );
+        } else {
+            return Response::json(
+                array(
+                    'status' => false,
+                    'msg' => 'Error occured while saving your Nurse visit booking, please try again..'
+                ),
+                201
+            );
+        }
+    }
+
+    public function Get_NurseBooking(Request $request)
+    {
+        if (!$request->user_id) {
+            return Response::json(
+                array(
+                    'status' => false,
+                    'msg' => 'Please provide user id to get nurse visit bookings'
+                ),
+                201
+            );
+        }
+
+        $nursebookings = NurseBooking::leftJoin('nurses', 'nursebooking.nurse_id', '=', 'nurses.user_id')->where('patient_id', $request->user_id)->get();
+
+        if ($nursebookings) {
+            return Response::json(
+                array(
+                    'status' => true,
+                    'data' => $nursebookings,
+                    'msg' => 'Nurse visit booking fetched Successfully,'
+                ),
+                200
+            );
+        } else {
+            return Response::json(
+                array(
+                    'status' => false,
+                    'msg' => 'Error occured while fetching your Nurse visit booking, please try again..'
+                ),
+                201
+            );
+        }
+    }
+
+
     public function Create_LabBooking(Request $request)
     {
         $LabBooking = new LabBooking();
+        if (!$request->package_selected) {
+            $LabBooking->user_id = $request->user_id;
+            $LabBooking->test_data = $request->test_data;
+        } else {
+            $LabBooking->user_id = $request->user_id;
+            $LabBooking->package_selected = $request->package_selected;
+            $LabBooking->package_id = $request->package_id;
+        }
 
-        $LabBooking->user_id = $request->user_id;
-        $LabBooking->medicines = $request->medicines;
+
         $LabBooking->save();
 
         if ($LabBooking) {
@@ -605,6 +685,38 @@ class ApiController extends Controller
                 array(
                     'status' => true,
                     'data' => $Package,
+                    'msg' => 'Package Fetched'
+                ),
+                200
+            );
+        } else {
+            return Response::json(
+                array(
+                    'status' => false,
+                    'msg' => 'Error occured while fetching Package data, please try again..'
+                ),
+                201
+            );
+        }
+    }
+
+    public function LabTest_Orders(Request $request)
+    {
+        $LabBooking = LabBooking::leftJoin('package', 'labbooking.package_id', '=', 'package.id')->where('user_id', $request->user_id)->get();
+
+        if ($LabBooking) {
+            foreach ($LabBooking as $key=>$value) {
+                if ($value->test_data) {
+                    $LabBooking[$key]->test_data = json_decode($value->test_data);
+                }
+            }
+        }
+
+        if ($LabBooking) {
+            return Response::json(
+                array(
+                    'status' => true,
+                    'data' => $LabBooking,
                     'msg' => 'Package Fetched'
                 ),
                 200

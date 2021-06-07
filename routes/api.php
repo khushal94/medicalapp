@@ -31,7 +31,9 @@ Route::get('/get-lab-tests', 'ApiController@Get_Lab_Test')->name('get-tests');
 
 Route::get('/get-packages', 'ApiController@Get_Packages')->name('get-packages');
 Route::post('/create-labbooking', 'ApiController@Create_LabBooking')->name('create-lab-booking');
-
+Route::post('/get-labtest-orders', 'ApiController@LabTest_Orders')->name('orders-lab-booking');
+Route::post('/nurse-booking', 'ApiController@Create_NurseBooking')->name('book-nurse');
+Route::post('/get-nurse-bookings', 'ApiController@Get_NurseBooking')->name('get-book-nurse');
 
 //Get_Specialities
 
