@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    {{ $speciality->name }}
+    {{ $nursebooking->id }}
 @endsection
 
 @section('content')
@@ -15,10 +15,18 @@
                         <div class="col-md-4 col-sm-6">
                             <center><img src="{{ asset('public/img/patient-icon.png') }}"
                                     class="img-profile rounded-circle img-fluid"></center>
-                            <h4 class="text-center"><b>{{ $speciality->name }}</b></h4>
+                            <h4 class="text-center"><b>{{ $nursebooking->nurse_name }}</b></h4>
                             <hr>
-                            @isset($speciality->icon)
-                                <p><b>{{ __('sentence.Speciality Icon') }} :</b> {{ $speciality->icon }}</p>
+                            @foreach ($patients as $patient)
+                            @if ($nursebooking->patient_id == $patient->id)
+                            <p><b>{{ __('sentence.Patient Name') }} :</b>{{ $patient->name }}</p>
+                            @endif
+                            @endforeach
+                            @isset($nursebooking->visit_date)
+                                <p><b>{{ __('sentence.Visiting Date') }} :</b> {{ date('d-m-Y', strtotime($nursebooking->visit_date)) }}</p>                                
+                            @endisset
+                            @isset($nursebooking->visit_time)
+                                <p><b>{{ __('sentence.Visiting Time') }} :</b> {{ \Carbon\Carbon::createFromFormat('H:i:s', $nursebooking->visit_time)->format('h:m:s a') }}</p>                                
                             @endisset
                         </div>
                     </div>
