@@ -62,10 +62,18 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="visit_time" class="col-sm-3 col-form-label">{{ __('sentence.Visiting Time') }}<font
-                                    color="red">*</font></label>
+                            <label for="visit_time" class="col-sm-3 col-form-label">{{ __('sentence.Visiting Time') }}
+                                <font color="red">*</font>
+                            </label>
                             <div class="col-sm-9">
                                 <input type="datetime-local" class="form-control" id="visit_time" name="visit_time">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="address" class="col-sm-3 col-form-label">{{ __('sentence.Address') }}</label>
+                            <div class="col-sm-9">
+                                <textarea rows="2" class="form-control" id="address" name="address"
+                                    placeholder="{{ __('sentence.Address') }}"></textarea>
                             </div>
                         </div>
                         <div class="form-group row">

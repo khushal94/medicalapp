@@ -28,6 +28,9 @@
                             @isset($nursebooking->visit_time)
                                 <p><b>{{ __('sentence.Visiting Time') }} :</b> {{ \Carbon\Carbon::createFromFormat('H:i:s', $nursebooking->visit_time)->format('h:m:s a') }}</p>                                
                             @endisset
+                            @isset($nursebooking->address)
+                                <p><b>{{ __('sentence.Address') }} :</b> {{ $nursebooking->address }}</p>                                
+                            @endisset
                         </div>
                     </div>
                 </div>

@@ -295,16 +295,14 @@ return [
     
     // Nurse Booking
     'Nurse Booking' => 'Nurse Booking', 
-    'Edit Package' => 'Edit Package',
+    'Booking' => 'Booking', 
+    'Edit Nurse booking' => 'Edit Nurse booking',
     'Visiting Date' => 'Visiting Date',
     'Visiting Time' => 'Visiting Time',
     'New Nurse Booking' => 'New Nurse Booking',
     'All Nurse Bookings' => 'All Nurse Bookings',
-    'Package Name' => 'Package Name',
-    'Package Rate' => 'Package Rate',
     'Lab Name' => 'Lab Name',
     'Labs Name' => 'Labs Name',
-    'Test' => 'Test',
     'Nurse Booking Edited Successfully' => 'Nurse Booking Edited Successfully!',
     'Nurse Booking Created Successfully' => 'Nurse Booking Created Successfully!',
 

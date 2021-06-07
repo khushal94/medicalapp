@@ -39,7 +39,7 @@ class NurseBookingController extends Controller
         $nursebooking->patient_id = $request->patient_id;
         $nursebooking->visit_date = $date;
         $nursebooking->visit_time = $time;
-            
+        $nursebooking->address = $request->address;
         $nursebooking->save();
 
         return Redirect::route('nursebooking.all')->with('success', __('sentence.Nurse Booking Created Successfully'));
@@ -76,6 +76,7 @@ class NurseBookingController extends Controller
         $nursebooking->patient_id = $request->patient_id;
         $nursebooking->visit_date = $newdate;
         $nursebooking->visit_time = $newtime;
+        $nursebooking->address = $request->address;
         // $nursebooking->visit_date = $request->visit_date;
         // $nursebooking->visit_time = $request->visit_time;
             // echo $nursebooking;

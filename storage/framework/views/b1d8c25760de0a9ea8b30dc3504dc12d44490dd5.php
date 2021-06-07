@@ -36,19 +36,14 @@
                     <form method="post" action="<?php echo e(route('nursebooking.store_edit')); ?>">
                         <?php echo e(csrf_field()); ?>
 
-                        <input type="hidden" class="form-control" id="id" name="id"
-                                                value="<?php echo e($nursebooking->id); ?>">
+                        <input type="hidden" class="form-control" id="id" name="id" value="<?php echo e($nursebooking->id); ?>">
                         <div class="form-group row">
                             <label for="name" class="col-sm-3 col-form-label"><?php echo e(__('sentence.Nurse Name')); ?><font
                                     color="red">*</font></label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="nurse_id">
                                     <?php $__currentLoopData = $nurses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $nurse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($nurse->id); ?>"
-                                            <?php if($nursebooking->nurse_id == $nurse->id): ?>
-                                                selected
-                                            <?php endif; ?>
-                                            ><?php echo e($nurse->name); ?>
+                                        <option value="<?php echo e($nurse->id); ?>" <?php if($nursebooking->nurse_id == $nurse->id): ?> selected <?php endif; ?>><?php echo e($nurse->name); ?>
 
                                         </option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -61,11 +56,7 @@
                             <div class="col-sm-9">
                                 <select class="form-control" name="patient_id">
                                     <?php $__currentLoopData = $patients; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $patient): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($patient->id); ?>"
-                                            <?php if($nursebooking->patient_id == $patient->id): ?>
-                                                selected
-                                            <?php endif; ?>
-                                            ><?php echo e($patient->name); ?>
+                                        <option value="<?php echo e($patient->id); ?>" <?php if($nursebooking->patient_id == $patient->id): ?> selected <?php endif; ?>><?php echo e($patient->name); ?>
 
                                         </option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -73,10 +64,19 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="visit_time" class="col-sm-3 col-form-label"><?php echo e(__('sentence.Visiting Time')); ?><font
-                                    color="red">*</font></label>
-                            <div class="col-sm-9">                                
-                                <input type="datetime-local" class="form-control" id="visit_time" name="visit_time" value="<?php echo e(date('d-m-y H:i', strtotime("$nursebooking->visit_date $nursebooking->visit_time"))); ?>"> 
+                            <label for="visit_time" class="col-sm-3 col-form-label"><?php echo e(__('sentence.Visiting Time')); ?>
+
+                                <font color="red">*</font></label>
+                            <div class="col-sm-9">
+                                <input type="datetime-local" class="form-control" id="visit_time" name="visit_time"
+                                    value="<?php echo e(date('d-m-y H:i', strtotime("$nursebooking->visit_date $nursebooking->visit_time"))); ?>">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="address" class="col-sm-3 col-form-label"><?php echo e(__('sentence.Address')); ?></label>
+                            <div class="col-sm-9">
+                                <textarea rows="2" class="form-control" id="address" name="address"
+                                    placeholder="<?php echo e(__('sentence.Address')); ?>"><?php echo e($nursebooking->address); ?></textarea>
                             </div>
                         </div>
                         <div class="form-group row">

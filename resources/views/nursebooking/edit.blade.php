@@ -35,19 +35,14 @@
                 <div class="card-body">
                     <form method="post" action="{{ route('nursebooking.store_edit') }}">
                         {{ csrf_field() }}
-                        <input type="hidden" class="form-control" id="id" name="id"
-                                                value="{{ $nursebooking->id }}">
+                        <input type="hidden" class="form-control" id="id" name="id" value="{{ $nursebooking->id }}">
                         <div class="form-group row">
                             <label for="name" class="col-sm-3 col-form-label">{{ __('sentence.Nurse Name') }}<font
                                     color="red">*</font></label>
                             <div class="col-sm-9">
                                 <select class="form-control" name="nurse_id">
                                     @foreach ($nurses as $nurse)
-                                        <option value="{{ $nurse->id }}"
-                                            @if ($nursebooking->nurse_id == $nurse->id)
-                                                selected
-                                            @endif
-                                            >{{ $nurse->name }}
+                                        <option value="{{ $nurse->id }}" @if ($nursebooking->nurse_id == $nurse->id) selected @endif>{{ $nurse->name }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -59,21 +54,25 @@
                             <div class="col-sm-9">
                                 <select class="form-control" name="patient_id">
                                     @foreach ($patients as $patient)
-                                        <option value="{{ $patient->id }}"
-                                            @if ($nursebooking->patient_id == $patient->id)
-                                                selected
-                                            @endif
-                                            >{{ $patient->name }}
+                                        <option value="{{ $patient->id }}" @if ($nursebooking->patient_id == $patient->id) selected @endif>{{ $patient->name }}
                                         </option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="visit_time" class="col-sm-3 col-form-label">{{ __('sentence.Visiting Time') }}<font
-                                    color="red">*</font></label>
-                            <div class="col-sm-9">                                
-                                <input type="datetime-local" class="form-control" id="visit_time" name="visit_time" value="{{ date('d-m-y H:i', strtotime("$nursebooking->visit_date $nursebooking->visit_time")) }}"> 
+                            <label for="visit_time" class="col-sm-3 col-form-label">{{ __('sentence.Visiting Time') }}
+                                <font color="red">*</font></label>
+                            <div class="col-sm-9">
+                                <input type="datetime-local" class="form-control" id="visit_time" name="visit_time"
+                                    value="{{ date('d-m-y H:i', strtotime("$nursebooking->visit_date $nursebooking->visit_time")) }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="address" class="col-sm-3 col-form-label">{{ __('sentence.Address') }}</label>
+                            <div class="col-sm-9">
+                                <textarea rows="2" class="form-control" id="address" name="address"
+                                    placeholder="{{ __('sentence.Address') }}">{{ $nursebooking->address }}</textarea>
                             </div>
                         </div>
                         <div class="form-group row">

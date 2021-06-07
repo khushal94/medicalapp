@@ -64,7 +64,6 @@
                                 </select>
                             </div>
                         </div>
-                        
                         <div class="form-group row">
                             <label for="visit_time" class="col-sm-3 col-form-label"><?php echo e(__('sentence.Visiting Time')); ?><font
                                     color="red">*</font></label>

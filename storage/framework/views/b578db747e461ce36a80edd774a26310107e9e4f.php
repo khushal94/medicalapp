@@ -27,6 +27,9 @@
                             <?php if(isset($nursebooking->visit_time)): ?>
                                 <p><b><?php echo e(__('sentence.Visiting Time')); ?> :</b> <?php echo e(\Carbon\Carbon::createFromFormat('H:i:s', $nursebooking->visit_time)->format('h:m:s a')); ?></p>                                
                             <?php endif; ?>
+                            <?php if(isset($nursebooking->address)): ?>
+                                <p><b><?php echo e(__('sentence.Address')); ?> :</b> <?php echo e($nursebooking->address); ?></p>                                
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

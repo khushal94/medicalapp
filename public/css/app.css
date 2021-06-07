@@ -10772,7 +10772,7 @@ a:focus {
 	padding: 0.5rem 0;
 	min-width: 10rem;
 	font-size: 0.85rem;
-	margin: 0 0 1rem 0;
+	/* margin: 0 0 1rem 0; */
 }
 
 .sidebar .nav-item .collapse .collapse-inner .collapse-header,
@@ -11106,7 +11106,13 @@ a:focus {
 .sidebar-dark .nav-item .nav-link[data-toggle="collapse"]::after {
 	color: rgba(255, 255, 255, 0.5);
 }
-
+.sidebar-dark .nav-item .extradropdown.nav-link[data-toggle="collapse"]::after{
+	color: rgba(0, 0, 0, 0.5);
+}
+.extradropdown{
+	display: block!important;
+	width: auto!important;
+}
 .sidebar-dark .nav-item.active .nav-link {
 	color: #fff;
 }
