@@ -31,8 +31,8 @@ class NurseBookingController extends Controller
             ]);
                 // 'visit_date' => 'required',
             $timestamp = (strtotime($request->visit_time));
-            $date = date('d-m-Y', $timestamp);
-            $time = date('h:m:s a', $timestamp);
+            $date = date('y-m-d', $timestamp);
+            $time = date('H:i:s', $timestamp);
     	$nursebooking = new NurseBooking;
 
         $nursebooking->nurse_id = $request->nurse_id;
@@ -47,13 +47,16 @@ class NurseBookingController extends Controller
     }
 
     public function all(){
-    	$nursebookings = NurseBooking::all();
-    	return view('nursebooking.all', ['nursebookings' => $nursebookings]);
+        $patients = Patient::join('users', 'patients.user_id', '=', 'users.id')->get(['patients.*', 'users.name']);
+    	$nursebookings = NurseBooking::join('nurses', 'nursebooking.nurse_id', '=', 'nurses.id')->get(['nursebooking.*','nurses.name as nurse_name']);
+    	return view('nursebooking.all', ['nursebookings' => $nursebookings, 'patients' => $patients]);
     }
 
     public function edit($id){
+        $patients = Patient::join('users', 'patients.user_id', '=', 'users.id')->get(['patients.*', 'users.name']);
+    	$nurses = Nurse::get();
         $nursebooking = NurseBooking::find($id);
-        return view('nursebooking.edit',['nursebooking' => $nursebooking]);
+        return view('nursebooking.edit',['nursebooking' => $nursebooking,'nurses'=> $nurses, 'patients' => $patients]);
     }
 
     public function store_edit(Request $request){
@@ -61,27 +64,39 @@ class NurseBookingController extends Controller
             $validatedData = $request->validate([
                 'nurse_id' => 'required',
 	        	'patient_id' => 'required',
-                'visit_date' => 'required',
                 'visit_time' => 'required',
             ]);
+            $newtimestamp = (strtotime($request->visit_time));
+            $newdate = date('y-m-d', $newtimestamp);
+            $newtime = date('H:i:s', $newtimestamp);
         
         $nursebooking = NurseBooking::find($request->id);
 
         $nursebooking->nurse_id = $request->nurse_id;
         $nursebooking->patient_id = $request->patient_id;
-        $nursebooking->visit_date = $request->visit_date;
-        $nursebooking->visit_time = $request->visit_time;
-
+        $nursebooking->visit_date = $newdate;
+        $nursebooking->visit_time = $newtime;
+        // $nursebooking->visit_date = $request->visit_date;
+        // $nursebooking->visit_time = $request->visit_time;
+            // echo $nursebooking;
         $nursebooking->save();
 
-        return Redirect::route('nursebooking.all')->with('success', __('sentence.Test Edited Successfully'));
+        return Redirect::route('nursebooking.all')->with('success', __('sentence.Nurse Booking Edited Successfully'));
+
+    }
+    public function view($id){
+
+    	// $coupon = Coupon::findOrfail($id);
+        $patients = Patient::join('users', 'patients.user_id', '=', 'users.id')->get(['patients.*', 'users.name']);
+    	$nursebooking = NurseBooking::findOrfail($id)->join('nurses', 'nursebooking.nurse_id', '=', 'nurses.id')->first(['nursebooking.*','nurses.name as nurse_name']);
+    	return view('nursebooking.view', ['nursebooking' => $nursebooking, 'patients' => $patients]);
 
     }
 
     public function destroy($id){
 
     	NurseBooking::destroy($id);
-        return Redirect::route('nursebooking.all')->with('success', __('sentence.Test Deleted Successfully'));
+        return Redirect::route('nursebooking.all')->with('success', __('sentence.Nurse Booking Deleted Successfully'));
 
     }
 }

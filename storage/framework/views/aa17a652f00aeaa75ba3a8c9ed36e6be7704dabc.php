@@ -162,7 +162,7 @@
                <hr class="sidebar-divider">
                <!-- Heading -->
                <div class="sidebar-heading">
-                  <?php echo e(__('sentence.NurseBooking')); ?>
+                  <?php echo e(__('sentence.Nurse Booking')); ?>
 
                </div>
                <!-- Nav Item - Pages Collapse Menu -->

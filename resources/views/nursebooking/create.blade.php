@@ -61,13 +61,6 @@
                                 </select>
                             </div>
                         </div>
-                        {{-- <div class="form-group row">
-                            <label for="birthday" class="col-sm-3 col-form-label">{{ __('sentence.Visiting Date') }}<font
-                                    color="red">*</font></label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control birthday" id="birthday" name="visit_date">
-                            </div>
-                        </div> --}}
                         <div class="form-group row">
                             <label for="visit_time" class="col-sm-3 col-form-label">{{ __('sentence.Visiting Time') }}<font
                                     color="red">*</font></label>

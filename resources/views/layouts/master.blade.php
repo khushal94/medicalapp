@@ -156,7 +156,7 @@
                <hr class="sidebar-divider">
                <!-- Heading -->
                <div class="sidebar-heading">
-                  {{ __('sentence.NurseBooking') }}
+                  {{ __('sentence.Nurse Booking') }}
                </div>
                <!-- Nav Item - Pages Collapse Menu -->
                <li class="nav-item">

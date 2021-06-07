@@ -305,7 +305,7 @@ return [
     'Lab Name' => 'Lab Name',
     'Labs Name' => 'Labs Name',
     'Test' => 'Test',
-    'Package Updated Successfully' => 'Package Updated Successfully!',
-    'Package Created Successfully' => 'Package Created Successfully!',
+    'Nurse Booking Edited Successfully' => 'Nurse Booking Edited Successfully!',
+    'Nurse Booking Created Successfully' => 'Nurse Booking Created Successfully!',
 
 ];
