@@ -24,6 +24,17 @@
                             @isset($order->phone)
                                 <p><b>{{ __('sentence.Order Contact') }} :</b> {{ $order->phone }}</p>
                             @endisset
+
+                            @foreach ($order->medicines as $medicine)
+                            <p><b>Name :</b> {{$medicine->trade_name }}</p>
+                            <p><b>Rate :</b> ₹{{$medicine->rate }}</p>
+                            @isset($medicine->quantity)
+                            <p><b>Quantity :</b> ₹{{$medicine->quantity }}</p>
+                            @endisset
+                            <hr>
+                            @endforeach 
+
+                            <p><b>Status :</b> {{$order->status }}</p>
                         </div>
                     </div>
                 </div>

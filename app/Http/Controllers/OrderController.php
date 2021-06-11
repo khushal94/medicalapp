@@ -78,6 +78,9 @@ class OrderController extends Controller
     public function view($id){
 
     	$order = Order::findOrfail($id);
+		if($order){
+			if($order->medicines)$order->medicines = json_decode($order->medicines);
+		}
     	return view('order.view', ['order' => $order]);
 
     }
