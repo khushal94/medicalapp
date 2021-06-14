@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2021 at 05:41 PM
+-- Generation Time: Jun 08, 2021 at 05:05 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.3.28
 
@@ -41,6 +41,13 @@ CREATE TABLE `appointments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `appointments`
+--
+
+INSERT INTO `appointments` (`id`, `user_id`, `doctor_id`, `first_time`, `covid_symptoms`, `date`, `time_start`, `time_end`, `visited`, `description`, `created_at`, `updated_at`) VALUES
+(32, 21, 23, NULL, NULL, '2021-05-28', '11:47', NULL, NULL, 'test', '2021-05-28 06:17:11', '2021-05-28 06:17:11');
 
 -- --------------------------------------------------------
 
@@ -140,7 +147,11 @@ CREATE TABLE `doctors` (
 --
 
 INSERT INTO `doctors` (`id`, `user_id`, `name`, `email`, `phone`, `birthday`, `gender`, `city`, `state`, `country`, `lat`, `long`, `description`, `patient`, `rating`, `speciality`, `experience`, `image`, `address`, `is_featured`, `is_available`, `is_deleted`, `created_at`, `updated_at`) VALUES
-(1, 29, 'Pankaj', 'pankaj@gmail.com', '555435', '02/02/1998', 'Male', 'Udaipur', 'Rajasthan', 'India', '4535', '43534', 'gdfgfd', NULL, NULL, 'Oncology', '4', 'doctors/may/IMG.jpg', '435fdgf', 0, 0, 0, '2021-05-28 07:22:33', '2021-06-01 08:53:28');
+(1, 29, 'Pankaj', 'pankaj@gmail.com', '555435', '02/02/1998', 'Male', 'Udaipur', 'Rajasthan', 'India', '4535', '43534', 'gdfgfd', NULL, NULL, 'Oncology', '4', 'doctors/may/IMG.jpg', '435fdgf', 0, 0, 0, '2021-05-28 07:22:33', '2021-06-01 08:53:28'),
+(2, 23, 'John Doe', 'johndoe@gmail.com', '9785558555', '05/29/2021', 'Male', 'Udaipur', 'Rajasthan', 'India', NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet mauris enim. Donec sed consectetur augue. Cras venenatis vel mi sit amet varius. Vivamus sollicitudin sollicitudin blandit. Donec bibendum felis elit. Pellentesque ac vestibulum ex. Quisque sed egestas metus. Suspendisse faucibus erat nisl, eget venenatis arcu fringilla a. Ut tristique justo vel ligula ultricies, quis efficitur risus auctor. Donec fringilla vestibulum nisl. Vestibulum hendrerit interdum urna ac dictum. Sed laoreet justo sapien, in placerat nibh varius non. Mauris rhoncus imperdiet diam tempor iaculis. Cras sollicitudin malesuada posuere. Praesent lacus diam, venenatis vel consectetur id, lacinia eget sem.\r\n\r\nDonec interdum diam sit amet dolor suscipit mattis. Suspendisse in turpis mi. Morbi aliquet, ante in finibus facilisis, ligula ante tincidunt arcu, nec viverra nunc risus a metus. Ut sollicitudin, risus sed aliquet ultrices, justo nisl tempor turpis, in ultricies ante turpis eu magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ornare mi magna, ultrices ultricies nisi imperdiet sed. Proin ac consectetur velit, vitae facilisis purus. Suspendisse vestibulum purus sodales, hendrerit ex ullamcorper, scelerisque metus. In nec auctor lacus. Phasellus luctus urna quam, eu sollicitudin enim vulputate ut. Etiam in erat viverra, vulputate nisl cursus, porta neque. Nunc odio nulla, sollicitudin nec sem eu, placerat venenatis quam. Nullam dignissim dolor id vestibulum pharetra. Aenean fringilla, libero sit amet suscipit consectetur, turpis turpis vulputate tortor, in vulputate ipsum mauris et lacus. Maecenas semper porttitor nibh eu rhoncus. Curabitur egestas augue turpis, ac fringilla purus dignissim at.\r\n\r\nMorbi fermentum neque ut luctus porttitor. Nullam et quam dolor. Sed molestie diam eu leo elementum, in tempus magna tincidunt. Aliquam aliquet quam in lacus aliquam sodales. Nunc lobortis, purus id tempor feugiat, magna sapien tristique arcu, quis posuere magna eros et elit. Mauris sit amet leo felis. Morbi a nibh congue, semper dolor quis, scelerisque tellus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam gravida pretium leo, quis consequat lacus ultricies et. Suspendisse euismod iaculis laoreet. Curabitur ut laoreet diam.', '211', '4', 'Cardiologist', '4', 'may/IMG.png', 'Udaipur', 0, 0, 1, '2021-05-28 02:00:36', '2021-05-28 02:00:36'),
+(3, 24, 'William Albert', 'william@gmail.com', '9785558551', '05/29/2021', 'Male', 'Udaipur', 'Rajasthan', 'India', NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet mauris enim. Donec sed consectetur augue. Cras venenatis vel mi sit amet varius. Vivamus sollicitudin sollicitudin blandit. Donec bibendum felis elit. Pellentesque ac vestibulum ex. Quisque sed egestas metus. Suspendisse faucibus erat nisl, eget venenatis arcu fringilla a. Ut tristique justo vel ligula ultricies, quis efficitur risus auctor. Donec fringilla vestibulum nisl. Vestibulum hendrerit interdum urna ac dictum. Sed laoreet justo sapien, in placerat nibh varius non. Mauris rhoncus imperdiet diam tempor iaculis. Cras sollicitudin malesuada posuere. Praesent lacus diam, venenatis vel consectetur id, lacinia eget sem.\r\n\r\nDonec interdum diam sit amet dolor suscipit mattis. Suspendisse in turpis mi. Morbi aliquet, ante in finibus facilisis, ligula ante tincidunt arcu, nec viverra nunc risus a metus. Ut sollicitudin, risus sed aliquet ultrices, justo nisl tempor turpis, in ultricies ante turpis eu magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ornare mi magna, ultrices ultricies nisi imperdiet sed. Proin ac consectetur velit, vitae facilisis purus. Suspendisse vestibulum purus sodales, hendrerit ex ullamcorper, scelerisque metus. In nec auctor lacus. Phasellus luctus urna quam, eu sollicitudin enim vulputate ut. Etiam in erat viverra, vulputate nisl cursus, porta neque. Nunc odio nulla, sollicitudin nec sem eu, placerat venenatis quam. Nullam dignissim dolor id vestibulum pharetra. Aenean fringilla, libero sit amet suscipit consectetur, turpis turpis vulputate tortor, in vulputate ipsum mauris et lacus. Maecenas semper porttitor nibh eu rhoncus. Curabitur egestas augue turpis, ac fringilla purus dignissim at.\r\n\r\nMorbi fermentum neque ut luctus porttitor. Nullam et quam dolor. Sed molestie diam eu leo elementum, in tempus magna tincidunt. Aliquam aliquet quam in lacus aliquam sodales. Nunc lobortis, purus id tempor feugiat, magna sapien tristique arcu, quis posuere magna eros et elit. Mauris sit amet leo felis. Morbi a nibh congue, semper dolor quis, scelerisque tellus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam gravida pretium leo, quis consequat lacus ultricies et. Suspendisse euismod iaculis laoreet. Curabitur ut laoreet diam.', '652', '3', 'General surgery', '4', 'may/IMG.png', 'Udaipur', 0, 0, 1, '2021-05-28 02:01:31', '2021-05-28 02:01:31'),
+(4, 25, 'Robbin Dicasto', 'robbin@gmail.com', '9785558552', '05/29/2021', 'Male', 'Udaipur', 'Rajasthan', 'India', NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet mauris enim. Donec sed consectetur augue. Cras venenatis vel mi sit amet varius. Vivamus sollicitudin sollicitudin blandit. Donec bibendum felis elit. Pellentesque ac vestibulum ex. Quisque sed egestas metus. Suspendisse faucibus erat nisl, eget venenatis arcu fringilla a. Ut tristique justo vel ligula ultricies, quis efficitur risus auctor. Donec fringilla vestibulum nisl. Vestibulum hendrerit interdum urna ac dictum. Sed laoreet justo sapien, in placerat nibh varius non. Mauris rhoncus imperdiet diam tempor iaculis. Cras sollicitudin malesuada posuere. Praesent lacus diam, venenatis vel consectetur id, lacinia eget sem.\r\n\r\nDonec interdum diam sit amet dolor suscipit mattis. Suspendisse in turpis mi. Morbi aliquet, ante in finibus facilisis, ligula ante tincidunt arcu, nec viverra nunc risus a metus. Ut sollicitudin, risus sed aliquet ultrices, justo nisl tempor turpis, in ultricies ante turpis eu magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ornare mi magna, ultrices ultricies nisi imperdiet sed. Proin ac consectetur velit, vitae facilisis purus. Suspendisse vestibulum purus sodales, hendrerit ex ullamcorper, scelerisque metus. In nec auctor lacus. Phasellus luctus urna quam, eu sollicitudin enim vulputate ut. Etiam in erat viverra, vulputate nisl cursus, porta neque. Nunc odio nulla, sollicitudin nec sem eu, placerat venenatis quam. Nullam dignissim dolor id vestibulum pharetra. Aenean fringilla, libero sit amet suscipit consectetur, turpis turpis vulputate tortor, in vulputate ipsum mauris et lacus. Maecenas semper porttitor nibh eu rhoncus. Curabitur egestas augue turpis, ac fringilla purus dignissim at.\r\n\r\nMorbi fermentum neque ut luctus porttitor. Nullam et quam dolor. Sed molestie diam eu leo elementum, in tempus magna tincidunt. Aliquam aliquet quam in lacus aliquam sodales. Nunc lobortis, purus id tempor feugiat, magna sapien tristique arcu, quis posuere magna eros et elit. Mauris sit amet leo felis. Morbi a nibh congue, semper dolor quis, scelerisque tellus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam gravida pretium leo, quis consequat lacus ultricies et. Suspendisse euismod iaculis laoreet. Curabitur ut laoreet diam.', '635', '5', 'General surgery', '4', 'may/IMG.png', 'Udaipur', 0, 0, 1, '2021-05-28 02:02:17', '2021-05-28 02:02:17'),
+(5, 26, 'James William', 'james@gmail.com', '9785558553', '05/28/2021', 'Male', 'Udaipur', 'Rajasthan', 'India', NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet mauris enim. Donec sed consectetur augue. Cras venenatis vel mi sit amet varius. Vivamus sollicitudin sollicitudin blandit. Donec bibendum felis elit. Pellentesque ac vestibulum ex. Quisque sed egestas metus. Suspendisse faucibus erat nisl, eget venenatis arcu fringilla a. Ut tristique justo vel ligula ultricies, quis efficitur risus auctor. Donec fringilla vestibulum nisl. Vestibulum hendrerit interdum urna ac dictum. Sed laoreet justo sapien, in placerat nibh varius non. Mauris rhoncus imperdiet diam tempor iaculis. Cras sollicitudin malesuada posuere. Praesent lacus diam, venenatis vel consectetur id, lacinia eget sem.\r\n\r\nDonec interdum diam sit amet dolor suscipit mattis. Suspendisse in turpis mi. Morbi aliquet, ante in finibus facilisis, ligula ante tincidunt arcu, nec viverra nunc risus a metus. Ut sollicitudin, risus sed aliquet ultrices, justo nisl tempor turpis, in ultricies ante turpis eu magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean ornare mi magna, ultrices ultricies nisi imperdiet sed. Proin ac consectetur velit, vitae facilisis purus. Suspendisse vestibulum purus sodales, hendrerit ex ullamcorper, scelerisque metus. In nec auctor lacus. Phasellus luctus urna quam, eu sollicitudin enim vulputate ut. Etiam in erat viverra, vulputate nisl cursus, porta neque. Nunc odio nulla, sollicitudin nec sem eu, placerat venenatis quam. Nullam dignissim dolor id vestibulum pharetra. Aenean fringilla, libero sit amet suscipit consectetur, turpis turpis vulputate tortor, in vulputate ipsum mauris et lacus. Maecenas semper porttitor nibh eu rhoncus. Curabitur egestas augue turpis, ac fringilla purus dignissim at.\r\n\r\nMorbi fermentum neque ut luctus porttitor. Nullam et quam dolor. Sed molestie diam eu leo elementum, in tempus magna tincidunt. Aliquam aliquet quam in lacus aliquam sodales. Nunc lobortis, purus id tempor feugiat, magna sapien tristique arcu, quis posuere magna eros et elit. Mauris sit amet leo felis. Morbi a nibh congue, semper dolor quis, scelerisque tellus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam gravida pretium leo, quis consequat lacus ultricies et. Suspendisse euismod iaculis laoreet. Curabitur ut laoreet diam.', '965', '5', 'General surgery', '4', 'may/IMG.png', 'Udaipur', 0, 0, 1, '2021-05-28 02:03:02', '2021-05-28 02:03:02');
 
 -- --------------------------------------------------------
 
@@ -153,6 +164,7 @@ CREATE TABLE `drugs` (
   `trade_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `generic_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `note` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `rate` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -161,8 +173,8 @@ CREATE TABLE `drugs` (
 -- Dumping data for table `drugs`
 --
 
-INSERT INTO `drugs` (`id`, `trade_name`, `generic_name`, `note`, `created_at`, `updated_at`) VALUES
-(1, 'Abraxane', 'albumin-bound paclitaxel', 'Albumin Bound Paclitaxel', '2021-06-01 08:57:39', '2021-06-01 08:57:39');
+INSERT INTO `drugs` (`id`, `trade_name`, `generic_name`, `note`, `rate`, `created_at`, `updated_at`) VALUES
+(1, 'Abraxane', 'albumin-bound paclitaxel', 'Albumin Bound Paclitaxel', '3000', '2021-06-01 08:57:39', '2021-06-02 10:24:06');
 
 -- --------------------------------------------------------
 
@@ -235,7 +247,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (244, '2021_05_29_120940_add_image_column_to_nurses', 3),
 (245, '2021_06_01_143434_create_orders_table', 4),
 (246, '2021_06_01_150356_add_featured_column_to_doctors', 5),
-(247, '2021_06_01_150954_add_image_column_to_coupons', 6);
+(247, '2021_06_01_150954_add_image_column_to_coupons', 6),
+(250, '2021_06_02_143347_create_orders_table', 7),
+(251, '2021_06_02_154722_add_rate_column_to_drugs', 8),
+(253, '2021_06_06_045706_create_package_table', 9),
+(256, '2021_06_06_144821_create_nursebooking_table', 10),
+(258, '2021_06_07_154312_add_address_column_to_nursebooking', 11);
 
 -- --------------------------------------------------------
 
@@ -245,11 +262,21 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `nursebooking` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nurse_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `patient_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `visit_date` date NOT NULL,
+  `visit_time` time NOT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `nursebooking`
+--
+
+INSERT INTO `nursebooking` (`id`, `nurse_id`, `patient_id`, `visit_date`, `visit_time`, `address`, `created_at`, `updated_at`) VALUES
+(1, '1', '1', '2021-06-21', '01:33:00', 'Centre for Health Informatics (CHI)\r\nNational Institute of Health and Family Welfare\r\nBaba Gang Nath Marg, Munirka, New Delhi-110067.', '2021-06-06 23:17:27', '2021-06-07 10:29:46');
 
 -- --------------------------------------------------------
 
@@ -285,7 +312,9 @@ CREATE TABLE `nurses` (
 --
 
 INSERT INTO `nurses` (`id`, `user_id`, `name`, `email`, `birthday`, `phone`, `gender`, `city`, `state`, `country`, `lat`, `long`, `description`, `patient`, `rating`, `address`, `image`, `is_deleted`, `created_at`, `updated_at`) VALUES
-(1, 28, 'HARSHA', 'harsha@gmail.com', '12/28/2020', '454354345', 'Female', 'Udaipur', 'Rajasthan', 'India', '34324', '423423', 'gdfgdfg', NULL, NULL, 'fgfdgfd', 'nurses/may/IMG28.jpg', 0, '2021-05-28 06:27:12', '2021-05-29 07:37:45');
+(1, 28, 'HARSHA', 'harsha@gmail.com', '12/28/2020', '454354345', 'Female', 'Udaipur', 'Rajasthan', 'India', '34324', '423423', 'gdfgdfg', NULL, NULL, 'fgfdgfd', 'nurses/may/IMG28.jpg', 0, '2021-05-28 06:27:12', '2021-05-29 07:37:45'),
+(3, 25, 'Jasvender', 'Jas@gmail.com', '05/02/2021', '45435345', 'Male', 'Udaipur', 'Rajasthan', 'India', '321321', '32321', 'dsad', NULL, NULL, 'vgfv', NULL, 1, '2021-05-27 10:26:30', '2021-05-27 10:26:30'),
+(4, 31, 'Lady Harriet Acland', 'nurse@gmail.com', '03/10/1992', '9988779967', 'Female', 'Udaipur', 'Rajasthan', 'India', '434', '3432', 'Nursing is a profession within the health care sector focused on the care of individuals, families, and communities so they may attain, maintain, or recover optimal health and quality of life. Nurses may be differentiated from other health care providers by their approach to patient care, training, and scope of practice. Nurses practice in many specialties with differing levels of prescription authority. Nurses comprise the largest component of most healthcare environments;[1][2] but there is evidence of international shortages of qualified nurses.[3] Many nurses provide care within the ordering scope of physicians, and this traditional role has shaped the public image of nurses as care providers. Nurse practitioners are however permitted by most jurisdictions to practice independently in a variety of settings. Since the postwar period, nurse education has undergone a process of diversification towards advanced and specialized credentials, and many of the traditional regulations and provider roles are changing.', NULL, NULL, 'Govardhan Vilas', 'nurses/june/IMG1622902418.jpg', 0, '2021-06-05 08:43:38', '2021-06-05 08:43:38');
 
 -- --------------------------------------------------------
 
@@ -294,14 +323,52 @@ INSERT INTO `nurses` (`id`, `user_id`, `name`, `email`, `birthday`, `phone`, `ge
 --
 
 CREATE TABLE `orders` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `is_deleted` tinyint(1) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `medicines` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `payment_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `medicines`, `payment_id`, `type`, `status`, `created_at`, `updated_at`) VALUES
+(2, 21, '[{\"id\":1,\"trade_name\":\"Paracetamol IP 500mg\",\"generic_name\":\"Paracetamol IP 500mg\",\"pharma\":\"Sun Pharmacy PVT LTD\",\"type\":\"Tablet\",\"rate\":12.5}]', NULL, NULL, 'Pending', '2021-05-31 07:46:20', '2021-05-31 07:46:20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `package`
+--
+
+CREATE TABLE `package` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lab_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lab_test_ids` int(11) DEFAULT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rate` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `package`
+--
+
+INSERT INTO `package` (`id`, `name`, `description`, `lab_name`, `lab_test_ids`, `image`, `rate`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 'UdaipurMed Shield', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut aliquet neque. Mauris pellentesque turpis et eros porta, non sagittis lorem suscipit. Cras ut massa aliquam, facilisis risus eget, dictum quam. Donec molestie maximus metus, a blandit lorem convallis et. Integer scelerisque egestas molestie. Ut accumsan, est ac mollis auctor, orci leo cursus ligula, et varius ex nisi in lectus. Duis sed ligula vitae odio dapibus sagittis. Phasellus blandit venenatis felis, a malesuada est posuere ac.\r\n\r\nCurabitur erat mi, euismod eget egestas vitae, imperdiet sit amet urna. Nullam at dictum libero. Suspendisse potenti. Donec consectetur accumsan enim eu venenatis. Aenean quis mauris erat. Donec lacus quam, scelerisque id velit eget, gravida faucibus dolor. Pellentesque faucibus semper nisl, eu venenatis tortor placerat non. Nam tempus lacinia lobortis.\r\n\r\nDonec venenatis, nunc in convallis blandit, ipsum velit facilisis erat, sed blandit ex velit sed erat. Curabitur odio velit, congue sed purus vel, porttitor pulvinar augue. Maecenas pulvinar tempor arcu, non facilisis lectus. Phasellus blandit nec magna et hendrerit. Pellentesque nec nibh id tellus semper interdum. Sed lobortis, ligula quis sodales luctus, mi lectus posuere sapien, vel hendrerit libero arcu a erat. Nulla interdum nibh massa, nec finibus sem accumsan sed. Suspendisse maximus lacus tempus pulvinar varius. Nam mollis erat lectus, ut posuere mi fermentum bibendum. Suspendisse cursus venenatis lorem, sit amet porttitor libero vestibulum at.', 'HealthCare Labs', NULL, 'package/sample.jpg', '999', 1, '2021-06-04 00:39:07', '2021-06-04 00:39:07'),
+(2, 'UdaipurMed CovidCare', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut aliquet neque. Mauris pellentesque turpis et eros porta, non sagittis lorem suscipit. Cras ut massa aliquam, facilisis risus eget, dictum quam. Donec molestie maximus metus, a blandit lorem convallis et. Integer scelerisque egestas molestie. Ut accumsan, est ac mollis auctor, orci leo cursus ligula, et varius ex nisi in lectus. Duis sed ligula vitae odio dapibus sagittis. Phasellus blandit venenatis felis, a malesuada est posuere ac.\r\n\r\nCurabitur erat mi, euismod eget egestas vitae, imperdiet sit amet urna. Nullam at dictum libero. Suspendisse potenti. Donec consectetur accumsan enim eu venenatis. Aenean quis mauris erat. Donec lacus quam, scelerisque id velit eget, gravida faucibus dolor. Pellentesque faucibus semper nisl, eu venenatis tortor placerat non. Nam tempus lacinia lobortis.\r\n\r\nDonec venenatis, nunc in convallis blandit, ipsum velit facilisis erat, sed blandit ex velit sed erat. Curabitur odio velit, congue sed purus vel, porttitor pulvinar augue. Maecenas pulvinar tempor arcu, non facilisis lectus. Phasellus blandit nec magna et hendrerit. Pellentesque nec nibh id tellus semper interdum. Sed lobortis, ligula quis sodales luctus, mi lectus posuere sapien, vel hendrerit libero arcu a erat. Nulla interdum nibh massa, nec finibus sem accumsan sed. Suspendisse maximus lacus tempus pulvinar varius. Nam mollis erat lectus, ut posuere mi fermentum bibendum. Suspendisse cursus venenatis lorem, sit amet porttitor libero vestibulum at.', 'HealthCare Labs', NULL, 'package/sample1.jpg', '1299', 1, '2021-06-04 00:39:07', '2021-06-04 00:39:07'),
+(3, 'UdaipurMed DiabCare', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut aliquet neque. Mauris pellentesque turpis et eros porta, non sagittis lorem suscipit. Cras ut massa aliquam, facilisis risus eget, dictum quam. Donec molestie maximus metus, a blandit lorem convallis et. Integer scelerisque egestas molestie. Ut accumsan, est ac mollis auctor, orci leo cursus ligula, et varius ex nisi in lectus. Duis sed ligula vitae odio dapibus sagittis. Phasellus blandit venenatis felis, a malesuada est posuere ac.\r\n\r\nCurabitur erat mi, euismod eget egestas vitae, imperdiet sit amet urna. Nullam at dictum libero. Suspendisse potenti. Donec consectetur accumsan enim eu venenatis. Aenean quis mauris erat. Donec lacus quam, scelerisque id velit eget, gravida faucibus dolor. Pellentesque faucibus semper nisl, eu venenatis tortor placerat non. Nam tempus lacinia lobortis.\r\n\r\nDonec venenatis, nunc in convallis blandit, ipsum velit facilisis erat, sed blandit ex velit sed erat. Curabitur odio velit, congue sed purus vel, porttitor pulvinar augue. Maecenas pulvinar tempor arcu, non facilisis lectus. Phasellus blandit nec magna et hendrerit. Pellentesque nec nibh id tellus semper interdum. Sed lobortis, ligula quis sodales luctus, mi lectus posuere sapien, vel hendrerit libero arcu a erat. Nulla interdum nibh massa, nec finibus sem accumsan sed. Suspendisse maximus lacus tempus pulvinar varius. Nam mollis erat lectus, ut posuere mi fermentum bibendum. Suspendisse cursus venenatis lorem, sit amet porttitor libero vestibulum at.', 'HealthCare Labs', NULL, 'package/sample2.jpg', '599', 1, '2021-06-04 00:39:07', '2021-06-04 00:39:07'),
+(4, 'UdaipurMed KidneyLiverCare', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut aliquet neque. Mauris pellentesque turpis et eros porta, non sagittis lorem suscipit. Cras ut massa aliquam, facilisis risus eget, dictum quam. Donec molestie maximus metus, a blandit lorem convallis et. Integer scelerisque egestas molestie. Ut accumsan, est ac mollis auctor, orci leo cursus ligula, et varius ex nisi in lectus. Duis sed ligula vitae odio dapibus sagittis. Phasellus blandit venenatis felis, a malesuada est posuere ac.\r\n\r\nCurabitur erat mi, euismod eget egestas vitae, imperdiet sit amet urna. Nullam at dictum libero. Suspendisse potenti. Donec consectetur accumsan enim eu venenatis. Aenean quis mauris erat. Donec lacus quam, scelerisque id velit eget, gravida faucibus dolor. Pellentesque faucibus semper nisl, eu venenatis tortor placerat non. Nam tempus lacinia lobortis.\r\n\r\nDonec venenatis, nunc in convallis blandit, ipsum velit facilisis erat, sed blandit ex velit sed erat. Curabitur odio velit, congue sed purus vel, porttitor pulvinar augue. Maecenas pulvinar tempor arcu, non facilisis lectus. Phasellus blandit nec magna et hendrerit. Pellentesque nec nibh id tellus semper interdum. Sed lobortis, ligula quis sodales luctus, mi lectus posuere sapien, vel hendrerit libero arcu a erat. Nulla interdum nibh massa, nec finibus sem accumsan sed. Suspendisse maximus lacus tempus pulvinar varius. Nam mollis erat lectus, ut posuere mi fermentum bibendum. Suspendisse cursus venenatis lorem, sit amet porttitor libero vestibulum at.', 'HealthCare Labs', NULL, 'package/sample3.jpg', '2299', 1, '2021-06-04 00:39:07', '2021-06-04 00:39:07'),
+(5, 'Summer', 'Description', 'Amolak', 1, 'package/IMG1622956400.jpg', '4000', 1, '2021-06-05 23:43:20', '2021-06-06 00:15:37');
 
 -- --------------------------------------------------------
 
@@ -342,7 +409,8 @@ CREATE TABLE `patients` (
 --
 
 INSERT INTO `patients` (`id`, `user_id`, `birthday`, `phone`, `gender`, `blood`, `address`, `image`, `weight`, `height`, `is_deleted`, `created_at`, `updated_at`) VALUES
-(1, 30, '01/14/1997', '565645645', 'Male', 'A+', 'rdtrtr', 'patients/may/IMG.jpg', '70', '176', 0, '2021-05-29 08:40:34', '2021-05-29 08:40:34');
+(1, 30, '01/14/1997', '565645646', 'Male', 'A+', 'rdtrtr', 'patients/may/IMG.jpg', '70', '176', 0, '2021-05-29 08:40:34', '2021-06-06 06:33:19'),
+(2, 21, '05/06/2069', '9785559658', 'Male', 'B+', 'test', NULL, '82', '5.11', 1, '2021-05-27 20:14:28', '2021-06-06 06:47:38');
 
 -- --------------------------------------------------------
 
@@ -443,7 +511,12 @@ CREATE TABLE `speciality` (
 --
 
 INSERT INTO `speciality` (`id`, `name`, `icon`, `is_deleted`, `created_at`, `updated_at`) VALUES
-(1, 'Diagnostic imaging', 'Diagnostic imaging', 0, '2021-05-28 05:31:16', '2021-05-28 07:35:19');
+(1, 'Diagnostic imaging', 'Diagnostic imaging', 0, '2021-05-28 05:31:16', '2021-05-28 07:35:19'),
+(2, 'Cardiologist', 'heart-outline', 0, '2021-05-29 00:04:53', '2021-05-29 00:04:53'),
+(3, 'Eyes', 'eye-outline', 0, '2021-05-29 00:05:18', '2021-05-29 00:05:18'),
+(4, 'Pediatrician', 'accessibility-outline', 0, '2021-05-29 00:05:34', '2021-05-29 00:05:34'),
+(5, 'Physician', 'people-outline', 0, '2021-05-29 00:05:51', '2021-05-29 00:05:51'),
+(6, 'General Surgeon', 'cut-outline', 0, '2021-05-29 00:06:08', '2021-05-29 00:06:08');
 
 -- --------------------------------------------------------
 
@@ -458,6 +531,14 @@ CREATE TABLE `tests` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tests`
+--
+
+INSERT INTO `tests` (`id`, `test_name`, `comment`, `created_at`, `updated_at`) VALUES
+(1, 'Antibody Coombs Test', 'Not everyone\'s red blood cells are alike. Your immune system will make antibodies if it finds ones that don\'t match yours. They\'re keyed to specific areas on the outside of the cell. Some of these antibodies are related to your blood type.', '2021-06-04 10:15:50', '2021-06-04 10:15:50'),
+(2, 'MRI', 'An MRI (magnetic resonance imaging) lets your doctor see the organs, bones, and tissues inside your body without having to do surgery. This test can help diagnose a disease or injury.', '2021-06-06 06:12:52', '2021-06-06 06:12:52');
 
 -- --------------------------------------------------------
 
@@ -482,11 +563,19 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Kushal', 'doctor@gmail.com', NULL, '$2y$10$wAhPhOWOWNhNDCd4CbEVfe1LyFqgp9KGdefDJp65tV8HyhXbpfjwC', 'admin', 'ltt5gFDGPmMAGVOdsKrYgmRyeaJTAejvQ6Kzqjrs1Vmc0bLtiIsDL1KJ6rNT', NULL, NULL),
+(1, 'Kushal', 'doctor@gmail.com', NULL, '$2y$10$wAhPhOWOWNhNDCd4CbEVfe1LyFqgp9KGdefDJp65tV8HyhXbpfjwC', 'admin', 'fWd2nyoyAbe9BXuvTOUCh30qJ2I93akziDMTSSFUmPQGa2TQgLyDc08Sfs44', NULL, NULL),
+(3, 'Jasvender Singh', 'Jasvender@gmail.com', NULL, '$2y$10$BzV0oWnELnlapb5vKUPxc.MXd7mqW88WlAcUxkrRXWZPRmuxEQl6.', 'patient', NULL, '2021-05-24 08:59:38', '2021-05-24 08:59:38'),
+(4, 'Jasvender Singh', 'Jasp@gmail.com', NULL, '$2y$10$If.US3ORQxLCDx4anagOiOx/0cgRPwN4fy6gkgi3jXLibfHDKI0Be', 'doctor', NULL, '2021-05-24 11:06:35', '2021-05-24 11:06:35'),
+(5, 'Jasvender Singh', 'Jasven@gmail.com', NULL, '$2y$10$u0S.3BmnlMIP0yuMVuWtGeaeHkodFkZl68K17Dq.g5tDmoSHHf0j6', 'doctor', NULL, '2021-05-24 11:09:47', '2021-05-24 11:09:47'),
+(21, 'KHUSHAL YADAV', 'khushal.cornice@gmail.com', NULL, '$2y$10$8cjCch7P.hinSn8S40588u6.2o.ITYJ5a5B6KHCu0fyoPZ9J9NLJu', 'patient', NULL, '2021-05-28 01:44:28', '2021-06-01 01:40:03'),
+(23, 'John Doe', 'johndoe@gmail.com', NULL, '$2y$10$uSIGzeLeUWpIdczuAS7tM.Bz3bxNHFUXNeAig5xkrKXl3JTgKlSbC', 'doctor', NULL, '2021-05-28 02:00:36', '2021-05-28 02:00:36'),
+(24, 'William Albert', 'william@gmail.com', NULL, '$2y$10$rek9MyRm4S9pYCMtyi4vfuCrpD7m1iuUhPBUGyDDLjIAIPPcu2/l.', 'doctor', NULL, '2021-05-28 02:01:31', '2021-05-28 02:01:31'),
+(25, 'Robbin Dicasto', 'robbin@gmail.com', NULL, '$2y$10$UDWKG5D5CvPWG8ScSsE0h.WpoDY9UV3md75QHn9qGqwU987jDPEcq', 'doctor', NULL, '2021-05-28 02:02:17', '2021-05-28 02:02:17'),
 (26, 'Jasvender', 'jas@gmail.com', NULL, '$2y$10$RbrvWTFL6cdP..3rIEW7T.j.QPP2FDxPNwJtPLU4LR0I14e.dcL8W', 'doctor', NULL, '2021-05-28 03:11:36', '2021-05-28 03:11:36'),
 (28, 'HARSHA', 'harsha@gmail.com', NULL, '$2y$10$O/.i3ZNvRR3Thy2wvXYn9.c7UE8RpL2e4AvP7bHWxeWX3NGBJEUru', 'nurse', NULL, '2021-05-28 06:27:12', '2021-05-29 07:37:45'),
 (29, 'Pankaj', 'pankaj@gmail.com', NULL, '$2y$10$LpTUTuqFA9LZN03Laj47W.iJfHgcYoSFIZbnfYXz.TZVsf7VL91ui', 'doctor', NULL, '2021-05-28 07:22:33', '2021-05-28 07:22:33'),
-(30, 'Himanshu', 'himanshu@gmail.com', NULL, '$2y$10$0OoUL26NgrYq/ax/k4NbzeKAbAxxWzJCMYM6DDGrWWyaEqbPy/bfC', 'patient', NULL, '2021-05-29 08:40:34', '2021-05-29 08:40:34');
+(30, 'HIMANSHU', 'himanshu@gmail.com', NULL, '$2y$10$0OoUL26NgrYq/ax/k4NbzeKAbAxxWzJCMYM6DDGrWWyaEqbPy/bfC', 'patient', NULL, '2021-05-29 08:40:34', '2021-06-06 06:33:19'),
+(31, 'Lady Harriet Acland', 'nurse@gmail.com', NULL, '$2y$10$vWo8.LuE5W1L46Ba/jCmneuXK3jzdUynz8.He9IH/bMsYKwoznEo2', 'nurse', NULL, '2021-06-05 08:43:38', '2021-06-05 08:43:38');
 
 --
 -- Indexes for dumped tables
@@ -567,6 +656,12 @@ ALTER TABLE `nurses`
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `package`
+--
+ALTER TABLE `package`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -668,7 +763,7 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `drugs`
@@ -692,37 +787,43 @@ ALTER TABLE `labbooking`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=248;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
 
 --
 -- AUTO_INCREMENT for table `nursebooking`
 --
 ALTER TABLE `nursebooking`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `nurses`
 --
 ALTER TABLE `nurses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `package`
+--
+ALTER TABLE `package`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `prescriptions`
 --
 ALTER TABLE `prescriptions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `prescription_drugs`
@@ -752,19 +853,19 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `speciality`
 --
 ALTER TABLE `speciality`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tests`
 --
 ALTER TABLE `tests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Constraints for dumped tables

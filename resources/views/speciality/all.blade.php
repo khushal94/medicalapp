@@ -29,7 +29,7 @@
                     <h6 class="m-0 font-weight-bold text-primary w-75 p-2">{{ __('sentence.All Specialities') }}</h6>
                 </div>
                 <div class="col-4">
-                    <a href="{{ route('coupon.create') }}" class="btn btn-primary float-right"><i class="fa fa-plus"></i>
+                    <a href="{{ route('speciality.create') }}" class="btn btn-primary float-right"><i class="fa fa-plus"></i>
                         {{ __('sentence.New Specialities') }}</a>
                 </div>
             </div>

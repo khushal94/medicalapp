@@ -26,10 +26,33 @@ class DrugController extends Controller{
         	'generic_name' => 'required',
         	'note' => 'required',
         	'rate' => 'required',
+            'type_sell' => 'required',
+        	'manufacturer' => 'required',
+            'country_origin' => 'required',
+        	'salt' => 'required',
+            'uses' => 'required',
+        	'alternate' => 'required',
+            'side_effect' => 'required',
+        	'direction_use' => 'required',
+            'therapeutic' => 'required',
     	]);
 
     	$drug = Drug::updateOrCreate(
-		    ['trade_name' => $request->trade_name, 'generic_name' => $request->generic_name, 'note' => $request->note, 'rate' => $request->rate]
+		    [
+                'trade_name' => $request->trade_name, 
+                'generic_name' => $request->generic_name, 
+                'note' => $request->note, 
+                'rate' => $request->rate,
+                'type_sell' => $request->type_sell, 
+                'manufacturer' => $request->manufacturer, 
+                'country_origin' => $request->country_origin, 
+                'salt' => $request->salt,
+                'uses' => $request->uses, 
+                'alternate' => $request->alternate, 
+                'side_effect' => $request->side_effect, 
+                'direction_use' => $request->direction_use,
+                'therapeutic' => $request->therapeutic
+            ]
 		);
 
     	return Redirect::back()->with('success', __('sentence.Drug added Successfully'));
@@ -54,6 +77,15 @@ class DrugController extends Controller{
             'generic_name' => 'required',
             'note' => 'required',
             'rate' => 'required',
+            'type_sell' => 'required',
+        	'manufacturer' => 'required',
+            'country_origin' => 'required',
+        	'salt' => 'required',
+            'uses' => 'required',
+        	'alternate' => 'required',
+            'side_effect' => 'required',
+        	'direction_use' => 'required',
+            'therapeutic' => 'required',
         ]);
         
         $drug = Drug::find($request->drug_id);
@@ -62,6 +94,15 @@ class DrugController extends Controller{
         $drug->generic_name = $request->generic_name;
         $drug->note = $request->note;
         $drug->rate = $request->rate;
+        $drug->type_sell = $request->type_sell;
+        $drug->manufacturer = $request->manufacturer;
+        $drug->country_origin = $request->country_origin;
+        $drug->salt = $request->salt;
+        $drug->uses = $request->uses;
+        $drug->alternate = $request->alternate;
+        $drug->side_effect = $request->side_effect;
+        $drug->direction_use = $request->direction_use;
+        $drug->therapeutic = $request->therapeutic;
 
         $drug->save();
 

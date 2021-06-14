@@ -18,6 +18,7 @@ class CreateDrugsTable extends Migration
             $table->string('trade_name');
             $table->string('generic_name');
             $table->longText('note')->nullable();
+            $table->longText('rate')->nullable();
             $table->timestamps();
         });
     }
