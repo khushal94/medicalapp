@@ -17,6 +17,7 @@
         "laravel/framework": "^7.24",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.3",
+        "maatwebsite/excel": "^3.1",
         "mchampaneri/timeslicer": "^0.1.4",
         "mews/purifier": "~3.0"
     },

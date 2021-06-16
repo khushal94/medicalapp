@@ -333,6 +333,29 @@
                 <hr class="sidebar-divider">
                 <!-- Heading -->
                 <div class="sidebar-heading">
+                    <?php echo e(__('sentence.Payments')); ?>
+
+                </div>
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePayment"
+                        aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-users"></i>
+                        <span><?php echo e(__('sentence.Payments')); ?></span>
+                    </a>
+                    <div id="collapsePayment" class="collapse" aria-labelledby="headingTwo"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item"
+                                href="<?php echo e(route('payment.all')); ?>"><?php echo e(__('sentence.All Payments')); ?></a>
+                        </div>
+                    </div>
+                </li>
+                <!-- Divider -->
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+                <!-- Heading -->
+                <div class="sidebar-heading">
                     <?php echo e(__('sentence.Billing')); ?>
 
                 </div>

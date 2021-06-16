@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 08, 2021 at 05:05 PM
+-- Host: localhost
+-- Generation Time: Jun 14, 2021 at 07:34 PM
 -- Server version: 10.4.19-MariaDB
--- PHP Version: 7.3.28
+-- PHP Version: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -165,6 +165,15 @@ CREATE TABLE `drugs` (
   `generic_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `note` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `rate` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type_sell` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `manufacturer` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country_origin` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `salt` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `uses` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alternate` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `side_effect` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `direction_use` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `therapeutic` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -173,8 +182,9 @@ CREATE TABLE `drugs` (
 -- Dumping data for table `drugs`
 --
 
-INSERT INTO `drugs` (`id`, `trade_name`, `generic_name`, `note`, `rate`, `created_at`, `updated_at`) VALUES
-(1, 'Abraxane', 'albumin-bound paclitaxel', 'Albumin Bound Paclitaxel', '3000', '2021-06-01 08:57:39', '2021-06-02 10:24:06');
+INSERT INTO `drugs` (`id`, `trade_name`, `generic_name`, `note`, `rate`, `type_sell`, `manufacturer`, `country_origin`, `salt`, `uses`, `alternate`, `side_effect`, `direction_use`, `therapeutic`, `created_at`, `updated_at`) VALUES
+(1, 'Abraxane', 'albumin-bound paclitaxel', 'Albumin Bound Paclitaxel', '3000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-01 08:57:39', '2021-06-02 10:24:06'),
+(2, 'Combiflam Tablet', 'combiflam-tablet', 'Prescription Required', '400', '20 tablets in 1 strip', 'Sanofi India  Ltd', 'India', 'Ibuprofen (400mg) + Paracetamol (325mg).', 'Pain relief,Fever.', 'Pyreflam 400 mg/325 mg Tablet,Fenceta 400mg/325mg Tablet,Flexon Tablet,Cincofen 400 mg/325 mg Tablet,Rubigesic P 400 mg/325 mg Tablet,', 'Heartburn,Indigestion,Nausea,Stomach pain,', 'Take this medicine in the dose and duration as advised by your physician. Swallow it as a whole. Do not chew, crush or break it. Combiflam Tablet is to be taken with food.', 'PAIN ANALGESICS', '2021-06-14 11:54:03', '2021-06-14 12:01:16');
 
 -- --------------------------------------------------------
 
@@ -516,7 +526,8 @@ INSERT INTO `speciality` (`id`, `name`, `icon`, `is_deleted`, `created_at`, `upd
 (3, 'Eyes', 'eye-outline', 0, '2021-05-29 00:05:18', '2021-05-29 00:05:18'),
 (4, 'Pediatrician', 'accessibility-outline', 0, '2021-05-29 00:05:34', '2021-05-29 00:05:34'),
 (5, 'Physician', 'people-outline', 0, '2021-05-29 00:05:51', '2021-05-29 00:05:51'),
-(6, 'General Surgeon', 'cut-outline', 0, '2021-05-29 00:06:08', '2021-05-29 00:06:08');
+(6, 'General Surgeon', 'cut-outline', 0, '2021-05-29 00:06:08', '2021-05-29 00:06:08'),
+(7, 'Dermatologist', 'dermatologist', 0, '2021-06-12 10:29:50', '2021-06-12 10:29:50');
 
 -- --------------------------------------------------------
 
@@ -769,7 +780,7 @@ ALTER TABLE `doctors`
 -- AUTO_INCREMENT for table `drugs`
 --
 ALTER TABLE `drugs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -787,7 +798,7 @@ ALTER TABLE `labbooking`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=260;
 
 --
 -- AUTO_INCREMENT for table `nursebooking`
@@ -853,7 +864,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `speciality`
 --
 ALTER TABLE `speciality`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tests`

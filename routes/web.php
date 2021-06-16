@@ -75,7 +75,7 @@ Route::get('/order/edit/{id}', 'OrderController@edit')->where('id', '[0-9]+')->n
 Route::post('/order/edit', 'OrderController@store_edit')->name('order.store_edit');
 Route::get('/order/update/{id}/{status}', 'OrderController@update')->name('order.update');
 
-//Patients
+//Package
 Route::get('/package/create', 'PackageController@create')->name('package.create');
 Route::post('/package/create', 'PackageController@store')->name('package.store');
 Route::get('/package/all', 'PackageController@all')->name('package.all');
@@ -84,7 +84,7 @@ Route::get('/package/edit/{id}', 'PackageController@edit')->where('id', '[0-9]+'
 Route::post('/package/edit', 'PackageController@store_edit')->name('package.store_edit');
 Route::get('/package/update/{id}/{status}', 'PackageController@update')->name('package.update');
 
-//Patients
+//Nurse Booking
 Route::get('/nursebooking/create', 'NurseBookingController@create')->name('nursebooking.create');
 Route::post('/nursebooking/create', 'NurseBookingController@store')->name('nursebooking.store');
 Route::get('/nursebooking/all', 'NurseBookingController@all')->name('nursebooking.all');
@@ -144,6 +144,9 @@ Route::get('/billing/view/{id}', 'BillingController@view')->where('id', '[0-9]+'
 Route::get('/billing/pdf/{id}','BillingController@pdf')->where('id', '[0-9]+');
 Route::get('/billing/delete/{id}','BillingController@destroy');
 
+// Payment
+Route::get('/payment/all', 'PaymentController@index')->name('payment.all');
+
 // Rating
 Route::get('/rating/all', 'ReviewRatingController@all')->name('rating.all');
 Route::get('/rating/update/{id}/{status}', 'ReviewRatingController@update')->name('rating.update');
@@ -155,3 +158,6 @@ Route::post('/settings/doctorino_settings', 'SettingController@doctorino_setting
 /* Prescription Settings */
 Route::get('/settings/prescription_settings', 'SettingController@prescription_settings')->name('prescription_settings.edit');
 Route::post('/settings/prescription_settings', 'SettingController@prescription_settings_store')->name('prescription_settings.store');
+
+/*Excel import export*/
+Route::post('/drug/import', 'DrugController@import')->name('drug.import');

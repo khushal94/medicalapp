@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Drug;
+use App\Imports\BulkImport;
+use Maatwebsite\Excel\Facades\Excel;
 use Redirect;
 class DrugController extends Controller{
 
@@ -17,6 +18,12 @@ class DrugController extends Controller{
     public function create(){
     	return view('drug.create');
 
+    }
+    public function import() 
+    {
+        Excel::import(new BulkImport,request()->file('file'));
+        return $this->all();
+        // return back();
     }
 
     public function store(Request $request){

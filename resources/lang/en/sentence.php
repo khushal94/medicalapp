@@ -40,6 +40,7 @@ return [
   'Drugs list' => 'Drugs list',
   'Trade Name' => 'Trade Name',
   'Generic Name' => 'Generic Name',
+  'Import Drug' => 'Import Drug',
   'Note' => 'Note',
   'Rate' => 'Rate',
   'Edit Drug' => 'Edit Drug',
@@ -305,5 +306,14 @@ return [
     'Labs Name' => 'Labs Name',
     'Nurse Booking Edited Successfully' => 'Nurse Booking Edited Successfully!',
     'Nurse Booking Created Successfully' => 'Nurse Booking Created Successfully!',
+
+    // Payment
+    'Order Id' => 'Order Id', 
+    'Payment Id' => 'Payment Id', 
+    'Username' => 'Username',
+    'Commission' => 'Commission',
+    'Payments ' => ' Payments',
+    'All Payments' => 'All Payments',
+    'For Payment' => 'For Payment',
 
 ];
