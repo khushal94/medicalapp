@@ -315,5 +315,13 @@ return [
     'Payments ' => ' Payments',
     'All Payments' => 'All Payments',
     'For Payment' => 'For Payment',
+    'Payments' => 'Payments',
+
+    // Ambulance Bookings
+    'All Ambulance Bookings' => 'All Ambulance Bookings',
+    'Ambulance Bookings' => 'Ambulance Bookings',
+    'User Id' => 'User Id',
+    'Booking Time' => 'Booking Time',
+    'Area' => 'Area',
 
 ];
