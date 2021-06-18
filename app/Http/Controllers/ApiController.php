@@ -23,6 +23,9 @@ use App\NurseBooking;
 use Response;
 use Redirect;
 use Hash;
+use Validator;
+use DB;
+use App\Chat;
 use App\Speciality;
 use Illuminate\Support\Facades\Storage;
 
@@ -35,8 +38,8 @@ class ApiController extends Controller
         $user_email = $request->input('email');
         $user_password = $request->input('password');
 
-        $patient = User::where(['role'=>'patient', 'email'=>$user_email])->first();
-        $patientdata = Patient::where([ 'user_id'=>$patient->id])->first();
+        $patient = User::where(['email'=>$user_email])->first();
+        
 
         if (!$patient) {
             return Response::json(
@@ -48,9 +51,20 @@ class ApiController extends Controller
             );
         }
 
+        if($patient->role == "patient"){
+            $patientdata = Patient::where([ 'user_id'=>$patient->id])->first();
+
+        }else{
+            $patientdata = Doctor::where([ 'user_id'=>$patient->id])->first();
+
+        }
+
+
+
         if (Hash::check($user_password, $patient->password)) {
             $patientdata->email = $patient->email;
             $patientdata->name = $patient->name;
+            $patientdata->role = $patient->role;
             return Response::json(
                 array(
                     'status' => true,
