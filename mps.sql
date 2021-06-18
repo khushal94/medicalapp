@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 14, 2021 at 07:34 PM
+-- Generation Time: Jun 18, 2021 at 02:41 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `mps`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ambulance_bookings`
+--
+
+CREATE TABLE `ambulance_bookings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `booking_time` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `area` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -183,8 +202,16 @@ CREATE TABLE `drugs` (
 --
 
 INSERT INTO `drugs` (`id`, `trade_name`, `generic_name`, `note`, `rate`, `type_sell`, `manufacturer`, `country_origin`, `salt`, `uses`, `alternate`, `side_effect`, `direction_use`, `therapeutic`, `created_at`, `updated_at`) VALUES
-(1, 'Abraxane', 'albumin-bound paclitaxel', 'Albumin Bound Paclitaxel', '3000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-01 08:57:39', '2021-06-02 10:24:06'),
-(2, 'Combiflam Tablet', 'combiflam-tablet', 'Prescription Required', '400', '20 tablets in 1 strip', 'Sanofi India  Ltd', 'India', 'Ibuprofen (400mg) + Paracetamol (325mg).', 'Pain relief,Fever.', 'Pyreflam 400 mg/325 mg Tablet,Fenceta 400mg/325mg Tablet,Flexon Tablet,Cincofen 400 mg/325 mg Tablet,Rubigesic P 400 mg/325 mg Tablet,', 'Heartburn,Indigestion,Nausea,Stomach pain,', 'Take this medicine in the dose and duration as advised by your physician. Swallow it as a whole. Do not chew, crush or break it. Combiflam Tablet is to be taken with food.', 'PAIN ANALGESICS', '2021-06-14 11:54:03', '2021-06-14 12:01:16');
+(1, 'Abraxane', 'albumin-bound paclitaxel', 'Albumin Bound Paclitaxel', '3000', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-01 03:27:39', '2021-06-02 04:54:06'),
+(2, 'Combiflam Tablet', 'combiflam-tablet', 'Prescription Required', '400', '20 tablets in 1 strip', 'Sanofi India  Ltd', 'India', 'Ibuprofen (400mg) + Paracetamol (325mg).', 'Pain relief,Fever.', 'Pyreflam 400 mg/325 mg Tablet,Fenceta 400mg/325mg Tablet,Flexon Tablet,Cincofen 400 mg/325 mg Tablet,Rubigesic P 400 mg/325 mg Tablet,', 'Heartburn,Indigestion,Nausea,Stomach pain,', 'Take this medicine in the dose and duration as advised by your physician. Swallow it as a whole. Do not chew, crush or break it. Combiflam Tablet is to be taken with food.', 'PAIN ANALGESICS', '2021-06-14 06:24:03', '2021-06-14 06:31:16'),
+(3, 'Cremaffin Plus  Refreshing Sugar Free Syrup', 'Cremaffin Plus  Refreshing Sugar Free Syrup', 'Prescription Required', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-16 10:45:03', '2021-06-16 10:45:03'),
+(4, 'Clavam 625 Tablet', 'Clavam 625 Tablet', 'Prescription Required', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-16 10:45:03', '2021-06-16 10:45:03'),
+(5, 'Cefix 200 Tablet', 'Cefix 200 Tablet', 'Prescription Required', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-16 10:45:03', '2021-06-16 10:45:03'),
+(6, 'Cyclopam Tablet', 'Cyclopam Tablet', 'Prescription Required', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-16 10:45:03', '2021-06-16 10:45:03'),
+(7, 'Ceftum 500mg Tablet', 'Ceftum 500mg Tablet', 'Prescription Required', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-16 10:45:03', '2021-06-16 10:45:03'),
+(8, 'Candid-B Cream', 'Candid-B Cream', 'Prescription Required', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-16 10:45:03', '2021-06-16 10:45:03'),
+(9, 'Cheston Cold Tablet', 'Cheston Cold Tablet', 'N', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-16 10:45:03', '2021-06-16 10:45:03'),
+(10, 'Clexane 40mg Injection', 'Clexane 40mg Injection', 'N', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-06-16 10:45:03', '2021-06-16 10:45:03');
 
 -- --------------------------------------------------------
 
@@ -262,7 +289,10 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (251, '2021_06_02_154722_add_rate_column_to_drugs', 8),
 (253, '2021_06_06_045706_create_package_table', 9),
 (256, '2021_06_06_144821_create_nursebooking_table', 10),
-(258, '2021_06_07_154312_add_address_column_to_nursebooking', 11);
+(258, '2021_06_07_154312_add_address_column_to_nursebooking', 11),
+(261, '2021_06_14_175339_create_payments_table', 12),
+(262, '2021_06_17_151626_create_ambulance_booking_table', 13),
+(264, '2021_06_17_152215_create_ambulance_bookings_table', 14);
 
 -- --------------------------------------------------------
 
@@ -421,6 +451,28 @@ CREATE TABLE `patients` (
 INSERT INTO `patients` (`id`, `user_id`, `birthday`, `phone`, `gender`, `blood`, `address`, `image`, `weight`, `height`, `is_deleted`, `created_at`, `updated_at`) VALUES
 (1, 30, '01/14/1997', '565645646', 'Male', 'A+', 'rdtrtr', 'patients/may/IMG.jpg', '70', '176', 0, '2021-05-29 08:40:34', '2021-06-06 06:33:19'),
 (2, 21, '05/06/2069', '9785559658', 'Male', 'B+', 'test', NULL, '82', '5.11', 1, '2021-05-27 20:14:28', '2021-06-06 06:47:38');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `order_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payment_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `forpayment` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `state` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `amount` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `commission` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -593,6 +645,13 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `ro
 --
 
 --
+-- Indexes for table `ambulance_bookings`
+--
+ALTER TABLE `ambulance_bookings`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ambulance_bookings_user_id_foreign` (`user_id`);
+
+--
 -- Indexes for table `appointments`
 --
 ALTER TABLE `appointments`
@@ -689,6 +748,12 @@ ALTER TABLE `patients`
   ADD KEY `patients_user_id_foreign` (`user_id`);
 
 --
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `prescriptions`
 --
 ALTER TABLE `prescriptions`
@@ -747,6 +812,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `ambulance_bookings`
+--
+ALTER TABLE `ambulance_bookings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
@@ -780,7 +851,7 @@ ALTER TABLE `doctors`
 -- AUTO_INCREMENT for table `drugs`
 --
 ALTER TABLE `drugs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -798,7 +869,7 @@ ALTER TABLE `labbooking`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=260;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=265;
 
 --
 -- AUTO_INCREMENT for table `nursebooking`
@@ -829,6 +900,12 @@ ALTER TABLE `package`
 --
 ALTER TABLE `patients`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `prescriptions`
@@ -881,6 +958,12 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `ambulance_bookings`
+--
+ALTER TABLE `ambulance_bookings`
+  ADD CONSTRAINT `ambulance_bookings_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `billings`

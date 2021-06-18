@@ -406,7 +406,7 @@
                                 href="{{ route('billing.all') }}">{{ __('sentence.Billing List') }}</a>
                         </div>
                     </div>
-                </li> -->
+                </li>
                 <!-- Divider -->
                 <hr class="sidebar-divider">
                 <!-- Heading -->

@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <link rel="icon" type="image/png" href="<?php echo e(asset('public/img/favicon.png')); ?>">
-    <title>Doctorino - <?php echo $__env->yieldContent('title'); ?> </title>
+    <title>UdaipurMed - <?php echo $__env->yieldContent('title'); ?> </title>
     <!-- Custom styles for this template-->
     <link href="<?php echo e(asset('public/css/app.css')); ?>" rel="stylesheet">
     <?php echo $__env->yieldContent('header'); ?>
@@ -24,9 +24,9 @@
                 <!-- Sidebar - Brand -->
                 <a class="sidebar-brand d-flex align-items-center justify-content-start" href="<?php echo e(route('home')); ?>">
                     <div class="sidebar-brand-icon ">
-                        <img class="img-profile" src="<?php echo e(asset('public/img/favicon.png')); ?>">
+                        <img class="img-profile" src="https://udaipurmed.in/images/logo.png">
                     </div>
-                    <div class="sidebar-brand-text mx-3">I-Node</div>
+                    <!-- <div class="sidebar-brand-text mx-3">UdaipurMed</div> -->
                 </a>
                 
                 <!-- Divider -->
@@ -329,9 +329,9 @@
                         </div>
                     </div>
                 </li>
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-                <!-- Heading -->
+               
+                <!-- <hr class="sidebar-divider">
+          
                 <div class="sidebar-heading">
                     <?php echo e(__('sentence.Payments')); ?>
 
@@ -382,7 +382,7 @@
                     <?php echo e(__('sentence.Billing')); ?>
 
                 </div>
-                <!-- Nav Item - Utilities Collapse Menu -->
+             
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                         aria-expanded="true" aria-controls="collapseUtilities">
