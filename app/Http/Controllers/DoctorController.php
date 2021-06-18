@@ -110,7 +110,7 @@ class DoctorController extends Controller
 			]);
 
 			$user = new User();
-			$user->password = Hash::make('doctorino123');
+			$user->password = Hash::make('udaipurmed');
 			$user->email = $request->email;
 			$user->name = $request->name;
 			$user->role = 'doctor';

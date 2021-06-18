@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/png" href="{{ asset('public/img/favicon.png') }}">
-    <title>Doctorino - @yield('title') </title>
+    <title>UdaipurMed - @yield('title') </title>
     <!-- Custom styles for this template-->
     <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
     @yield('header')
@@ -24,9 +24,9 @@
                 <!-- Sidebar - Brand -->
                 <a class="sidebar-brand d-flex align-items-center justify-content-start" href="{{ route('home') }}">
                     <div class="sidebar-brand-icon ">
-                        <img class="img-profile" src="{{ asset('public/img/favicon.png') }}">
+                        <img class="img-profile" src="https://udaipurmed.in/images/logo.png">
                     </div>
-                    <div class="sidebar-brand-text mx-3">I-Node</div>
+                    <!-- <div class="sidebar-brand-text mx-3">UdaipurMed</div> -->
                 </a>
                 {{-- <hr class="sidebar-divider my-0"> --}}
                 <!-- Divider -->
@@ -340,9 +340,9 @@
                         </div>
                     </div>
                 </li>
-                <!-- Divider -->
-                <hr class="sidebar-divider">
-                <!-- Heading -->
+               
+                <!-- <hr class="sidebar-divider">
+          
                 <div class="sidebar-heading">
                     {{ __('sentence.Payments') }}
                 </div>
@@ -390,7 +390,7 @@
                 <div class="sidebar-heading">
                     {{ __('sentence.Billing') }}
                 </div>
-                <!-- Nav Item - Utilities Collapse Menu -->
+             
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                         aria-expanded="true" aria-controls="collapseUtilities">
@@ -406,7 +406,7 @@
                                 href="{{ route('billing.all') }}">{{ __('sentence.Billing List') }}</a>
                         </div>
                     </div>
-                </li>
+                </li> -->
                 <!-- Divider -->
                 <hr class="sidebar-divider">
                 <!-- Heading -->

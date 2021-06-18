@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <!-- CSRF Token -->
       <meta name="csrf-token" content="{{ csrf_token() }}">
-      <title>Doctorino - Login</title>
+      <title>UdaipurMed - Login</title>
       <!-- Custom styles for this template-->
       <link href="{{ asset('public/css/app.css') }}" rel="stylesheet">
    </head>

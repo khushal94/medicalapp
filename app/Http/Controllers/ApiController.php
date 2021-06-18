@@ -765,4 +765,111 @@ class ApiController extends Controller
             200
         );
     }
+
+
+
+    public function Get_User_Chats(Request $request){ 
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required',
+            'to_user_id' => 'required',
+        ]);
+
+        if ($validator->fails())
+        {
+            $errorString = implode(",",$validator->messages()->all());
+            $valierror = $validator->errors();
+            return response()->json([
+                'ResponseCode' => '203',
+                'ResponseMessage' => $errorString
+            ]);
+
+        }else{
+
+            $user_id = $request->input('user_id');
+            $to_user_id = $request->input('to_user_id');
+
+
+        $matchThese = ['user_id' => $user_id, 'to_user_id' => $to_user_id];
+        $matchthese_too = ['user_id' => $to_user_id, 'to_user_id' => $user_id];
+        $chats =  DB::table('chat')->where($matchThese)->orWhere($matchthese_too)->get();
+      
+        if ($chats) {
+            return Response::json(
+                            array(
+                        'status' => true,
+                        'data' => $chats
+                            ), 200
+            );
+        } else {
+            return Response::json(
+                            array(
+                        'error' => [
+                            'message' => "Something wrong with your Information"
+                        ]
+                            ), 404
+            );
+        }
+    }
+}
+
+
+public function Send_Msg(Request $request){
+
+    $validator = Validator::make($request->all(), [
+        'user_id' => 'required',
+        'to_user_id' => 'required',
+        'message' => 'required'
+    ]);
+
+    if ($validator->fails())
+    {
+        $errorString = implode(",",$validator->messages()->all());
+        $valierror = $validator->errors();
+        return response()->json([
+            'ResponseCode' => '203',
+            'ResponseMessage' => $errorString
+        ]);
+
+    }else{
+
+        $user_id = $request->input('user_id');
+        $to_user_id = $request->input('to_user_id');
+        $message = $request->input('message');
+        
+        $created_date=date('Y-m-d H:i:s');
+        $query = Chat::insert([
+            'user_id' => $user_id,
+            'to_user_id' => $to_user_id,
+            'message' => $message,
+            'message_time' => $created_date,
+            'status' => 'Sent'
+        ]);
+       // $last_id = Order::getPdo()->lastInsertId();
+       $last_id = DB::getPdo()->lastInsertId();
+       $uInformation = DB::table('chat')->where("message_id", $last_id)->first();
+
+      //  $uInformation = Order::where("id", $last_id)->first();
+
+        if($query == true)
+        {   
+            return response()->json([
+                'ResponseCode' => '200',
+                'ResponseMessage' => 'Message Sent Successfully',
+                'Chat' => $uInformation
+                //'Info' => $uInformation,
+            ]);
+
+        }else{
+
+            return response()->json([
+                'ResponseCode' => '203',
+                'ResponseMessage' => 'Order Placed Failed',
+            ]);
+        }
+
+    }
+
+}
+
+
 }
