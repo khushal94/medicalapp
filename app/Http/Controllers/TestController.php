@@ -23,11 +23,13 @@ class TestController extends Controller
 
     		$validatedData = $request->validate([
 	        	'test_name' => 'required',
+	        	'rate' => 'required',
 	    	]);
 
     	$test = new Test;
 
         $test->test_name = $request->test_name;
+        $test->rate = $request->rate;
         $test->comment = $request->comment;
 
         $test->save();
@@ -50,11 +52,13 @@ class TestController extends Controller
             
             $validatedData = $request->validate([
                 'test_name' => 'required',
+                'rate' => 'required',
             ]);
         
         $test = Test::find($request->test_id);
 
         $test->test_name = $request->test_name;
+        $test->rate = $request->rate;
         $test->comment = $request->comment;
 
         $test->save();

@@ -38,6 +38,7 @@
                <tr>
                   <th>ID</th>
                   <th>{{ __('sentence.Test Name') }}</th>
+                  <th>{{ __('sentence.Rate') }}</th>
                   <th>{{ __('sentence.Description') }}</th>
                   <th class="text-center">{{ __('sentence.Actions') }}</th>
                </tr>
@@ -47,6 +48,7 @@
                <tr>
                   <td>{{ $test->id }}</td>
                   <td>{{ $test->test_name }}</td>
+                  <td>{{ $test->rate }}</td>
                   <td> {{ $test->comment }} </td>
                   <td class="text-center">
                      <a href="{{ url('test/edit/'.$test->id) }}" class="btn btn-warning btn-circle btn-sm"><i class="fa fa-pen"></i></a>

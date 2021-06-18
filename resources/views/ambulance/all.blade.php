@@ -53,12 +53,12 @@
                                 <td>{{ $ambulance->id }}</td>
                                 <td><a> {{ $ambulance->user_id }} </a></td>
                                 <td class="text-center"> {{ $ambulance->booking_time }} </td>
-                                <td class="text-center">{{ $ambulance->ciy }}</td>
+                                <td class="text-center">{{ $ambulance->city }}</td>
                                 <td class="text-center">{{ $ambulance->state }}</td>
                                 <td class="text-center">{{ $ambulance->area }}</td>
                                 <td class="text-center">{{ $ambulance->address }}</td>
                                 <td class="text-center">{{ $ambulance->description }}</td>
-                                <td class="text-center">{{ $nurse->created_at->format('d M Y H:i') }}</td>
+                                <td class="text-center">{{ $ambulance->created_at->format('d M Y H:i') }}</td>
                                 <!-- <td class="text-center">
                                     <a href="{{ url('nurse/view/' . $nurse->id) }}"
                                         class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>

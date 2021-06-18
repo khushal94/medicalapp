@@ -86,6 +86,11 @@ return [
   'Test Deleted Successfully' => 'Test Deleted Successfully!',
   'Test Created Successfully' => 'Test Created Successfully!',
   'Test Edited Successfully' => 'Test Edited Successfully!',
+  'Lab Booking' => 'Lab Booking',
+  'All Lab Bookings' => 'All Lab Bookings',
+  'Package Selected' => 'Package Selected',
+  'Is Paid' => 'Is Paid',
+  'Package Id' => 'Package Id',
 
   'Settings' => 'Settings',
   'Doctorino Settings' => 'Doctorino Settings',

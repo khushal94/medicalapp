@@ -6,53 +6,62 @@
 
 @section('content')
 <div class="row">
-   <div class="col">
-      @if ($errors->any())
-      <div class="alert alert-danger">
-         <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-         </ul>
-      </div>
-      @endif
-      @if (session('success'))
-      <div class="alert alert-success">
-         {{ session('success') }}
-      </div>
-      @endif
-   </div>
+    <div class="col">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
+    </div>
 </div>
 <div class="row justify-content-center">
-   <div class="col-md-8">
-      <div class="card shadow mb-4">
-         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">{{ __('sentence.Add Test') }}</h6>
-         </div>
-         <div class="card-body">
-            <form method="post" action="{{ route('test.create') }}">
-               <div class="form-group row">
-                  <label for="inputEmail3" class="col-sm-3 col-form-label">{{ __('sentence.Test Name') }}<font color="red">*</font></label>
-                  <div class="col-sm-9">
-                     <input type="text" class="form-control" id="inputEmail3" name="test_name">
-                     {{ csrf_field() }}
-                  </div>
-               </div>
-               <div class="form-group row">
-                  <label for="inputPassword3" class="col-sm-3 col-form-label">{{ __('sentence.Description') }}</label>
-                  <div class="col-sm-9">
-                     <input type="text" class="form-control" id="inputPassword3" name="comment">
-                  </div>
-               </div>
-               <div class="form-group row">
-                  <div class="col-sm-9">
-                     <button type="submit" class="btn btn-primary">{{ __('sentence.Save') }}</button>
-                  </div>
-               </div>
-            </form>
-         </div>
-      </div>
-   </div>
+    <div class="col-md-8">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">{{ __('sentence.Add Test') }}</h6>
+            </div>
+            <div class="card-body">
+                <form method="post" action="{{ route('test.create') }}">
+                    {{ csrf_field() }}
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-3 col-form-label">{{ __('sentence.Test Name') }}<font
+                                color="red">*</font></label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputEmail3" name="test_name">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="rate" class="col-sm-3 col-form-label">{{ __('sentence.Rate') }}<font
+                                color="red">*</font></label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="rate" name="rate">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3"
+                            class="col-sm-3 col-form-label">{{ __('sentence.Description') }}</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="inputPassword3" name="comment">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-9">
+                            <button type="submit" class="btn btn-primary">{{ __('sentence.Save') }}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
 

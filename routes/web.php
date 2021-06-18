@@ -147,6 +147,9 @@ Route::get('/billing/delete/{id}','BillingController@destroy');
 // Payment
 Route::get('/payment/all', 'PaymentController@index')->name('payment.all');
 
+// Lab Bookings
+Route::get('/labbooking/all', 'LabbookingController@index')->name('labbooking.all');
+
 // Ambulance Bookings
 Route::get('/ambulance/all', 'AmbulanceBookingController@index')->name('ambulance.all');
 

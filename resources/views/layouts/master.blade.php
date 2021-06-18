@@ -101,8 +101,7 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item"
                                 href="{{ route('nurse.create') }}">{{ __('sentence.New Nurse') }}</a>
-                            <a class="collapse-item"
-                                href="{{ route('nurse.all') }}">{{ __('sentence.All Nurses') }}</a>
+                            <a class="collapse-item" href="{{ route('nurse.all') }}">{{ __('sentence.All Nurses') }}</a>
                             <a class="nav-link collapse-item extradropdown collapsed" href="#" data-toggle="collapse"
                                 data-target="#collapseNurseBookings" aria-expanded="true"
                                 aria-controls="collapseNurseBookings">{{ __('sentence.Booking') }}</a>
@@ -190,30 +189,6 @@
                     </div>
                 </li>
                 <!-- Divider -->
-                <!-- Divider -->
-                {{-- <hr class="sidebar-divider">
-                <!-- Heading -->
-                <div class="sidebar-heading">
-                    {{ __('sentence.Nurse Booking') }}
-                </div>
-                <!-- Nav Item - Pages Collapse Menu -->
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNurseBooking"
-                        aria-expanded="true" aria-controls="collapseNurseBooking">
-                        <i class="fas fa-fw fa-users"></i>
-                        <span>{{ __('sentence.Nurse Booking') }}</span>
-                    </a>
-                    <div id="collapseNurseBooking" class="collapse" aria-labelledby="headingTwo"
-                        data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item"
-                                href="{{ route('nursebooking.create') }}">{{ __('sentence.New Nurse Booking') }}</a>
-                            <a class="collapse-item"
-                                href="{{ route('nursebooking.all') }}">{{ __('sentence.All Nurse Bookings') }}</a>
-                        </div>
-                    </div>
-                </li> --}}
-                <!-- Divider -->
                 <hr class="sidebar-divider">
                 <!-- Heading -->
                 <div class="sidebar-heading">
@@ -231,8 +206,7 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item"
                                 href="{{ route('order.create') }}">{{ __('sentence.New Order') }}</a>
-                            <a class="collapse-item"
-                                href="{{ route('order.all') }}">{{ __('sentence.All Orders') }}</a>
+                            <a class="collapse-item" href="{{ route('order.all') }}">{{ __('sentence.All Orders') }}</a>
                         </div>
                     </div>
                 </li>
@@ -316,10 +290,8 @@
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item"
-                                href="{{ route('drug.create') }}">{{ __('sentence.Add Drug') }}</a>
-                            <a class="collapse-item"
-                                href="{{ route('drug.all') }}">{{ __('sentence.All Drugs') }}</a>
+                            <a class="collapse-item" href="{{ route('drug.create') }}">{{ __('sentence.Add Drug') }}</a>
+                            <a class="collapse-item" href="{{ route('drug.all') }}">{{ __('sentence.All Drugs') }}</a>
                         </div>
                     </div>
                 </li>
@@ -333,14 +305,23 @@
                     <div id="collapseTests" class="collapse" aria-labelledby="headingPages"
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item"
-                                href="{{ route('test.create') }}">{{ __('sentence.Add Test') }}</a>
-                            <a class="collapse-item"
-                                href="{{ route('test.all') }}">{{ __('sentence.All Tests') }}</a>
+                            <a class="collapse-item" href="{{ route('test.create') }}">{{ __('sentence.Add Test') }}</a>
+                            <a class="collapse-item" href="{{ route('test.all') }}">{{ __('sentence.All Tests') }}</a>
+                            <a class="nav-link collapse-item extradropdown collapsed" href="#" data-toggle="collapse"
+                                data-target="#collapseLabBookings" aria-expanded="true"
+                                aria-controls="collapseLabBookings">{{ __('sentence.Lab Booking') }}</a>
+                            <!-- Nav Item - Pages Collapse Menu -->
+                            <div id="collapseLabBookings" class="collapse" aria-labelledby="headingTwo"
+                                data-parent="#collapseTests">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    <a class="collapse-item"
+                                        href="{{ route('labbooking.all') }}">{{ __('sentence.All Lab Bookings') }}</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </li>
-               
+
                 <!-- <hr class="sidebar-divider">
           
                 <div class="sidebar-heading">
@@ -390,7 +371,7 @@
                 <div class="sidebar-heading">
                     {{ __('sentence.Billing') }}
                 </div>
-             
+
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                         aria-expanded="true" aria-controls="collapseUtilities">
