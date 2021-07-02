@@ -29,8 +29,24 @@ use App\Chat;
 use App\Speciality;
 use Illuminate\Support\Facades\Storage;
 
+use App\Notification\Notification;
+
 class ApiController extends Controller
 {
+
+    public function checksms(Request $request){
+        $information =  $this->Send_SMS();
+
+        return Response::json(
+            array(
+                'status' => true,
+                'msg' => '',
+                "data"=>$information
+            ),
+            200
+        );
+    }
+
     public function User_Login(Request $request)
     {
         $this->validate($request, ['email'=>'required|email', 'password' => 'required']);
@@ -59,8 +75,6 @@ class ApiController extends Controller
 
         }
 
-
-
         if (Hash::check($user_password, $patient->password)) {
             $patientdata->email = $patient->email;
             $patientdata->name = $patient->name;
@@ -77,6 +91,53 @@ class ApiController extends Controller
                 array(
                     'status' => false,
                     'msg' => 'Password does not match, please try again with correct password'
+                ),
+                201
+            );
+        }
+    }
+
+
+    public function OTP_Login(Request $request)
+    {
+        //$this->validate($request, ['mobile' => 'mobile']);
+        $mobile = $request->input('mobile');
+        $patient = Patient::where(['phone'=>$mobile])->first();
+
+        if (!$patient) {
+            return Response::json(
+                array(
+                    'status' => false,
+                    'msg' => 'No user found using this mobile number'
+                ),
+                201
+            );
+        }
+
+        $patientdata = User::where([ 'id'=>$patient->user_id])->first();
+
+        if ($patient) {
+            $six_digit_random_number = random_int(100000, 999999);
+            //$information =  $this->Send_SMS('Your OTP is '.$six_digit_random_number.', for login using UdaipurMed, Thanks!', '919785558507');
+            $information =  $this->Send_SMS('Hi, Your OTP is '.$six_digit_random_number, '91'.''.$mobile);
+            $information = '';
+            $patient->email = $patientdata->email;
+            $patient->name = $patientdata->name;
+            $patient->role = $patientdata->role;
+            return Response::json(
+                array(
+                    'status' => true,
+                    'data' => $patient,
+                    'sms' => $information,
+                    'otp' => $six_digit_random_number
+                ),
+                200
+            );
+        } else {
+            return Response::json(
+                array(
+                    'status' => false,
+                    'msg' => 'Error while getting user'
                 ),
                 201
             );
@@ -323,11 +384,15 @@ class ApiController extends Controller
         $Appointment->save();
 
         if ($Appointment) {
+            // Sending Appointment Message-------------------------------------------------------------------------------
+            $mobile = '9785558507';
+            $information =  $this->Send_SMS('Thanks for booking an appointment on .'$request->date'. at '.$request->time_start.', your appointment has been confirmed using UdaipurMed, Thanks!', '91'.''.$mobile);
+            //-----------------------------------------------------------------------------------------------------------
             return Response::json(
                 array(
                     'status' => true,
                     'data' => $Appointment,
-                    'already' =>$appointmentcheck,
+                    'already' =>$information,
                     'msg' =>'Your appointment has been created successfully..'
                 ),
                 200
@@ -394,6 +459,10 @@ class ApiController extends Controller
         $prescription->save();
 
         if ($prescription) {
+            // Sending Medicine Order Message-------------------------------------------------------------------------------
+            $mobile = '9785558507';
+            $information =  $this->Send_SMS('Your medicine order has been received successfully, we will update you soon, you can also on check on your orders, thanks for using UdaipurMed.', '91'.''.$mobile);
+            //-----------------------------------------------------------------------------------------------------------
             return Response::json(
                 array(
                 'status' => true,
@@ -462,6 +531,10 @@ class ApiController extends Controller
         $order->save();
 
         if ($order) {
+            // Sending Medicine Order Message-------------------------------------------------------------------------------
+            $mobile = '9785558507';
+            $information =  $this->Send_SMS('Your medicine order has been received successfully, we will update you soon, you can also on check on your orders, thanks for using UdaipurMed.', '91'.''.$mobile);
+            //-----------------------------------------------------------------------------------------------------------
             return Response::json(
                 array(
                     'status' => true,
@@ -670,6 +743,10 @@ class ApiController extends Controller
         $LabBooking->save();
 
         if ($LabBooking) {
+            // Sending Medicine Order Message-------------------------------------------------------------------------------
+            $mobile = '9785558507';
+            $information =  $this->Send_SMS('Your lab test request received successfully for date '.$LabBooking->created_at.', our team will contact you soon for sample collection, Thanks for using UdaipurMed.', '91'.''.$mobile);
+            //-----------------------------------------------------------------------------------------------------------
             return Response::json(
                 array(
                     'status' => true,

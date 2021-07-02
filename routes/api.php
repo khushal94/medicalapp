@@ -8,8 +8,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // Route::middleware(['cors'])->group(function () {
-
-
+    
+Route::post('/otp-login', 'ApiController@OTP_Login')->name('OTPLogin');
 Route::post('/login-patient', 'ApiController@User_Login')->name('userlogin');
 Route::post('/create-patient', 'ApiController@Create_Patient')->name('createpatient');
 Route::post('/app-landing', 'ApiController@App_Landing')->name('App_Landing');
@@ -40,6 +40,9 @@ Route::post('/get-nurse-bookings', 'ApiController@Get_NurseBooking')->name('get-
 
 Route::post('/get-conversations', 'ApiController@Get_User_Chats')->name('get-chats');
 Route::post('/send-chat-msg', 'ApiController@Send_Msg')->name('send-chat-message');
+
+Route::get('/check-sms', 'ApiController@checksms')->name('checksms');
+
 
 // });
 
