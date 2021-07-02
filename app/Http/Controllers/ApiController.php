@@ -386,7 +386,7 @@ class ApiController extends Controller
         if ($Appointment) {
             // Sending Appointment Message-------------------------------------------------------------------------------
             $mobile = '9785558507';
-            $information =  $this->Send_SMS('Thanks for booking an appointment on .'$request->date'. at '.$request->time_start.', your appointment has been confirmed using UdaipurMed, Thanks!', '91'.''.$mobile);
+            $information =  $this->Send_SMS("Thanks for booking an appointment on .'$request->date'. at '.$request->time_start.', your appointment has been confirmed using UdaipurMed, Thanks!", "91"."".$mobile);
             //-----------------------------------------------------------------------------------------------------------
             return Response::json(
                 array(
