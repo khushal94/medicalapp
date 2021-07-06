@@ -65,11 +65,13 @@ class NurseController extends Controller
             'gender' => ['required'],
             'city' => ['required'],
             'state' => ['required'],
-			'image' => ['required','max:2048'],
 			'qualification' => ['required'],
 
     	]);
 		if ($request->hasFile('image')) {
+			$validatedData = $request->validate([
+				'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+			]);
 			if(!empty($request->image) && file_exists(public_path().'/imgs/nurses/'.strtolower(now()->monthName).'/'.$request->image)) {
 				unlink(public_path().'/imgs/nurses/'.strtolower(now()->monthName).'/'.$request->image);
 			}

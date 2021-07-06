@@ -193,6 +193,26 @@
                                         value="India" disabled>
                                 </div>
                             </div>
+                            <div class="col-xl-4 col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="registration" class="col-form-label"><?php echo e(__('sentence.Registration')); ?>
+
+                                        <font color="red">*</font>
+                                    </label>
+                                    <input type="text" class="form-control" id="registration" name="registration"
+                                        placeholder="<?php echo e(__('sentence.Registration')); ?>">
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="qualification" class="col-form-label"><?php echo e(__('sentence.Qualification')); ?>
+
+                                        <font color="red">*
+                                        </font>
+                                    </label>
+                                    <input type="text" class="form-control" id="qualification" name="qualification" autocomplete="off"  placeholder="<?php echo e(__('sentence.Qualification')); ?>">
+                                </div>
+                            </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="description"

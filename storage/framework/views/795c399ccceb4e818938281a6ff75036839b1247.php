@@ -42,7 +42,8 @@
                                     <label class="upload_image">
                                         <img src="<?php echo e(empty($doctor->Doctor->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $doctor->Doctor->image)); ?>"
                                             alt="Upload Image" title="Upload Image">
-                                        <input type="file" name="image" accept="image/*" id="image" style="display: none">
+                                        <input type="file" name="image" accept="image/png, image/svg, image/jpeg" id="image"
+                                            style="display: none">
                                     </label>
                                     <label for="image" class="btn btn-primary btn-block btn-upload">Upload</label>
                                 </div>
@@ -56,7 +57,8 @@
                                             <label for="inputEmail3" class="col-form-label"><?php echo e(__('sentence.Full Name')); ?>
 
                                                 <font color="red">*
-                                                </font></label>
+                                                </font>
+                                            </label>
                                             <input type="text" class="form-control" id="inputEmail3" name="name"
                                                 value="<?php echo e($doctor->name); ?>"
                                                 placeholder="<?php echo e(__('sentence.Full Name')); ?>">
@@ -126,61 +128,16 @@
                                                     *
                                                 </font></label>
                                             <select class="form-control" name="speciality" id="speciality">
+                                                <option value="" disabled><?php echo e(__('sentence.Select Speciality')); ?></option>
                                                 <option value="<?php echo e($doctor->Doctor->speciality); ?>" selected="selected">
                                                     <?php echo e($doctor->Doctor->speciality); ?></option>
-                                                <option value="Cardiology"><?php echo e(__('sentence.Cardiology')); ?>
+                                                <?php $__currentLoopData = $specialities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $speciality): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($speciality->name); ?>"><?php echo e($speciality->name); ?>
 
-                                                </option>
-                                                <option value="Diagnostic imaging">
-                                                    <?php echo e(__('sentence.Diagnostic imaging')); ?>
-
-                                                </option>
-                                                <option value="Ear nose and throat (ENT)">
-                                                    <?php echo e(__('sentence.Ear nose and throat (ENT)')); ?></option>
-                                                <option value="General surgery">
-                                                    <?php echo e(__('sentence.General surgery')); ?>
-
-                                                </option>
-                                                <option value="Maternity departments">
-                                                    <?php echo e(__('sentence.Maternity departments')); ?></option>
-                                                <option value="Microbiology"><?php echo e(__('sentence.Microbiology')); ?>
-
-                                                </option>
-                                                <option value="Nephrology"><?php echo e(__('sentence.Nephrology')); ?>
-
-                                                </option>
-                                                <option value="Neurology"><?php echo e(__('sentence.Neurology')); ?></option>
-                                                <option value="Nutrition and dietetics">
-                                                    <?php echo e(__('sentence.Nutrition and dietetics')); ?></option>
-                                                <option value="Occupational therapy">
-                                                    <?php echo e(__('sentence.Occupational therapy')); ?></option>
-                                                <option value="Oncology"><?php echo e(__('sentence.Oncology')); ?></option>
-                                                <option value="Ophthalmology"><?php echo e(__('sentence.Ophthalmology')); ?>
-
-                                                </option>
-                                                <option value="Orthopaedics"><?php echo e(__('sentence.Orthopaedics')); ?>
-
-                                                </option>
-                                                <option value="Pain management clinics">
-                                                    <?php echo e(__('sentence.Pain management clinics')); ?></option>
-                                                <option value="Physiotherapy"><?php echo e(__('sentence.Physiotherapy')); ?>
-
-                                                </option>
-                                                <option value="Radiotherapy"><?php echo e(__('sentence.Radiotherapy')); ?>
-
-                                                </option>
-                                                <option value="Renal unit"><?php echo e(__('sentence.Renal unit')); ?>
-
-                                                </option>
-                                                <option value="Rheumatology"><?php echo e(__('sentence.Rheumatology')); ?>
-
-                                                </option>
-                                                <option value="Sexual health (genitourinary medicine)">
-                                                    <?php echo e(__('sentence.Sexual health (genitourinary medicine)')); ?>
-
-                                                </option>
-                                                <option value="Urology"><?php echo e(__('sentence.Urology')); ?></option>
+                                                    </option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </select>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
@@ -249,15 +206,38 @@
                                         value="<?php echo e($doctor->Doctor->country); ?>" disabled>
                                 </div>
                             </div>
+                            <div class="col-xl-4 col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="registration" class="col-form-label"><?php echo e(__('sentence.Registration')); ?>
+
+                                        <font color="red">*</font>
+                                    </label>
+                                    <input type="text" class="form-control" id="registration" name="registration"
+                                        placeholder="<?php echo e(__('sentence.Registration')); ?>"
+                                        value="<?php echo e($doctor->Doctor->registration); ?>">
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="qualification" class="col-form-label"><?php echo e(__('sentence.Qualification')); ?>
+
+                                        <font color="red">*
+                                        </font>
+                                    </label>
+                                    <input type="text" class="form-control" id="qualification" name="qualification"
+                                        autocomplete="off" placeholder="<?php echo e(__('sentence.Qualification')); ?>"
+                                        value="<?php echo e($doctor->Doctor->qualification); ?>">
+                                </div>
+                            </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="description"
                                         class="col-form-label"><?php echo e(__('sentence.Description')); ?></label>
                                     <textarea rows="3" class="form-control" id="description" name="description"
                                         placeholder="<?php echo e(__('sentence.Description')); ?>">
-                                                <?php echo e($doctor->Doctor->description); ?>
+                                                            <?php echo e($doctor->Doctor->description); ?>
 
-                                            </textarea>
+                                                        </textarea>
                                 </div>
                             </div>
                         </div>

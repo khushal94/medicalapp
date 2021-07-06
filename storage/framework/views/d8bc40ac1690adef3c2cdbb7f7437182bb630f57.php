@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title'); ?>
     <?php echo e(__('sentence.All Nurses')); ?>
 
@@ -63,12 +65,12 @@
                                         class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>
                                     <a href="<?php echo e(url('nurse/edit/' . $nurse->id)); ?>"
                                         class="btn btn-warning btn-circle btn-sm"><i class="fa fa-pen"></i></a>
-                                    <?php if($nurse->Nurse->is_deleted == 0): ?>
-                                        <a href="<?php echo e(url('nurse/update/' . $nurse->id . '/' . $nurse->Nurse->is_deleted)); ?>"
+                                    <?php if($nurse->is_deleted == 0): ?>
+                                        <a href="<?php echo e(url('nurse/update/' . $nurse->id . '/' . $nurse->is_deleted)); ?>"
                                             class="btn btn-danger btn-circle btn-sm" title="inactive"><i
                                                 class="fas fa-times"></i></a>
                                     <?php else: ?>
-                                        <a href="<?php echo e(url('nurse/update/' . $nurse->id . '/' . $nurse->Nurse->is_deleted)); ?>"
+                                        <a href="<?php echo e(url('nurse/update/' . $nurse->id . '/' . $nurse->is_deleted)); ?>"
                                             class="btn btn-success btn-circle btn-sm" title="active"><i
                                                 class="fas fa-check"></i></a>
                                     <?php endif; ?>
