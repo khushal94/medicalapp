@@ -37,7 +37,16 @@
                             <?php endif; ?>
 
                             <?php if(isset($coupon->minimum_amount)): ?>
-                                <p><b><?php echo e(__('sentence.Minimum Amount')); ?> :</b> <?php echo e(__('sentence.' . $coupon->minimum_amount)); ?></p>
+                                <p><b><?php echo e(__('sentence.Minimum Amount')); ?> :</b> <?php echo e($coupon->minimum_amount); ?></p>
+                            <?php endif; ?>
+                            <?php if(isset($coupon->category)): ?>
+                                <p><b><?php echo e(__('sentence.Category')); ?> :</b> 
+                                    <?php echo e($coupon->category == 'appointment' ? __('sentence.Appointment') || 
+                                        $coupon->category == 'nurse-visit' ? __('sentence.Nurse Visit') ||
+                                        $coupon->category == 'lab-test' ? __('sentence.Lab Test') ||
+                                        $coupon->category == 'package' ? __('sentence.Package')); ?>
+
+                                </p>
                             <?php endif; ?>
                         </div>
                     </div>

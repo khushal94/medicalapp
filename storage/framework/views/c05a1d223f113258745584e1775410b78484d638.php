@@ -42,7 +42,7 @@
                                     <label class="upload_image">
                                         <img src="<?php echo e(empty($coupon->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $coupon->image)); ?>"
                                             alt="Upload Image" title="Upload Image">
-                                        <input type="file" name="image" accept="image/*" id="image" style="display: none">
+                                        <input type="file" name="image" accept="image/png, image/svg, image/jpeg" id="image" style="display: none">
                                     </label>
                                     <label for="image" class="btn btn-primary btn-block btn-upload">Upload</label>
                                 </div>
@@ -69,6 +69,22 @@
                                             </label>
                                             <input type="text" class="form-control" id="code" name="code"
                                                 value="<?php echo e($coupon->code); ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-12 col-md-6">
+                                        <div class="form-group">
+                                            <label for="category"
+                                                class="col-form-label"><?php echo e(__('sentence.Select Category')); ?>
+
+                                                <font color="red">*</font>
+                                            </label>
+                                            <select class="form-control" name="category">
+                                                
+                                                <option value="appointment"><?php echo e(__('sentence.Appointment ')); ?></option>
+                                                <option value="nurse-visit"><?php echo e(__('sentence.Nurse Visit')); ?></option>
+                                                <option value="lab-test"><?php echo e(__('sentence.Lab Test')); ?></option>
+                                                <option value="package"><?php echo e(__('sentence.Package')); ?></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
