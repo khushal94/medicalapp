@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Doctor;
+use App\Speciality;
 use Hash;
 use Redirect;
 use Illuminate\Validation\Rule;
@@ -28,11 +29,13 @@ class DoctorController extends Controller
     }
 
     public function create(){
-		return view('doctor.create');
+    	$speciality = Speciality::get();
+		return view('doctor.create', ['specialities' => $speciality]);
     }
     public function edit($id){
 		$doctor = User::find($id);
-    	return view('doctor.edit',['doctor' => $doctor]);
+    	$speciality = Speciality::get();
+    	return view('doctor.edit',['doctor' => $doctor, 'specialities' => $speciality]);
     }
 	
 	public function store_edit(Request $request){
@@ -51,11 +54,13 @@ class DoctorController extends Controller
 			'state' => ['required'],
 			'speciality' => ['required'],
 			'experience' => ['required'],
+			'registration' => ['required'],
+			'qualification' => ['required'],
 		]);
 		
 		if ($request->hasFile('image')) {
 			$validatedData = $request->validate([
-				'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+				'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 			]);
 			if(!empty($request->image) && file_exists(public_path().'/imgs/doctors/'.strtolower(now()->monthName).'/'.$request->image)) {
 				unlink(public_path().'/imgs/doctors/'.strtolower(now()->monthName).'/'.$request->image);
@@ -86,61 +91,67 @@ class DoctorController extends Controller
 				'long' => $request->long,
 				'speciality' => $request->speciality,
 				'experience' => $request->experience,
+				'registration' => $request->registration,
+				'qualification' => $request->qualification,
 				]);
 		return Redirect::back()->with('success', __('sentence.Doctor Updated Successfully'));
 
     }
 
     public function store(Request $request){
-
+		
+		$validatedData = $request->validate([
+			'name' => ['required', 'string', 'max:255'],
+			'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+			'birthday' => ['required'],
+			'gender' => ['required'],
+			'phone' => ['required'],
+			'address' => ['required'],
+			'city' => ['required'],
+			'state' => ['required'],
+			'speciality' => ['required'],
+			'experience' => ['required'],
+			'registration' => ['required'],
+			'qualification' => ['required'],
+			
+		]);
+		$user = new User();
+		$user->password = Hash::make('udaipurmed');
+		$user->email = $request->email;
+		$user->name = $request->name;
+		$user->role = 'doctor';
+		$user->save();
 		if ($request->hasFile('image')) {
 			$validatedData = $request->validate([
-				'name' => ['required', 'string', 'max:255'],
-				'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
-				'birthday' => ['required'],
-				'gender' => ['required'],
-				'phone' => ['required'],
-				'address' => ['required'],
-				'city' => ['required'],
-				'state' => ['required'],
-				'speciality' => ['required'],
-				'experience' => ['required'],
-				'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-	
+				'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 			]);
-
-			$user = new User();
-			$user->password = Hash::make('udaipurmed');
-			$user->email = $request->email;
-			$user->name = $request->name;
-			$user->role = 'doctor';
-			$user->save();
-
-
-			$doctor = new Doctor();
-			$doctor->user_id = $user->id;
-			$doctor->name = $request->name;
-			$doctor->email = $request->email;
-			$doctor->birthday = $request->birthday;
-			$doctor->phone = $request->phone;
-			$doctor->gender = $request->gender;
-			$doctor->address = $request->address;
-			$doctor->city = $request->city;
-			$doctor->state = $request->state;
-			$doctor->country = 'India';
-			$doctor->speciality = $request->speciality;
-			$doctor->experience = $request->experience;
-			$doctor->description = $request->description;
-			$doctor->lat = $request->lat;
-			$doctor->long = $request->long;
 			$image           = $request->file('image');
 			$name            = 'IMG'.time().'.'.$image->getClientOriginalExtension();
 			$destinationPath = '/imgs/doctors/'.strtolower(now()->monthName);
 			$image->move(public_path($destinationPath), $name);
-			$doctor->image = 'doctors/'.strtolower(now()->monthName).'/'.$name;
-			$doctor->save();
-
+			$doctor->image = 'doctors/'.strtolower(now()->monthName).'/'.$name;			
 		}
+
+		$doctor = new Doctor();
+		$doctor->user_id = $user->id;
+		$doctor->name = $request->name;
+		$doctor->email = $request->email;
+		$doctor->birthday = $request->birthday;
+		$doctor->phone = $request->phone;
+		$doctor->gender = $request->gender;
+		$doctor->address = $request->address;
+		$doctor->city = $request->city;
+		$doctor->state = $request->state;
+		$doctor->country = 'India';
+		$doctor->speciality = $request->speciality;
+		$doctor->experience = $request->experience;
+		$doctor->description = $request->description;
+		$doctor->lat = $request->lat;
+		$doctor->long = $request->long;
+		$doctor->registration = $request->registration;
+		$doctor->qualification = $request->qualification;
+		$doctor->save();
+
 
 		return Redirect::route('doctor.all')->with('success', __('sentence.Doctor Created Successfully'));
 

@@ -43,7 +43,8 @@
                                     <div class="js--image-preview"></div>
                                     <div class="upload-options">
                                         <label>
-                                            <input type="file" class="image-upload" accept="image/png, image/svg, image/jpeg" name="image" />
+                                            <input type="file" class="image-upload"
+                                                accept="image/png, image/svg, image/jpeg" name="image" />
                                         </label>
                                     </div>
                                 </div>
@@ -57,15 +58,18 @@
 
                                                 <font color="red">*</font>
                                             </label>
-                                            <input type="text" class="form-control" id="inputEmail3" name="name" placeholder="<?php echo e(__('sentence.Full Name')); ?>">
+                                            <input type="text" class="form-control" id="inputEmail3" name="name"
+                                                placeholder="<?php echo e(__('sentence.Full Name')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label"><?php echo e(__('sentence.Email Address')); ?><font color="red">
+                                                class="col-form-label"><?php echo e(__('sentence.Email Address')); ?><font
+                                                    color="red">
                                                     *</font></label>
-                                            <input type="email" class="form-control" id="inputPassword3" name="email" placeholder="<?php echo e(__('sentence.Email Address')); ?>">
+                                            <input type="email" class="form-control" id="inputPassword3" name="email"
+                                                placeholder="<?php echo e(__('sentence.Email Address')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
@@ -74,14 +78,16 @@
                                                 class="col-form-label"><?php echo e(__('sentence.Birthday')); ?><font color="red">*
                                                 </font></label>
                                             <input type="text" class="form-control birthday" id="birthday" readonly
-                                                name="birthday" autocomplete="off" placeholder="<?php echo e(__('sentence.Birthday')); ?>">
+                                                name="birthday" autocomplete="off"
+                                                placeholder="<?php echo e(__('sentence.Birthday')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
                                                 class="col-form-label"><?php echo e(__('sentence.Phone')); ?></label>
-                                            <input type="number" class="form-control" id="inputPassword3" name="phone" placeholder="<?php echo e(__('sentence.Phone')); ?>">
+                                            <input type="number" class="form-control" id="inputPassword3" name="phone"
+                                                placeholder="<?php echo e(__('sentence.Phone')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
@@ -99,7 +105,8 @@
                                         <div class="form-group">
                                             <label for="inputPassword3"
                                                 class="col-form-label"><?php echo e(__('sentence.Address')); ?></label>
-                                            <input type="text" class="form-control" id="inputPassword3" name="address" placeholder=" <?php echo e(__('sentence.Address')); ?>">
+                                            <input type="text" class="form-control" id="inputPassword3" name="address"
+                                                placeholder=" <?php echo e(__('sentence.Address')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
@@ -111,7 +118,8 @@
                                                     *
                                                 </font>
                                             </label>
-                                            <input type="number" class="form-control" id="experience" name="experience" placeholder="<?php echo e(__('sentence.Experience In Years')); ?>">
+                                            <input type="number" class="form-control" id="experience" name="experience"
+                                                placeholder="<?php echo e(__('sentence.Experience In Years')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
@@ -121,66 +129,30 @@
                                                     *
                                                 </font></label>
                                             <select class="form-control" name="speciality" id="speciality">
-                                                <option value="Cardiology"><?php echo e(__('sentence.Cardiology')); ?></option>
-                                                <option value="Diagnostic imaging">
-                                                    <?php echo e(__('sentence.Diagnostic imaging')); ?>
+                                                <option value=""><?php echo e(__('sentence.Select Speciality')); ?></option>
+                                                <?php $__currentLoopData = $specialities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $speciality): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <option value="<?php echo e($speciality->name); ?>"><?php echo e($speciality->name); ?>
 
-                                                </option>
-                                                <option value="Ear nose and throat (ENT)">
-                                                    <?php echo e(__('sentence.Ear nose and throat (ENT)')); ?></option>
-                                                <option value="General surgery"><?php echo e(__('sentence.General surgery')); ?>
-
-                                                </option>
-                                                <option value="Maternity departments">
-                                                    <?php echo e(__('sentence.Maternity departments')); ?></option>
-                                                <option value="Microbiology"><?php echo e(__('sentence.Microbiology')); ?>
-
-                                                </option>
-                                                <option value="Nephrology"><?php echo e(__('sentence.Nephrology')); ?></option>
-                                                <option value="Neurology"><?php echo e(__('sentence.Neurology')); ?></option>
-                                                <option value="Nutrition and dietetics">
-                                                    <?php echo e(__('sentence.Nutrition and dietetics')); ?></option>
-                                                <option value="Occupational therapy">
-                                                    <?php echo e(__('sentence.Occupational therapy')); ?></option>
-                                                <option value="Oncology"><?php echo e(__('sentence.Oncology')); ?></option>
-                                                <option value="Ophthalmology"><?php echo e(__('sentence.Ophthalmology')); ?>
-
-                                                </option>
-                                                <option value="Orthopaedics"><?php echo e(__('sentence.Orthopaedics')); ?>
-
-                                                </option>
-                                                <option value="Pain management clinics">
-                                                    <?php echo e(__('sentence.Pain management clinics')); ?></option>
-                                                <option value="Physiotherapy"><?php echo e(__('sentence.Physiotherapy')); ?>
-
-                                                </option>
-                                                <option value="Radiotherapy"><?php echo e(__('sentence.Radiotherapy')); ?>
-
-                                                </option>
-                                                <option value="Renal unit"><?php echo e(__('sentence.Renal unit')); ?></option>
-                                                <option value="Rheumatology"><?php echo e(__('sentence.Rheumatology')); ?>
-
-                                                </option>
-                                                <option value="Sexual health (genitourinary medicine)">
-                                                    <?php echo e(__('sentence.Sexual health (genitourinary medicine)')); ?>
-
-                                                </option>
-                                                <option value="Urology"><?php echo e(__('sentence.Urology')); ?></option>
+                                                    </option>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                             </select>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="lat"
                                                 class="col-form-label"><?php echo e(__('sentence.Lattitude')); ?></label>
-                                            <input type="text" class="form-control" id="lat" name="lat" placeholder="<?php echo e(__('sentence.Lattitude')); ?>">
+                                            <input type="text" class="form-control" id="lat" name="lat"
+                                                placeholder="<?php echo e(__('sentence.Lattitude')); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="long"
                                                 class="col-form-label"><?php echo e(__('sentence.Longitude')); ?></label>
-                                            <input type="text" class="form-control" id="long" name="long" placeholder="<?php echo e(__('sentence.Longitude')); ?>">
+                                            <input type="text" class="form-control" id="long" name="long"
+                                                placeholder="<?php echo e(__('sentence.Longitude')); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -196,7 +168,8 @@
                                         <font color="red">*
                                         </font>
                                     </label>
-                                    <input type="text" class="form-control" id="city" name="city" placeholder="<?php echo e(__('sentence.City')); ?>">
+                                    <input type="text" class="form-control" id="city" name="city"
+                                        placeholder="<?php echo e(__('sentence.City')); ?>">
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-12 col-md-6">
@@ -205,7 +178,8 @@
 
                                         <font color="red">*</font>
                                     </label>
-                                    <input type="text" class="form-control" id="state" name="state" placeholder="<?php echo e(__('sentence.State')); ?>">
+                                    <input type="text" class="form-control" id="state" name="state"
+                                        placeholder="<?php echo e(__('sentence.State')); ?>">
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-12 col-md-6">
@@ -218,12 +192,13 @@
                                     <input type="text" class="form-control" id="country" name="country" autocomplete="off"
                                         value="India" disabled>
                                 </div>
-                            </div>                            
+                            </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="description"
                                         class="col-form-label"><?php echo e(__('sentence.Description')); ?></label>
-                                    <textarea rows="3" class="form-control" id="description" name="description" placeholder="<?php echo e(__('sentence.Description')); ?>"></textarea>
+                                    <textarea rows="3" class="form-control" id="description" name="description"
+                                        placeholder="<?php echo e(__('sentence.Description')); ?>"></textarea>
                                 </div>
                             </div>
                         </div>

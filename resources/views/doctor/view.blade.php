@@ -33,6 +33,14 @@
                             @isset($doctor->Doctor->address)
                                 <p><b>{{ __('sentence.Address') }} :</b> {{ $doctor->Doctor->address }}</p>
                             @endisset
+
+                            @isset($doctor->Doctor->registration)
+                                <p><b>{{ __('sentence.Registration') }} :</b> {{ $doctor->Doctor->registration }}</p>
+                            @endisset
+                            
+                            @isset($doctor->Doctor->qualification)
+                                <p><b>{{ __('sentence.Qualification') }} :</b> {{ $doctor->Doctor->qualification }}</p>
+                            @endisset
                         </div>
                     </div>
                 </div>

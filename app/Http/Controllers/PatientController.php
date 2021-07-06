@@ -45,13 +45,12 @@ class PatientController extends Controller
 		        'required', 'email', 'max:255',
 		        Rule::unique('users')->ignore($request->user_id),
 		    ],
-            'birthday' => ['required'],
             'gender' => ['required'],
 
     	]);
 		if ($request->hasFile('image')) {
 			$validatedData = $request->validate([
-				'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+				'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 			]);
 			if(!empty($request->image) && file_exists(public_path().'/imgs/patients/'.strtolower(now()->monthName).'/'.$request->image)) {
 				unlink(public_path().'/imgs/patients/'.strtolower(now()->monthName).'/'.$request->image);
@@ -71,6 +70,7 @@ class PatientController extends Controller
 
 		$patient = Patient::where('user_id', $request->user_id)
 		         			->update(['birthday' => $request->birthday,
+										'age' => $request->age,
 										'phone' => $request->phone,
 										'gender' => $request->gender,
 										'blood' => $request->blood,
@@ -90,9 +90,8 @@ class PatientController extends Controller
     	$validatedData = $request->validate([
         	'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
-            'birthday' => ['required'],
             'gender' => ['required'],
-			'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+			'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     	]);
 
     	$user = new User();
@@ -105,6 +104,7 @@ class PatientController extends Controller
 		$patient = new Patient();
 		$patient->user_id = $user->id;
 		$patient->birthday = $request->birthday;
+		$patient->age = $request->age;
 		$patient->phone = $request->phone;
 		$patient->gender = $request->gender;
 		$patient->blood = $request->blood;

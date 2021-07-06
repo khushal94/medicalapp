@@ -33,7 +33,9 @@ return [
   'View Prescription' => 'View Prescription',
   'No Test Required' => 'No Test Required',
   'No Drugs' => 'No Drugs',
-
+  'Select Speciality' => 'Select Speciality',
+  'Experience' => 'Experience',
+  
   'Drugs' => 'Drugs',
   'Add Drug' => 'Add Drug',
   'All Drugs' => 'All Drugs',
@@ -91,7 +93,6 @@ return [
   'Package Selected' => 'Package Selected',
   'Is Paid' => 'Is Paid',
   'Package Id' => 'Package Id',
-
   'Settings' => 'Settings',
   'Doctorino Settings' => 'Doctorino Settings',
   'Prescription Settings' => 'Prescription Settings',
@@ -110,15 +111,15 @@ return [
   'Payments this year' => 'Payments this year',
   'Login' => 'Login',
   'Create Account' => 'Create an Account!',
-   'Email' => 'E-mail',
-   'Password' => 'Password',
-   'Forgot Your Password' => 'Forgot Your Password ?',
-   'Remember Me' => 'Remember Me',
-   'Welcome' => 'Welcome Back !',
-   'Save' => 'Save',
-   'Cancel' => 'Cancel', 
-   'Ready to Leave' => 'Ready to Leave?',
-   'Ready to Leave Msg' => 'Select "Logout" below if you are ready to end your current session.',
+  'Email' => 'E-mail',
+  'Password' => 'Password',
+  'Forgot Your Password' => 'Forgot Your Password ?',
+  'Remember Me' => 'Remember Me',
+  'Welcome' => 'Welcome Back !',
+  'Save' => 'Save',
+  'Cancel' => 'Cancel', 
+  'Ready to Leave' => 'Ready to Leave?',
+  'Ready to Leave Msg' => 'Select "Logout" below if you are ready to end your current session.',
 
    //Ordonnance
    'Test to do' => 'Test to do',
@@ -235,6 +236,9 @@ return [
     'Sexual health (genitourinary medicine)' => 'Sexual health (genitourinary medicine)',
     'Urology' => 'Urology',
     'Image' => 'Image',
+    'Registration' => 'Registration',
+    'Qualification' => 'Qualification',
+    'Available' => 'Available',
 
     // Coupon
     'Coupon' => 'Coupon', 

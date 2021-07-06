@@ -18,7 +18,7 @@ class CreatePatientsTable extends Migration
             $table->foreignId('user_id')
                   ->constrained()
                   ->onDelete('cascade');
-            $table->string('birthday');
+            $table->string('birthday')->nullable();
             $table->string('phone')->nullable();
             $table->string('gender');
             $table->string('blood')->nullable();

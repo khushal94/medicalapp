@@ -18,13 +18,20 @@
                                     class="img-profile img-fluid"></center>
                             <h4 class="text-center"><b>{{ $patient->name }}</b></h4>
                             <hr>
-                            @isset($patient->Patient->birthday)
-                                <p><b>{{ __('sentence.Age') }} :</b> {{ $patient->Patient->birthday }}
-                                    ({{ \Carbon\Carbon::parse($patient->Patient->birthday)->age }} Years)</p>
-                            @endisset
+                            @if(!($patient->Patient->age))
+                                @isset($patient->Patient->birthday)
+                                    <p><b>{{ __('sentence.Age') }} :</b> {{ $patient->Patient->birthday }}
+                                        ({{ \Carbon\Carbon::parse($patient->Patient->birthday)->age }} Years)</p>
+                                @endisset
+                            @else if($patient->Patient->age)
+                                @isset($patient->Patient->age)
+                                    <p><b>{{ __('sentence.Age') }} :</b> {{ $patient->Patient->age }} Years</p>
+                                @endisset
+                            @endif
 
                             @isset($patient->Patient->gender)
-                                <p><b>{{ __('sentence.Gender') }} :</b> {{ __('sentence.' . $patient->Patient->gender) }}</p>
+                                <p><b>{{ __('sentence.Gender') }} :</b> {{ __('sentence.' . $patient->Patient->gender) }}
+                                </p>
                             @endisset
 
                             @isset($patient->Patient->phone)

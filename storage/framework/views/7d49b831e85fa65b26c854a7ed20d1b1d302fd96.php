@@ -55,12 +55,12 @@
                                 <td><?php echo e($ambulance->id); ?></td>
                                 <td><a> <?php echo e($ambulance->user_id); ?> </a></td>
                                 <td class="text-center"> <?php echo e($ambulance->booking_time); ?> </td>
-                                <td class="text-center"><?php echo e($ambulance->ciy); ?></td>
+                                <td class="text-center"><?php echo e($ambulance->city); ?></td>
                                 <td class="text-center"><?php echo e($ambulance->state); ?></td>
                                 <td class="text-center"><?php echo e($ambulance->area); ?></td>
                                 <td class="text-center"><?php echo e($ambulance->address); ?></td>
                                 <td class="text-center"><?php echo e($ambulance->description); ?></td>
-                                <td class="text-center"><?php echo e($nurse->created_at->format('d M Y H:i')); ?></td>
+                                <td class="text-center"><?php echo e($ambulance->created_at->format('d M Y H:i')); ?></td>
                                 <!-- <td class="text-center">
                                     <a href="<?php echo e(url('nurse/view/' . $nurse->id)); ?>"
                                         class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>

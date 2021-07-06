@@ -41,7 +41,8 @@
                                     <label class="upload_image">
                                         <img src="{{ empty($doctor->Doctor->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $doctor->Doctor->image) }}"
                                             alt="Upload Image" title="Upload Image">
-                                        <input type="file" name="image" accept="image/png, image/svg, image/jpeg" id="image" style="display: none">
+                                        <input type="file" name="image" accept="image/png, image/svg, image/jpeg" id="image"
+                                            style="display: none">
                                     </label>
                                     <label for="image" class="btn btn-primary btn-block btn-upload">Upload</label>
                                 </div>
@@ -61,7 +62,8 @@
                                         <div class="form-group">
                                             <label for="inputEmail3" class="col-form-label">{{ __('sentence.Full Name') }}
                                                 <font color="red">*
-                                                </font></label>
+                                                </font>
+                                            </label>
                                             <input type="text" class="form-control" id="inputEmail3" name="name"
                                                 value="{{ $doctor->name }}"
                                                 placeholder="{{ __('sentence.Full Name') }}">
@@ -130,6 +132,15 @@
                                                     *
                                                 </font></label>
                                             <select class="form-control" name="speciality" id="speciality">
+                                                <option value="" disabled>{{ __('sentence.Select Speciality') }}</option>
+                                                <option value="{{ $doctor->Doctor->speciality }}" selected="selected">
+                                                    {{ $doctor->Doctor->speciality }}</option>
+                                                @foreach ($specialities as $speciality)
+                                                    <option value="{{ $speciality->name }}">{{ $speciality->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            {{-- <select class="form-control" name="speciality" id="speciality">
                                                 <option value="{{ $doctor->Doctor->speciality }}" selected="selected">
                                                     {{ $doctor->Doctor->speciality }}</option>
                                                 <option value="Cardiology">{{ __('sentence.Cardiology') }}
@@ -172,7 +183,7 @@
                                                     {{ __('sentence.Sexual health (genitourinary medicine)') }}
                                                 </option>
                                                 <option value="Urology">{{ __('sentence.Urology') }}</option>
-                                            </select>
+                                            </select> --}}
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
@@ -238,14 +249,35 @@
                                         value="{{ $doctor->Doctor->country }}" disabled>
                                 </div>
                             </div>
+                            <div class="col-xl-4 col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="registration" class="col-form-label">{{ __('sentence.Registration') }}
+                                        <font color="red">*</font>
+                                    </label>
+                                    <input type="text" class="form-control" id="registration" name="registration"
+                                        placeholder="{{ __('sentence.Registration') }}"
+                                        value="{{ $doctor->Doctor->registration }}">
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="qualification" class="col-form-label">{{ __('sentence.Qualification') }}
+                                        <font color="red">*
+                                        </font>
+                                    </label>
+                                    <input type="text" class="form-control" id="qualification" name="qualification"
+                                        autocomplete="off" placeholder="{{ __('sentence.Qualification') }}"
+                                        value="{{ $doctor->Doctor->qualification }}">
+                                </div>
+                            </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="description"
                                         class="col-form-label">{{ __('sentence.Description') }}</label>
                                     <textarea rows="3" class="form-control" id="description" name="description"
                                         placeholder="{{ __('sentence.Description') }}">
-                                                {{ $doctor->Doctor->description }}
-                                            </textarea>
+                                                            {{ $doctor->Doctor->description }}
+                                                        </textarea>
                                 </div>
                             </div>
                         </div>

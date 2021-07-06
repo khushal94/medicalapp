@@ -49,7 +49,8 @@
                                     <div class="js--image-preview"></div>
                                     <div class="upload-options">
                                         <label>
-                                            <input type="file" class="image-upload" accept="image/png, image/svg, image/jpeg" name="image" />
+                                            <input type="file" class="image-upload"
+                                                accept="image/png, image/svg, image/jpeg" name="image" />
                                         </label>
                                     </div>
                                 </div>
@@ -62,15 +63,18 @@
                                             <label for="inputEmail3" class="col-form-label">{{ __('sentence.Full Name') }}
                                                 <font color="red">*</font>
                                             </label>
-                                            <input type="text" class="form-control" id="inputEmail3" name="name" placeholder="{{ __('sentence.Full Name') }}">
+                                            <input type="text" class="form-control" id="inputEmail3" name="name"
+                                                placeholder="{{ __('sentence.Full Name') }}">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
-                                                class="col-form-label">{{ __('sentence.Email Address') }}<font color="red">
+                                                class="col-form-label">{{ __('sentence.Email Address') }}<font
+                                                    color="red">
                                                     *</font></label>
-                                            <input type="email" class="form-control" id="inputPassword3" name="email" placeholder="{{ __('sentence.Email Address') }}">
+                                            <input type="email" class="form-control" id="inputPassword3" name="email"
+                                                placeholder="{{ __('sentence.Email Address') }}">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
@@ -79,14 +83,16 @@
                                                 class="col-form-label">{{ __('sentence.Birthday') }}<font color="red">*
                                                 </font></label>
                                             <input type="text" class="form-control birthday" id="birthday" readonly
-                                                name="birthday" autocomplete="off" placeholder="{{ __('sentence.Birthday') }}">
+                                                name="birthday" autocomplete="off"
+                                                placeholder="{{ __('sentence.Birthday') }}">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputPassword3"
                                                 class="col-form-label">{{ __('sentence.Phone') }}</label>
-                                            <input type="number" class="form-control" id="inputPassword3" name="phone" placeholder="{{ __('sentence.Phone') }}">
+                                            <input type="number" class="form-control" id="inputPassword3" name="phone"
+                                                placeholder="{{ __('sentence.Phone') }}">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
@@ -104,7 +110,8 @@
                                         <div class="form-group">
                                             <label for="inputPassword3"
                                                 class="col-form-label">{{ __('sentence.Address') }}</label>
-                                            <input type="text" class="form-control" id="inputPassword3" name="address" placeholder=" {{__('sentence.Address') }}">
+                                            <input type="text" class="form-control" id="inputPassword3" name="address"
+                                                placeholder=" {{ __('sentence.Address') }}">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
@@ -115,7 +122,8 @@
                                                     *
                                                 </font>
                                             </label>
-                                            <input type="number" class="form-control" id="experience" name="experience" placeholder="{{ __('sentence.Experience In Years') }}">
+                                            <input type="number" class="form-control" id="experience" name="experience"
+                                                placeholder="{{ __('sentence.Experience In Years') }}">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
@@ -125,6 +133,13 @@
                                                     *
                                                 </font></label>
                                             <select class="form-control" name="speciality" id="speciality">
+                                                <option value="">{{ __('sentence.Select Speciality') }}</option>
+                                                @foreach ($specialities as $speciality)
+                                                    <option value="{{ $speciality->name }}">{{ $speciality->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                            {{-- <select class="form-control" name="speciality" id="speciality">
                                                 <option value="Cardiology">{{ __('sentence.Cardiology') }}</option>
                                                 <option value="Diagnostic imaging">
                                                     {{ __('sentence.Diagnostic imaging') }}
@@ -161,21 +176,23 @@
                                                     {{ __('sentence.Sexual health (genitourinary medicine)') }}
                                                 </option>
                                                 <option value="Urology">{{ __('sentence.Urology') }}</option>
-                                            </select>
+                                                </select> --}}
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="lat"
                                                 class="col-form-label">{{ __('sentence.Lattitude') }}</label>
-                                            <input type="text" class="form-control" id="lat" name="lat" placeholder="{{ __('sentence.Lattitude') }}">
+                                            <input type="text" class="form-control" id="lat" name="lat"
+                                                placeholder="{{ __('sentence.Lattitude') }}">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="long"
                                                 class="col-form-label">{{ __('sentence.Longitude') }}</label>
-                                            <input type="text" class="form-control" id="long" name="long" placeholder="{{ __('sentence.Longitude') }}">
+                                            <input type="text" class="form-control" id="long" name="long"
+                                                placeholder="{{ __('sentence.Longitude') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -190,7 +207,8 @@
                                         <font color="red">*
                                         </font>
                                     </label>
-                                    <input type="text" class="form-control" id="city" name="city" placeholder="{{ __('sentence.City') }}">
+                                    <input type="text" class="form-control" id="city" name="city"
+                                        placeholder="{{ __('sentence.City') }}">
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-12 col-md-6">
@@ -198,7 +216,8 @@
                                     <label for="state" class="col-form-label">{{ __('sentence.State') }}
                                         <font color="red">*</font>
                                     </label>
-                                    <input type="text" class="form-control" id="state" name="state" placeholder="{{ __('sentence.State') }}">
+                                    <input type="text" class="form-control" id="state" name="state"
+                                        placeholder="{{ __('sentence.State') }}">
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-12 col-md-6">
@@ -210,12 +229,31 @@
                                     <input type="text" class="form-control" id="country" name="country" autocomplete="off"
                                         value="India" disabled>
                                 </div>
-                            </div>                            
+                            </div>
+                            <div class="col-xl-4 col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="registration" class="col-form-label">{{ __('sentence.Registration') }}
+                                        <font color="red">*</font>
+                                    </label>
+                                    <input type="text" class="form-control" id="registration" name="registration"
+                                        placeholder="{{ __('sentence.Registration') }}">
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="qualification" class="col-form-label">{{ __('sentence.Qualification') }}
+                                        <font color="red">*
+                                        </font>
+                                    </label>
+                                    <input type="text" class="form-control" id="qualification" name="qualification" autocomplete="off"  placeholder="{{ __('sentence.Qualification') }}">
+                                </div>
+                            </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="description"
                                         class="col-form-label">{{ __('sentence.Description') }}</label>
-                                    <textarea rows="3" class="form-control" id="description" name="description" placeholder="{{ __('sentence.Description') }}"></textarea>
+                                    <textarea rows="3" class="form-control" id="description" name="description"
+                                        placeholder="{{ __('sentence.Description') }}"></textarea>
                                 </div>
                             </div>
                         </div>

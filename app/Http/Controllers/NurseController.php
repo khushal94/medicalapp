@@ -65,7 +65,8 @@ class NurseController extends Controller
             'gender' => ['required'],
             'city' => ['required'],
             'state' => ['required'],
-			'image' => ['required','max:2048'],3
+			'image' => ['required','max:2048'],
+			'qualification' => ['required'],
 
     	]);
 		if ($request->hasFile('image')) {
@@ -97,6 +98,7 @@ class NurseController extends Controller
 										'description' => $request->description,
 										'lat' => $request->lat,
 										'long' => $request->long,
+										'qualification' => $request->qualification,
 										'address' => $request->address,]);
 
 		
@@ -117,6 +119,7 @@ class NurseController extends Controller
 			'city' => ['required'],
             'state' => ['required'],
 			'image' => ['required','max:2048'],
+			'qualification' => ['required'],
     	]);
 
     	$user = new User();
@@ -141,6 +144,7 @@ class NurseController extends Controller
 		$nurse->description = $request->description;
 		$nurse->lat = $request->lat;
 		$nurse->long = $request->long;
+		$nurse->qualification = $request->qualification;
 		$image           = $request->file('image');
 		$name            = 'IMG'.time().'.'.$image->getClientOriginalExtension();
 		$destinationPath = '/imgs/nurses/'.strtolower(now()->monthName);

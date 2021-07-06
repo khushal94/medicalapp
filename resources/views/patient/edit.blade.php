@@ -43,7 +43,8 @@
                                     <label class="upload_image">
                                         <img src="{{ empty($patient->Patient->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $patient->Patient->image) }}"
                                             alt="Upload Image" title="Upload Image">
-                                        <input type="file" name="image" accept="image/png, image/svg, image/jpeg" id="image" style="display: none">
+                                        <input type="file" name="image" accept="image/png, image/svg, image/jpeg" id="image"
+                                            style="display: none">
                                     </label>
                                     <label for="image" class="btn btn-primary btn-block btn-upload">Upload</label>
                                 </div>
@@ -74,14 +75,20 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
-                                            <label for="inputPassword3"
-                                                class="col-form-label">{{ __('sentence.Birthday') }}
-                                                <font color="red">*
-                                                </font>
+                                            <label for="birthday" class="col-form-label">{{ __('sentence.Birthday') }}
                                             </label>
                                             <input type="text" class="form-control birthday" id="birthday" readonly
                                                 name="birthday" value="{{ $patient->Patient->birthday }}"
                                                 placeholder="{{ __('sentence.Birthday') }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-12 col-md-6">
+                                        <div class="form-group">
+                                            <label for="age" class="col-form-label">{{ __('sentence.Age') }}
+                                            </label>
+                                            <input type="text" class="form-control age" id="age" name="age"
+                                                value="{{ $patient->Patient->age }}"
+                                                placeholder="{{ __('sentence.Age') }}">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">

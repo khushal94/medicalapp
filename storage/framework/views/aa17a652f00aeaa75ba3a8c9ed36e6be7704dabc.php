@@ -9,7 +9,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
     <link rel="icon" type="image/png" href="<?php echo e(asset('public/img/favicon.png')); ?>">
-    <title>Doctorino - <?php echo $__env->yieldContent('title'); ?> </title>
+    <title>UdaipurMed - <?php echo $__env->yieldContent('title'); ?> </title>
     <!-- Custom styles for this template-->
     <link href="<?php echo e(asset('public/css/app.css')); ?>" rel="stylesheet">
     <?php echo $__env->yieldContent('header'); ?>
@@ -24,9 +24,9 @@
                 <!-- Sidebar - Brand -->
                 <a class="sidebar-brand d-flex align-items-center justify-content-start" href="<?php echo e(route('home')); ?>">
                     <div class="sidebar-brand-icon ">
-                        <img class="img-profile" src="<?php echo e(asset('public/img/favicon.png')); ?>">
+                        <img class="img-profile" src="https://udaipurmed.in/images/logo.png">
                     </div>
-                    <div class="sidebar-brand-text mx-3">I-Node</div>
+                    <!-- <div class="sidebar-brand-text mx-3">UdaipurMed</div> -->
                 </a>
                 
                 <!-- Divider -->
@@ -104,8 +104,7 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item"
                                 href="<?php echo e(route('nurse.create')); ?>"><?php echo e(__('sentence.New Nurse')); ?></a>
-                            <a class="collapse-item"
-                                href="<?php echo e(route('nurse.all')); ?>"><?php echo e(__('sentence.All Nurses')); ?></a>
+                            <a class="collapse-item" href="<?php echo e(route('nurse.all')); ?>"><?php echo e(__('sentence.All Nurses')); ?></a>
                             <a class="nav-link collapse-item extradropdown collapsed" href="#" data-toggle="collapse"
                                 data-target="#collapseNurseBookings" aria-expanded="true"
                                 aria-controls="collapseNurseBookings"><?php echo e(__('sentence.Booking')); ?></a>
@@ -196,9 +195,6 @@
                     </div>
                 </li>
                 <!-- Divider -->
-                <!-- Divider -->
-                
-                <!-- Divider -->
                 <hr class="sidebar-divider">
                 <!-- Heading -->
                 <div class="sidebar-heading">
@@ -217,8 +213,7 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item"
                                 href="<?php echo e(route('order.create')); ?>"><?php echo e(__('sentence.New Order')); ?></a>
-                            <a class="collapse-item"
-                                href="<?php echo e(route('order.all')); ?>"><?php echo e(__('sentence.All Orders')); ?></a>
+                            <a class="collapse-item" href="<?php echo e(route('order.all')); ?>"><?php echo e(__('sentence.All Orders')); ?></a>
                         </div>
                     </div>
                 </li>
@@ -305,10 +300,8 @@
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item"
-                                href="<?php echo e(route('drug.create')); ?>"><?php echo e(__('sentence.Add Drug')); ?></a>
-                            <a class="collapse-item"
-                                href="<?php echo e(route('drug.all')); ?>"><?php echo e(__('sentence.All Drugs')); ?></a>
+                            <a class="collapse-item" href="<?php echo e(route('drug.create')); ?>"><?php echo e(__('sentence.Add Drug')); ?></a>
+                            <a class="collapse-item" href="<?php echo e(route('drug.all')); ?>"><?php echo e(__('sentence.All Drugs')); ?></a>
                         </div>
                     </div>
                 </li>
@@ -322,13 +315,68 @@
                     <div id="collapseTests" class="collapse" aria-labelledby="headingPages"
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item"
-                                href="<?php echo e(route('test.create')); ?>"><?php echo e(__('sentence.Add Test')); ?></a>
-                            <a class="collapse-item"
-                                href="<?php echo e(route('test.all')); ?>"><?php echo e(__('sentence.All Tests')); ?></a>
+                            <a class="collapse-item" href="<?php echo e(route('test.create')); ?>"><?php echo e(__('sentence.Add Test')); ?></a>
+                            <a class="collapse-item" href="<?php echo e(route('test.all')); ?>"><?php echo e(__('sentence.All Tests')); ?></a>
+                            <a class="nav-link collapse-item extradropdown collapsed" href="#" data-toggle="collapse"
+                                data-target="#collapseLabBookings" aria-expanded="true"
+                                aria-controls="collapseLabBookings"><?php echo e(__('sentence.Lab Booking')); ?></a>
+                            <!-- Nav Item - Pages Collapse Menu -->
+                            <div id="collapseLabBookings" class="collapse" aria-labelledby="headingTwo"
+                                data-parent="#collapseTests">
+                                <div class="bg-white py-2 collapse-inner rounded">
+                                    <a class="collapse-item"
+                                        href="<?php echo e(route('labbooking.all')); ?>"><?php echo e(__('sentence.All Lab Bookings')); ?></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </li>
+
+                <!-- <hr class="sidebar-divider">
+          
+                <div class="sidebar-heading">
+                    <?php echo e(__('sentence.Payments')); ?>
+
+                </div>
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePayment"
+                        aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-users"></i>
+                        <span><?php echo e(__('sentence.Payments')); ?></span>
+                    </a>
+                    <div id="collapsePayment" class="collapse" aria-labelledby="headingTwo"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item"
+                                href="<?php echo e(route('payment.all')); ?>"><?php echo e(__('sentence.All Payments')); ?></a>
+                        </div>
+                    </div>
+                </li>
+                <!-- Divider -->
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    <?php echo e(__('sentence.Ambulance Bookings')); ?>
+
+                </div>
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAmbulance"
+                        aria-expanded="true" aria-controls="collapseTwo">
+                        <i class="fas fa-fw fa-users"></i>
+                        <span><?php echo e(__('sentence.Ambulance Bookings')); ?></span>
+                    </a>
+                    <div id="collapseAmbulance" class="collapse" aria-labelledby="headingTwo"
+                        data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item"
+                                href="<?php echo e(route('ambulance.all')); ?>"><?php echo e(__('sentence.All Ambulance Bookings')); ?></a>
+                        </div>
+                    </div>
+                </li>
+                <!-- Divider -->
                 <!-- Divider -->
                 <hr class="sidebar-divider">
                 <!-- Heading -->
@@ -336,7 +384,7 @@
                     <?php echo e(__('sentence.Billing')); ?>
 
                 </div>
-                <!-- Nav Item - Utilities Collapse Menu -->
+
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                         aria-expanded="true" aria-controls="collapseUtilities">
@@ -482,5 +530,4 @@
     <?php echo $__env->yieldContent('footer'); ?>
 </body>
 
-</html>
-<?php /**PATH E:\xampp\htdocs\doctor1\resources\views/layouts/master.blade.php ENDPATH**/ ?>
+</html><?php /**PATH E:\xampp\htdocs\doctor1\resources\views/layouts/master.blade.php ENDPATH**/ ?>
