@@ -39,6 +39,7 @@ class CouponController extends Controller
     	$validatedData = $request->validate([
         	'name' => ['required', 'string', 'max:255'],
             'code' => ['required', 'string', 'max: 50'],
+            'category' => ['required'],
             'discount_amount' => ['required', 'max:6'],
             'discount_type' => ['required'],
             'minimum_amount' => ['required', 'max:7'],
@@ -62,6 +63,7 @@ class CouponController extends Controller
 
 		$coupon = Coupon::where('id', $request->id)->update(['name' => $request->name,
 								'code' => $request->code,
+								'category' => $request->category,
 								'discount_amount' => $request->discount_amount,
 								'discount_type' => $request->discount_type,
 								'minimum_amount' => $request->minimum_amount,
@@ -77,6 +79,7 @@ class CouponController extends Controller
     	$validatedData = $request->validate([
         	'name' => ['required', 'string', 'max:255'],
             'code' => ['required', 'string', 'max: 50'],
+            'category' => ['required'],
             'discount_amount' => ['required', 'max:6'],
             'discount_type' => ['required'],
             'minimum_amount' => ['required', 'max:7'],
@@ -87,6 +90,7 @@ class CouponController extends Controller
 		$coupon = new Coupon();
 		$coupon->name = $request->name;
 		$coupon->code = $request->code;
+		$coupon->category = $request->category;
 		$coupon->discount_amount = $request->discount_amount;
 		$coupon->discount_type = $request->discount_type;
 		$coupon->minimum_amount = $request->minimum_amount;

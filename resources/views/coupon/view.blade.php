@@ -40,6 +40,16 @@
                             @isset($coupon->minimum_amount)
                                 <p><b>{{ __('sentence.Minimum Amount') }} :</b> {{ __('sentence.' . $coupon->minimum_amount) }}</p>
                             @endisset
+                            @isset($coupon->category)
+                                <p><b>{{ __('sentence.Category') }} :</b> 
+                                    {{ 
+                                        $coupon->category == 'appointment' ? __('sentence.Appointment') || 
+                                        $coupon->category == 'nurse-visit' ? __('sentence.Nurse Visit') ||
+                                        $coupon->category == 'lab-test' ? __('sentence.Lab Test') ||
+                                        $coupon->category == 'package' ? __('sentence.Package') ||
+                                    }}
+                                </p>
+                            @endisset
                         </div>
                     </div>
                 </div>

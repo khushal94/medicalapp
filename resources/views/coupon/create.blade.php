@@ -67,6 +67,20 @@
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
+                                            <label for="category"
+                                                class="col-form-label">{{ __('sentence.Select Category') }}
+                                                <font color="red">*</font>
+                                            </label>
+                                            <select class="form-control" name="category">
+                                                <option value="appointment ">{{ __('sentence.Appointment ') }}</option>
+                                                <option value="nurse-visit">{{ __('sentence.Nurse Visit') }}</option>
+                                                <option value="lab-test">{{ __('sentence.Lab Test') }}</option>
+                                                <option value="package">{{ __('sentence.Package') }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-12 col-md-6">
+                                        <div class="form-group">
                                             <label for="discount_amount"
                                                 class="col-form-label">{{ __('sentence.Discount Amount') }}<font
                                                     color="red">*
