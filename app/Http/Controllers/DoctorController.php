@@ -150,8 +150,19 @@ class DoctorController extends Controller
 		$doctor->long = $request->long;
 		$doctor->registration = $request->registration;
 		$doctor->qualification = $request->qualification;
+		// $available =
+		// 	[
+		// 		"day"=> $request->mon_day,
+		// 		"status"=> $request->mon_status,
+		// 		"start_time"=> $request->mon_start_time,
+		// 		"end_time"=> $request->mon_end_time,			
+		// 	]
+		// $doctor->available = ;
 		$doctor->save();
-
+			// print_r($request->);
+			// print_r($request->status);
+			// print_r($request->start_date);
+			// print_r($request->end_date);
 
 		return Redirect::route('doctor.all')->with('success', __('sentence.Doctor Created Successfully'));
 

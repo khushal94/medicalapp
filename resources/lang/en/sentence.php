@@ -3,6 +3,7 @@
 // sentence.php
 
 return [
+  'Day' => 'Day',
   'Dashboard' => 'Dashboard',
   'Patients' => 'Patients',
   'New Patient' => 'New Patient',

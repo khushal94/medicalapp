@@ -184,6 +184,175 @@
                                               </textarea>
                                 </div>
                             </div>
+                        </div>
+                        {{-- <hr>
+                        <div class="row">
+                            <div class="col-12">
+                                <h6>Select Availablity</h6>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label for="">{{ __('sentence.Day') }}</label>
+                                    <input type="text" name="mon_day" disabled placeholder="Monday" value="Monday"
+                                        class="form-control">
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="">Available</label>
+                                    <input type="checkbox" name="mon_status" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Starting Time</label>
+                                    <input type="text" name="mon_start_time" id="" class="form-control"
+                                        placeholder="Starting Time">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Ending Time</label>
+                                    <input type="text" name="mon_end_time" id="" class="form-control"
+                                        placeholder="Ending Time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label for="">{{ __('sentence.Day') }}</label>
+                                    <input type="text" name="tues_day" disabled placeholder="Tuesday" value="Tuesday"
+                                        class="form-control">
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="">Available</label>
+                                    <input type="checkbox" name="tues_status" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Starting Time</label>
+                                    <input type="text" name="tues_start_time" id="" class="form-control"
+                                        placeholder="Starting Time">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Ending Time</label>
+                                    <input type="text" name="tues_end_time" id="" class="form-control"
+                                        placeholder="Ending Time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label for="">{{ __('sentence.Day') }}</label>
+                                    <input type="text" name="wed_day" disabled placeholder="Wednesday" value="Wednesday"
+                                        class="form-control">
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="">Available</label>
+                                    <input type="checkbox" name="wed_status" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Starting Time</label>
+                                    <input type="text" name="wed_start_time" id="" class="form-control"
+                                        placeholder="Starting Time">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Ending Time</label>
+                                    <input type="text" name="wed_end_time" id="" class="form-control"
+                                        placeholder="Ending Time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label for="">{{ __('sentence.Day') }}</label>
+                                    <input type="text" name="thrus_day" disabled placeholder="Thrusday" value="Thrusday"
+                                        class="form-control">
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="">Available</label>
+                                    <input type="checkbox" name="thrus_status" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Starting Time</label>
+                                    <input type="text" name="thrus_start_time" id="" class="form-control"
+                                        placeholder="Starting Time">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Ending Time</label>
+                                    <input type="text" name="thrus_end_time" id="" class="form-control"
+                                        placeholder="Ending Time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label for="">{{ __('sentence.Day') }}</label>
+                                    <input type="text" name="fri_day" disabled placeholder="Friday" value="Friday"
+                                        class="form-control">
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="">Available</label>
+                                    <input type="checkbox" name="fri_status" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Starting Time</label>
+                                    <input type="text" name="fri_start_time" id="" class="form-control"
+                                        placeholder="Starting Time">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Ending Time</label>
+                                    <input type="text" name="fri_end_time" id="" class="form-control"
+                                        placeholder="Ending Time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label for="">{{ __('sentence.Day') }}</label>
+                                    <input type="text" name="saturday_day" disabled placeholder="Saturday" value="Saturday"
+                                        class="form-control">
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="">Available</label>
+                                    <input type="checkbox" name="saturday_status" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Starting Time</label>
+                                    <input type="text" name="saturday_start_time" id="" class="form-control"
+                                        placeholder="Starting Time">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Ending Time</label>
+                                    <input type="text" name="saturday_end_time" id="" class="form-control"
+                                        placeholder="Ending Time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label for="">{{ __('sentence.Day') }}</label>
+                                    <input type="text" name="sun_day" disabled placeholder="Sunday" value="Sunday"
+                                        class="form-control">
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="">Available</label>
+                                    <input type="checkbox" name="sun_status" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Starting Time</label>
+                                    <input type="text" name="sun_start_time" id="" class="form-control"
+                                        placeholder="Starting Time">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Ending Time</label>
+                                    <input type="text" name="sun_end_time" id="" class="form-control"
+                                        placeholder="Ending Time">
+                                </div>
+                            </div>
+                        </div> --}}
+                        <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <div class="text-right">
