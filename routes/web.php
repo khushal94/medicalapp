@@ -110,6 +110,7 @@ Route::get('/appointment/all', 'AppointmentController@all')->name('appointment.a
 Route::get('/appointment/checkslots/{id}','AppointmentController@checkslots')->where('id', '[0-9]+');
 Route::get('/appointment/delete/{id}','AppointmentController@destroy')->where('id', '[0-9]+');
 Route::post('/appointment/edit', 'AppointmentController@store_edit')->name('appointment.store_edit');
+Route::get('/appointment/update/{id}/{status}', 'AppointmentController@update')->name('appointment.update');
 
 //Drugs
 Route::get('/drug/create', 'DrugController@create')->name('drug.create');

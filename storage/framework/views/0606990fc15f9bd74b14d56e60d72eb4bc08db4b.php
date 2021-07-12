@@ -128,7 +128,7 @@
                                                     *
                                                 </font></label>
                                             <select class="form-control" name="speciality" id="speciality">
-                                                <option value="" disabled ><?php echo e(__('sentence.Select Speciality')); ?></option>
+                                                <option value="" disabled><?php echo e(__('sentence.Select Speciality')); ?></option>
                                                 <option value="<?php echo e($doctor->Doctor->speciality); ?>" selected="selected">
                                                     <?php echo e($doctor->Doctor->speciality); ?></option>
                                                 <?php $__currentLoopData = $specialities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $speciality): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -206,18 +206,42 @@
                                         value="<?php echo e($doctor->Doctor->country); ?>" disabled>
                                 </div>
                             </div>
+                            <div class="col-xl-4 col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="registration" class="col-form-label"><?php echo e(__('sentence.Registration')); ?>
+
+                                        <font color="red">*</font>
+                                    </label>
+                                    <input type="text" class="form-control" id="registration" name="registration"
+                                        placeholder="<?php echo e(__('sentence.Registration')); ?>"
+                                        value="<?php echo e($doctor->Doctor->registration); ?>">
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="qualification" class="col-form-label"><?php echo e(__('sentence.Qualification')); ?>
+
+                                        <font color="red">*
+                                        </font>
+                                    </label>
+                                    <input type="text" class="form-control" id="qualification" name="qualification"
+                                        autocomplete="off" placeholder="<?php echo e(__('sentence.Qualification')); ?>"
+                                        value="<?php echo e($doctor->Doctor->qualification); ?>">
+                                </div>
+                            </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="description"
                                         class="col-form-label"><?php echo e(__('sentence.Description')); ?></label>
                                     <textarea rows="3" class="form-control" id="description" name="description"
                                         placeholder="<?php echo e(__('sentence.Description')); ?>">
-                                                        <?php echo e($doctor->Doctor->description); ?>
+                                                            <?php echo e($doctor->Doctor->description); ?>
 
-                                                    </textarea>
+                                                        </textarea>
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="form-group">
                             <div class="text-right">
                                 <button type="submit" class="btn btn-primary"><?php echo e(__('sentence.Save')); ?></button>

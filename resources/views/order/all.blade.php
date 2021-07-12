@@ -61,12 +61,12 @@
                                         class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>
                                     <a href="{{ url('order/edit/' . $order->id) }}"
                                         class="btn btn-warning btn-circle btn-sm"><i class="fa fa-pen"></i></a>
-                                    @if ($order->is_deleted == 0)
-                                        <a href="{{ url('order/update/' . $order->id . '/' . $order->is_deleted) }}"
+                                    @if ($order->Is_paid == 0)
+                                        <a href="{{ url('order/update/' . $order->id . '/' . $order->Is_paid) }}"
                                             class="btn btn-danger btn-circle btn-sm" title="inactive"><i
                                                 class="fas fa-times"></i></a>
                                     @else
-                                        <a href="{{ url('order/update/' . $order->id . '/' . $order->is_deleted) }}"
+                                        <a href="{{ url('order/update/' . $order->id . '/' . $order->Is_paid) }}"
                                             class="btn btn-success btn-circle btn-sm" title="active"><i
                                                 class="fas fa-check"></i></a>
                                     @endif

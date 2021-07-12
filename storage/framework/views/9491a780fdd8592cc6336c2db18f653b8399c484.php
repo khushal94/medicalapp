@@ -1,5 +1,5 @@
 <?php $__env->startSection('title'); ?>
-    <?php echo e(__('sentence.New Coupon')); ?>
+    <?php echo e(__('sentence.Edit Coupon')); ?>
 
 <?php $__env->stopSection(); ?>
 
@@ -30,23 +30,22 @@
         <div class="col-md-8">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary"><?php echo e(__('sentence.New Coupon')); ?></h6>
+                    <h6 class="m-0 font-weight-bold text-primary"><?php echo e(__('sentence.Edit Coupon')); ?></h6>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="<?php echo e(route('coupon.store')); ?>" enctype="multipart/form-data">
+                    <form method="post" action="<?php echo e(route('coupon.store_edit')); ?>" enctype="multipart/form-data">
                         <?php echo e(csrf_field()); ?>
 
                         <div class="row">
                             <div class="col-xl-4">
-                                <div class="box">
-                                    <div class="js--image-preview"></div>
-                                    <div class="upload-options">
-                                        <label>
-                                            <input type="file" class="image-upload" accept="image/png, image/svg, image/jpeg" name="image" />
-                                        </label>
-                                    </div>
+                                <div class="uploadbox">
+                                    <label class="upload_image">
+                                        <img src="<?php echo e(empty($coupon->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $coupon->image)); ?>"
+                                            alt="Upload Image" title="Upload Image">
+                                        <input type="file" name="image" accept="image/png, image/svg, image/jpeg" id="image" style="display: none">
+                                    </label>
+                                    <label for="image" class="btn btn-primary btn-block btn-upload">Upload</label>
                                 </div>
-
                             </div>
                             <div class="col-xl-8">
                                 <div class="row">
@@ -56,7 +55,10 @@
 
                                                 <font color="red">*</font>
                                             </label>
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="<?php echo e(__('sentence.Coupon Name')); ?>">
+                                            <input type="text" class="form-control" id="name" name="name"
+                                                value="<?php echo e($coupon->name); ?>">
+                                            <input type="hidden" class="form-control" id="id" name="id"
+                                                value="<?php echo e($coupon->id); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
@@ -65,7 +67,8 @@
 
                                                 <font color="red">*</font>
                                             </label>
-                                            <input type="text" class="form-control" id="code" name="code" placeholder="<?php echo e(__('sentence.Coupon Code')); ?>">
+                                            <input type="text" class="form-control" id="code" name="code"
+                                                value="<?php echo e($coupon->code); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
@@ -76,7 +79,8 @@
                                                 <font color="red">*</font>
                                             </label>
                                             <select class="form-control" name="category">
-                                                <option value="appointment "><?php echo e(__('sentence.Appointment ')); ?></option>
+                                                
+                                                <option value="appointment"><?php echo e(__('sentence.Appointment ')); ?></option>
                                                 <option value="nurse-visit"><?php echo e(__('sentence.Nurse Visit')); ?></option>
                                                 <option value="lab-test"><?php echo e(__('sentence.Lab Test')); ?></option>
                                                 <option value="package"><?php echo e(__('sentence.Package')); ?></option>
@@ -86,11 +90,14 @@
                                     <div class="col-xl-6 col-lg-12 col-md-6">
                                         <div class="form-group">
                                             <label for="discount_amount"
-                                                class="col-form-label"><?php echo e(__('sentence.Discount Amount')); ?><font
-                                                    color="red">*
-                                                </font></label>
+                                                class="col-form-label"><?php echo e(__('sentence.Discount Amount')); ?>
+
+                                                <font color="red">*
+                                                </font>
+                                            </label>
                                             <input type="number" class="form-control" id="discount_amount"
-                                                name="discount_amount" autocomplete="off" placeholder="<?php echo e(__('sentence.Discount Amount')); ?>">
+                                                name="discount_amount" autocomplete="off"
+                                                value="<?php echo e($coupon->discount_amount); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
@@ -101,6 +108,10 @@
                                                 <font color="red">*</font>
                                             </label>
                                             <select class="form-control" name="discount_type">
+                                                <option value="<?php echo e($coupon->discount_type); ?>" selected="selected">
+                                                    <?php echo e($coupon->discount_type == 'P' ? __('sentence.Percentage') : __('sentence.Amount')); ?>
+
+                                                </option>
                                                 <option value="A"><?php echo e(__('sentence.Amount')); ?></option>
                                                 <option value="P"><?php echo e(__('sentence.Percentage')); ?></option>
                                             </select>
@@ -111,7 +122,7 @@
                                             <label for="minimum_amount"
                                                 class="col-form-label"><?php echo e(__('sentence.Minimum Amount')); ?></label>
                                             <input type="text" class="form-control" id="minimum_amount"
-                                                name="minimum_amount" placeholder="<?php echo e(__('sentence.Minimum Amount')); ?>">
+                                                name="minimum_amount" value="<?php echo e($coupon->minimum_amount); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
@@ -123,7 +134,7 @@
                                                 </font>
                                             </label>
                                             <input type="text" class="form-control" id="startingdate" name="startingdate"
-                                                autocomplete="off" readonly placeholder="<?php echo e(__('sentence.Starting Date')); ?>">
+                                                autocomplete="off" readonly value="<?php echo e($coupon->startingdate); ?>">
                                         </div>
                                     </div>
                                     <div class="col-xl-6 col-lg-12 col-md-6">
@@ -134,7 +145,7 @@
                                                 </font>
                                             </label>
                                             <input type="text" class="form-control" id="endingdate" name="endingdate"
-                                                autocomplete="off" readonly placeholder="<?php echo e(__('sentence.Ending Date')); ?>">
+                                                autocomplete="off" readonly value="<?php echo e($coupon->endingdate); ?>">
                                         </div>
                                     </div>
                                 </div>
@@ -165,4 +176,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/doctor1/resources/views/coupon/create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /opt/lampp/htdocs/doctor1/resources/views/coupon/edit.blade.php ENDPATH**/ ?>

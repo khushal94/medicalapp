@@ -79,6 +79,15 @@
                   <td class="text-center"><?php echo e($appointment->created_at->format('d M Y H:i')); ?></td>
                   <td align="center">
                      <a data-rdv_id="<?php echo e($appointment->id); ?>" data-rdv_date="<?php echo e($appointment->date->format('d M Y')); ?>" data-rdv_time_start="<?php echo e($appointment->time_start); ?>" data-rdv_time_end="<?php echo e($appointment->time_end); ?>" data-patient_name="<?php echo e($appointment->User->name); ?>" class="btn btn-success btn-circle btn-sm text-white" data-toggle="modal" data-target="#EDITRDVModal"><i class="fas fa-check"></i></a>
+                     <?php if($appointment->status == 0): ?>
+                           <a href="<?php echo e(url('appointment/update/'. $appointment->id .'/' .$appointment->status)); ?>"
+                              class="btn btn-danger btn-circle btn-sm" title="inactive"><i
+                                 class="fas fa-times"></i></a>
+                     <?php else: ?>
+                           <a href="<?php echo e(url('appointment/update/' . $appointment->id . '/' . $appointment->status)); ?>"
+                              class="btn btn-success btn-circle btn-sm" title="active"><i
+                                 class="fas fa-check"></i></a>
+                     <?php endif; ?>
                      <a href="<?php echo e(url('appointment/delete/'.$appointment->id)); ?>" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
                   </td>
                </tr>

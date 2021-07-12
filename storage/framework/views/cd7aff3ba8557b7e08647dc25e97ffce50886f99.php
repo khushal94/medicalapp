@@ -193,6 +193,27 @@
                                         value="India" disabled>
                                 </div>
                             </div>
+                            <div class="col-xl-4 col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="registration" class="col-form-label"><?php echo e(__('sentence.Registration')); ?>
+
+                                        <font color="red">*</font>
+                                    </label>
+                                    <input type="text" class="form-control" id="registration" name="registration"
+                                        placeholder="<?php echo e(__('sentence.Registration')); ?>">
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-lg-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="qualification" class="col-form-label"><?php echo e(__('sentence.Qualification')); ?>
+
+                                        <font color="red">*
+                                        </font>
+                                    </label>
+                                    <input type="text" class="form-control" id="qualification" name="qualification"
+                                        autocomplete="off" placeholder="<?php echo e(__('sentence.Qualification')); ?>">
+                                </div>
+                            </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="description"
@@ -202,6 +223,173 @@
                                 </div>
                             </div>
                         </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-12">
+                                <h6>Select Availablity</h6>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label for=""><?php echo e(__('sentence.Day')); ?></label>
+                                    <input type="text" name="day[]" disabled placeholder="Monday" value="Monday"
+                                        class="form-control">
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="">Available</label>
+                                    <input type="checkbox" name="status[]" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Starting Time</label>
+                                    <input type="text" name="start_time[]" id="" class="form-control"
+                                        placeholder="Starting Time">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Ending Time</label>
+                                    <input type="text" name="end_time[]" id="" class="form-control"
+                                        placeholder="Ending Time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label for=""><?php echo e(__('sentence.Day')); ?></label>
+                                    <input type="text" name="day[]" disabled placeholder="Tuesday" value="Tuesday"
+                                        class="form-control">
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="">Available</label>
+                                    <input type="checkbox" name="status[]" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Starting Time</label>
+                                    <input type="text" name="start_time[]" id="" class="form-control"
+                                        placeholder="Starting Time">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Ending Time</label>
+                                    <input type="text" name="end_time[]" id="" class="form-control"
+                                        placeholder="Ending Time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label for=""><?php echo e(__('sentence.Day')); ?></label>
+                                    <input type="text" name="day[]" disabled placeholder="Wednesday" value="Wednesday"
+                                        class="form-control">
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="">Available</label>
+                                    <input type="checkbox" name="status[]" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Starting Time</label>
+                                    <input type="text" name="start_time[]" id="" class="form-control"
+                                        placeholder="Starting Time">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Ending Time</label>
+                                    <input type="text" name="end_time[]" id="" class="form-control"
+                                        placeholder="Ending Time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label for=""><?php echo e(__('sentence.Day')); ?></label>
+                                    <input type="text" name="day[]" disabled placeholder="Thrusday" value="Thrusday"
+                                        class="form-control">
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="">Available</label>
+                                    <input type="checkbox" name="status[]" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Starting Time</label>
+                                    <input type="text" name="start_time[]" id="" class="form-control"
+                                        placeholder="Starting Time">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Ending Time</label>
+                                    <input type="text" name="end_time[]" id="" class="form-control"
+                                        placeholder="Ending Time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label for=""><?php echo e(__('sentence.Day')); ?></label>
+                                    <input type="text" name="day[]" disabled placeholder="Friday" value="Friday"
+                                        class="form-control">
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="">Available</label>
+                                    <input type="checkbox" name="status[]" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Starting Time</label>
+                                    <input type="text" name="start_time[]" id="" class="form-control"
+                                        placeholder="Starting Time">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Ending Time</label>
+                                    <input type="text" name="end_time[]" id="" class="form-control"
+                                        placeholder="Ending Time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label for=""><?php echo e(__('sentence.Day')); ?></label>
+                                    <input type="text" name="day[]" disabled placeholder="Saturday" value="Saturday"
+                                        class="form-control">
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="">Available</label>
+                                    <input type="checkbox" name="status[]" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Starting Time</label>
+                                    <input type="text" name="start_time[]" id="" class="form-control"
+                                        placeholder="Starting Time">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Ending Time</label>
+                                    <input type="text" name="end_time[]" id="" class="form-control"
+                                        placeholder="Ending Time">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <label for=""><?php echo e(__('sentence.Day')); ?></label>
+                                    <input type="text" name="day[]" disabled placeholder="Sunday" value="Sunday"
+                                        class="form-control">
+                                </div>
+                                <div class="col-md-1">
+                                    <label for="">Available</label>
+                                    <input type="checkbox" name="status[]" class="form-control">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Starting Time</label>
+                                    <input type="text" name="start_time[]" id="" class="form-control"
+                                        placeholder="Starting Time">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="">Ending Time</label>
+                                    <input type="text" name="end_time[]" id="" class="form-control"
+                                        placeholder="Ending Time">
+                                </div>
+                            </div>
+                        </div> 
                         <div class="form-group">
                             <div class="text-right">
                                 <button type="submit" class="btn btn-primary"><?php echo e(__('sentence.Save')); ?></button>

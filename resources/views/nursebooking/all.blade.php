@@ -77,6 +77,15 @@
                                         class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>
                                     <a href="{{ url('nursebooking/edit/' . $nursebooking->id) }}"
                                         class="btn btn-warning btn-circle btn-sm"><i class="fa fa-pen"></i></a>
+                                    @if ($nursebooking->status == 0)
+                                        <a href="{{ url('nursebooking/update/'. $nursebooking->id .'/' .$nursebooking->status) }}"
+                                            class="btn btn-danger btn-circle btn-sm" title="inactive"><i
+                                                class="fas fa-times"></i></a>
+                                    @else
+                                        <a href="{{ url('nursebooking/update/' . $nursebooking->id . '/' . $nursebooking->status) }}"
+                                            class="btn btn-success btn-circle btn-sm" title="active"><i
+                                                class="fas fa-check"></i></a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

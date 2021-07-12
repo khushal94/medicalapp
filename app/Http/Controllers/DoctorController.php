@@ -76,7 +76,22 @@ class DoctorController extends Controller
 		$user->email = $request->email;
 		$user->name = $request->name;
 		$user->role = 'doctor';
-		$user->update();		
+		$user->update();
+		// $days = [
+		// 	'Monday',
+		// 	'Tuesday',
+		// 	'Wednesday',
+		// 	'Thrusday',
+		// 	'Friday',
+		// 	'Saturday',
+		// 	'Sunday'
+		// ];
+		// $available = [
+		// 		"day"=> $days,
+		// 		"status"=> $request->status,
+		// 		"start_time"=> $request->start_time,
+		// 		"end_time"=> $request->end_time,			
+		// ];		
 		$doctor = Doctor::where('user_id', $request->user_id)
 			->update(['birthday' => $request->birthday,
 				'phone' => $request->phone,
@@ -150,19 +165,24 @@ class DoctorController extends Controller
 		$doctor->long = $request->long;
 		$doctor->registration = $request->registration;
 		$doctor->qualification = $request->qualification;
-		// $available =
-		// 	[
-		// 		"day"=> $request->mon_day,
-		// 		"status"=> $request->mon_status,
-		// 		"start_time"=> $request->mon_start_time,
-		// 		"end_time"=> $request->mon_end_time,			
-		// 	]
-		// $doctor->available = ;
+		// $days = [
+		// 	'Monday',
+		// 	'Tuesday',
+		// 	'Wednesday',
+		// 	'Thrusday',
+		// 	'Friday',
+		// 	'Saturday',
+		// 	'Sunday'
+		// ];
+		// $available = [
+		// 		"day"=> $days,
+		// 		"status"=> $request->status,
+		// 		"start_time"=> $request->start_time,
+		// 		"end_time"=> $request->end_time,			
+		// ];
+		// $doctor->available = $available;
 		$doctor->save();
-			// print_r($request->);
-			// print_r($request->status);
-			// print_r($request->start_date);
-			// print_r($request->end_date);
+		// print_r($doctor);
 
 		return Redirect::route('doctor.all')->with('success', __('sentence.Doctor Created Successfully'));
 

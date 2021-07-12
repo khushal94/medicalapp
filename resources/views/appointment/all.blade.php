@@ -79,6 +79,15 @@
                   <td class="text-center">{{ $appointment->created_at->format('d M Y H:i') }}</td>
                   <td align="center">
                      <a data-rdv_id="{{ $appointment->id }}" data-rdv_date="{{ $appointment->date->format('d M Y') }}" data-rdv_time_start="{{ $appointment->time_start }}" data-rdv_time_end="{{ $appointment->time_end }}" data-patient_name="{{ $appointment->User->name }}" class="btn btn-success btn-circle btn-sm text-white" data-toggle="modal" data-target="#EDITRDVModal"><i class="fas fa-check"></i></a>
+                     @if ($appointment->status == 0)
+                           <a href="{{ url('appointment/update/'. $appointment->id .'/' .$appointment->status) }}"
+                              class="btn btn-danger btn-circle btn-sm" title="inactive"><i
+                                 class="fas fa-times"></i></a>
+                     @else
+                           <a href="{{ url('appointment/update/' . $appointment->id . '/' . $appointment->status) }}"
+                              class="btn btn-success btn-circle btn-sm" title="active"><i
+                                 class="fas fa-check"></i></a>
+                     @endif
                      <a href="{{ url('appointment/delete/'.$appointment->id) }}" class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a>
                   </td>
                </tr>

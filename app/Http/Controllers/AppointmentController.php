@@ -110,6 +110,17 @@ class AppointmentController extends Controller
 
 		return view('appointment.all', ['appointments' => $appointments]);
 	}
+    public function update($id, $status){
+		if($status == 0){
+			$appointment = Appointment::where('id', $id)->update(['status' => 1]);
+			$activeStatus = 'Appointment Inactive Successfully!';
+		} else{
+			$appointment = Appointment::where('id', $id)->update(['status' => 0]);
+			$activeStatus = 'Appointment Active Successfully';
+		}
+        return Redirect::route('appointment.all')->with('success', $activeStatus);
+
+    }
 
 
     public function destroy($id){

@@ -87,10 +87,10 @@ class OrderController extends Controller
 	public function update($id, $status){
 
 		if($status == 0){
-			$order = Order::where('id', $id)->update(['is_deleted' => 1]);
+			$order = Order::where('id', $id)->update(['Is_paid' => 1]);
 			$activeStatus = 'Order Deleted Successfully!';
 		} else{
-			$order = Order::where('id', $id)->update(['is_deleted' => 0]);
+			$order = Order::where('id', $id)->update(['Is_paid' => 0]);
 			$activeStatus = 'Order Added Successfully';
 		}
         return Redirect::route('order.all')->with('success', $activeStatus);

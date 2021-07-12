@@ -82,6 +82,15 @@
                                         class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>
                                     <a href="<?php echo e(url('nursebooking/edit/' . $nursebooking->id)); ?>"
                                         class="btn btn-warning btn-circle btn-sm"><i class="fa fa-pen"></i></a>
+                                    <?php if($nursebooking->status == 0): ?>
+                                        <a href="<?php echo e(url('nursebooking/update/'. $nursebooking->id .'/' .$nursebooking->status)); ?>"
+                                            class="btn btn-danger btn-circle btn-sm" title="inactive"><i
+                                                class="fas fa-times"></i></a>
+                                    <?php else: ?>
+                                        <a href="<?php echo e(url('nursebooking/update/' . $nursebooking->id . '/' . $nursebooking->status)); ?>"
+                                            class="btn btn-success btn-circle btn-sm" title="active"><i
+                                                class="fas fa-check"></i></a>
+                                    <?php endif; ?>
                                 </td>
                             </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

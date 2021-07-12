@@ -69,9 +69,20 @@ class AmbulanceBookingController extends Controller
      * @param  \App\AmbulanceBooking  $ambulanceBooking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AmbulanceBooking $ambulanceBooking)
-    {
-        //
+    // public function update(Request $request, AmbulanceBooking $ambulanceBooking)
+    // {
+    //     //
+    // }
+    public function update($id, $status){
+		if($status == 0){
+			$ambulanceBooking = AmbulanceBooking::where('user_id', $id)->update(['is_deleted' => 1]);
+			$activeStatus = 'Ambulance Booking Inactive Successfully!';
+		} else{
+			$ambulanceBooking = AmbulanceBooking::where('user_id', $id)->update(['is_deleted' => 0]);
+			$activeStatus = 'Ambulance Booking Active Successfully';
+		}
+        return Redirect::route('ambulanceBooking.all')->with('success', $activeStatus);
+
     }
 
     /**

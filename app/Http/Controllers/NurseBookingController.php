@@ -93,6 +93,17 @@ class NurseBookingController extends Controller
     	return view('nursebooking.view', ['nursebooking' => $nursebooking, 'patients' => $patients]);
 
     }
+    public function update($id, $status){
+		if($status == 0){
+			$nursebooking = NurseBooking::where('nurse_id', $id)->update(['status' => 1]);
+			$activeStatus = 'Nurse Booking Inactive Successfully!';
+		} else{
+			$nursebooking = NurseBooking::where('nurse_id', $id)->update(['status' => 0]);
+			$activeStatus = 'Nurse Booking Active Successfully';
+		}
+        return Redirect::route('nursebooking.all')->with('success', $activeStatus);
+
+    }
 
     public function destroy($id){
 
