@@ -7,4 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Nurse extends Model
 {
 	protected $table = 'nurses';
+	protected $fillable = [
+        'name','email','phone', 'birthday', 'gender', 'city', 'state', 'country', 'lat', 'long', 'description', 'patient', 'rating',
+		'availability', 'qualification', 'image', 'address'
+    ];
 }
