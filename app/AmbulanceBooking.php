@@ -8,7 +8,7 @@ class AmbulanceBooking extends Model
 {
     protected $table = 'ambulance_bookings';
     protected $fillable = [
-        'description','booking_time','city', 'state', 'area', 'address', 'status'
+        'user_id', 'description','booking_time','city', 'state', 'area', 'address', 'status'
     ];
 
 }

@@ -9,7 +9,7 @@ class Prescription_drug extends Model
 
     protected $table = 'prescription_drugs';
     protected $fillable = [
-        'type','strength', 'dose', 'duration', 'drug_advice'
+        'prescription_id','drug_id','type','strength', 'dose', 'duration', 'drug_advice'
     ];
 
      public function Drug(){

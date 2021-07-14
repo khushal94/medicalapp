@@ -8,7 +8,7 @@ class Prescription_test extends Model
 {
         protected $table = 'prescription_tests';
         protected $fillable = [
-            'description'
+            'prescription_id','test_id','description'
         ];
 
      public function Test(){

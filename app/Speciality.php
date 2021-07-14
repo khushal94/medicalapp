@@ -8,6 +8,6 @@ class Speciality extends Model
 {
 	protected $table = 'speciality';
 	protected $fillable = [
-        'name','icon'
+        'name','icon', 'is_deleted'
     ];
 }

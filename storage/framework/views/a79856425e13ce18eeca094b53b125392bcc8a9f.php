@@ -67,7 +67,7 @@
                </div>
                <div class="form-group">
                   <label for="alternate">Alternate Medicines/Salt</label>
-                  <input type="text" class="form-control" name="alternate" id="alternate">
+                  <textarea rows="4" class="form-control" name="alternate" id="alternate"></textarea>
                </div>
                <div class="form-group">
                   <label for="side_effect">Side Effects</label>
@@ -75,7 +75,7 @@
                </div>
                <div class="form-group">
                   <label for="direction_use">Directions for use</label>
-                  <input type="text" class="form-control" name="direction_use" id="direction_use">
+                  <textarea rows="4" class="form-control" name="direction_use" id="direction_use"></textarea>
                </div>
                <div class="form-group">
                   <label for="therapeutic">Therapeutic Class</label>

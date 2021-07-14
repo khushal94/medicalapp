@@ -8,6 +8,6 @@ class NurseBooking extends Model
 {
     protected $table = 'nursebooking';
     protected $fillable = [
-        'visit_date','visit_time', 'address', 'status'
+        'nurse_id','patient_id','visit_date','visit_time', 'address', 'status'
     ];
 }

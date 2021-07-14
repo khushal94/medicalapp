@@ -46,6 +46,12 @@
                         <th><?php echo e(__('sentence.Generic Name')); ?></th>
                         <th><?php echo e(__('sentence.Note')); ?></th>
                         <th><?php echo e(__('sentence.Rate')); ?></th>
+                        <th><?php echo e(__('sentence.Type of Sell')); ?></th>
+                        <th><?php echo e(__('sentence.Manufacturer')); ?></th>
+                        <th><?php echo e(__('sentence.Country of origin')); ?></th>
+                        <th><?php echo e(__('sentence.Salt')); ?></th>
+                        <th><?php echo e(__('sentence.Uses of (Medicine name)')); ?></th>
+                                               
                         <th class="text-center"><?php echo e(__('sentence.Actions')); ?></th>
                     </tr>
                 </thead>
@@ -57,6 +63,12 @@
                         <td><?php echo e($drug->generic_name); ?></td>
                         <td><?php echo e($drug->note); ?></td>
                         <td><?php echo e($drug->rate); ?></td>
+                        <td><?php echo e($drug->type_sell); ?></td>
+                        <td><?php echo e($drug->manufacturer); ?></td>
+                        <td><?php echo e($drug->country_origin); ?></td>
+                        <td><?php echo e($drug->salt); ?></td>
+                        <td><?php echo e($drug->uses); ?></td>
+                        
                         <td class="text-center">
                             <a href="<?php echo e(url('drug/edit/'.$drug->id)); ?>" class="btn btn-warning btn-circle btn-sm"><i
                                     class="fa fa-pen"></i></a>

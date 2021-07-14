@@ -9,7 +9,7 @@ class Prescription extends Model
 
 	protected $table = 'prescriptions';
     protected $fillable = [
-        'reference','advices', 'image'
+        'user_id','doctor_id','reference','advices', 'image', 'order_created'
     ];
 
     public function User(){

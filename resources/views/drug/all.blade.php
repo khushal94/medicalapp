@@ -46,6 +46,12 @@
                         <th>{{ __('sentence.Generic Name') }}</th>
                         <th>{{ __('sentence.Note') }}</th>
                         <th>{{ __('sentence.Rate') }}</th>
+                        <th>{{ __('sentence.Type of Sell') }}</th>
+                        <th>{{ __('sentence.Manufacturer') }}</th>
+                        <th>{{ __('sentence.Country of origin') }}</th>
+                        <th>{{ __('sentence.Salt') }}</th>
+                        <th>{{ __('sentence.Uses of (Medicine name)') }}</th>
+                        {{--<th>{{ __('sentence.Side Effects') }}</th> --}}                       
                         <th class="text-center">{{ __('sentence.Actions') }}</th>
                     </tr>
                 </thead>
@@ -57,6 +63,12 @@
                         <td>{{ $drug->generic_name }}</td>
                         <td>{{ $drug->note }}</td>
                         <td>{{ $drug->rate }}</td>
+                        <td>{{ $drug->type_sell }}</td>
+                        <td>{{ $drug->manufacturer }}</td>
+                        <td>{{ $drug->country_origin }}</td>
+                        <td>{{ $drug->salt }}</td>
+                        <td>{{ $drug->uses }}</td>
+                        {{--<td>{{ $drug->side_effect }}</td>--}}
                         <td class="text-center">
                             <a href="{{ url('drug/edit/'.$drug->id) }}" class="btn btn-warning btn-circle btn-sm"><i
                                     class="fa fa-pen"></i></a>

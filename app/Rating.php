@@ -8,6 +8,6 @@ class Rating extends Model
 {
 	protected $table = 'ratings';
 	protected $fillable = [
-        'count','feedback'
+        'user_id','count','feedback', 'is_deleted'
     ];
 }
