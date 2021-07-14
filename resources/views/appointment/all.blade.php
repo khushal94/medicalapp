@@ -38,6 +38,7 @@
                <tr>
                   <th class="text-center">ID</th>
                   <th>{{ __('sentence.Patient Name') }}</th>
+                  <th>{{ __('sentence.Doctor Name') }}</th>
                   <th>{{ __('sentence.Date') }}</th>
                   <th>{{ __('sentence.Time Slot') }}</th>
                   <th class="text-center">{{ __('sentence.Status') }}</th>
@@ -50,6 +51,7 @@
                <tr>
                   <td class="text-center">{{ $appointment->id }}</td>
                   <td><a href="{{ url('patient/view/'.$appointment->user_id) }}"> {{ $appointment->User->name }} </a></td>
+                  <td><a href="{{ url('doctor/view/'.$appointment->doctor_id) }}"> {{ $appointment->Doctor->name }} </a></td>
                   <td> {{ $appointment->date->format('d M Y') }} </td>
                   <td> {{ $appointment->time_start }} - {{ $appointment->time_end }}</td>
                   <td class="text-center">

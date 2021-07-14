@@ -45,6 +45,12 @@
                             <th><?php echo e(__('sentence.Nurse Name')); ?></th>
                             <th class="text-center"><?php echo e(__('sentence.Email')); ?></th>
                             <th class="text-center"><?php echo e(__('sentence.Image')); ?></th>
+                            <th class="text-center"><?php echo e(__('sentence.Phone')); ?></th>
+                            <th class="text-center"><?php echo e(__('sentence.City')); ?></th>
+                            <th class="text-center"><?php echo e(__('sentence.State')); ?></th>
+                            <th class="text-center"><?php echo e(__('sentence.Country')); ?></th>
+                            <th class="text-center"><?php echo e(__('sentence.Patients')); ?></th>
+                            <th class="text-center"><?php echo e(__('sentence.Qualification')); ?></th>
                             <th class="text-center"><?php echo e(__('sentence.Date')); ?></th>
                             <th class="text-center"><?php echo e(__('sentence.Actions')); ?></th>
                         </tr>
@@ -58,9 +64,15 @@
                                 <td class="text-center"> <?php echo e($nurse->email); ?> </td>
                                 <td class="text-center"><img
                                         src="<?php echo e(empty($nurse->Nurse->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $nurse->Nurse->image)); ?>"
-                                        style="width: 200px;height:200px;object-fit:cover"></td>
+                                        style="width: 100px;height:100px;object-fit:cover"></td>
+                                <td class="text-center"> <?php echo e($nurse->Nurse->phone); ?> </td>
+                                <td class="text-center"> <?php echo e($nurse->Nurse->city); ?> </td>
+                                <td class="text-center"> <?php echo e($nurse->Nurse->state); ?> </td>
+                                <td class="text-center"> <?php echo e($nurse->Nurse->country); ?> </td>
+                                <td class="text-center"> <?php echo e($nurse->Nurse->patient?$doctor->patient:0); ?> </td>
+                                <td class="text-center"> <?php echo e($nurse->Nurse->qualification); ?> </td>
                                 <td class="text-center"><?php echo e($nurse->created_at->format('d M Y H:i')); ?></td>
-                                <td class="text-center">
+                                <td class="text-center" style="white-space:nowrap;">
                                     <a href="<?php echo e(url('nurse/view/' . $nurse->id)); ?>"
                                         class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>
                                     <a href="<?php echo e(url('nurse/edit/' . $nurse->id)); ?>"

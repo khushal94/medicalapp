@@ -43,6 +43,7 @@
                             <th>{{ __('sentence.Coupon Name') }}</th>
                             <th class="text-center">{{ __('sentence.Image') }}</th>
                             <th class="text-center">{{ __('sentence.Coupon Code') }}</th>
+                            <th class="text-center">{{ __('sentence.Category') }}</th>
                             <th class="text-center">{{ __('sentence.Discount Type') }}</th>
                             <th class="text-center">{{ __('sentence.Discount Amount') }}</th>
                             <th class="text-center">{{ __('sentence.Starting Date') }}</th>
@@ -60,6 +61,19 @@
                                     src="{{ empty($coupon->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $coupon->image) }}"
                                     style="width: 200px;height:200px;object-fit:cover"></td>
                                 <td class="text-center"> {{ $coupon->code }} </td>
+                                <td class="text-center"> 
+                                    @if($coupon->category == 'appointment')
+                                        {{ __('sentence.Appointment') }} 
+                                    @elseif($coupon->category == 'nurse-visit' )
+                                        {{ __('sentence.Nurse Visit') }}
+                                    @elseif($coupon->category == 'lab-test' )
+                                        {{ __('sentence.Lab Test') }}
+                                    @elseif($coupon->category == 'package' )
+                                        {{ __('sentence.Package') }}   
+                                    @else
+                                        -                                                    
+                                    @endif  
+                                 </td>
                                 <td class="text-center"> 
                                   @if($coupon->discount_type == 'A')
                                     Amount

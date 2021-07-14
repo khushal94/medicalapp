@@ -44,6 +44,7 @@
                             <th><?php echo e(__('sentence.Patient Name')); ?></th>
                             <th><?php echo e(__('sentence.Visiting Date')); ?></th>
                             <th><?php echo e(__('sentence.Visiting Time')); ?></th>
+                            <th><?php echo e(__('sentence.Address')); ?></th>
                             <th><?php echo e(__('sentence.Actions')); ?></th>
                         </tr>
                     </thead>
@@ -78,6 +79,10 @@
 
                                 </td>
                                 <td>
+                                    <?php echo e($nursebooking->address); ?>
+
+                                </td>
+                                <td style="white-space:nowrap;">
                                     <a href="<?php echo e(url('nursebooking/view/' . $nursebooking->id)); ?>"
                                         class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>
                                     <a href="<?php echo e(url('nursebooking/edit/' . $nursebooking->id)); ?>"

@@ -75,16 +75,20 @@
                                                 <font color="red">*</font>
                                             </label>
                                             <select class="form-control" name="category">
-                                                {{-- @if($coupon->category != ""):
-                                                    <option value="{{ $coupon->category }}" selected="selected">
-                                                        {{ 
-                                                            $coupon->category == 'appointment' ? __('sentence.Appointment') : '' || 
-                                                            $coupon->category == 'nurse-visit' ? __('sentence.Nurse Visit') : '' ||
-                                                            $coupon->category == 'lab-test' ? __('sentence.Lab Test') : '' ||
-                                                            $coupon->category == 'package' ? __('sentence.Package') : ''
-                                                        }}
+                                                 @if($coupon->category != ""):
+                                                    <option value="{{ $coupon->category }}" selected="selected" disabled>
+                                                         
+                                                        @if($coupon->category == 'appointment')
+                                                            {{ __('sentence.Appointment') }} 
+                                                        @elseif($coupon->category == 'nurse-visit' )
+                                                            {{ __('sentence.Nurse Visit') }}
+                                                        @elseif($coupon->category == 'lab-test' )
+                                                           {{ __('sentence.Lab Test') }}
+                                                        @elseif($coupon->category == 'package' )
+                                                            {{ __('sentence.Package') }}                                                       
+                                                        @endif  
                                                     </option>
-                                                @endif --}}
+                                                @endif 
                                                 <option value="appointment">{{ __('sentence.Appointment ') }}</option>
                                                 <option value="nurse-visit">{{ __('sentence.Nurse Visit') }}</option>
                                                 <option value="lab-test">{{ __('sentence.Lab Test') }}</option>

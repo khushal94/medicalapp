@@ -259,6 +259,7 @@ return [
     'Starting Date' => 'Starting Date',
     'Ending Date' => 'Ending Date',
     'Select Category' => 'Select Category',
+    'Category' => 'Category',
     'Appointment ' => 'Appointment ',
     'Nurse Visit' => 'Nurse Visit',
     'Lab Test' => 'Lab Test',

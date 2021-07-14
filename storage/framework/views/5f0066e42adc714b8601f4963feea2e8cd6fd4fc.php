@@ -44,6 +44,9 @@
                             <th class="text-center"><?php echo e(__('sentence.Phone')); ?></th>
                             <th class="text-center"><?php echo e(__('sentence.Image')); ?></th>
                             <th class="text-center"><?php echo e(__('sentence.Blood Group')); ?></th>
+                            <th class="text-center"><?php echo e(__('sentence.Address')); ?></th>
+                            <th class="text-center"><?php echo e(__('sentence.Weight')); ?></th>
+                            <th class="text-center"><?php echo e(__('sentence.Height')); ?></th>
                             <th class="text-center"><?php echo e(__('sentence.Date')); ?></th>
                             <th class="text-center"><?php echo e(__('sentence.Actions')); ?></th>
                         </tr>
@@ -60,6 +63,9 @@
                                         style="width: 200px;height:200px;object-fit:cover">
                                 </td>
                                 <td class="text-center"> <?php echo e($patient->blood); ?> </td>
+                                <td class="text-center"> <?php echo e($patient->address); ?> </td>
+                                <td class="text-center"> <?php echo e($patient->weight); ?> </td>
+                                <td class="text-center"> <?php echo e($patient->height); ?> </td>
                                 <td class="text-center"><?php echo e($patient->created_at->format('d M Y H:i')); ?></td>
                                 <td class="text-center">
                                     <a href="<?php echo e(url('patient/view/' . $patient->user_id)); ?>"

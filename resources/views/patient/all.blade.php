@@ -44,6 +44,9 @@
                             <th class="text-center">{{ __('sentence.Phone') }}</th>
                             <th class="text-center">{{ __('sentence.Image') }}</th>
                             <th class="text-center">{{ __('sentence.Blood Group') }}</th>
+                            <th class="text-center">{{ __('sentence.Address') }}</th>
+                            <th class="text-center">{{ __('sentence.Weight') }}</th>
+                            <th class="text-center">{{ __('sentence.Height') }}</th>
                             <th class="text-center">{{ __('sentence.Date') }}</th>
                             <th class="text-center">{{ __('sentence.Actions') }}</th>
                         </tr>
@@ -60,6 +63,9 @@
                                         style="width: 200px;height:200px;object-fit:cover">
                                 </td>
                                 <td class="text-center"> {{ $patient->blood }} </td>
+                                <td class="text-center"> {{ $patient->address }} </td>
+                                <td class="text-center"> {{ $patient->weight }} </td>
+                                <td class="text-center"> {{ $patient->height }} </td>
                                 <td class="text-center">{{ $patient->created_at->format('d M Y H:i') }}</td>
                                 <td class="text-center">
                                     <a href="{{ url('patient/view/' . $patient->user_id) }}"

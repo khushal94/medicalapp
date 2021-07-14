@@ -43,6 +43,12 @@
                             <th>{{ __('sentence.Nurse Name') }}</th>
                             <th class="text-center">{{ __('sentence.Email') }}</th>
                             <th class="text-center">{{ __('sentence.Image') }}</th>
+                            <th class="text-center">{{ __('sentence.Phone') }}</th>
+                            <th class="text-center">{{ __('sentence.City') }}</th>
+                            <th class="text-center">{{ __('sentence.State') }}</th>
+                            <th class="text-center">{{ __('sentence.Country') }}</th>
+                            <th class="text-center">{{ __('sentence.Patients') }}</th>
+                            <th class="text-center">{{ __('sentence.Qualification') }}</th>
                             <th class="text-center">{{ __('sentence.Date') }}</th>
                             <th class="text-center">{{ __('sentence.Actions') }}</th>
                         </tr>
@@ -56,9 +62,15 @@
                                 <td class="text-center"> {{ $nurse->email }} </td>
                                 <td class="text-center"><img
                                         src="{{ empty($nurse->Nurse->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $nurse->Nurse->image) }}"
-                                        style="width: 200px;height:200px;object-fit:cover"></td>
+                                        style="width: 100px;height:100px;object-fit:cover"></td>
+                                <td class="text-center"> {{ $nurse->Nurse->phone }} </td>
+                                <td class="text-center"> {{ $nurse->Nurse->city }} </td>
+                                <td class="text-center"> {{ $nurse->Nurse->state }} </td>
+                                <td class="text-center"> {{ $nurse->Nurse->country }} </td>
+                                <td class="text-center"> {{ $nurse->Nurse->patient?$doctor->patient:0 }} </td>
+                                <td class="text-center"> {{ $nurse->Nurse->qualification }} </td>
                                 <td class="text-center">{{ $nurse->created_at->format('d M Y H:i') }}</td>
-                                <td class="text-center">
+                                <td class="text-center" style="white-space:nowrap;">
                                     <a href="{{ url('nurse/view/' . $nurse->id) }}"
                                         class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>
                                     <a href="{{ url('nurse/edit/' . $nurse->id) }}"

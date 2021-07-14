@@ -43,6 +43,7 @@
                             <th><?php echo e(__('sentence.Coupon Name')); ?></th>
                             <th class="text-center"><?php echo e(__('sentence.Image')); ?></th>
                             <th class="text-center"><?php echo e(__('sentence.Coupon Code')); ?></th>
+                            <th class="text-center"><?php echo e(__('sentence.Category')); ?></th>
                             <th class="text-center"><?php echo e(__('sentence.Discount Type')); ?></th>
                             <th class="text-center"><?php echo e(__('sentence.Discount Amount')); ?></th>
                             <th class="text-center"><?php echo e(__('sentence.Starting Date')); ?></th>
@@ -60,6 +61,21 @@
                                     src="<?php echo e(empty($coupon->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $coupon->image)); ?>"
                                     style="width: 200px;height:200px;object-fit:cover"></td>
                                 <td class="text-center"> <?php echo e($coupon->code); ?> </td>
+                                <td class="text-center"> 
+                                    <?php if($coupon->category == 'appointment'): ?>
+                                        <?php echo e(__('sentence.Appointment')); ?> 
+                                    <?php elseif($coupon->category == 'nurse-visit' ): ?>
+                                        <?php echo e(__('sentence.Nurse Visit')); ?>
+
+                                    <?php elseif($coupon->category == 'lab-test' ): ?>
+                                        <?php echo e(__('sentence.Lab Test')); ?>
+
+                                    <?php elseif($coupon->category == 'package' ): ?>
+                                        <?php echo e(__('sentence.Package')); ?>   
+                                    <?php else: ?>
+                                        Null                                                    
+                                    <?php endif; ?>  
+                                 </td>
                                 <td class="text-center"> 
                                   <?php if($coupon->discount_type == 'A'): ?>
                                     Amount

@@ -79,7 +79,22 @@
                                                 <font color="red">*</font>
                                             </label>
                                             <select class="form-control" name="category">
-                                                
+                                                 <?php if($coupon->category != ""): ?>:
+                                                    <option value="<?php echo e($coupon->category); ?>" selected="selected" disabled>
+                                                         
+                                                        <?php if($coupon->category == 'appointment'): ?>
+                                                            <?php echo e(__('sentence.Appointment')); ?> 
+                                                        <?php elseif($coupon->category == 'nurse-visit' ): ?>
+                                                            <?php echo e(__('sentence.Nurse Visit')); ?>
+
+                                                        <?php elseif($coupon->category == 'lab-test' ): ?>
+                                                           <?php echo e(__('sentence.Lab Test')); ?>
+
+                                                        <?php elseif($coupon->category == 'package' ): ?>
+                                                            <?php echo e(__('sentence.Package')); ?>                                                       
+                                                        <?php endif; ?>  
+                                                    </option>
+                                                <?php endif; ?> 
                                                 <option value="appointment"><?php echo e(__('sentence.Appointment ')); ?></option>
                                                 <option value="nurse-visit"><?php echo e(__('sentence.Nurse Visit')); ?></option>
                                                 <option value="lab-test"><?php echo e(__('sentence.Lab Test')); ?></option>

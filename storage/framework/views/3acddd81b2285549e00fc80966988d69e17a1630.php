@@ -38,6 +38,7 @@
                <tr>
                   <th class="text-center">ID</th>
                   <th><?php echo e(__('sentence.Patient Name')); ?></th>
+                  <th><?php echo e(__('sentence.Doctor Name')); ?></th>
                   <th><?php echo e(__('sentence.Date')); ?></th>
                   <th><?php echo e(__('sentence.Time Slot')); ?></th>
                   <th class="text-center"><?php echo e(__('sentence.Status')); ?></th>
@@ -50,6 +51,7 @@
                <tr>
                   <td class="text-center"><?php echo e($appointment->id); ?></td>
                   <td><a href="<?php echo e(url('patient/view/'.$appointment->user_id)); ?>"> <?php echo e($appointment->User->name); ?> </a></td>
+                  <td><a href="<?php echo e(url('doctor/view/'.$appointment->doctor_id)); ?>"> <?php echo e($appointment->Doctor->name); ?> </a></td>
                   <td> <?php echo e($appointment->date->format('d M Y')); ?> </td>
                   <td> <?php echo e($appointment->time_start); ?> - <?php echo e($appointment->time_end); ?></td>
                   <td class="text-center">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DateTime;
 use App\User;
+use App\Doctor;
 use App\Appointment;
 use App\Setting;
 use Redirect;

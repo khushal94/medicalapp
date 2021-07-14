@@ -44,6 +44,7 @@
                             <th>{{ __('sentence.Patient Name') }}</th>
                             <th>{{ __('sentence.Visiting Date') }}</th>
                             <th>{{ __('sentence.Visiting Time') }}</th>
+                            <th>{{ __('sentence.Address') }}</th>
                             <th>{{ __('sentence.Actions') }}</th>
                         </tr>
                     </thead>
@@ -73,6 +74,9 @@
                                     {{ \Carbon\Carbon::createFromFormat('H:i:s', $nursebooking->visit_time)->format('h:m:s a') }}
                                 </td>
                                 <td>
+                                    {{ $nursebooking->address }}
+                                </td>
+                                <td style="white-space:nowrap;">
                                     <a href="{{ url('nursebooking/view/' . $nursebooking->id) }}"
                                         class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>
                                     <a href="{{ url('nursebooking/edit/' . $nursebooking->id) }}"

@@ -43,6 +43,13 @@
                             <th>{{ __('sentence.Doctor Name') }}</th>
                             <th class="text-center">{{ __('sentence.Email') }}</th>
                             <th class="text-center">{{ __('sentence.Image') }}</th>
+                            <th class="text-center">{{ __('sentence.Phone') }}</th>
+                            <th class="text-center">{{ __('sentence.City') }}</th>
+                            <th class="text-center">{{ __('sentence.State') }}</th>
+                            <th class="text-center">{{ __('sentence.Country') }}</th>
+                            <th class="text-center">{{ __('sentence.Patients') }}</th>
+                            <th class="text-center">{{ __('sentence.Speciality') }}</th>
+                            <th class="text-center">{{ __('sentence.Experience') }}</th>
                             <th class="text-center">{{ __('sentence.Date') }}</th>
                             <th class="text-center">{{ __('sentence.Actions') }}</th>
                         </tr>
@@ -55,9 +62,16 @@
                                 <td><a href="{{ url('doctor/view/' . $doctor->id) }}"> {{ $doctor->name }} </a></td>
                                 <td class="text-center"> {{ $doctor->email }} </td>
                                 <td class="text-center"><img src="{{ empty($doctor->image) ? url('public/imgs/no-image.png') : url('public/imgs/' . $doctor->image) }}"
-                                        style="width: 200px;height:200px;object-fit:cover"></td>
+                                        style="width: 100px;height:100px;object-fit:cover"></td>
+                                <td class="text-center"> {{ $doctor->phone }} </td>
+                                <td class="text-center"> {{ $doctor->city }} </td>
+                                <td class="text-center"> {{ $doctor->state }} </td>
+                                <td class="text-center"> {{ $doctor->country }} </td>
+                                <td class="text-center"> {{ $doctor->patient?$doctor->patient:0 }} </td>
+                                <td class="text-center"> {{ $doctor->speciality }} </td>
+                                <td class="text-center"> {{ $doctor->experience }} </td>
                                 <td class="text-center">{{ $doctor->created_at->format('d M Y H:i') }}</td>
-                                <td class="text-center">
+                                <td class="text-center" style="white-space:nowrap;">
                                     <a href="{{ url('doctor/view/' . $doctor->user_id) }}"
                                         class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>
                                     <a href="{{ url('doctor/edit/' . $doctor->user_id) }}"
