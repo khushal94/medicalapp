@@ -75,12 +75,12 @@
                                         class="btn btn-success btn-circle btn-sm"><i class="fa fa-eye"></i></a>
                                     <a href="{{ url('nurse/edit/' . $nurse->id) }}"
                                         class="btn btn-warning btn-circle btn-sm"><i class="fa fa-pen"></i></a>
-                                    @if ($nurse->is_deleted == 0)
-                                        <a href="{{ url('nurse/update/' . $nurse->id . '/' . $nurse->is_deleted) }}"
+                                    @if ($nurse->Nurse->is_deleted == 0)
+                                        <a href="{{ url('nurse/update/' . $nurse->id . '/' . $nurse->Nurse->is_deleted) }}"
                                             class="btn btn-danger btn-circle btn-sm" title="inactive"><i
                                                 class="fas fa-times"></i></a>
                                     @else
-                                        <a href="{{ url('nurse/update/' . $nurse->id . '/' . $nurse->is_deleted) }}"
+                                        <a href="{{ url('nurse/update/' . $nurse->id . '/' . $nurse->Nurse->is_deleted) }}"
                                             class="btn btn-success btn-circle btn-sm" title="active"><i
                                                 class="fas fa-check"></i></a>
                                     @endif

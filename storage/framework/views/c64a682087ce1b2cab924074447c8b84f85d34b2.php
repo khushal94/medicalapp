@@ -76,8 +76,6 @@
                                             <label for="inputPassword3"
                                                 class="col-form-label"><?php echo e(__('sentence.Birthday')); ?>
 
-                                                <font color="red">*
-                                                </font>
                                             </label>
                                             <input type="text" class="form-control birthday" id="birthday" readonly
                                                 name="birthday" autocomplete="off"
@@ -89,8 +87,6 @@
                                             <label for="age"
                                                 class="col-form-label"><?php echo e(__('sentence.Age')); ?>
 
-                                                <font color="red">*
-                                                </font>
                                             </label>
                                             <input type="text" class="form-control age" id="age" name="age" autocomplete="off"
                                                 placeholder="<?php echo e(__('sentence.Age')); ?>">
