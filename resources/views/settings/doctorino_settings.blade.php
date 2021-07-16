@@ -30,7 +30,7 @@
             <h6 class="m-0 font-weight-bold text-primary">{{ __('sentence.Doctorino Settings') }}</h6>
          </div>
          <div class="card-body">
-            <form method="post" action="{{ route('doctorino_settings.store') }}">
+            <form method="post" action="{{ route('settings.store') }}">
                <div class="form-group row">
                   <label for="system_name" class="col-sm-3 col-form-label">{{ __('sentence.System Name') }} </label>
                   <div class="col-sm-9">
@@ -78,9 +78,9 @@
                   <label for="Language" class="col-sm-3 col-form-label">{{ __('sentence.Language') }}</label>
                   <div class="col-sm-9">
                      <select class="form-control" name="language" id="Language">
-                        <option value="{{ App\Setting::get_option('language') }}">{{ $language[App\Setting::get_option('language')] }}</option>
-                        <option value="fr">French</option>
+                        {{-- <option value="{{ App\Setting::get_option('language') }}">{{ $language[App\Setting::get_option('language')] }}</option> --}}
                         <option value="en">English</option>
+                        <option value="fr">French</option>
                         <option value="es">Spanish</option>
                         <option value="de">Dutch</option>
                         <option value="bn">Bengali</option>

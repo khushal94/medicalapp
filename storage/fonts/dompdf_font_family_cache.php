@@ -94,16 +94,16 @@
     '900' => $fontDir . '/nunito-900_ac459ba8f7b66a7ccc7d818ff63946d1',
   ),
   'font awesome 5 brands' => array(
-    'normal' => $fontDir . '/font-awesome-5-brands-normal_fd38f4edd252d2a79787323e4180d7fc',
+    'normal' => $fontDir . '/font-awesome-5-brands-normal_819185c070db62fca1c1c05b09f0158f',
   ),
   'font awesome 5 free' => array(
-    'normal' => $fontDir . '/font-awesome-5-free-normal_daec7df27a40a9f101bdb255cd64bb94',
-    '900' => $fontDir . '/font-awesome-5-free-900_ac810699f178e73d46be452a3fc45cd9',
+    'normal' => $fontDir . '/font-awesome-5-free-normal_75e5f35f39a8e9c5ae2b2196ae1e1372',
+    '900' => $fontDir . '/font-awesome-5-free-900_2cd10a3b090f88cdaabf08914f493b1f',
   ),
   'cairo' => array(
     'normal' => $fontDir . '/cairo-normal_068f40925a15c8c667b01b2b55a4b875',
   ),
   'gijgo-material' => array(
-    'normal' => $fontDir . '/gijgo-material-normal_4232a24e9b781eac92add5929f9b4530',
+    'normal' => $fontDir . '/gijgo-material-normal_2af35475b14d035a88d1bf1cb3bdfa5d',
   ),
 ) ?>

@@ -160,8 +160,8 @@ Route::get('/rating/update/{id}/{status}', 'ReviewRatingController@update')->nam
 
 //Settings
 /* Doctorino Settings */
-Route::get('/settings/doctorino_settings', 'SettingController@doctorino_settings')->name('doctorino_settings.edit');
-Route::post('/settings/doctorino_settings', 'SettingController@doctorino_settings_store')->name('doctorino_settings.store');
+Route::get('/settings', 'SettingController@doctorino_settings')->name('settings.edit');
+Route::post('/settings', 'SettingController@doctorino_settings_store')->name('settings.store');
 /* Prescription Settings */
 Route::get('/settings/prescription_settings', 'SettingController@prescription_settings')->name('prescription_settings.edit');
 Route::post('/settings/prescription_settings', 'SettingController@prescription_settings_store')->name('prescription_settings.store');

@@ -73,7 +73,7 @@
                                     <?php elseif($coupon->category == 'package' ): ?>
                                         <?php echo e(__('sentence.Package')); ?>   
                                     <?php else: ?>
-                                        Null                                                    
+                                        -                                                    
                                     <?php endif; ?>  
                                  </td>
                                 <td class="text-center"> 

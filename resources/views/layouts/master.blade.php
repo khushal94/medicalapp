@@ -405,7 +405,7 @@
                         data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item"
-                                href="{{ route('doctorino_settings.edit') }}">{{ __('sentence.Doctorino Settings') }}</a>
+                                href="{{ route('settings.edit') }}">{{ __('sentence.Settings') }}</a>
                             <a class="collapse-item"
                                 href="{{ route('prescription_settings.edit') }}">{{ __('sentence.Prescription Settings') }}</a>
                         </div>
@@ -442,7 +442,7 @@
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                     aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="{{ route('doctorino_settings.edit') }}">
+                                    <a class="dropdown-item" href="{{ route('settings.edit') }}">
                                         <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                         {{ __('sentence.Settings') }}
                                     </a>
