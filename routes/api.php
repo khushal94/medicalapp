@@ -37,16 +37,11 @@ Route::post('/get-labtest-orders', 'ApiController@LabTest_Orders')->name('orders
 Route::post('/nurse-booking', 'ApiController@Create_NurseBooking')->name('book-nurse');
 Route::post('/get-nurse-bookings', 'ApiController@Get_NurseBooking')->name('get-book-nurse');
 
-
 Route::post('/get-conversations', 'ApiController@Get_User_Chats')->name('get-chats');
 Route::post('/send-chat-msg', 'ApiController@Send_Msg')->name('send-chat-message');
 
-<<<<<<< HEAD
-Route::get('/check-sms', 'ApiController@checksms')->name('checksms');
-=======
 //-----------------------Doctor Api's------------------------------------------------------------
 Route::post('/get-doctor-appointments', 'ApiDoctorController@Doctor_Appointments')->name('doctor-appointments');
->>>>>>> b4c2df0... 2july
 
 
 // });

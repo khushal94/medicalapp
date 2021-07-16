@@ -28,6 +28,8 @@ class DrugController extends Controller{
 
     public function store(Request $request){
 
+        //print_r($request->rate); die(); exit;
+
     	$validatedData = $request->validate([
         	'trade_name' => 'required',
         	'generic_name' => 'required',
